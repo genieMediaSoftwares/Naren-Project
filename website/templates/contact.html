@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+        <div class="card shadow p-4">
+
+            <h2 class="mb-4 text-center">
+                Book Appointment
+            </h2>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label>Name</label>
+                    {{ form.name }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Phone</label>
+                    {{ form.phone }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Email</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Appointment Date</label>
+                    {{ form.date }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Message</label>
+                    {{ form.message }}
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Book Appointment
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

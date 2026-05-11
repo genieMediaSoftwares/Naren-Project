@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">Our Services</h1>
+
+<div class="row">
+
+    {% for service in services %}
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card h-100 shadow">
+
+            <img src="{{ service.image.url }}" class="card-img-top" height="250">
+
+            <div class="card-body">
+
+                <h4>{{ service.title }}</h4>
+
+                <p>{{ service.description }}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
