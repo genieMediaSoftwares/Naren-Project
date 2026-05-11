@@ -20,4 +20,6 @@ urlpatterns = [
         views.appointment_success,
         name='appointment_success'
     ),
+
+    path('patient-info/', views.patient_info, name='patient_info'),
 ]

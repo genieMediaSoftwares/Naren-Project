@@ -1,28 +1,33 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fc;
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fc;
+    color: #222;
 }
 
-/* Top Bar */
+/* Topbar */
+
 .topbar {
     background: #4b1fa7;
     color: white;
-    font-size: 14px;
     padding: 8px 0;
+    font-size: 14px;
 }
 
 /* Navbar */
+
 .navbar {
-    background: white !important;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .navbar-brand {
-    font-weight: bold;
+    font-weight: 700;
     color: #4b1fa7 !important;
 }
 
 .nav-link {
     color: #222 !important;
+    margin-left: 15px;
     font-weight: 500;
 }
 
@@ -30,15 +35,16 @@ body {
     color: #4b1fa7 !important;
 }
 
-/* Hero Section */
+/* Hero */
+
 .hero-section {
-    background: linear-gradient(to right, #f4f0ff, #ffffff);
-    padding: 80px 0;
+    padding: 90px 0;
+    background: linear-gradient(to right, #f5f1ff, #ffffff);
 }
 
 .hero-title {
-    font-size: 55px;
-    font-weight: bold;
+    font-size: 58px;
+    font-weight: 700;
     line-height: 1.2;
 }
 
@@ -47,20 +53,21 @@ body {
 }
 
 .hero-text {
-    color: #555;
     margin-top: 20px;
+    color: #555;
     font-size: 18px;
+    line-height: 1.8;
 }
 
 .hero-btn {
+    display: inline-block;
+    margin-top: 25px;
     background: #5a2cc9;
     color: white;
-    padding: 12px 28px;
-    border-radius: 8px;
+    padding: 14px 32px;
+    border-radius: 10px;
     text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 20px;
+    font-weight: 600;
 }
 
 .hero-btn:hover {
@@ -68,78 +75,118 @@ body {
     color: white;
 }
 
-/* Hero Image */
+/* Hero image */
+
 .hero-section img {
-    max-height: 500px;
-    object-fit: cover;
+    border-radius: 25px;
+    max-height: 550px;
 }
 
-/* Stats Section */
+/* Stats */
+
 .stats-section {
     background: #4b1fa7;
     color: white;
-    border-radius: 15px;
-    margin-top: -30px;
+    border-radius: 18px;
+    margin-top: -50px;
     position: relative;
-    z-index: 10;
+    z-index: 100;
 }
 
 .stat-box {
     text-align: center;
-    padding: 25px;
+    padding: 30px;
 }
 
 .stat-box h2 {
-    font-weight: bold;
+    font-size: 42px;
+    font-weight: 700;
 }
 
-/* Footer */
-footer {
-    background: #171c4f;
-    color: white;
-}
-
-/* Service Cards */
+/* Services */
 
 .service-card {
     border: none;
-    border-radius: 18px;
-    transition: 0.3s;
+    border-radius: 20px;
+    transition: 0.4s;
+    padding: 30px;
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
 }
 
 .service-card h4 {
     color: #4b1fa7;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 15px;
 }
 
-.service-card p {
-    color: #555;
+/* Footer */
+
+.footer-section {
+    background: #171c4f;
+    color: white;
+    padding: 70px 0 30px;
 }
 
-/* WhatsApp Button */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* WhatsApp */
 
 .whatsapp-float {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 20px;
-    right: 20px;
+    bottom: 25px;
+    right: 25px;
     background: #25d366;
     color: white;
     border-radius: 50%;
     text-align: center;
-    font-size: 32px;
     line-height: 60px;
-    z-index: 100;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    font-size: 30px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .whatsapp-float:hover {
-    color: white;
     transform: scale(1.1);
+    color: white;
+}
+
+.navbar-brand .brand-main{
+    font-size: 34px !important;
+    font-weight: 700 !important;
+    display: block;
+}
+
+.navbar-brand .brand-sub{
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    display: block;
+}
+
+.navbar-brand .brand-small{
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.brand-logo{
+    line-height: 1.1;
+    text-decoration: none;
 }
