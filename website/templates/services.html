@@ -1,24 +1,161 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<h1 class="mb-4">Our Services</h1>
+<!-- PAGE HERO -->
 
-<div class="row">
+<section class="py-5"
+style="background: linear-gradient(to right, #f5f1ff, #ffffff);">
 
-    {% for service in services %}
+    <div class="container text-center">
 
-    <div class="col-md-4 mb-4">
+        <h1 class="fw-bold display-5">
+            Our Services
+        </h1>
 
-        <div class="card h-100 shadow">
+        <p class="mt-3 text-muted">
+            Advanced ultrasound and diagnostic imaging
+            services with modern technology and expert care.
+        </p>
 
-            <img src="{{ service.image.url }}" class="card-img-top" height="250">
+    </div>
 
-            <div class="card-body">
+</section>
 
-                <h4>{{ service.title }}</h4>
+<!-- SERVICES SECTION -->
 
-                <p>{{ service.description }}</p>
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <!-- Service 1 -->
+            <div class="col-md-4">
+
+                <div class="card service-card shadow-sm h-100">
+
+                    <div class="service-icon">
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
+
+                    <h4>Pregnancy Ultrasound</h4>
+
+                    <p>
+                        Comprehensive pregnancy scans including
+                        viability scan, NT scan, anomaly scan,
+                        growth scan, and fetal wellbeing assessment.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Service 2 -->
+            <div class="col-md-4">
+
+                <div class="card service-card shadow-sm h-100">
+
+                    <div class="service-icon">
+                        <i class="bi bi-activity"></i>
+                    </div>
+
+                    <h4>Color Doppler Scan</h4>
+
+                    <p>
+                        Advanced Doppler imaging to evaluate
+                        blood flow in arteries and veins for
+                        accurate vascular diagnosis.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col-md-4">
+
+                <div class="card service-card shadow-sm h-100">
+
+                    <div class="service-icon">
+                        <i class="bi bi-shield-plus"></i>
+                    </div>
+
+                    <h4>Thyroid Scan</h4>
+
+                    <p>
+                        Detailed ultrasound examination of the
+                        thyroid gland to detect nodules,
+                        swelling, cysts, and abnormalities.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Service 4 -->
+            <div class="col-md-4">
+
+                <div class="card service-card shadow-sm h-100">
+
+                    <div class="service-icon">
+                        <i class="bi bi-droplet-half"></i>
+                    </div>
+
+                    <h4>Kidney Ultrasound</h4>
+
+                    <p>
+                        Kidney and urinary tract scans for
+                        stone detection, infections,
+                        cysts, and structural abnormalities.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Service 5 -->
+            <div class="col-md-4">
+
+                <div class="card service-card shadow-sm h-100">
+
+                    <div class="service-icon">
+                        <i class="bi bi-gender-female"></i>
+                    </div>
+
+                    <h4>Pelvic Scan</h4>
+
+                    <p>
+                        Pelvic imaging for uterus, ovaries,
+                        reproductive health evaluation,
+                        and gynecological diagnosis.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Service 6 -->
+            <div class="col-md-4">
+
+                <div class="card service-card shadow-sm h-100">
+                    
+
+                    <div class="service-icon">
+                        <i class="bi bi-hospital"></i>
+                    </div>
+
+                    <h4>Abdominal Scan</h4>
+
+                    <p>
+                        Complete abdominal ultrasound for liver,
+                        pancreas, spleen, gallbladder,
+                        and digestive organs assessment.
+                    </p>
+
+                </div>
 
             </div>
 
@@ -26,8 +163,80 @@
 
     </div>
 
-    {% endfor %}
+</section>
 
-</div>
+<!-- WHY CHOOSE US -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h6 class="text-primary fw-bold">
+                WHY CHOOSE US
+            </h6>
+
+            <h2 class="fw-bold">
+                Trusted Diagnostic Care
+            </h2>
+
+        </div>
+
+        <div class="row text-center g-4">
+
+            <div class="col-md-3">
+
+                <div class="p-4 bg-white rounded shadow-sm h-100">
+
+                    <h3 class="text-primary">10+</h3>
+
+                    <p>Years Experience</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="p-4 bg-white rounded shadow-sm h-100">
+
+                    <h3 class="text-primary">25K+</h3>
+
+                    <p>Happy Patients</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="p-4 bg-white rounded shadow-sm h-100">
+
+                    <h3 class="text-primary">Modern</h3>
+
+                    <p>Equipment</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="p-4 bg-white rounded shadow-sm h-100">
+
+                    <h3 class="text-primary">24/7</h3>
+
+                    <p>Support</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}
