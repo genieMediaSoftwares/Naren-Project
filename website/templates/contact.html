@@ -1,56 +1,305 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<div class="row justify-content-center">
+<!-- CONTACT HERO -->
 
-    <div class="col-md-8">
+<section class="contact-hero">
 
-        <div class="card shadow p-4">
+    <div class="container">
 
-            <h2 class="mb-4 text-center">
-                Book Appointment
-            </h2>
+        <div class="hero-contact-box">
 
-            <form method="POST">
+            <div class="row align-items-center">
 
-                {% csrf_token %}
+                <!-- LEFT SIDE -->
 
-                <div class="mb-3">
-                    <label>Name</label>
-                    {{ form.name }}
+                <div class="col-lg-6 p-5">
+
+                    <h6 class="contact-small-title">
+                        GET IN TOUCH
+                    </h6>
+
+                    <h1 class="contact-main-title">
+                        Contact <span>Us</span>
+                    </h1>
+
+                    <p class="contact-text">
+                        We are here to help you! Reach out to us
+                        for appointments, queries or any assistance.
+                    </p>
+
                 </div>
 
-                <div class="mb-3">
-                    <label>Phone</label>
-                    {{ form.phone }}
+                <!-- RIGHT SIDE -->
+
+                <div class="col-lg-6 pe-0">
+
+                    <img src="{% static 'images/contact-banner.jpg' %}"
+                    class="contact-banner-img"
+                    alt="Contact Banner">
+
                 </div>
 
-                <div class="mb-3">
-                    <label>Email</label>
-                    {{ form.email }}
-                </div>
-
-                <div class="mb-3">
-                    <label>Appointment Date</label>
-                    {{ form.date }}
-                </div>
-
-                <div class="mb-3">
-                    <label>Message</label>
-                    {{ form.message }}
-                </div>
-
-                <button type="submit" class="btn btn-primary w-100">
-                    Book Appointment
-                </button>
-
-            </form>
+            </div>
 
         </div>
 
     </div>
 
-</div>
+</section>
+
+<!-- CONTACT SECTION -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <!-- LEFT SIDE -->
+
+            <div class="col-lg-4">
+
+                <!-- CONTACT INFO -->
+
+                <div class="contact-card">
+
+                    <h3 class="contact-heading">
+                        Contact Information
+                    </h3>
+
+                    <!-- ADDRESS -->
+
+                    <div class="contact-item">
+
+                        <i class="bi bi-geo-alt"></i>
+
+                        <div>
+
+                            <h6>Address</h6>
+
+                            <p>
+                                Door No: 49-36-54,
+                                Maharani Peta,
+                                Near KGH,
+                                Visakhapatnam - 530002
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- PHONE -->
+
+                    <div class="contact-item">
+
+                        <i class="bi bi-telephone"></i>
+
+                        <div>
+
+                            <h6>Phone</h6>
+
+                            <p>+91 89770 48927</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- EMAIL -->
+
+                    <div class="contact-item">
+
+                        <i class="bi bi-envelope"></i>
+
+                        <div>
+
+                            <h6>Email</h6>
+
+                            <p>narenultrasound@gmail.com</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- WORKING HOURS -->
+
+                    <div class="contact-item">
+
+                        <i class="bi bi-clock"></i>
+
+                        <div>
+
+                            <h6>Working Hours</h6>
+
+                            <p>
+                                Mon - Sat: 9:00 AM - 8:00 PM
+                                <br>
+                                Sunday: 9:00 AM - 1:00 PM
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- WHY CHOOSE US -->
+
+                <div class="contact-card why-box mt-4">
+
+                    <h3 class="contact-heading">
+                        Why Choose Naren Ultrasound?
+                    </h3>
+
+                    <ul class="why-list">
+
+                        <li>Advanced Technology</li>
+                        <li>Expert Radiologists</li>
+                        <li>Accurate Reports</li>
+                        <li>Patient First Approach</li>
+                        <li>Comfortable & Safe Environment</li>
+
+                    </ul>
+
+                    <img src="{% static 'images/mother.png' %}"
+                    class="mother-icon"
+                    alt="Mother Image">
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+
+            <div class="col-lg-8">
+
+                <!-- FORM CARD -->
+
+                <div class="contact-form-card">
+
+                    <h3 class="contact-heading">
+                        Send Us a Message
+                    </h3>
+
+                    <form>
+
+                        <div class="row">
+
+                            <!-- NAME -->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Your Name
+                                </label>
+
+                                <input type="text"
+                                class="form-control"
+                                placeholder="Enter your full name">
+
+                            </div>
+
+                            <!-- PHONE -->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Phone Number
+                                </label>
+
+                                <input type="text"
+                                class="form-control"
+                                placeholder="Enter your phone number">
+
+                            </div>
+
+                            <!-- EMAIL -->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Email Address
+                                </label>
+
+                                <input type="email"
+                                class="form-control"
+                                placeholder="Enter your email address">
+
+                            </div>
+
+                            <!-- SUBJECT -->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Subject
+                                </label>
+
+                                <select class="form-select">
+
+                                    <option>Select a subject</option>
+                                    <option>Appointment</option>
+                                    <option>Scan Enquiry</option>
+                                    <option>General Query</option>
+
+                                </select>
+
+                            </div>
+
+                            <!-- MESSAGE -->
+
+                            <div class="col-12 mb-3">
+
+                                <label class="form-label">
+                                    Message
+                                </label>
+
+                                <textarea rows="5"
+                                class="form-control"
+                                placeholder="Write your message here..."></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <!-- BUTTON -->
+
+                        <button type="submit" class="send-btn">
+
+                            <i class="bi bi-send"></i>
+
+                            Send Message
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <!-- MAP -->
+
+                <div class="map-box mt-4">
+
+                    <iframe
+                    src="https://www.google.com/maps?q=Visakhapatnam&output=embed"
+                    width="100%"
+                    height="300"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}

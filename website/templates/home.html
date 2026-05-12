@@ -10,80 +10,94 @@
 
     <div class="container">
 
-        <div class="row align-items-center">
+        <div class="row align-items-center gy-5">
 
-            <!-- LEFT -->
+            <!-- LEFT SIDE -->
+
             <div class="col-lg-6" data-aos="fade-right">
 
-                <h6 class="text-danger fw-bold mb-3">
+                <h6 class="hero-subtitle">
                     ADVANCED CARE. ACCURATE SCANS.
                 </h6>
 
-                <h1 style="font-size:42px;">
-                    Care You Can Trust,<br>
-                    Images You Can Rely On
+                <h1 class="hero-title">
+                    Care You Can <span>Trust,</span><br>
+                    Images You Can <span>Rely On</span>
                 </h1>
 
                 <p class="hero-text">
-                    Naren Ultrasound provides modern
-                    diagnostic imaging with compassionate
-                    care, advanced technology, and highly
-                    accurate reports for every patient.
+                    Naren Ultrasound provides modern diagnostic imaging
+                    with compassionate care, advanced technology,
+                    and highly accurate reports for every patient.
                 </p>
 
-                <!-- Buttons -->
+                <!-- BUTTONS -->
+
                 <div class="hero-buttons">
 
-                    <a href="/contact/" class="btn btn-primary">
+                    <a href="/contact/" class="hero-btn">
                         Book Appointment
                     </a>
 
-                    <a href="/services/" class="btn btn-outline-primary ms-3">
+                    <a href="/services/" class="hero-btn-outline">
                         Our Services
                     </a>
 
                 </div>
 
-                <!-- Features -->
+                <!-- FEATURES -->
+
                 <div class="hero-features">
 
                     <div class="feature-item">
+
                         <i class="bi bi-camera2"></i>
+
                         <span>Advanced Technology</span>
+
                     </div>
 
                     <div class="feature-item">
+
                         <i class="bi bi-person-badge"></i>
+
                         <span>Expert Radiologists</span>
+
                     </div>
 
                     <div class="feature-item">
+
                         <i class="bi bi-file-earmark-medical"></i>
+
                         <span>Accurate Reports</span>
+
                     </div>
 
                     <div class="feature-item">
+
                         <i class="bi bi-heart-pulse"></i>
+
                         <span>Patient First Care</span>
+
                     </div>
 
                 </div>
 
             </div>
 
-           <!-- RIGHT -->
-<div class="col-lg-6" data-aos="fade-left">
+            <!-- RIGHT SIDE -->
 
-    <div class="hero-image-wrapper">
+            <div class="col-lg-6" data-aos="fade-left">
 
-        <img src="{% static 'images/hero.jpg' %}"
-        class="hero-image">
+                <div class="hero-image-wrapper">
 
-        <div class="hero-image-overlay"></div>
+                    <img src="{% static 'images/hero.jpg' %}"
+                    class="hero-image"
+                    alt="Hero Image">
 
-    </div>
+                </div>
 
-</div>
+            </div>
 
         </div>
 
@@ -91,53 +105,69 @@
 
 </section>
 
-<!-- STATS -->
+<!-- STATS SECTION -->
 
-<div class="container">
+<section class="stats-wrapper">
 
-    <div class="stats-section shadow">
+    <div class="container">
 
-        <div class="row">
+        <div class="stats-section">
 
-            <div class="col-md-3 stat-box">
-                <h2>10+</h2>
-                <p>Years Experience</p>
-            </div>
+            <div class="row text-center">
 
-            <div class="col-md-3 stat-box">
-                <h2>25K+</h2>
-                <p>Happy Patients</p>
-            </div>
+                <div class="col-md-3 col-6 stat-box">
 
-            <div class="col-md-3 stat-box">
-                <h2>15+</h2>
-                <p>Specialists</p>
-            </div>
+                    <h2>10+</h2>
 
-            <div class="col-md-3 stat-box">
-                <h2>5★</h2>
-                <p>Patient Rating</p>
+                    <p>Years Experience</p>
+
+                </div>
+
+                <div class="col-md-3 col-6 stat-box">
+
+                    <h2>25K+</h2>
+
+                    <p>Happy Patients</p>
+
+                </div>
+
+                <div class="col-md-3 col-6 stat-box">
+
+                    <h2>15+</h2>
+
+                    <p>Specialists</p>
+
+                </div>
+
+                <div class="col-md-3 col-6 stat-box">
+
+                    <h2>5★</h2>
+
+                    <p>Patient Rating</p>
+
+                </div>
+
             </div>
 
         </div>
 
     </div>
 
-</div>
+</section>
 
-<!-- SERVICES -->
+<!-- SERVICES SECTION -->
 
-<section class="py-5">
+<section class="services-section">
 
     <div class="container">
 
         <div class="text-center mb-5">
 
-            <h6 class="text-primary fw-bold">
+            <h6 class="section-subtitle">
                 OUR SERVICES
             </h6>
 
-            <h2 class="fw-bold">
+            <h2 class="section-title">
                 Comprehensive Ultrasound Services
             </h2>
 
@@ -145,37 +175,67 @@
 
         <div class="row g-4">
 
-            <div class="col-md-4" data-aos="zoom-in">
-                <div class="card service-card shadow-sm h-100">
+            <!-- SERVICE 1 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <img src="{% static 'images/service1.png' %}"
+                    alt="Service">
+
                     <h4>Pregnancy Scan</h4>
+
                     <p>
-                        Early pregnancy scans,
-                        anomaly scans, growth scans,
-                        and fetal wellbeing assessments.
+                        Early pregnancy scans, anomaly scans,
+                        growth scans, and fetal wellbeing
+                        assessments.
                     </p>
+
                 </div>
+
             </div>
 
-            <div class="col-md-4" data-aos="zoom-in">
-                <div class="card service-card shadow-sm h-100">
+            <!-- SERVICE 2 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <img src="{% static 'images/service2.png' %}"
+                    alt="Service">
+
                     <h4>Color Doppler</h4>
+
                     <p>
-                        Advanced vascular Doppler
-                        imaging for accurate blood
-                        flow assessment and diagnosis.
+                        Advanced vascular Doppler imaging
+                        for accurate blood flow assessment
+                        and diagnosis.
                     </p>
+
                 </div>
+
             </div>
 
-            <div class="col-md-4" data-aos="zoom-in">
-                <div class="card service-card shadow-sm h-100">
+            <!-- SERVICE 3 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <img src="{% static 'images/service3.png' %}"
+                    alt="Service">
+
                     <h4>Thyroid Scan</h4>
+
                     <p>
                         Detailed thyroid gland imaging
                         for nodules, swelling,
                         and abnormality evaluation.
                     </p>
+
                 </div>
+
             </div>
 
         </div>
@@ -186,39 +246,52 @@
 
 <!-- DOCTOR SECTION -->
 
-<section class="py-5 bg-light">
+<section class="doctor-section">
 
     <div class="container">
 
-        <div class="row align-items-center">
+        <div class="doctor-card">
 
-            <div class="col-lg-5 text-center" data-aos="fade-right">
+            <div class="row align-items-center">
 
-                <img src="{% static 'images/doctor.jpg' %}"
-                class="img-fluid rounded shadow">
+                <!-- IMAGE -->
 
-            </div>
+                <div class="col-lg-5 text-center">
 
-            <div class="col-lg-7" data-aos="fade-left">
+                    <img src="{% static 'images/doctor.jpg' %}"
+                    class="doctor-image"
+                    alt="Doctor">
 
-                <h6 class="text-primary fw-bold">
-                    OUR SPECIALIST
-                </h6>
+                </div>
 
-                <h2 class="fw-bold mb-4">
-                    Dr. Naren Kumar
-                </h2>
+                <!-- CONTENT -->
 
-                <p class="hero-text">
-                    Highly experienced diagnostic
-                    specialist committed to accurate
-                    ultrasound reporting, patient care,
-                    and advanced fetal imaging.
-                </p>
+                <div class="col-lg-7">
 
-                <a href="/contact/" class="hero-btn">
-                    Book Consultation
-                </a>
+                    <h6 class="section-subtitle">
+                        OUR SPECIALIST
+                    </h6>
+
+                    <h2 class="doctor-name">
+                        Dr. Naren Kumar
+                    </h2>
+
+                    <h5 class="doctor-role">
+                        Senior Radiologist
+                    </h5>
+
+                    <p class="hero-text">
+                        Highly experienced diagnostic specialist
+                        committed to accurate ultrasound reporting,
+                        compassionate patient care,
+                        and advanced fetal imaging.
+                    </p>
+
+                    <a href="/contact/" class="hero-btn">
+                        Book Consultation
+                    </a>
+
+                </div>
 
             </div>
 
