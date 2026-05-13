@@ -1,9 +1,308 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
-<h2>Our Doctors</h2>
+<!-- DOCTORS HERO -->
+<section class="doctors-hero-section">
 
-<p>Experienced and qualified ultrasound specialists.</p>
+    <div class="container">
+
+        <div class="doctors-hero-box">
+
+            <div class="row align-items-center g-0">
+
+                <!-- LEFT -->
+                <div class="col-lg-6">
+
+                    <div class="doctors-hero-content">
+
+                        <div class="doctors-small-title">
+                            OUR EXPERTS
+                        </div>
+
+                        <h1 class="doctors-main-title">
+                            Meet Our <br>
+                            <span>Experienced</span> Doctors
+                        </h1>
+
+                        <p class="doctors-text">
+                            Our team of highly skilled and compassionate specialists
+                            is dedicated to providing the best care for you and your baby.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT -->
+                <div class="col-lg-6">
+
+                    <img src="{% static 'images/doctors-banner.jpg' %}"
+                    class="doctors-banner-img"
+                    alt="Doctors Banner">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DOCTORS -->
+<section class="doctors-main-section">
+
+    <div class="container">
+
+        <!-- TITLE -->
+
+        <div class="text-center mb-5">
+
+            <div class="section-mini-title">
+                OUR DOCTORS
+            </div>
+
+            <h2 class="doctors-section-title">
+                Highly Qualified & Caring Specialists
+            </h2>
+
+        </div>
+
+        <!-- CARDS -->
+
+        <div class="row g-4">
+
+            <!-- CARD 1 -->
+            <div class="col-lg-3 col-md-6">
+
+                <div class="doctor-modern-card">
+
+                    <div class="doctor-image-wrap">
+
+                        <img src="{% static 'images/doctor1.jpg' %}"
+                        class="doctor-modern-img">
+
+                    </div>
+
+                    <h4>Dr. Naren</h4>
+
+                    <div class="doctor-speciality">
+                        Fetal Medicine Specialist
+                    </div>
+
+                    <div class="doctor-degree">
+                        MD Radiology
+                    </div>
+
+                    <div class="doctor-exp">
+                        Fellowship in Fetal Medicine
+                    </div>
+
+                    <hr>
+
+                    <div class="expertise-title">
+                        Expertise
+                    </div>
+
+                    <ul class="doctor-list">
+
+                        <li>High-risk Pregnancy Scans</li>
+                        <li>Fetal Anomaly Screening</li>
+                        <li>Doppler Studies</li>
+                        <li>3D / 4D Ultrasound</li>
+
+                    </ul>
+
+                    <div class="doctor-exp-box">
+
+                        <i class="bi bi-people"></i>
+
+                        <div>
+                            <strong>15+</strong><br>
+                            Years of Experience
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="col-lg-3 col-md-6">
+
+                <div class="doctor-modern-card">
+
+                    <div class="doctor-image-wrap">
+
+                        <img src="{% static 'images/doctor2.jpg' %}"
+                        class="doctor-modern-img">
+
+                    </div>
+
+                    <h4>Dr. Satish</h4>
+
+                    <div class="doctor-speciality">
+                        Consultant Radiologist
+                    </div>
+
+                    <div class="doctor-degree">
+                        MD Radiology
+                    </div>
+
+                    <div class="doctor-exp">
+                        10+ Years Experience
+                    </div>
+
+                    <hr>
+
+                    <div class="expertise-title">
+                        Expertise
+                    </div>
+
+                    <ul class="doctor-list">
+
+                        <li>Diagnostic Ultrasound</li>
+                        <li>Abdominal Imaging</li>
+                        <li>Interventional Procedures</li>
+                        <li>Vascular Ultrasound</li>
+
+                    </ul>
+
+                    <div class="doctor-exp-box">
+
+                        <i class="bi bi-people"></i>
+
+                        <div>
+                            <strong>10+</strong><br>
+                            Years of Experience
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="col-lg-3 col-md-6">
+
+                <div class="doctor-modern-card">
+
+                    <div class="doctor-image-wrap">
+
+                        <img src="{% static 'images/doctor3.jpg' %}"
+                        class="doctor-modern-img">
+
+                    </div>
+
+                    <h4>Dr. Kaveri</h4>
+
+                    <div class="doctor-speciality">
+                        Obstetrician & Gynecologist
+                    </div>
+
+                    <div class="doctor-degree">
+                        MS (OBG)
+                    </div>
+
+                    <div class="doctor-exp">
+                        12+ Years Experience
+                    </div>
+
+                    <hr>
+
+                    <div class="expertise-title">
+                        Expertise
+                    </div>
+
+                    <ul class="doctor-list">
+
+                        <li>Prenatal Care</li>
+                        <li>Pregnancy Management</li>
+                        <li>Gynecological Ultrasound</li>
+                        <li>Women’s Health Care</li>
+
+                    </ul>
+
+                    <div class="doctor-exp-box">
+
+                        <i class="bi bi-people"></i>
+
+                        <div>
+                            <strong>12+</strong><br>
+                            Years of Experience
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="col-lg-3 col-md-6">
+
+                <div class="doctor-modern-card">
+
+                    <div class="doctor-image-wrap">
+
+                        <img src="{% static 'images/doctor4.jpg' %}"
+                        class="doctor-modern-img">
+
+                    </div>
+
+                    <h4>Dr. Anusha</h4>
+
+                    <div class="doctor-speciality">
+                        Sonologist
+                    </div>
+
+                    <div class="doctor-degree">
+                        DMRD, DNB
+                    </div>
+
+                    <div class="doctor-exp">
+                        8+ Years Experience
+                    </div>
+
+                    <hr>
+
+                    <div class="expertise-title">
+                        Expertise
+                    </div>
+
+                    <ul class="doctor-list">
+
+                        <li>General Ultrasound</li>
+                        <li>Breast Ultrasound</li>
+                        <li>Thyroid Ultrasound</li>
+                        <li>Musculoskeletal Scan</li>
+
+                    </ul>
+
+                    <div class="doctor-exp-box">
+
+                        <i class="bi bi-people"></i>
+
+                        <div>
+                            <strong>8+</strong><br>
+                            Years of Experience
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}

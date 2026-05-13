@@ -4,21 +4,50 @@
 
 {% block content %}
 
-<!-- PAGE HERO -->
+<!-- HERO SECTION -->
 
-<section class="py-5"
-style="background: linear-gradient(to right, #f5f1ff, #ffffff);">
+<section class="services-hero">
 
-    <div class="container text-center">
+    <div class="container">
 
-        <h1 class="fw-bold display-5">
-            Our Services
-        </h1>
+        <div class="services-hero-box">
 
-        <p class="mt-3 text-muted">
-            Advanced ultrasound and diagnostic imaging
-            services with modern technology and expert care.
-        </p>
+            <div class="row align-items-center">
+
+                <!-- LEFT -->
+
+                <div class="col-lg-6 p-5">
+
+                    <h6 class="services-small-title">
+                        OUR SERVICES
+                    </h6>
+
+                    <h1 class="services-main-title">
+                        Comprehensive Ultrasound &
+                        Fetal Care <span>Services</span>
+                    </h1>
+
+                    <p class="services-text">
+                        We offer a wide range of advanced
+                        ultrasound and diagnostic services
+                        for you and your baby's health.
+                    </p>
+
+                </div>
+
+                <!-- RIGHT -->
+
+                <div class="col-lg-6 pe-0">
+
+                    <img src="{% static 'images/services-banner.jpg' %}"
+                    class="services-banner-img"
+                    alt="Services Banner">
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -26,134 +55,385 @@ style="background: linear-gradient(to right, #f5f1ff, #ffffff);">
 
 <!-- SERVICES SECTION -->
 
-<section class="py-5">
+<section class="services-main-section">
 
     <div class="container">
 
-        <div class="row g-4">
+        <div class="container">
 
-            <!-- Service 1 -->
-            <div class="col-md-4">
+    <div class="row">
 
-                <div class="card service-card shadow-sm h-100">
+        <!-- LEFT SIDE -->
 
-                    <div class="service-icon">
-                        <i class="bi bi-heart-pulse"></i>
+        <div class="col-lg-8">
+
+            <div class="text-center mb-5">
+
+                <h6 class="section-subtitle">
+                    WHAT WE OFFER
+                </h6>
+
+                <h2 class="section-title">
+                    Our Ultrasound & Diagnostic Services
+                </h2>
+
+            </div>
+
+                <div class="row g-4">
+
+                    <!-- CARD -->
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="modern-service-card">
+
+                            <div class="service-icon-box">
+                                <i class="bi bi-heart-pulse"></i>
+                            </div>
+
+                            <div>
+
+                                <h5>Pregnancy Scans</h5>
+
+                                <p>
+                                    Early pregnancy, anomaly,
+                                    NT scan, growth scan
+                                    and more.
+                                </p>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <h4>Pregnancy Ultrasound</h4>
+                    <!-- CARD -->
 
-                    <p>
-                        Comprehensive pregnancy scans including
-                        viability scan, NT scan, anomaly scan,
-                        growth scan, and fetal wellbeing assessment.
-                    </p>
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="modern-service-card">
+
+                            <div class="service-icon-box">
+                                <i class="bi bi-stars"></i>
+                            </div>
+
+                            <div>
+
+                                <h5>3D / 4D Baby Scan</h5>
+
+                                <p>
+                                    Real-time baby imaging
+                                    to capture precious moments.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CARD -->
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="modern-service-card">
+
+                            <div class="service-icon-box">
+                                <i class="bi bi-activity"></i>
+                            </div>
+
+                            <div>
+
+                                <h5>Doppler Scans</h5>
+
+                                <p>
+                                    Color Doppler and vascular
+                                    Doppler imaging services.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CARD -->
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="modern-service-card">
+
+                            <div class="service-icon-box">
+                                <i class="bi bi-hospital"></i>
+                            </div>
+
+                            <div>
+
+                                <h5>Abdomen Scan</h5>
+
+                                <p>
+                                    Liver, pancreas, spleen
+                                    and abdominal evaluation.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CARD -->
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="modern-service-card">
+
+                            <div class="service-icon-box">
+                                <i class="bi bi-gender-female"></i>
+                            </div>
+
+                            <div>
+
+                                <h5>Pelvic Scan</h5>
+
+                                <p>
+                                    Uterus, ovaries and
+                                    gynecological assessment.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CARD -->
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="modern-service-card">
+
+                            <div class="service-icon-box">
+                                <i class="bi bi-shield-plus"></i>
+                            </div>
+
+                            <div>
+
+                                <h5>Thyroid Scan</h5>
+
+                                <p>
+                                    Thyroid nodules,
+                                    swelling and gland evaluation.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CARD -->
+
+<div class="col-lg-4 col-md-6">
+
+    <div class="modern-service-card">
+
+        <div class="service-icon-box">
+            <i class="bi bi-droplet-half"></i>
+        </div>
+
+        <div>
+
+            <h5>Kidney & Urinary Scan</h5>
+
+            <p>
+                Kidney, bladder and urinary tract
+                ultrasound evaluation.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="col-lg-4 col-md-6">
+
+    <div class="modern-service-card">
+
+        <div class="service-icon-box">
+            <i class="bi bi-bandaid"></i>
+        </div>
+
+        <div>
+
+            <h5>Breast Ultrasound</h5>
+
+            <p>
+                Breast lump evaluation and
+                soft tissue imaging services.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="col-lg-4 col-md-6">
+
+    <div class="modern-service-card">
+
+        <div class="service-icon-box">
+            <i class="bi bi-syringe"></i>
+        </div>
+
+        <div>
+
+            <h5>Interventional Procedures</h5>
+
+            <p>
+                USG-guided FNAC, biopsy
+                and diagnostic procedures.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="col-lg-4 col-md-6">
+
+    <div class="modern-service-card">
+
+        <div class="service-icon-box">
+            <i class="bi bi-diagram-3"></i>
+        </div>
+
+        <div>
+
+            <h5>Vascular Scan</h5>
+
+            <p>
+                Arterial and venous Doppler
+                scans for vascular conditions.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="col-lg-4 col-md-6">
+
+    <div class="modern-service-card">
+
+        <div class="service-icon-box">
+            <i class="bi bi-gender-male"></i>
+        </div>
+
+        <div>
+
+            <h5>Scrotal Scan</h5>
+
+            <p>
+                Detailed ultrasound evaluation
+                of scrotal abnormalities.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="col-lg-4 col-md-6">
+
+    <div class="modern-service-card">
+
+        <div class="service-icon-box">
+            <i class="bi bi-eye"></i>
+        </div>
+
+        <div>
+
+            <h5>Follicular Study</h5>
+
+            <p>
+                Ovulation monitoring and fertility
+                related ultrasound scans.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
 
                 </div>
 
             </div>
 
-            <!-- Service 2 -->
-            <div class="col-md-4">
+            <!-- RIGHT SIDE -->
 
-                <div class="card service-card shadow-sm h-100">
+           <div class="col-lg-4 services-sidebar">
 
-                    <div class="service-icon">
-                        <i class="bi bi-activity"></i>
-                    </div>
+                <!-- WHY CHOOSE US -->
 
-                    <h4>Color Doppler Scan</h4>
+                <div class="why-services-box">
 
-                    <p>
-                        Advanced Doppler imaging to evaluate
-                        blood flow in arteries and veins for
-                        accurate vascular diagnosis.
-                    </p>
+                    <h3>
+                        Why Choose Us?
+                    </h3>
 
-                </div>
+                    <ul>
 
-            </div>
+                        <li>Advanced ultrasound machines</li>
+                        <li>Experienced radiologists</li>
+                        <li>Accurate reports</li>
+                        <li>Comfortable environment</li>
+                        <li>Compassionate patient care</li>
 
-            <!-- Service 3 -->
-            <div class="col-md-4">
-
-                <div class="card service-card shadow-sm h-100">
-
-                    <div class="service-icon">
-                        <i class="bi bi-shield-plus"></i>
-                    </div>
-
-                    <h4>Thyroid Scan</h4>
-
-                    <p>
-                        Detailed ultrasound examination of the
-                        thyroid gland to detect nodules,
-                        swelling, cysts, and abnormalities.
-                    </p>
+                    </ul>
 
                 </div>
 
-            </div>
+                <!-- CONTACT BOX -->
 
-            <!-- Service 4 -->
-            <div class="col-md-4">
+                <div class="scan-book-box mt-4">
 
-                <div class="card service-card shadow-sm h-100">
-
-                    <div class="service-icon">
-                        <i class="bi bi-droplet-half"></i>
-                    </div>
-
-                    <h4>Kidney Ultrasound</h4>
+                    <h4>Need a Scan?</h4>
 
                     <p>
-                        Kidney and urinary tract scans for
-                        stone detection, infections,
-                        cysts, and structural abnormalities.
+                        Book your appointment today
+                        and get expert care.
                     </p>
-
-                </div>
-
-            </div>
-
-            <!-- Service 5 -->
-            <div class="col-md-4">
-
-                <div class="card service-card shadow-sm h-100">
-
-                    <div class="service-icon">
-                        <i class="bi bi-gender-female"></i>
-                    </div>
-
-                    <h4>Pelvic Scan</h4>
 
                     <p>
-                        Pelvic imaging for uterus, ovaries,
-                        reproductive health evaluation,
-                        and gynecological diagnosis.
+                        <i class="bi bi-telephone"></i>
+                        +91 89770 48927
                     </p>
-
-                </div>
-
-            </div>
-
-            <!-- Service 6 -->
-            <div class="col-md-4">
-
-                <div class="card service-card shadow-sm h-100">
-                    
-
-                    <div class="service-icon">
-                        <i class="bi bi-hospital"></i>
-                    </div>
-
-                    <h4>Abdominal Scan</h4>
 
                     <p>
-                        Complete abdominal ultrasound for liver,
-                        pancreas, spleen, gallbladder,
-                        and digestive organs assessment.
+                        <i class="bi bi-envelope"></i>
+                        narenultrasound@gmail.com
                     </p>
+
+                    <a href="/contact/" class="hero-btn">
+                        Book Appointment
+                    </a>
 
                 </div>
 
@@ -165,69 +445,36 @@ style="background: linear-gradient(to right, #f5f1ff, #ffffff);">
 
 </section>
 
-<!-- WHY CHOOSE US -->
+<!-- CTA SECTION -->
 
-<section class="py-5 bg-light">
+<section class="services-cta-section">
 
     <div class="container">
 
-        <div class="text-center mb-5">
+        <div class="services-cta-box">
 
-            <h6 class="text-primary fw-bold">
-                WHY CHOOSE US
-            </h6>
+            <div class="row align-items-center">
 
-            <h2 class="fw-bold">
-                Trusted Diagnostic Care
-            </h2>
+                <div class="col-lg-8">
 
-        </div>
+                    <h3>
+                        Your Journey to Parenthood,
+                        Our Priority
+                    </h3>
 
-        <div class="row text-center g-4">
-
-            <div class="col-md-3">
-
-                <div class="p-4 bg-white rounded shadow-sm h-100">
-
-                    <h3 class="text-primary">10+</h3>
-
-                    <p>Years Experience</p>
+                    <p>
+                        From early pregnancy scans
+                        to advanced fetal medicine,
+                        we are with you every step.
+                    </p>
 
                 </div>
 
-            </div>
+                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
 
-            <div class="col-md-3">
-
-                <div class="p-4 bg-white rounded shadow-sm h-100">
-
-                    <h3 class="text-primary">25K+</h3>
-
-                    <p>Happy Patients</p>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="p-4 bg-white rounded shadow-sm h-100">
-
-                    <h3 class="text-primary">Modern</h3>
-
-                    <p>Equipment</p>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="p-4 bg-white rounded shadow-sm h-100">
-
-                    <h3 class="text-primary">24/7</h3>
-
-                    <p>Support</p>
+                    <a href="/contact/" class="hero-btn">
+                        Book Your Scan Today
+                    </a>
 
                 </div>
 

@@ -1,12 +1,327 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<h1>About Us</h1>
+<!-- ABOUT HERO -->
 
-<p>
-    Naren Ultrasound provides modern diagnostic and ultrasound services
-    with advanced medical equipment and expert doctors.
-</p>
+<section class="about-hero-section">
+
+    <div class="container">
+
+        <div class="about-hero-box">
+
+            <div class="row align-items-center">
+
+                <!-- LEFT -->
+
+                <div class="col-lg-5 p-5">
+
+                    <h6 class="about-small-title">
+                        ABOUT US
+                    </h6>
+
+                    <h1 class="about-main-title">
+                        Compassionate Care,
+                        <span>Accurate</span> Results
+                    </h1>
+
+                    <p class="about-main-text">
+                        Naren Ultrasound & Fetal Medicine Center is dedicated
+                        to providing advanced ultrasound and fetal care services
+                        with accuracy, compassion, and excellence.
+                    </p>
+
+                </div>
+
+                <!-- RIGHT -->
+
+                <div class="col-lg-7 pe-0">
+
+                    <img src="{% static 'images/about-banner.jpg' %}"
+                    class="about-banner-img"
+                    alt="About Banner">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STORY SECTION -->
+
+<section class="about-story-section">
+
+    <div class="container">
+
+        <div class="row g-4 align-items-center">
+
+            <!-- IMAGE -->
+
+            <div class="col-lg-3">
+
+                <img src="{% static 'images/about-doctor.jpg' %}"
+                class="about-story-img"
+                alt="Doctor">
+
+            </div>
+
+            <!-- TEXT -->
+
+            <div class="col-lg-5">
+
+                <h6 class="about-small-title">
+                    OUR STORY
+                </h6>
+
+                <h2 class="about-story-title">
+                    Committed to Your Health
+                    and Your Baby’s Well-being
+                </h2>
+
+                <p class="about-story-text">
+                    Established with a vision of world-class fetal care and
+                    diagnostic services, we combine advanced technology with
+                    expert radiologists to ensure precise results and personalized care.
+                </p>
+
+                <p class="about-story-text">
+                    From early pregnancy scans to advanced fetal medicine,
+                    we are with you at every step of your journey to parenthood.
+                </p>
+
+            </div>
+
+            <!-- STATS -->
+
+            <div class="col-lg-4">
+
+                <div class="row g-3">
+
+                    <div class="col-6">
+
+                        <div class="about-stat-card">
+
+                            <i class="bi bi-people"></i>
+
+                            <h3>10+</h3>
+
+                            <p>Years of Experience</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="about-stat-card">
+
+                            <i class="bi bi-star"></i>
+
+                            <h3>25K+</h3>
+
+                            <p>Happy Patients</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="about-stat-card">
+
+                            <i class="bi bi-award"></i>
+
+                            <h3>15+</h3>
+
+                            <p>Expert Specialists</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="about-stat-card">
+
+                            <i class="bi bi-shield-check"></i>
+
+                            <h3>Advanced</h3>
+
+                            <p>Technology</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VALUES -->
+
+<section class="about-values-section">
+
+    <div class="container">
+
+        <div class="values-box">
+
+            <div class="text-center mb-5">
+
+                <h6 class="about-small-title">
+                    OUR VALUES
+                </h6>
+
+                <h2 class="values-title">
+                    The Principles that Guide Our Care
+                </h2>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg col-md-6">
+
+                    <div class="value-item">
+
+                        <i class="bi bi-heart"></i>
+
+                        <h5>Compassion</h5>
+
+                        <p>
+                            We treat every patient with kindness,
+                            respect, and empathy.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg col-md-6">
+
+                    <div class="value-item">
+
+                        <i class="bi bi-bullseye"></i>
+
+                        <h5>Accuracy</h5>
+
+                        <p>
+                            We use advanced technology to deliver
+                            precise and reliable results.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg col-md-6">
+
+                    <div class="value-item">
+
+                        <i class="bi bi-shield-check"></i>
+
+                        <h5>Safety</h5>
+
+                        <p>
+                            Your safety and comfort are our
+                            top priorities at every step.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg col-md-6">
+
+                    <div class="value-item">
+
+                        <i class="bi bi-person-heart"></i>
+
+                        <h5>Patient First</h5>
+
+                        <p>
+                            We put our patients and their families
+                            at the heart of everything we do.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg col-md-6">
+
+                    <div class="value-item">
+
+                        <i class="bi bi-handshake"></i>
+
+                        <h5>Trust</h5>
+
+                        <p>
+                            Building long-term relationships through
+                            honesty and care.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="about-cta-section">
+
+    <div class="container">
+
+        <div class="about-cta-box">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-7">
+
+                    <h2>
+                        Your Journey to Parenthood,
+                        Our Priority
+                    </h2>
+
+                    <p>
+                        From early pregnancy scans to advanced fetal medicine,
+                        we are with you every step of the way.
+                    </p>
+
+                </div>
+
+                <div class="col-lg-5 text-lg-end mt-4 mt-lg-0">
+
+                    <a href="#" class="hero-btn">
+                        Book Your Appointment
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}
