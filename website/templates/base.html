@@ -86,7 +86,7 @@
 
                 <!-- LOGO -->
 
-                <a href="{% url 'home' %}" class="flex items-center gap-3">
+                <a href="{% url 'home' %}" class="flex items-center gap-2 sm:gap-3">
 
                     <img src="{% static 'images/logo.png' %}"
                         alt="Logo"
@@ -94,11 +94,11 @@
 
                     <div>
 
-                        <h1 class="text-2xl sm:text-4xl font-extrabold leading-none text-[#8b2d23]">
+                        <h1 class="text-[28px] sm:text-4xl font-extrabold leading-none text-[#8b2d23]">
                             NAREN
                         </h1>
 
-                        <p class="text-black font-bold text-[9px] sm:text-[13px] leading-tight">
+                        <p class="text-black font-bold text-[8px] sm:text-[13px] leading-tight">
                             ULTRASOUND AND <br>
                             FETAL MEDICINE CENTER
                         </p>
@@ -140,7 +140,7 @@
 
                 </div>
 
-                <!-- MOBILE MENU BUTTON -->
+                <!-- MOBILE BUTTON -->
 
                 <button id="menu-btn"
                     class="lg:hidden text-3xl text-[#43228b]">
@@ -206,10 +206,10 @@
 
             <div class="grid
             grid-cols-1
-            sm:grid-cols-2
-            xl:grid-cols-[1.1fr_1fr_1fr_1.15fr]
+            md:grid-cols-2
+            xl:grid-cols-[1fr_0.9fr_0.9fr_1.15fr]
             gap-10
-            xl:gap-6">
+            xl:gap-4">
 
                 <!-- LOGO SECTION -->
 
@@ -244,7 +244,7 @@
 
                     </p>
 
-                    <!-- SOCIAL ICONS -->
+                    <!-- SOCIAL -->
 
                     <div class="flex gap-3 mt-5">
 
@@ -321,92 +321,92 @@
 
                 <!-- CONTACT SECTION -->
 
-                <div>
+<div class="-ml-2 xl:-ml-12">
 
-                    <h3 class="text-[26px] sm:text-[30px] font-bold mb-5">
-                        Contact Us
-                    </h3>
+    <h3 class="text-[26px] sm:text-[30px] font-bold mb-5">
+        Contact Us
+    </h3>
 
-                    <div class="flex flex-col lg:flex-row gap-6 items-start">
+    <div class="flex flex-col sm:flex-row gap-5 items-start">
 
-                        <!-- LEFT SIDE -->
+        <!-- LEFT SIDE -->
 
-                        <div class="space-y-4 text-[14px] sm:text-[15px] flex-1">
+        <div class="space-y-4 text-[14px] sm:text-[15px] flex-1 min-w-0">
 
-                            <!-- ADDRESS -->
+            <!-- ADDRESS -->
 
-                            <div class="flex items-start gap-3">
+            <div class="flex items-start gap-3">
 
-                                <i class="fa-solid fa-location-dot mt-1 text-sm shrink-0"></i>
+                <i class="fa-solid fa-location-dot mt-1 text-sm shrink-0"></i>
 
-                                <p class="leading-7">
-                                    Door No: 49-36-54,<br>
-                                    Maharani Peta, Near KGH,<br>
-                                    Visakhapatnam - 530002
-                                </p>
+                <p class="leading-7">
+                    Door No: 49-36-54,<br>
+                    Maharani Peta, Near KGH,<br>
+                    Visakhapatnam - 530002
+                </p>
 
-                            </div>
+            </div>
 
-                            <!-- PHONE -->
+            <!-- PHONE -->
 
-                            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-3">
 
-                                <i class="fa-solid fa-phone text-sm shrink-0"></i>
+                <i class="fa-solid fa-phone text-sm shrink-0"></i>
 
-                                <p>+91 98770 48927</p>
+                <p>+91 98770 48927</p>
 
-                            </div>
+            </div>
 
-                            <!-- EMAIL -->
+            <!-- EMAIL -->
 
-                            <div class="flex items-start gap-3">
+            <div class="flex items-start gap-3">
 
-                                <i class="fa-solid fa-envelope text-sm mt-1 shrink-0"></i>
+                <i class="fa-solid fa-envelope text-sm mt-1 shrink-0"></i>
 
-                                <p class="break-all">
-                                    narenultrasound@gmail.com
-                                </p>
+                <p class="break-all">
+                    narenultrasound@gmail.com
+                </p>
 
-                            </div>
+            </div>
 
-                        </div>
+        </div>
 
-                        <!-- RIGHT SIDE -->
+        <!-- RIGHT SIDE -->
 
-                        <div class="w-full max-w-[260px] lg:max-w-[210px]">
+        <div class="w-full sm:w-[210px] shrink-0 sm:-mt-10">
 
-                            <!-- MAP -->
+            <!-- MAP -->
 
-                            <div class="rounded-2xl overflow-hidden border border-white/10">
+            <div class="rounded-2xl overflow-hidden border border-white/10">
 
-                                <iframe
-                                    src="https://www.google.com/maps?q=49-36-54,Maharani%20Peta,Visakhapatnam&output=embed"
-                                    class="w-full h-[180px] sm:h-[170px] lg:h-[160px]"
-                                    style="border:0;"
-                                    allowfullscreen=""
-                                    loading="lazy">
-                                </iframe>
+                <iframe
+                    src="https://www.google.com/maps?q=49-36-54,Maharani%20Peta,Visakhapatnam&output=embed"
+                    class="w-full h-[170px]"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
 
-                            </div>
+            </div>
 
-                            <!-- TIMINGS -->
+            <!-- TIMINGS -->
 
-                            <div class="flex items-start gap-3 mt-4 text-[14px] sm:text-[15px]">
+            <div class="flex items-start gap-3 mt-4 text-[14px] sm:text-[15px]">
 
-                                <i class="fa-regular fa-clock mt-1 text-sm shrink-0"></i>
+                <i class="fa-regular fa-clock mt-1 text-sm shrink-0"></i>
 
-                                <p class="leading-7">
-                                    Mon - Sat: 9:00 AM - 8:00 PM <br>
-                                    Sunday: 9:00 AM - 1:00 PM
-                                </p>
+                <p class="leading-7">
+                    Mon - Sat: 9:00 AM - 8:00 PM <br>
+                    Sunday: 9:00 AM - 1:00 PM
+                </p>
 
-                            </div>
+            </div>
 
-                        </div>
+        </div>
 
-                    </div>
+    </div>
 
-                </div>
+</div>
 
             </div>
 
