@@ -1,47 +1,74 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
 {% block content %}
 
-<!-- CONTACT HERO -->
+<!-- HERO SECTION -->
 
-<section class="contact-hero">
+<section class="bg-[#f8f5ff] overflow-hidden">
 
-    <div class="container">
+    <div class="max-w-[1500px] mx-auto">
 
-        <div class="hero-contact-box">
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
 
-            <div class="row align-items-center">
+            <!-- LEFT -->
 
-                <!-- LEFT SIDE -->
+            <div class="px-5 sm:px-8 lg:px-14
+                        py-8 sm:py-10 lg:py-12
+                        text-center lg:text-left">
 
-                <div class="col-lg-6 p-5">
+                <h6 class="uppercase text-[#5b21b6]
+                font-semibold tracking-[3px]
+                text-xs sm:text-sm mb-4">
 
-                    <h6 class="contact-small-title">
-                        GET IN TOUCH
-                    </h6>
+                    Get In Touch
 
-                    <h1 class="contact-main-title">
-                        Contact <span>Us</span>
-                    </h1>
+                </h6>
 
-                    <p class="contact-text">
-                        We are here to help you! Reach out to us
-                        for appointments, queries or any assistance.
-                    </p>
+                <h1 class="text-[#08113a]
+                text-[34px]
+                sm:text-5xl
+                md:text-6xl
+                lg:text-[72px]
+                font-extrabold
+                leading-[1.05]">
 
-                </div>
+                    Contact
 
-                <!-- RIGHT SIDE -->
+                    <span class="text-[#5b21b6]">
+                        Us
+                    </span>
 
-                <div class="col-lg-6 pe-0">
+                </h1>
 
-                    <img src="{% static 'images/contact-banner.jpg' %}"
-                    class="contact-banner-img"
-                    alt="Contact Banner">
+                <p class="text-gray-600
+                text-[15px]
+                sm:text-lg
+                leading-relaxed
+                mt-5
+                max-w-xl
+                mx-auto
+                lg:mx-0">
 
-                </div>
+                    We are here to help you! Reach out to us for appointments,
+                    queries or any assistance.
+
+                </p>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="relative
+                        h-[220px]
+                        sm:h-[320px]
+                        md:h-[380px]
+                        lg:h-[420px]
+                        xl:h-[460px]">
+
+                <img src="{% static 'images/contact-banner.png' %}"
+                alt="Contact Banner"
+                class="w-full h-full object-cover">
 
             </div>
 
@@ -53,90 +80,156 @@
 
 <!-- CONTACT SECTION -->
 
-<section class="py-5">
+<section class="bg-[#f5f5f5] py-6 sm:py-8 lg:py-10">
 
-    <div class="container">
+    <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="row g-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
 
-            <!-- LEFT SIDE -->
+            <!-- LEFT SIDEBAR -->
 
-            <div class="col-lg-4">
+            <div class="space-y-4">
 
                 <!-- CONTACT INFO -->
 
-                <div class="contact-card">
+                <div class="bg-white rounded-[18px] lg:rounded-[22px]
+                border border-gray-200
+                p-5 sm:p-6 lg:p-7 shadow-sm">
 
-                    <h3 class="contact-heading">
+                    <h3 class="text-[#5b21b6]
+                    text-2xl sm:text-3xl
+                    font-bold mb-6">
+
                         Contact Information
+
                     </h3>
 
-                    <!-- ADDRESS -->
+                    <!-- ITEM -->
 
-                    <div class="contact-item">
+                    <div class="flex gap-4 pb-5 border-b border-gray-200">
 
-                        <i class="bi bi-geo-alt"></i>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14
+                        rounded-xl bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6]
+                        text-xl shrink-0">
+
+                            <i class="bi bi-geo-alt"></i>
+
+                        </div>
 
                         <div>
 
-                            <h6>Address</h6>
+                            <h4 class="text-[#08113a]
+                            text-lg font-bold mb-2">
 
-                            <p>
+                                Address
+
+                            </h4>
+
+                            <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+
                                 Door No: 49-36-54,
                                 Maharani Peta,
                                 Near KGH,
                                 Visakhapatnam - 530002
+
                             </p>
 
                         </div>
 
                     </div>
 
-                    <!-- PHONE -->
+                    <!-- ITEM -->
 
-                    <div class="contact-item">
+                    <div class="flex gap-4 py-5 border-b border-gray-200">
 
-                        <i class="bi bi-telephone"></i>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14
+                        rounded-xl bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6]
+                        text-xl shrink-0">
+
+                            <i class="bi bi-telephone"></i>
+
+                        </div>
 
                         <div>
 
-                            <h6>Phone</h6>
+                            <h4 class="text-[#08113a]
+                            text-lg font-bold mb-2">
 
-                            <p>+91 89770 48927</p>
+                                Phone
+
+                            </h4>
+
+                            <p class="text-gray-600 text-sm sm:text-base">
+                                +91 89770 48927
+                            </p>
 
                         </div>
 
                     </div>
 
-                    <!-- EMAIL -->
+                    <!-- ITEM -->
 
-                    <div class="contact-item">
+                    <div class="flex gap-4 py-5 border-b border-gray-200">
 
-                        <i class="bi bi-envelope"></i>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14
+                        rounded-xl bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6]
+                        text-xl shrink-0">
+
+                            <i class="bi bi-envelope"></i>
+
+                        </div>
 
                         <div>
 
-                            <h6>Email</h6>
+                            <h4 class="text-[#08113a]
+                            text-lg font-bold mb-2">
 
-                            <p>narenultrasound@gmail.com</p>
+                                Email
+
+                            </h4>
+
+                            <p class="text-gray-600 text-sm sm:text-base break-all">
+                                narenultrasound@gmail.com
+                            </p>
 
                         </div>
 
                     </div>
 
-                    <!-- WORKING HOURS -->
+                    <!-- ITEM -->
 
-                    <div class="contact-item">
+                    <div class="flex gap-4 pt-5">
 
-                        <i class="bi bi-clock"></i>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14
+                        rounded-xl bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6]
+                        text-xl shrink-0">
+
+                            <i class="bi bi-clock"></i>
+
+                        </div>
 
                         <div>
 
-                            <h6>Working Hours</h6>
+                            <h4 class="text-[#08113a]
+                            text-lg font-bold mb-2">
 
-                            <p>
+                                Working Hours
+
+                            </h4>
+
+                            <p class="text-gray-600 text-sm sm:text-base">
                                 Mon - Sat: 9:00 AM - 8:00 PM
-                                <br>
+                            </p>
+
+                            <p class="text-gray-600 text-sm sm:text-base">
                                 Sunday: 9:00 AM - 1:00 PM
                             </p>
 
@@ -146,27 +239,59 @@
 
                 </div>
 
-                <!-- WHY CHOOSE US -->
+                <!-- WHY CHOOSE -->
 
-                <div class="contact-card why-box mt-4">
+                <div class="bg-white rounded-[18px] lg:rounded-[22px]
+                border border-gray-200
+                p-5 sm:p-6 lg:p-7
+                shadow-sm relative overflow-hidden">
 
-                    <h3 class="contact-heading">
+                    <h3 class="text-[#5b21b6]
+                    text-2xl sm:text-3xl
+                    font-bold mb-6">
+
                         Why Choose Naren Ultrasound?
+
                     </h3>
 
-                    <ul class="why-list">
+                    <div class="space-y-4 text-gray-700 relative z-10 text-sm sm:text-base">
 
-                        <li>Advanced Technology</li>
-                        <li>Expert Radiologists</li>
-                        <li>Accurate Reports</li>
-                        <li>Patient First Approach</li>
-                        <li>Comfortable & Safe Environment</li>
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-check-circle text-[#5b21b6]"></i>
+                            Advanced Technology
+                        </div>
 
-                    </ul>
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-check-circle text-[#5b21b6]"></i>
+                            Expert Radiologists
+                        </div>
 
-                    <img src="{% static 'images/mother.png' %}"
-                    class="mother-icon"
-                    alt="Mother Image">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-check-circle text-[#5b21b6]"></i>
+                            Accurate Reports
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-check-circle text-[#5b21b6]"></i>
+                            Patient First Approach
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-check-circle text-[#5b21b6]"></i>
+                            Comfortable & Safe Environment
+                        </div>
+
+                    </div>
+
+                    <!-- BG ICON -->
+
+                    <div class="absolute right-3 bottom-0
+                    text-[#5b21b6]/10
+                    text-[80px] sm:text-[120px]">
+
+                        <i class="bi bi-heart-pulse"></i>
+
+                    </div>
 
                 </div>
 
@@ -174,106 +299,136 @@
 
             <!-- RIGHT SIDE -->
 
-            <div class="col-lg-8">
+            <div class="lg:col-span-2 space-y-4">
 
-                <!-- FORM CARD -->
+                <!-- CONTACT FORM -->
 
-                <div class="contact-form-card">
+                <div class="bg-white rounded-[18px] lg:rounded-[22px]
+                border border-gray-200
+                p-5 sm:p-6 lg:p-7 shadow-sm">
 
-                    <h3 class="contact-heading">
+                    <h3 class="text-[#5b21b6]
+                    text-2xl sm:text-3xl
+                    font-bold mb-6">
+
                         Send Us a Message
+
                     </h3>
 
-                    <form>
+                    <form method="POST">
 
-                        <div class="row">
+                        {% csrf_token %}
 
-                            <!-- NAME -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-                            <div class="col-md-6 mb-3">
+                            <div>
 
-                                <label class="form-label">
+                                <label class="block text-[#08113a] font-semibold mb-2">
                                     Your Name
                                 </label>
 
                                 <input type="text"
-                                class="form-control"
-                                placeholder="Enter your full name">
+                                placeholder="Enter your full name"
+                                class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#5b21b6]">
 
                             </div>
 
-                            <!-- PHONE -->
+                            <div>
 
-                            <div class="col-md-6 mb-3">
-
-                                <label class="form-label">
+                                <label class="block text-[#08113a] font-semibold mb-2">
                                     Phone Number
                                 </label>
 
                                 <input type="text"
-                                class="form-control"
-                                placeholder="Enter your phone number">
-
-                            </div>
-
-                            <!-- EMAIL -->
-
-                            <div class="col-md-6 mb-3">
-
-                                <label class="form-label">
-                                    Email Address
-                                </label>
-
-                                <input type="email"
-                                class="form-control"
-                                placeholder="Enter your email address">
-
-                            </div>
-
-                            <!-- SUBJECT -->
-
-                            <div class="col-md-6 mb-3">
-
-                                <label class="form-label">
-                                    Subject
-                                </label>
-
-                                <select class="form-select">
-
-                                    <option>Select a subject</option>
-                                    <option>Appointment</option>
-                                    <option>Scan Enquiry</option>
-                                    <option>General Query</option>
-
-                                </select>
-
-                            </div>
-
-                            <!-- MESSAGE -->
-
-                            <div class="col-12 mb-3">
-
-                                <label class="form-label">
-                                    Message
-                                </label>
-
-                                <textarea rows="5"
-                                class="form-control"
-                                placeholder="Write your message here..."></textarea>
+                                placeholder="Enter your phone number"
+                                class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#5b21b6]">
 
                             </div>
 
                         </div>
 
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
+
+                            <div>
+
+                                <label class="block text-[#08113a] font-semibold mb-2">
+                                    Email Address
+                                </label>
+
+                                <input type="email"
+                                placeholder="Enter your email address"
+                                class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#5b21b6]">
+
+                            </div>
+
+                            <div>
+
+                                <label class="block text-[#08113a] font-semibold mb-2">
+                                    Subject
+                                </label>
+
+                                <select class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#5b21b6]">
+
+                                    <option>Select a subject</option>
+                                    <option>Appointment Booking</option>
+                                    <option>General Enquiry</option>
+                                    <option>Scan Information</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <!-- MESSAGE -->
+
+                        <div class="mt-5">
+
+                            <label class="block text-[#08113a] font-semibold mb-2">
+                                Message
+                            </label>
+
+                            <textarea rows="5"
+                            placeholder="Write your message here..."
+                            class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[#5b21b6]"></textarea>
+
+                        </div>
+
                         <!-- BUTTON -->
 
-                        <button type="submit" class="send-btn">
+                        <div class="flex flex-col xl:flex-row
+                        xl:items-center
+                        xl:justify-between
+                        gap-5 mt-6">
 
-                            <i class="bi bi-send"></i>
+                            <button type="submit"
+                            class="bg-gradient-to-r from-[#2e1065] to-[#5b21b6]
+                            hover:opacity-95
+                            text-white
+                            px-8 py-3
+                            rounded-xl
+                            text-base
+                            font-semibold
+                            flex items-center justify-center gap-3
+                            transition duration-300
+                            w-full xl:w-auto">
 
-                            Send Message
+                                <i class="bi bi-send"></i>
+                                Send Message
 
-                        </button>
+                            </button>
+
+                            <div class="flex items-start sm:items-center gap-3 text-gray-500 text-sm">
+
+                                <i class="bi bi-shield-check mt-1 sm:mt-0"></i>
+
+                                <span>
+                                    We respect your privacy. Your information is safe with us.
+                                </span>
+
+                            </div>
+
+                        </div>
 
                     </form>
 
@@ -281,15 +436,17 @@
 
                 <!-- MAP -->
 
-                <div class="map-box mt-4">
+                <div class="bg-white rounded-[18px] lg:rounded-[22px]
+                border border-gray-200 overflow-hidden shadow-sm">
 
                     <iframe
-                    src="https://www.google.com/maps?q=Visakhapatnam&output=embed"
+                    src="https://www.google.com/maps?q=maharani%20peta%20visakhapatnam&output=embed"
                     width="100%"
                     height="300"
                     style="border:0;"
                     allowfullscreen=""
-                    loading="lazy">
+                    loading="lazy"
+                    class="w-full h-[220px] sm:h-[300px]">
                     </iframe>
 
                 </div>

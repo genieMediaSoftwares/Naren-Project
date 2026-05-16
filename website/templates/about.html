@@ -1,317 +1,628 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
 {% block content %}
 
-<!-- ABOUT HERO -->
+<!-- ====================================================== -->
+<!-- HERO SECTION -->
+<!-- ====================================================== -->
 
-<section class="about-hero-section">
+<section class="bg-[#f8f5ff] overflow-hidden">
 
-    <div class="container">
+    <div class="max-w-[1600px] mx-auto">
 
-        <div class="about-hero-box">
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
 
-            <div class="row align-items-center">
+            <!-- LEFT -->
+
+            <div class="px-5 sm:px-8 lg:px-16
+                        py-10 sm:py-14 lg:py-20
+                        text-center lg:text-left">
+
+                <p class="uppercase tracking-[3px]
+                text-[#5b21b6]
+                font-semibold
+                text-xs sm:text-sm mb-4">
+
+                    About Us
+
+                </p>
+
+                <h1 class="text-[#08113a]
+                text-[36px]
+                sm:text-5xl
+                md:text-6xl
+                lg:text-7xl
+                font-extrabold
+                leading-[1.05]">
+
+                    Compassionate Care,
+
+                    <span class="text-[#5b21b6] block mt-2">
+                        Accurate Results
+                    </span>
+
+                </h1>
+
+                <p class="text-gray-600
+                text-[15px]
+                sm:text-lg
+                leading-relaxed
+                mt-6
+                max-w-2xl
+                mx-auto
+                lg:mx-0">
+
+                    Naren Ultrasound & Fetal Medicine Center is dedicated to
+                    providing advanced ultrasound and fetal care services with
+                    accuracy, compassion, and excellence.
+
+                </p>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="w-full">
+
+                <img src="{% static 'images/contact-banner.png' %}"
+                    alt="About Banner"
+
+                    class="w-full
+                    h-[250px]
+                    sm:h-[320px]
+                    md:h-[380px]
+                    lg:h-[500px]
+                    object-cover object-center">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- STORY SECTION -->
+<!-- ====================================================== -->
+
+<section class="bg-[#f5f5f5]
+py-6 sm:py-8 lg:py-10">
+
+    <div class="max-w-[1500px]
+    mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="bg-white
+        rounded-[24px]
+        lg:rounded-[30px]
+        p-5 sm:p-7 lg:p-8">
+
+            <div class="grid
+            grid-cols-1 xl:grid-cols-3
+            gap-6 lg:gap-8 items-start">
+
+                <!-- IMAGE -->
+
+                <div>
+
+                    <img src="{% static 'images/about-doctor.jpg' %}"
+                    alt="Doctor"
+
+                    class="w-full
+                    h-[280px]
+                    sm:h-[400px]
+                    xl:h-full
+                    object-cover
+                    rounded-3xl">
+
+                </div>
+
+                <!-- CONTENT -->
+
+                <div class="text-center xl:text-left">
+
+                    <p class="uppercase tracking-[3px]
+                    text-[#5b21b6]
+                    font-semibold
+                    text-xs sm:text-sm mb-4">
+
+                        Our Story
+
+                    </p>
+
+                    <h2 class="text-[#08113a]
+                    text-3xl
+                    sm:text-4xl
+                    lg:text-5xl
+                    font-bold
+                    leading-tight">
+
+                        Committed to Your Health
+                        and Your Baby’s Well-being
+
+                    </h2>
+
+                    <p class="text-gray-600
+                    text-[15px]
+                    sm:text-lg
+                    leading-relaxed mt-5">
+
+                        Established with a vision to offer world-class fetal care
+                        and diagnostic services, we combine advanced technology
+                        with expert radiologists to ensure precise results and
+                        personalized care.
+
+                    </p>
+
+                    <p class="text-gray-600
+                    text-[15px]
+                    sm:text-lg
+                    leading-relaxed mt-5">
+
+                        From early pregnancy scans to advanced fetal medicine,
+                        we are with you at every step of your journey to parenthood.
+
+                    </p>
+
+                </div>
+
+                <!-- STATS -->
+
+                <div class="grid
+                grid-cols-1
+                sm:grid-cols-2
+                gap-4">
+
+                    <!-- CARD -->
+
+                    <div class="border border-gray-200
+                    rounded-3xl p-5">
+
+                        <div class="w-14 h-14 rounded-full
+                        bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6]
+                        text-2xl mb-4">
+
+                            <i class="fa-solid fa-users"></i>
+
+                        </div>
+
+                        <h3 class="text-3xl
+                        font-bold text-[#5b21b6]">
+
+                            10+
+
+                        </h3>
+
+                        <p class="mt-2 text-sm text-[#08113a]">
+
+                            Years of Experience
+
+                        </p>
+
+                    </div>
+
+                    <!-- CARD -->
+
+                    <div class="border border-gray-200
+                    rounded-3xl p-5">
+
+                        <div class="w-14 h-14 rounded-full
+                        bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6]
+                        text-2xl mb-4">
+
+                            <i class="fa-solid fa-star"></i>
+
+                        </div>
+
+                        <h3 class="text-3xl
+                        font-bold text-[#5b21b6]">
+
+                            25K+
+
+                        </h3>
+
+                        <p class="mt-2 text-sm text-[#08113a]">
+
+                            Happy Patients
+
+                        </p>
+
+                    </div>
+
+                    <!-- CARD -->
+
+                    <div class="border border-gray-200
+                    rounded-3xl p-5">
+
+                        <div class="w-14 h-14 rounded-full
+                        bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6]
+                        text-2xl mb-4">
+
+                            <i class="fa-solid fa-award"></i>
+
+                        </div>
+
+                        <h3 class="text-3xl
+                        font-bold text-[#5b21b6]">
+
+                            15+
+
+                        </h3>
+
+                        <p class="mt-2 text-sm text-[#08113a]">
+
+                            Expert Specialists
+
+                        </p>
+
+                    </div>
+
+                    <!-- CARD -->
+
+                    <div class="border border-gray-200
+                    rounded-3xl p-5">
+
+                        <div class="w-14 h-14 rounded-full
+                        bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6]
+                        text-2xl mb-4">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </div>
+
+                        <h3 class="text-2xl
+                        font-bold text-[#5b21b6]">
+
+                            Advanced
+
+                        </h3>
+
+                        <p class="mt-2 text-sm text-[#08113a]">
+
+                            Technology
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- VALUES SECTION -->
+<!-- ====================================================== -->
+
+<section class="py-6 sm:py-8 lg:py-10">
+
+    <div class="max-w-[1500px]
+    mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="bg-[#faf7ff]
+        rounded-[28px]
+        sm:rounded-[34px]
+        px-5 sm:px-7 lg:px-10
+        py-7 sm:py-10">
+
+            <!-- HEADING -->
+
+            <div class="text-center
+            mb-8 sm:mb-10">
+
+                <p class="uppercase
+                text-[#5b21b6]
+                font-semibold
+                tracking-[3px]
+                text-xs sm:text-sm mb-4">
+
+                    Our Values
+
+                </p>
+
+                <h2 class="text-[#08113a]
+                font-extrabold
+                leading-tight
+                text-[32px]
+                sm:text-5xl
+                lg:text-6xl">
+
+                    The Principles that Guide Our Care
+
+                </h2>
+
+                <div class="w-20 sm:w-24
+                h-[4px]
+                bg-[#5b21b6]
+                rounded-full
+                mx-auto mt-5">
+                </div>
+
+            </div>
+
+            <!-- VALUES GRID -->
+
+            <div class="grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-5
+            gap-8 lg:gap-0">
+
+                <!-- VALUE -->
+
+                <div class="text-center lg:text-left
+                px-2 sm:px-4
+                lg:border-r lg:border-gray-200">
+
+                    <div class="w-20 h-20 rounded-full
+                    border border-[#d8c4ff]
+                    flex items-center justify-center
+                    mx-auto lg:mx-0
+                    mb-6">
+
+                        <i class="fa-solid fa-hand-holding-heart
+                        text-[#5b21b6] text-4xl"></i>
+
+                    </div>
+
+                    <h3 class="text-[#08113a]
+                    text-2xl font-bold mb-4">
+
+                        Compassion
+
+                    </h3>
+
+                    <p class="text-gray-600
+                    text-base leading-relaxed">
+
+                        We treat every patient with kindness,
+                        respect, and empathy.
+
+                    </p>
+
+                </div>
+
+                <!-- VALUE -->
+
+                <div class="text-center lg:text-left
+                px-2 sm:px-4
+                lg:border-r lg:border-gray-200">
+
+                    <div class="w-20 h-20 rounded-full
+                    border border-[#d8c4ff]
+                    flex items-center justify-center
+                    mx-auto lg:mx-0
+                    mb-6">
+
+                        <i class="fa-solid fa-bullseye
+                        text-[#5b21b6] text-4xl"></i>
+
+                    </div>
+
+                    <h3 class="text-[#08113a]
+                    text-2xl font-bold mb-4">
+
+                        Accuracy
+
+                    </h3>
+
+                    <p class="text-gray-600
+                    text-base leading-relaxed">
+
+                        We use advanced technology to deliver
+                        precise and reliable results.
+
+                    </p>
+
+                </div>
+
+                <!-- VALUE -->
+
+                <div class="text-center lg:text-left
+                px-2 sm:px-4
+                lg:border-r lg:border-gray-200">
+
+                    <div class="w-20 h-20 rounded-full
+                    border border-[#d8c4ff]
+                    flex items-center justify-center
+                    mx-auto lg:mx-0
+                    mb-6">
+
+                        <i class="fa-solid fa-shield-halved
+                        text-[#5b21b6] text-4xl"></i>
+
+                    </div>
+
+                    <h3 class="text-[#08113a]
+                    text-2xl font-bold mb-4">
+
+                        Safety
+
+                    </h3>
+
+                    <p class="text-gray-600
+                    text-base leading-relaxed">
+
+                        Your safety and comfort are our
+                        top priorities at every step.
+
+                    </p>
+
+                </div>
+
+                <!-- VALUE -->
+
+                <div class="text-center lg:text-left
+                px-2 sm:px-4
+                lg:border-r lg:border-gray-200">
+
+                    <div class="w-20 h-20 rounded-full
+                    border border-[#d8c4ff]
+                    flex items-center justify-center
+                    mx-auto lg:mx-0
+                    mb-6">
+
+                        <i class="fa-solid fa-user-group
+                        text-[#5b21b6] text-4xl"></i>
+
+                    </div>
+
+                    <h3 class="text-[#08113a]
+                    text-2xl font-bold mb-4">
+
+                        Patient First
+
+                    </h3>
+
+                    <p class="text-gray-600
+                    text-base leading-relaxed">
+
+                        We put our patients and their families
+                        at the heart of everything we do.
+
+                    </p>
+
+                </div>
+
+                <!-- VALUE -->
+
+                <div class="text-center lg:text-left
+                px-2 sm:px-4">
+
+                    <div class="w-20 h-20 rounded-full
+                    border border-[#d8c4ff]
+                    flex items-center justify-center
+                    mx-auto lg:mx-0
+                    mb-6">
+
+                        <i class="fa-solid fa-handshake
+                        text-[#5b21b6] text-4xl"></i>
+
+                    </div>
+
+                    <h3 class="text-[#08113a]
+                    text-2xl font-bold mb-4">
+
+                        Trust
+
+                    </h3>
+
+                    <p class="text-gray-600
+                    text-base leading-relaxed">
+
+                        Building long-term relationships through
+                        honesty and care.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- CTA SECTION -->
+<!-- ====================================================== -->
+
+<section class="bg-[#f5f5f5]
+pb-8 lg:pb-10">
+
+    <div class="max-w-[1500px]
+    mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="bg-gradient-to-r
+        from-[#2e1065]
+        to-[#5b21b6]
+        rounded-[24px]
+        p-5 sm:p-7 lg:p-8">
+
+            <div class="grid
+            grid-cols-1
+            lg:grid-cols-3
+            gap-6 items-center text-white">
 
                 <!-- LEFT -->
 
-                <div class="col-lg-5 p-5">
+                <div class="flex flex-col
+                sm:flex-row
+                items-center gap-5
+                text-center lg:text-left">
 
-                    <h6 class="about-small-title">
-                        ABOUT US
-                    </h6>
+                    <div class="w-20 h-20 rounded-full
+                    bg-white/20
+                    flex items-center justify-center
+                    text-4xl">
 
-                    <h1 class="about-main-title">
-                        Compassionate Care,
-                        <span>Accurate</span> Results
-                    </h1>
-
-                    <p class="about-main-text">
-                        Naren Ultrasound & Fetal Medicine Center is dedicated
-                        to providing advanced ultrasound and fetal care services
-                        with accuracy, compassion, and excellence.
-                    </p>
-
-                </div>
-
-                <!-- RIGHT -->
-
-                <div class="col-lg-7 pe-0">
-
-                    <img src="{% static 'images/about-banner.jpg' %}"
-                    class="about-banner-img"
-                    alt="About Banner">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- STORY SECTION -->
-
-<section class="about-story-section">
-
-    <div class="container">
-
-        <div class="row g-4 align-items-center">
-
-            <!-- IMAGE -->
-
-            <div class="col-lg-3">
-
-                <img src="{% static 'images/about-doctor.jpg' %}"
-                class="about-story-img"
-                alt="Doctor">
-
-            </div>
-
-            <!-- TEXT -->
-
-            <div class="col-lg-5">
-
-                <h6 class="about-small-title">
-                    OUR STORY
-                </h6>
-
-                <h2 class="about-story-title">
-                    Committed to Your Health
-                    and Your Baby’s Well-being
-                </h2>
-
-                <p class="about-story-text">
-                    Established with a vision of world-class fetal care and
-                    diagnostic services, we combine advanced technology with
-                    expert radiologists to ensure precise results and personalized care.
-                </p>
-
-                <p class="about-story-text">
-                    From early pregnancy scans to advanced fetal medicine,
-                    we are with you at every step of your journey to parenthood.
-                </p>
-
-            </div>
-
-            <!-- STATS -->
-
-            <div class="col-lg-4">
-
-                <div class="row g-3">
-
-                    <div class="col-6">
-
-                        <div class="about-stat-card">
-
-                            <i class="bi bi-people"></i>
-
-                            <h3>10+</h3>
-
-                            <p>Years of Experience</p>
-
-                        </div>
+                        <i class="fa-solid fa-heart-pulse"></i>
 
                     </div>
 
-                    <div class="col-6">
+                    <h2 class="text-2xl
+                    sm:text-3xl
+                    lg:text-4xl
+                    font-bold leading-tight">
 
-                        <div class="about-stat-card">
-
-                            <i class="bi bi-star"></i>
-
-                            <h3>25K+</h3>
-
-                            <p>Happy Patients</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-6">
-
-                        <div class="about-stat-card">
-
-                            <i class="bi bi-award"></i>
-
-                            <h3>15+</h3>
-
-                            <p>Expert Specialists</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-6">
-
-                        <div class="about-stat-card">
-
-                            <i class="bi bi-shield-check"></i>
-
-                            <h3>Advanced</h3>
-
-                            <p>Technology</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- VALUES -->
-
-<section class="about-values-section">
-
-    <div class="container">
-
-        <div class="values-box">
-
-            <div class="text-center mb-5">
-
-                <h6 class="about-small-title">
-                    OUR VALUES
-                </h6>
-
-                <h2 class="values-title">
-                    The Principles that Guide Our Care
-                </h2>
-
-            </div>
-
-            <div class="row g-4">
-
-                <div class="col-lg col-md-6">
-
-                    <div class="value-item">
-
-                        <i class="bi bi-heart"></i>
-
-                        <h5>Compassion</h5>
-
-                        <p>
-                            We treat every patient with kindness,
-                            respect, and empathy.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg col-md-6">
-
-                    <div class="value-item">
-
-                        <i class="bi bi-bullseye"></i>
-
-                        <h5>Accuracy</h5>
-
-                        <p>
-                            We use advanced technology to deliver
-                            precise and reliable results.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg col-md-6">
-
-                    <div class="value-item">
-
-                        <i class="bi bi-shield-check"></i>
-
-                        <h5>Safety</h5>
-
-                        <p>
-                            Your safety and comfort are our
-                            top priorities at every step.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg col-md-6">
-
-                    <div class="value-item">
-
-                        <i class="bi bi-person-heart"></i>
-
-                        <h5>Patient First</h5>
-
-                        <p>
-                            We put our patients and their families
-                            at the heart of everything we do.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg col-md-6">
-
-                    <div class="value-item">
-
-                        <i class="bi bi-handshake"></i>
-
-                        <h5>Trust</h5>
-
-                        <p>
-                            Building long-term relationships through
-                            honesty and care.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="about-cta-section">
-
-    <div class="container">
-
-        <div class="about-cta-box">
-
-            <div class="row align-items-center">
-
-                <div class="col-lg-7">
-
-                    <h2>
                         Your Journey to Parenthood,
                         Our Priority
+
                     </h2>
 
-                    <p>
+                </div>
+
+                <!-- CENTER -->
+
+                <div class="text-center lg:text-left">
+
+                    <p class="text-gray-200
+                    text-[15px]
+                    sm:text-lg
+                    leading-relaxed">
+
                         From early pregnancy scans to advanced fetal medicine,
                         we are with you every step of the way.
+
                     </p>
 
                 </div>
 
-                <div class="col-lg-5 text-lg-end mt-4 mt-lg-0">
+                <!-- BUTTON -->
 
-                    <a href="#" class="hero-btn">
+                <div class="text-center lg:text-right">
+
+                    <a href="/contact/"
+                    class="inline-flex items-center
+                    gap-3 bg-white
+                    hover:bg-gray-100
+                    text-[#5b21b6]
+                    px-6 sm:px-8
+                    py-4 rounded-2xl
+                    text-sm sm:text-lg
+                    font-bold
+                    transition duration-300">
+
                         Book Your Appointment
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
                     </a>
 
                 </div>

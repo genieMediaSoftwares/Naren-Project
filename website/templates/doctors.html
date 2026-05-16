@@ -3,46 +3,62 @@
 
 {% block content %}
 
-<!-- DOCTORS HERO -->
-<section class="doctors-hero-section">
+<!-- HERO SECTION -->
 
-    <div class="container">
+<section class="bg-[#f8f5ff] overflow-hidden">
 
-        <div class="doctors-hero-box">
+    <div class="max-w-[1500px] mx-auto">
 
-            <div class="row align-items-center g-0">
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
 
-                <!-- LEFT -->
-                <div class="col-lg-6">
+            <!-- LEFT -->
 
-                    <div class="doctors-hero-content">
+            <div class="px-5 sm:px-8 lg:px-16 py-10 sm:py-14 lg:py-16 text-center lg:text-left">
 
-                        <div class="doctors-small-title">
-                            OUR EXPERTS
-                        </div>
+                <h6 class="uppercase text-[#5b21b6] font-semibold tracking-[3px] text-xs sm:text-sm lg:text-lg mb-4 lg:mb-5">
+                    Our Experts
+                </h6>
 
-                        <h1 class="doctors-main-title">
-                            Meet Our <br>
-                            <span>Experienced</span> Doctors
-                        </h1>
+                <h1 class="text-[#08113a]
+                text-[36px]
+                sm:text-5xl
+                md:text-6xl
+                lg:text-7xl
+                font-extrabold
+                leading-[1.08]">
 
-                        <p class="doctors-text">
-                            Our team of highly skilled and compassionate specialists
-                            is dedicated to providing the best care for you and your baby.
-                        </p>
+                    Meet Our
 
-                    </div>
+                    <span class="text-[#5b21b6]">
+                        Experienced Doctors
+                    </span>
 
-                </div>
+                </h1>
 
-                <!-- RIGHT -->
-                <div class="col-lg-6">
+                <p class="text-gray-600
+                text-[15px]
+                sm:text-lg
+                lg:text-xl
+                leading-relaxed
+                mt-6 lg:mt-8
+                max-w-2xl
+                mx-auto
+                lg:mx-0">
 
-                    <img src="{% static 'images/doctors-banner.jpg' %}"
-                    class="doctors-banner-img"
-                    alt="Doctors Banner">
+                    Our team of highly skilled and compassionate specialists
+                    is dedicated to providing the best care for you and your baby.
 
-                </div>
+                </p>
+
+            </div>
+
+            <!-- RIGHT IMAGE -->
+
+            <div class="h-[240px] sm:h-[380px] md:h-[450px] lg:h-full">
+
+                <img src="{% static 'images/doctors-banner.jpg' %}"
+                alt="Doctors Banner"
+                class="w-full h-full object-cover">
 
             </div>
 
@@ -52,245 +68,444 @@
 
 </section>
 
-<!-- DOCTORS -->
-<section class="doctors-main-section">
+<!-- DOCTORS SECTION -->
 
-    <div class="container">
+<section class="bg-[#f5f5f5] py-10 sm:py-14 lg:py-20">
 
-        <!-- TITLE -->
+    <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="text-center mb-5">
+        <div class="bg-white rounded-[24px] lg:rounded-[28px] p-5 sm:p-8 lg:p-10 shadow-sm">
 
-            <div class="section-mini-title">
-                OUR DOCTORS
+            <!-- TITLE -->
+
+            <div class="text-center mb-14">
+
+                <div class="flex items-center justify-center gap-4 mb-4">
+
+                    <div class="w-12 h-[2px] bg-[#5b21b6]"></div>
+
+                    <h6 class="uppercase text-[#5b21b6] font-semibold tracking-wide">
+                        Our Doctors
+                    </h6>
+
+                    <div class="w-12 h-[2px] bg-[#5b21b6]"></div>
+
+                </div>
+
+                <h2 class="text-[#08113a]
+                text-3xl
+                sm:text-4xl
+                lg:text-5xl
+                font-bold
+                leading-tight">
+
+                    Highly Qualified & Caring Specialists
+
+                </h2>
+
+                <div class="w-24 h-1 bg-[#5b21b6] rounded-full mx-auto mt-5"></div>
+
             </div>
 
-            <h2 class="doctors-section-title">
-                Highly Qualified & Caring Specialists
-            </h2>
+            <!-- GRID -->
 
-        </div>
+            <div class="grid
+            grid-cols-1
+            sm:grid-cols-2
+            xl:grid-cols-4
+            gap-6
+            items-stretch">
 
-        <!-- CARDS -->
+                <!-- CARD 1 -->
 
-        <div class="row g-4">
+                <div class="border border-gray-200
+                rounded-[24px]
+                p-5 sm:p-7
+                hover:shadow-xl
+                transition
+                bg-white
+                flex flex-col
+                h-full">
 
-            <!-- CARD 1 -->
-            <div class="col-lg-3 col-md-6">
-
-                <div class="doctor-modern-card">
-
-                    <div class="doctor-image-wrap">
+                    <div class="flex justify-center">
 
                         <img src="{% static 'images/doctor1.jpg' %}"
-                        class="doctor-modern-img">
+                        class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-8 border-[#f3e8ff]"
+                        alt="Doctor">
 
                     </div>
 
-                    <h4>Dr. Naren</h4>
+                    <div class="text-center mt-6">
 
-                    <div class="doctor-speciality">
-                        Fetal Medicine Specialist
+                        <h3 class="text-[#5b21b6] text-2xl sm:text-3xl font-bold">
+                            Dr. Naren
+                        </h3>
+
+                        <h5 class="text-[#08113a] text-lg sm:text-xl font-semibold mt-2">
+                            Fetal Medicine Specialist
+                        </h5>
+
+                        <p class="text-gray-500 mt-3">
+                            MD Radiology
+                        </p>
+
+                        <p class="text-gray-500">
+                            Fellowship in Fetal Medicine
+                        </p>
+
                     </div>
 
-                    <div class="doctor-degree">
-                        MD Radiology
+                    <div class="border-t border-gray-200 my-6"></div>
+
+                    <div class="flex-grow">
+
+                        <h4 class="text-[#5b21b6] text-lg sm:text-xl font-bold mb-4">
+                            Expertise
+                        </h4>
+
+                        <div class="space-y-3 text-gray-700 text-sm sm:text-base">
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>High-risk Pregnancy Scans</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Fetal Anomaly Screening</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Doppler Studies</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>3D / 4D Ultrasound</span>
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div class="doctor-exp">
-                        Fellowship in Fetal Medicine
-                    </div>
+                    <div class="mt-auto bg-[#faf7ff] rounded-2xl p-4 sm:p-5 flex items-center gap-4">
 
-                    <hr>
+                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6] text-3xl">
 
-                    <div class="expertise-title">
-                        Expertise
-                    </div>
+                            <i class="fas fa-user-md"></i>
 
-                    <ul class="doctor-list">
-
-                        <li>High-risk Pregnancy Scans</li>
-                        <li>Fetal Anomaly Screening</li>
-                        <li>Doppler Studies</li>
-                        <li>3D / 4D Ultrasound</li>
-
-                    </ul>
-
-                    <div class="doctor-exp-box">
-
-                        <i class="bi bi-people"></i>
+                        </div>
 
                         <div>
-                            <strong>15+</strong><br>
-                            Years of Experience
+
+                            <h4 class="text-[#08113a] text-2xl sm:text-3xl font-bold">
+                                15+
+                            </h4>
+
+                            <p class="text-gray-600">
+                                Years of Experience
+                            </p>
+
                         </div>
 
                     </div>
 
                 </div>
 
-            </div>
+                <!-- CARD 2 -->
 
-            <!-- CARD 2 -->
-            <div class="col-lg-3 col-md-6">
+                <div class="border border-gray-200
+                rounded-[24px]
+                p-5 sm:p-7
+                hover:shadow-xl
+                transition
+                bg-white
+                flex flex-col
+                h-full">
 
-                <div class="doctor-modern-card">
-
-                    <div class="doctor-image-wrap">
+                    <div class="flex justify-center">
 
                         <img src="{% static 'images/doctor2.jpg' %}"
-                        class="doctor-modern-img">
+                        class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-8 border-[#f3e8ff]"
+                        alt="Doctor">
 
                     </div>
 
-                    <h4>Dr. Satish</h4>
+                    <div class="text-center mt-6">
 
-                    <div class="doctor-speciality">
-                        Consultant Radiologist
+                        <h3 class="text-[#5b21b6] text-2xl sm:text-3xl font-bold">
+                            Dr. Satish
+                        </h3>
+
+                        <h5 class="text-[#08113a] text-lg sm:text-xl font-semibold mt-2">
+                            Consultant Radiologist
+                        </h5>
+
+                        <p class="text-gray-500 mt-3">
+                            MD Radiology
+                        </p>
+
+                        <p class="text-gray-500">
+                            10+ Years Experience
+                        </p>
+
                     </div>
 
-                    <div class="doctor-degree">
-                        MD Radiology
+                    <div class="border-t border-gray-200 my-6"></div>
+
+                    <div class="flex-grow">
+
+                        <h4 class="text-[#5b21b6] text-lg sm:text-xl font-bold mb-4">
+                            Expertise
+                        </h4>
+
+                        <div class="space-y-3 text-gray-700 text-sm sm:text-base">
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Diagnostic Ultrasound</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Abdominal Imaging</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Interventional Procedures</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Vascular & Doppler Ultrasound</span>
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div class="doctor-exp">
-                        10+ Years Experience
-                    </div>
+                    <div class="mt-auto bg-[#faf7ff] rounded-2xl p-4 sm:p-5 flex items-center gap-4">
 
-                    <hr>
+                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6] text-3xl">
 
-                    <div class="expertise-title">
-                        Expertise
-                    </div>
+                            <i class="fas fa-user-md"></i>
 
-                    <ul class="doctor-list">
-
-                        <li>Diagnostic Ultrasound</li>
-                        <li>Abdominal Imaging</li>
-                        <li>Interventional Procedures</li>
-                        <li>Vascular Ultrasound</li>
-
-                    </ul>
-
-                    <div class="doctor-exp-box">
-
-                        <i class="bi bi-people"></i>
+                        </div>
 
                         <div>
-                            <strong>10+</strong><br>
-                            Years of Experience
+
+                            <h4 class="text-[#08113a] text-2xl sm:text-3xl font-bold">
+                                10+
+                            </h4>
+
+                            <p class="text-gray-600">
+                                Years of Experience
+                            </p>
+
                         </div>
 
                     </div>
 
                 </div>
 
-            </div>
+                <!-- CARD 3 -->
 
-            <!-- CARD 3 -->
-            <div class="col-lg-3 col-md-6">
+                <div class="border border-gray-200
+                rounded-[24px]
+                p-5 sm:p-7
+                hover:shadow-xl
+                transition
+                bg-white
+                flex flex-col
+                h-full">
 
-                <div class="doctor-modern-card">
-
-                    <div class="doctor-image-wrap">
+                    <div class="flex justify-center">
 
                         <img src="{% static 'images/doctor3.jpg' %}"
-                        class="doctor-modern-img">
+                        class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-8 border-[#f3e8ff]"
+                        alt="Doctor">
 
                     </div>
 
-                    <h4>Dr. Kaveri</h4>
+                    <div class="text-center mt-6">
 
-                    <div class="doctor-speciality">
-                        Obstetrician & Gynecologist
+                        <h3 class="text-[#5b21b6] text-2xl sm:text-3xl font-bold">
+                            Dr. Kaveri
+                        </h3>
+
+                        <h5 class="text-[#08113a] text-lg sm:text-xl font-semibold mt-2">
+                            Obstetrician & Gynecologist
+                        </h5>
+
+                        <p class="text-gray-500 mt-3">
+                            MS (OBG)
+                        </p>
+
+                        <p class="text-gray-500">
+                            12+ Years Experience
+                        </p>
+
                     </div>
 
-                    <div class="doctor-degree">
-                        MS (OBG)
+                    <div class="border-t border-gray-200 my-6"></div>
+
+                    <div class="flex-grow">
+
+                        <h4 class="text-[#5b21b6] text-lg sm:text-xl font-bold mb-4">
+                            Expertise
+                        </h4>
+
+                        <div class="space-y-3 text-gray-700 text-sm sm:text-base">
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Prenatal Care</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>High-risk Pregnancy Management</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Gynecological Ultrasound</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Women's Health Care</span>
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div class="doctor-exp">
-                        12+ Years Experience
-                    </div>
+                    <div class="mt-auto bg-[#faf7ff] rounded-2xl p-4 sm:p-5 flex items-center gap-4">
 
-                    <hr>
+                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6] text-3xl">
 
-                    <div class="expertise-title">
-                        Expertise
-                    </div>
+                            <i class="fas fa-user-md"></i>
 
-                    <ul class="doctor-list">
-
-                        <li>Prenatal Care</li>
-                        <li>Pregnancy Management</li>
-                        <li>Gynecological Ultrasound</li>
-                        <li>Women’s Health Care</li>
-
-                    </ul>
-
-                    <div class="doctor-exp-box">
-
-                        <i class="bi bi-people"></i>
+                        </div>
 
                         <div>
-                            <strong>12+</strong><br>
-                            Years of Experience
+
+                            <h4 class="text-[#08113a] text-2xl sm:text-3xl font-bold">
+                                12+
+                            </h4>
+
+                            <p class="text-gray-600">
+                                Years of Experience
+                            </p>
+
                         </div>
 
                     </div>
 
                 </div>
 
-            </div>
+                <!-- CARD 4 -->
 
-            <!-- CARD 4 -->
-            <div class="col-lg-3 col-md-6">
+                <div class="border border-gray-200
+                rounded-[24px]
+                p-5 sm:p-7
+                hover:shadow-xl
+                transition
+                bg-white
+                flex flex-col
+                h-full">
 
-                <div class="doctor-modern-card">
-
-                    <div class="doctor-image-wrap">
+                    <div class="flex justify-center">
 
                         <img src="{% static 'images/doctor4.jpg' %}"
-                        class="doctor-modern-img">
+                        class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-8 border-[#f3e8ff]"
+                        alt="Doctor">
 
                     </div>
 
-                    <h4>Dr. Anusha</h4>
+                    <div class="text-center mt-6">
 
-                    <div class="doctor-speciality">
-                        Sonologist
+                        <h3 class="text-[#5b21b6] text-2xl sm:text-3xl font-bold">
+                            Dr. Anusha
+                        </h3>
+
+                        <h5 class="text-[#08113a] text-lg sm:text-xl font-semibold mt-2">
+                            Sonologist
+                        </h5>
+
+                        <p class="text-gray-500 mt-3">
+                            DMRD, DNB (Radiology)
+                        </p>
+
+                        <p class="text-gray-500">
+                            8+ Years Experience
+                        </p>
+
                     </div>
 
-                    <div class="doctor-degree">
-                        DMRD, DNB
+                    <div class="border-t border-gray-200 my-6"></div>
+
+                    <div class="flex-grow">
+
+                        <h4 class="text-[#5b21b6] text-lg sm:text-xl font-bold mb-4">
+                            Expertise
+                        </h4>
+
+                        <div class="space-y-3 text-gray-700 text-sm sm:text-base">
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>General Ultrasound</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Breast Ultrasound</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Thyroid & Neck Ultrasound</span>
+                            </div>
+
+                            <div class="flex gap-3 items-start">
+                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
+                                <span>Musculoskeletal Ultrasound</span>
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div class="doctor-exp">
-                        8+ Years Experience
-                    </div>
+                    <div class="mt-auto bg-[#faf7ff] rounded-2xl p-4 sm:p-5 flex items-center gap-4">
 
-                    <hr>
+                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff]
+                        flex items-center justify-center
+                        text-[#5b21b6] text-3xl">
 
-                    <div class="expertise-title">
-                        Expertise
-                    </div>
+                            <i class="fas fa-user-md"></i>
 
-                    <ul class="doctor-list">
-
-                        <li>General Ultrasound</li>
-                        <li>Breast Ultrasound</li>
-                        <li>Thyroid Ultrasound</li>
-                        <li>Musculoskeletal Scan</li>
-
-                    </ul>
-
-                    <div class="doctor-exp-box">
-
-                        <i class="bi bi-people"></i>
+                        </div>
 
                         <div>
-                            <strong>8+</strong><br>
-                            Years of Experience
+
+                            <h4 class="text-[#08113a] text-2xl sm:text-3xl font-bold">
+                                8+
+                            </h4>
+
+                            <p class="text-gray-600">
+                                Years of Experience
+                            </p>
+
                         </div>
 
                     </div>

@@ -1,83 +1,151 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
 {% block content %}
 
 <!-- HERO SECTION -->
 
-<section class="hero-section">
+<section class="bg-[#f8f5ff] overflow-hidden">
 
-    <div class="container">
+    <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
 
-        <div class="row align-items-center gy-5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
-            <!-- LEFT SIDE -->
+            <!-- LEFT CONTENT -->
 
-            <div class="col-lg-7" data-aos="fade-right">
+            <div class="text-center lg:text-left">
 
-                <h6 class="hero-subtitle">
-                    ADVANCED CARE. ACCURATE SCANS.
-                </h6>
+                <p class="uppercase tracking-wide text-[#5b21b6] font-semibold text-sm mb-5">
+                    Advanced Care. Accurate Scans.
+                </p>
 
-                <h1 class="hero-title">
-    Care You Can <span>Trust,</span><br>
-    <span class="nowrap-text">Images You Can Rely On</span>
-</h1>
+                <h1 class="text-[#08113a] font-extrabold leading-[1.1]
+                text-[38px]
+                sm:text-5xl
+                md:text-6xl
+                lg:text-7xl">
 
-                <p class="hero-text">
-                    Naren Ultrasound provides modern diagnostic imaging
-                    with compassionate care, advanced technology,
-                    and highly accurate reports for every patient.
+                    Care You Can Trust,
+                    Images You Can
+
+                    <span class="text-[#5b21b6]">
+                        Rely On
+                    </span>
+
+                </h1>
+
+                <p class="text-gray-600 text-base sm:text-lg leading-relaxed mt-6 max-w-xl mx-auto lg:mx-0">
+
+                    Naren Ultrasound & Fetal Medicine Center provides advanced
+                    ultrasound & fetal care with compassion and accuracy.
+
                 </p>
 
                 <!-- BUTTONS -->
 
-                <div class="hero-buttons">
+                <div class="flex flex-col sm:flex-row sm:flex-wrap gap-4 mt-8 justify-center lg:justify-start">
 
-                    <a href="/contact/" class="hero-btn">
+                    <!-- BOOK APPOINTMENT -->
+
+                    <a href="{% url 'contact' %}"
+                    class="bg-[#5b21b6] hover:bg-[#4c1d95] text-white font-semibold
+                    px-6 sm:px-10
+                    py-3 sm:py-4
+                    rounded-xl transition duration-300
+                    flex items-center justify-center gap-2">
+
+                        <i class="fa-solid fa-calendar-check"></i>
                         Book Appointment
+
                     </a>
 
-                    <a href="/services/" class="hero-btn">
+                    <!-- SERVICES -->
+
+                    <a href="{% url 'services' %}"
+                    class="border-2 border-[#5b21b6] text-[#5b21b6]
+                    hover:bg-[#5b21b6] hover:text-white
+                    font-semibold
+                    px-6 sm:px-10
+                    py-3 sm:py-4
+                    rounded-xl transition duration-300
+                    flex items-center justify-center gap-2">
+
                         Our Services
+                        <i class="fa-solid fa-arrow-right"></i>
+
                     </a>
 
                 </div>
 
                 <!-- FEATURES -->
 
-                <div class="hero-features">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
 
-                    <div class="feature-item">
+                    <!-- ITEM -->
 
-                        <i class="bi bi-camera2"></i>
+                    <div class="flex items-center gap-3 justify-center lg:justify-start">
 
-                        <span>Advanced Technology</span>
+                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff]
+                        bg-white shadow-sm flex items-center justify-center shrink-0">
 
-                    </div>
+                            <i class="fa-solid fa-microchip text-[#5b21b6] text-xl"></i>
 
-                    <div class="feature-item">
+                        </div>
 
-                        <i class="bi bi-person-badge"></i>
-
-                        <span>Expert Radiologists</span>
-
-                    </div>
-
-                    <div class="feature-item">
-
-                        <i class="bi bi-file-earmark-medical"></i>
-
-                        <span>Accurate Reports</span>
+                        <p class="text-[#08113a] font-medium leading-6 text-sm">
+                            Advanced <br> Technology
+                        </p>
 
                     </div>
 
-                    <div class="feature-item">
+                    <!-- ITEM -->
 
-                        <i class="bi bi-heart-pulse"></i>
+                    <div class="flex items-center gap-3 justify-center lg:justify-start">
 
-                        <span>Patient First Care</span>
+                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff]
+                        bg-white shadow-sm flex items-center justify-center shrink-0">
+
+                            <i class="fa-solid fa-user-doctor text-[#5b21b6] text-xl"></i>
+
+                        </div>
+
+                        <p class="text-[#08113a] font-medium leading-6 text-sm">
+                            Expert <br> Radiologists
+                        </p>
+
+                    </div>
+
+                    <!-- ITEM -->
+
+                    <div class="flex items-center gap-3 justify-center lg:justify-start">
+
+                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff]
+                        bg-white shadow-sm flex items-center justify-center shrink-0">
+
+                            <i class="fa-solid fa-file-medical text-[#5b21b6] text-xl"></i>
+
+                        </div>
+
+                        <p class="text-[#08113a] font-medium leading-6 text-sm">
+                            Accurate Reports
+                        </p>
+
+                    </div>
+
+                    <!-- ITEM -->
+
+                    <div class="flex items-center gap-3 justify-center lg:justify-start">
+
+                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff]
+                        bg-white shadow-sm flex items-center justify-center shrink-0">
+
+                            <i class="fa-solid fa-star text-[#5b21b6] text-xl"></i>
+
+                        </div>
+
+                        <p class="text-[#08113a] font-medium leading-6 text-sm">
+                            Patient First Care
+                        </p>
 
                     </div>
 
@@ -85,65 +153,128 @@
 
             </div>
 
-            <!-- RIGHT SIDE -->
+            <!-- RIGHT IMAGE -->
 
-            <div class="col-lg-5" data-aos="fade-left">
+            <div>
 
-                <div class="hero-image-wrapper">
-
-                    <img src="{% static 'images/hero.jpg' %}"
-                    class="hero-image"
-                    alt="Hero Image">
-
-                </div>
+                <img src="{% static 'images/hero.jpg' %}"
+                alt="Hero"
+                class="w-full
+                h-[260px]
+                sm:h-[420px]
+                lg:h-[520px]
+                object-cover rounded-[28px] shadow-xl">
 
             </div>
 
         </div>
 
-    </div>
+        <!-- STATS SECTION -->
 
-</section>
+        <div class="px-0 lg:px-2 pt-10">
 
-<!-- STATS SECTION -->
+            <div class="bg-gradient-to-r from-[#34117c] to-[#4f1ea9]
+                rounded-[28px]
+                overflow-hidden
+                grid grid-cols-2 lg:grid-cols-4">
 
-<section class="stats-wrapper">
+                <!-- CARD -->
 
-    <div class="container">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-8 border-b lg:border-b-0 lg:border-r border-white/20 text-center sm:text-left">
 
-        <div class="stats-section">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30
+                    flex items-center justify-center shrink-0">
 
-            <div class="row text-center">
+                        <i class="fa-solid fa-users text-white text-3xl sm:text-4xl"></i>
 
-                <div class="col-md-3 col-6 stat-box">
+                    </div>
 
-                    <h2>10+</h2>
+                    <div>
 
-                    <p>Years Experience</p>
+                        <h2 class="text-white text-3xl sm:text-5xl font-bold leading-none">
+                            10+
+                        </h2>
 
-                </div>
+                        <p class="text-white text-sm sm:text-lg mt-2">
+                            Years of Experience
+                        </p>
 
-                <div class="col-md-3 col-6 stat-box">
-
-                    <h2>25K+</h2>
-
-                    <p>Happy Patients</p>
-
-                </div>
-
-                <div class="col-md-3 col-6 stat-box">
-
-                    <h2>15+</h2>
-
-                    <p>Specialists</p>
+                    </div>
 
                 </div>
 
-                <div class="col-md-3 col-6 stat-box">
+                <!-- CARD -->
 
-                    <h2>5★</h2>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-8 border-b lg:border-b-0 lg:border-r border-white/20 text-center sm:text-left">
 
-                    <p>Patient Rating</p>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30
+                    flex items-center justify-center shrink-0">
+
+                        <i class="fa-regular fa-heart text-white text-3xl sm:text-4xl"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2 class="text-white text-3xl sm:text-5xl font-bold leading-none">
+                            25K+
+                        </h2>
+
+                        <p class="text-white text-sm sm:text-lg mt-2">
+                            Happy Patients
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD -->
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-8 lg:border-r border-white/20 text-center sm:text-left">
+
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30
+                    flex items-center justify-center shrink-0">
+
+                        <i class="fa-solid fa-user-doctor text-white text-3xl sm:text-4xl"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2 class="text-white text-3xl sm:text-5xl font-bold leading-none">
+                            15+
+                        </h2>
+
+                        <p class="text-white text-sm sm:text-lg mt-2">
+                            Expert Specialists
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD -->
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-8 text-center sm:text-left">
+
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30
+                    flex items-center justify-center shrink-0">
+
+                        <i class="fa-solid fa-star text-[#FFD54A] text-3xl sm:text-4xl"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h2 class="text-white text-3xl sm:text-5xl font-bold leading-none">
+                            5 Star
+                        </h2>
+
+                        <p class="text-white text-sm sm:text-lg mt-2">
+                            Patient Rating
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -157,40 +288,72 @@
 
 <!-- ABOUT SECTION -->
 
-<section class="about-home-section">
+<section class="py-12 sm:py-16 lg:py-24 bg-white">
 
-    <div class="container">
+    <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="row align-items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            <div class="col-lg-6">
+            <!-- LEFT -->
 
-                <h6 class="section-subtitle">
-                    ABOUT US
-                </h6>
+            <div class="text-center lg:text-left">
 
-                <h2 class="section-title">
-                    Trusted Ultrasound & Diagnostic Care
+                <div class="flex items-center justify-center lg:justify-start gap-4 mb-5">
+
+                    <div class="w-10 sm:w-14 h-[2px] bg-[#5b21b6]"></div>
+
+                    <p class="uppercase text-[#5b21b6] font-semibold text-xs sm:text-sm tracking-wide whitespace-nowrap">
+                        About Us
+                    </p>
+
+                    <div class="w-10 sm:w-14 h-[2px] bg-[#5b21b6]"></div>
+
+                </div>
+
+                <h2 class="text-[#08113a] font-extrabold leading-tight
+                text-4xl
+                sm:text-5xl
+                lg:text-6xl">
+
+                    Trusted Ultrasound
+                    & Diagnostic Care
+
                 </h2>
 
-                <p class="hero-text">
-                    Naren Ultrasound provides advanced diagnostic
-                    imaging with compassionate patient care,
-                    accurate reports, and modern ultrasound
-                    technology for every stage of healthcare.
+                <p class="text-gray-600 text-base sm:text-lg leading-relaxed mt-6 max-w-xl mx-auto lg:mx-0">
+
+                    Naren Ultrasound provides advanced diagnostic imaging with
+                    compassionate patient care, accurate reports, and modern
+                    ultrasound technology for every stage of healthcare.
+
                 </p>
 
-                <a href="/about/" class="hero-btn">
+                <!-- ABOUT BUTTON -->
+
+                <a href="{% url 'about' %}"
+                class="inline-block mt-8 bg-[#5b21b6] hover:bg-[#4c1d95]
+                text-white font-semibold
+                px-6 sm:px-10
+                py-3 sm:py-4
+                rounded-xl transition duration-300">
+
                     Learn More
+
                 </a>
 
             </div>
 
-            <div class="col-lg-6">
+            <!-- RIGHT -->
 
-                <img src="{% static 'images/doctor.jpg' %}"
-                class="about-home-image"
-                alt="About Image">
+            <div>
+
+                <img src="{% static 'images/contact-banner.png' %}"
+                alt="About"
+                class="w-full
+                h-[240px]
+                sm:h-[320px]
+                lg:h-[450px]
+                object-cover rounded-[28px] shadow-lg">
 
             </div>
 
@@ -200,42 +363,55 @@
 
 </section>
 
-
 <!-- SERVICES SECTION -->
 
-<section class="services-section">
+<section class="bg-[#faf7ff] py-12 sm:py-16 lg:py-20">
 
-    <div class="container">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="text-center mb-5">
+        <!-- HEADING -->
 
-            <h6 class="section-subtitle">
-                OUR SERVICES
-            </h6>
+        <div class="text-center mb-12">
 
-            <h2 class="section-title">
+            <p class="uppercase tracking-[4px] text-[#5b21b6] font-semibold text-sm mb-4">
+                Our Services
+            </p>
+
+            <h2 class="text-[#08113a] font-extrabold leading-tight
+            text-4xl
+            sm:text-5xl
+            lg:text-6xl">
+
                 Comprehensive Ultrasound Services
+
             </h2>
 
         </div>
 
-        <div class="row g-4">
+        <!-- SERVICES GRID -->
+
+        <div class="grid
+        grid-cols-1
+        sm:grid-cols-2
+        lg:grid-cols-4
+        gap-6">
 
             <!-- SERVICE 1 -->
 
-            <div class="col-lg-4 col-md-6">
+            <div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <div class="service-card">
+                <img src="{% static 'images/service1.jpg' %}"
+                alt="Pregnancy Scan"
+                class="w-full h-[230px] object-cover">
 
-                    <img src="{% static 'images/service1.png' %}"
-                    alt="Service">
+                <div class="p-6">
 
-                    <h4>Pregnancy Scan</h4>
+                    <h3 class="text-[#08113a] font-bold text-2xl mb-4">
+                        Pregnancy Scan
+                    </h3>
 
-                    <p>
-                        Early pregnancy scans, anomaly scans,
-                        growth scans, and fetal wellbeing
-                        assessments.
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Safe pregnancy scans, anomaly scans, growth scans and fetal wellbeing assessments.
                     </p>
 
                 </div>
@@ -244,19 +420,20 @@
 
             <!-- SERVICE 2 -->
 
-            <div class="col-lg-4 col-md-6">
+            <div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <div class="service-card">
+                <img src="{% static 'images/service2.jpg' %}"
+                alt="Color Doppler"
+                class="w-full h-[230px] object-cover">
 
-                    <img src="{% static 'images/service2.png' %}"
-                    alt="Service">
+                <div class="p-6">
 
-                    <h4>Color Doppler</h4>
+                    <h3 class="text-[#08113a] font-bold text-2xl mb-4">
+                        Color Doppler
+                    </h3>
 
-                    <p>
-                        Advanced vascular Doppler imaging
-                        for accurate blood flow assessment
-                        and diagnosis.
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Advanced vascular Doppler imaging for accurate blood flow assessment.
                     </p>
 
                 </div>
@@ -265,19 +442,42 @@
 
             <!-- SERVICE 3 -->
 
-            <div class="col-lg-4 col-md-6">
+            <div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <div class="service-card">
+                <img src="{% static 'images/service3.jpg' %}"
+                alt="3D 4D Scan"
+                class="w-full h-[230px] object-cover">
 
-                    <img src="{% static 'images/service3.png' %}"
-                    alt="Service">
+                <div class="p-6">
 
-                    <h4>Thyroid Scan</h4>
+                    <h3 class="text-[#08113a] font-bold text-2xl mb-4">
+                        3D / 4D Scan
+                    </h3>
 
-                    <p>
-                        Detailed thyroid gland imaging
-                        for nodules, swelling,
-                        and abnormality evaluation.
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        High-quality 3D & 4D imaging to capture precious moments of your baby.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- SERVICE 4 -->
+
+            <div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
+
+                <img src="{% static 'images/services-banner.jpg' %}"
+                alt="General Ultrasound"
+                class="w-full h-[230px] object-cover">
+
+                <div class="p-6">
+
+                    <h3 class="text-[#08113a] font-bold text-2xl mb-4">
+                        General Ultrasound
+                    </h3>
+
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Comprehensive ultrasound imaging for abdomen, thyroid, pelvis and more.
                     </p>
 
                 </div>
@@ -286,149 +486,107 @@
 
         </div>
 
+        <!-- BUTTON -->
+
+        <div class="text-center mt-12">
+
+            <a href="{% url 'services' %}"
+            class="inline-flex items-center gap-3
+            bg-[#5b21b6]
+            hover:bg-[#4c1d95]
+            text-white
+            px-8 py-4
+            rounded-xl
+            font-semibold
+            transition duration-300">
+
+                View All Services
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
     </div>
 
 </section>
 
-<div class="text-center mt-5">
-
-    <a href="/services/" class="hero-btn">
-        View All Services
-    </a>
-
-</div>
-
 <!-- DOCTOR SECTION -->
 
-<section class="doctor-section">
+<section class="py-12 sm:py-16 lg:py-24 bg-white">
 
-    <div class="container">
+    <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="doctor-card">
+        <div class="bg-[#f8f5ff] rounded-[30px] p-5 sm:p-8 lg:p-14">
 
-            <div class="row align-items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                 <!-- IMAGE -->
 
-                <div class="col-lg-5 text-center">
+                <div>
 
-                    <img src="{% static 'images/doctor.jpg' %}"
-                    class="doctor-image"
-                    alt="Doctor">
+                    <img src="{% static 'images/doctors-banner.jpg' %}"
+                    class="w-full
+                    h-[260px]
+                    sm:h-[420px]
+                    object-cover rounded-[24px]">
 
                 </div>
 
                 <!-- CONTENT -->
 
-                <div class="col-lg-7">
+                <div class="text-center lg:text-left">
 
-                    <h6 class="section-subtitle">
-                        OUR SPECIALIST
-                    </h6>
+                    <div class="flex items-center justify-center lg:justify-start gap-4 mb-5">
 
-                    <h2 class="doctor-name">
-                        Dr. Naren Kumar
+                        <div class="w-10 sm:w-14 h-[2px] bg-[#5b21b6]"></div>
+
+                        <p class="uppercase text-[#5b21b6] font-semibold text-xs sm:text-sm tracking-wide whitespace-nowrap">
+                            Our Specialist
+                        </p>
+
+                        <div class="w-10 sm:w-14 h-[2px] bg-[#5b21b6]"></div>
+
+                    </div>
+
+                    <h2 class="text-[#08113a]
+                    text-3xl
+                    sm:text-5xl
+                    font-extrabold leading-tight">
+
+                        Meet Our Expert
+                        Dr. Naren
+
                     </h2>
 
-                    <h5 class="doctor-role">
-                        Senior Radiologist
-                    </h5>
-
-                    <p class="hero-text">
-                        Highly experienced diagnostic specialist
-                        committed to accurate ultrasound reporting,
-                        compassionate patient care,
-                        and advanced fetal imaging.
+                    <p class="text-[#5b21b6] font-semibold text-xl sm:text-2xl mt-4">
+                        Fetal Medicine Specialist
                     </p>
 
-                    <a href="/contact/" class="hero-btn">
-                        Book Consultation
+                    <p class="text-gray-600 text-base sm:text-lg leading-relaxed mt-6">
+
+                        Providing expert fetal imaging, pregnancy scans,
+                        and maternal care with advanced technology and
+                        compassionate medical excellence.
+
+                    </p>
+
+                    <!-- DOCTORS BUTTON -->
+
+                    <a href="{% url 'doctors' %}"
+                    class="inline-block mt-8 bg-[#5b21b6] hover:bg-[#4c1d95]
+                    text-white px-6 sm:px-10
+                    py-3 sm:py-4
+                    rounded-xl font-semibold transition duration-300">
+
+                        Know More
+
                     </a>
 
                 </div>
 
             </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- GALLERY SECTION -->
-
-<section class="gallery-home-section">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-
-            <h6 class="section-subtitle">
-                GALLERY
-            </h6>
-
-            <h2 class="section-title">
-                Our Clinic Gallery
-            </h2>
-
-        </div>
-
-        <div class="row g-4">
-
-            <div class="col-md-4">
-                <img src="{% static 'images/gallery1.jpg' %}"
-                class="gallery-home-img">
-            </div>
-
-            <div class="col-md-4">
-                <img src="{% static 'images/gallery2.jpg' %}"
-                class="gallery-home-img">
-            </div>
-
-            <div class="col-md-4">
-                <img src="{% static 'images/gallery3.jpg' %}"
-                class="gallery-home-img">
-            </div>
-
-        </div>
-
-        <div class="text-center mt-5">
-
-            <a href="/gallery/" class="hero-btn">
-                View Gallery
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- PATIENT INFO SECTION -->
-
-<section class="patient-info-section">
-
-    <div class="container">
-
-        <div class="patient-info-box text-center">
-
-            <h6 class="section-subtitle">
-                PATIENT INFORMATION
-            </h6>
-
-            <h2 class="section-title">
-                Important Information For Patients
-            </h2>
-
-            <p class="hero-text">
-                Learn about appointments, scan preparation,
-                reporting process, and patient care guidelines
-                before visiting our center.
-            </p>
-
-            <a href="/patient-info/" class="hero-btn">
-                Read Patient Info
-            </a>
 
         </div>
 

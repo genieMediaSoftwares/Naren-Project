@@ -1,49 +1,66 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
 {% block content %}
 
 <!-- HERO SECTION -->
 
-<section class="services-hero">
+<section class="bg-[#f8f5ff] overflow-hidden">
 
-    <div class="container">
+    <div class="max-w-[1500px] mx-auto">
 
-        <div class="services-hero-box">
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
 
-            <div class="row align-items-center">
+            <!-- LEFT CONTENT -->
 
-                <!-- LEFT -->
+            <div class="px-5 sm:px-8 lg:px-16 py-10 sm:py-14 lg:py-16">
 
-                <div class="col-lg-6 p-5">
+                <h6 class="uppercase text-[#5b21b6] font-semibold tracking-[3px] text-sm mb-4">
+                    OUR SERVICES
+                </h6>
 
-                    <h6 class="services-small-title">
-                        OUR SERVICES
-                    </h6>
+                <h1 class="text-[#08113a]
+                text-[34px]
+                sm:text-5xl
+                lg:text-7xl
+                font-extrabold
+                leading-[1.1]">
 
-                    <h1 class="services-main-title">
-                        Comprehensive Ultrasound &
-                        Fetal Care <span>Services</span>
-                    </h1>
+                    Comprehensive Ultrasound &
+                    Fetal Care
 
-                    <p class="services-text">
-                        We offer a wide range of advanced
-                        ultrasound and diagnostic services
-                        for you and your baby's health.
-                    </p>
+                    <span class="text-[#5b21b6]">
+                        Services
+                    </span>
 
-                </div>
+                </h1>
 
-                <!-- RIGHT -->
+                <p class="text-gray-600
+                text-[15px]
+                sm:text-lg
+                leading-relaxed
+                mt-6
+                max-w-2xl">
 
-                <div class="col-lg-6 pe-0">
+                    We offer a wide range of advanced ultrasound
+                    and diagnostic services for you and your baby's health.
 
-                    <img src="{% static 'images/services-banner.jpg' %}"
-                    class="services-banner-img"
-                    alt="Services Banner">
+                </p>
 
-                </div>
+            </div>
+
+            <!-- RIGHT IMAGE -->
+
+            <div>
+
+                <img src="{% static 'images/services-banner.jpg' %}"
+                alt="Services Banner"
+
+                class="w-full
+                h-[240px]
+                sm:h-[380px]
+                lg:h-[620px]
+                object-cover">
 
             </div>
 
@@ -53,427 +70,522 @@
 
 </section>
 
-<!-- SERVICES SECTION -->
+<!-- MAIN SECTION -->
 
-<section class="services-main-section">
+<section class="bg-[#f5f5f5] py-8 sm:py-12 lg:py-14">
 
-    <div class="container">
+    <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="container">
+        <div class="grid
+        grid-cols-1
+        2xl:grid-cols-3
+        gap-6 xl:gap-8">
 
-    <div class="row">
+            <!-- LEFT SERVICES -->
 
-        <!-- LEFT SIDE -->
+            <div class="2xl:col-span-2">
 
-        <div class="col-lg-8">
+                <div class="bg-white
+                rounded-[24px] lg:rounded-[28px]
+                p-4 sm:p-7 lg:p-10
+                shadow-sm">
 
-            <div class="text-center mb-5">
+                    <!-- HEADING -->
 
-                <h6 class="section-subtitle">
-                    WHAT WE OFFER
-                </h6>
+                    <div class="text-center mb-10 sm:mb-12">
 
-                <h2 class="section-title">
-                    Our Ultrasound & Diagnostic Services
-                </h2>
+                        <div class="flex items-center justify-center gap-3 sm:gap-4 mb-4">
 
-            </div>
+                            <div class="w-8 sm:w-10 h-[2px] bg-[#5b21b6]"></div>
 
-                <div class="row g-4">
+                            <h6 class="uppercase text-[#5b21b6]
+                            tracking-[3px]
+                            text-xs sm:text-sm
+                            font-semibold">
 
-                    <!-- CARD -->
+                                WHAT WE OFFER
 
-                    <div class="col-lg-4 col-md-6">
+                            </h6>
 
-                        <div class="modern-service-card">
+                            <div class="w-8 sm:w-10 h-[2px] bg-[#5b21b6]"></div>
 
-                            <div class="service-icon-box">
-                                <i class="bi bi-heart-pulse"></i>
+                        </div>
+
+                        <h2 class="text-[#08113a]
+                        text-2xl
+                        sm:text-4xl
+                        lg:text-5xl
+                        font-bold
+                        leading-tight">
+
+                            Our Ultrasound & Diagnostic Services
+
+                        </h2>
+
+                        <div class="w-20 sm:w-24 h-1
+                        bg-[#5b21b6]
+                        rounded-full mx-auto mt-5"></div>
+
+                    </div>
+
+                    <!-- SERVICES GRID -->
+
+                    <div class="grid
+                    grid-cols-1
+                    sm:grid-cols-2
+                    2xl:grid-cols-3
+                    gap-5 sm:gap-6">
+
+                        <!-- CARD 1 -->
+
+                        <div class="border border-gray-200
+                        rounded-2xl
+                        p-5 sm:p-6
+                        bg-white
+                        hover:shadow-xl
+                        transition duration-300">
+
+                            <div class="w-16 h-16 rounded-full
+                            bg-[#f3e8ff]
+                            flex items-center justify-center
+                            text-[#5b21b6]
+                            text-4xl mb-5">
+
+                                <i class="fas fa-heartbeat"></i>
+
                             </div>
 
-                            <div>
+                            <h4 class="text-[#08113a]
+                            font-bold
+                            text-xl sm:text-2xl
+                            mb-3">
 
-                                <h5>Pregnancy Scans</h5>
+                                Pregnancy Scans
 
-                                <p>
-                                    Early pregnancy, anomaly,
-                                    NT scan, growth scan
-                                    and more.
-                                </p>
+                            </h4>
+
+                            <p class="text-gray-600
+                            leading-relaxed
+                            text-[15px] sm:text-lg">
+
+                                Early pregnancy, viability,
+                                NT scan, anomaly scan,
+                                growth scan and more.
+
+                            </p>
+
+                        </div>
+
+                        <!-- CARD 2 -->
+
+                        <div class="border border-gray-200
+                        rounded-2xl
+                        p-5 sm:p-6
+                        bg-white
+                        hover:shadow-xl
+                        transition duration-300">
+
+                            <div class="w-16 h-16 rounded-full
+                            bg-[#f3e8ff]
+                            flex items-center justify-center
+                            text-[#5b21b6]
+                            text-4xl mb-5">
+
+                                <i class="fas fa-baby"></i>
 
                             </div>
+
+                            <h4 class="text-[#08113a]
+                            font-bold
+                            text-xl sm:text-2xl
+                            mb-3">
+
+                                3D / 4D Baby Scan
+
+                            </h4>
+
+                            <p class="text-gray-600
+                            leading-relaxed
+                            text-[15px] sm:text-lg">
+
+                                Real-time 3D & 4D imaging
+                                to capture your baby's precious moments.
+
+                            </p>
+
+                        </div>
+
+                        <!-- CARD 3 -->
+
+                        <div class="border border-gray-200
+                        rounded-2xl
+                        p-5 sm:p-6
+                        bg-white
+                        hover:shadow-xl
+                        transition duration-300">
+
+                            <div class="w-16 h-16 rounded-full
+                            bg-[#f3e8ff]
+                            flex items-center justify-center
+                            text-[#5b21b6]
+                            text-4xl mb-5">
+
+                                <i class="fas fa-wave-square"></i>
+
+                            </div>
+
+                            <h4 class="text-[#08113a]
+                            font-bold
+                            text-xl sm:text-2xl
+                            mb-3">
+
+                                Doppler Scans
+
+                            </h4>
+
+                            <p class="text-gray-600
+                            leading-relaxed
+                            text-[15px] sm:text-lg">
+
+                                Color Doppler, fetal Doppler,
+                                vascular Doppler for better diagnosis.
+
+                            </p>
+
+                        </div>
+
+                        <!-- CARD 4 -->
+
+                        <div class="border border-gray-200
+                        rounded-2xl
+                        p-5 sm:p-6
+                        bg-white
+                        hover:shadow-xl
+                        transition duration-300">
+
+                            <div class="w-16 h-16 rounded-full
+                            bg-[#f3e8ff]
+                            flex items-center justify-center
+                            text-[#5b21b6]
+                            text-4xl mb-5">
+
+                                <i class="fas fa-hospital"></i>
+
+                            </div>
+
+                            <h4 class="text-[#08113a]
+                            font-bold
+                            text-xl sm:text-2xl
+                            mb-3">
+
+                                Abdomen Scan
+
+                            </h4>
+
+                            <p class="text-gray-600
+                            leading-relaxed
+                            text-[15px] sm:text-lg">
+
+                                Liver, gallbladder, pancreas,
+                                spleen, appendix and organs.
+
+                            </p>
+
+                        </div>
+
+                        <!-- CARD 5 -->
+
+                        <div class="border border-gray-200
+                        rounded-2xl
+                        p-5 sm:p-6
+                        bg-white
+                        hover:shadow-xl
+                        transition duration-300">
+
+                            <div class="w-16 h-16 rounded-full
+                            bg-[#f3e8ff]
+                            flex items-center justify-center
+                            text-[#5b21b6]
+                            text-4xl mb-5">
+
+                                <i class="fas fa-female"></i>
+
+                            </div>
+
+                            <h4 class="text-[#08113a]
+                            font-bold
+                            text-xl sm:text-2xl
+                            mb-3">
+
+                                Pelvic Scan
+
+                            </h4>
+
+                            <p class="text-gray-600
+                            leading-relaxed
+                            text-[15px] sm:text-lg">
+
+                                Uterus, ovaries, fibroids,
+                                cysts and pelvic conditions.
+
+                            </p>
+
+                        </div>
+
+                        <!-- CARD 6 -->
+
+                        <div class="border border-gray-200
+                        rounded-2xl
+                        p-5 sm:p-6
+                        bg-white
+                        hover:shadow-xl
+                        transition duration-300">
+
+                            <div class="w-16 h-16 rounded-full
+                            bg-[#f3e8ff]
+                            flex items-center justify-center
+                            text-[#5b21b6]
+                            text-4xl mb-5">
+
+                                <i class="fas fa-stethoscope"></i>
+
+                            </div>
+
+                            <h4 class="text-[#08113a]
+                            font-bold
+                            text-xl sm:text-2xl
+                            mb-3">
+
+                                Thyroid Scan
+
+                            </h4>
+
+                            <p class="text-gray-600
+                            leading-relaxed
+                            text-[15px] sm:text-lg">
+
+                                Accurate evaluation of thyroid
+                                nodules and conditions.
+
+                            </p>
+
+                        </div>
+
+                        <!-- CARD 7 -->
+
+                        <div class="border border-gray-200
+                        rounded-2xl
+                        p-5 sm:p-6
+                        bg-white
+                        hover:shadow-xl
+                        transition duration-300">
+
+                            <div class="w-16 h-16 rounded-full
+                            bg-[#f3e8ff]
+                            flex items-center justify-center
+                            text-[#5b21b6]
+                            text-4xl mb-5">
+
+                                <i class="fas fa-syringe"></i>
+
+                            </div>
+
+                            <h4 class="text-[#08113a]
+                            font-bold
+                            text-xl sm:text-2xl
+                            mb-3">
+
+                                Interventional Procedures
+
+                            </h4>
+
+                            <p class="text-gray-600
+                            leading-relaxed
+                            text-[15px] sm:text-lg">
+
+                                USG-guided FNAC, biopsy and
+                                interventional procedures.
+
+                            </p>
+
+                        </div>
+
+                        <!-- CARD 8 -->
+
+                        <div class="border border-gray-200
+                        rounded-2xl
+                        p-5 sm:p-6
+                        bg-white
+                        hover:shadow-xl
+                        transition duration-300">
+
+                            <div class="w-16 h-16 rounded-full
+                            bg-[#f3e8ff]
+                            flex items-center justify-center
+                            text-[#5b21b6]
+                            text-4xl mb-5">
+
+                                <i class="fas fa-random"></i>
+
+                            </div>
+
+                            <h4 class="text-[#08113a]
+                            font-bold
+                            text-xl sm:text-2xl
+                            mb-3">
+
+                                Vascular Scan
+
+                            </h4>
+
+                            <p class="text-gray-600
+                            leading-relaxed
+                            text-[15px] sm:text-lg">
+
+                                Arterial & venous Doppler
+                                for various vascular conditions.
+
+                            </p>
 
                         </div>
 
                     </div>
-
-                    <!-- CARD -->
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="modern-service-card">
-
-                            <div class="service-icon-box">
-                                <i class="bi bi-stars"></i>
-                            </div>
-
-                            <div>
-
-                                <h5>3D / 4D Baby Scan</h5>
-
-                                <p>
-                                    Real-time baby imaging
-                                    to capture precious moments.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- CARD -->
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="modern-service-card">
-
-                            <div class="service-icon-box">
-                                <i class="bi bi-activity"></i>
-                            </div>
-
-                            <div>
-
-                                <h5>Doppler Scans</h5>
-
-                                <p>
-                                    Color Doppler and vascular
-                                    Doppler imaging services.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- CARD -->
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="modern-service-card">
-
-                            <div class="service-icon-box">
-                                <i class="bi bi-hospital"></i>
-                            </div>
-
-                            <div>
-
-                                <h5>Abdomen Scan</h5>
-
-                                <p>
-                                    Liver, pancreas, spleen
-                                    and abdominal evaluation.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- CARD -->
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="modern-service-card">
-
-                            <div class="service-icon-box">
-                                <i class="bi bi-gender-female"></i>
-                            </div>
-
-                            <div>
-
-                                <h5>Pelvic Scan</h5>
-
-                                <p>
-                                    Uterus, ovaries and
-                                    gynecological assessment.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- CARD -->
-
-                    <div class="col-lg-4 col-md-6">
-
-                        <div class="modern-service-card">
-
-                            <div class="service-icon-box">
-                                <i class="bi bi-shield-plus"></i>
-                            </div>
-
-                            <div>
-
-                                <h5>Thyroid Scan</h5>
-
-                                <p>
-                                    Thyroid nodules,
-                                    swelling and gland evaluation.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- CARD -->
-
-<div class="col-lg-4 col-md-6">
-
-    <div class="modern-service-card">
-
-        <div class="service-icon-box">
-            <i class="bi bi-droplet-half"></i>
-        </div>
-
-        <div>
-
-            <h5>Kidney & Urinary Scan</h5>
-
-            <p>
-                Kidney, bladder and urinary tract
-                ultrasound evaluation.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- CARD -->
-
-<div class="col-lg-4 col-md-6">
-
-    <div class="modern-service-card">
-
-        <div class="service-icon-box">
-            <i class="bi bi-bandaid"></i>
-        </div>
-
-        <div>
-
-            <h5>Breast Ultrasound</h5>
-
-            <p>
-                Breast lump evaluation and
-                soft tissue imaging services.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- CARD -->
-
-<div class="col-lg-4 col-md-6">
-
-    <div class="modern-service-card">
-
-        <div class="service-icon-box">
-            <i class="bi bi-syringe"></i>
-        </div>
-
-        <div>
-
-            <h5>Interventional Procedures</h5>
-
-            <p>
-                USG-guided FNAC, biopsy
-                and diagnostic procedures.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- CARD -->
-
-<div class="col-lg-4 col-md-6">
-
-    <div class="modern-service-card">
-
-        <div class="service-icon-box">
-            <i class="bi bi-diagram-3"></i>
-        </div>
-
-        <div>
-
-            <h5>Vascular Scan</h5>
-
-            <p>
-                Arterial and venous Doppler
-                scans for vascular conditions.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- CARD -->
-
-<div class="col-lg-4 col-md-6">
-
-    <div class="modern-service-card">
-
-        <div class="service-icon-box">
-            <i class="bi bi-gender-male"></i>
-        </div>
-
-        <div>
-
-            <h5>Scrotal Scan</h5>
-
-            <p>
-                Detailed ultrasound evaluation
-                of scrotal abnormalities.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- CARD -->
-
-<div class="col-lg-4 col-md-6">
-
-    <div class="modern-service-card">
-
-        <div class="service-icon-box">
-            <i class="bi bi-eye"></i>
-        </div>
-
-        <div>
-
-            <h5>Follicular Study</h5>
-
-            <p>
-                Ovulation monitoring and fertility
-                related ultrasound scans.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
 
                 </div>
 
             </div>
 
-            <!-- RIGHT SIDE -->
+            <!-- RIGHT SIDEBAR -->
 
-           <div class="col-lg-4 services-sidebar">
+            <div class="space-y-5 lg:space-y-6">
 
                 <!-- WHY CHOOSE US -->
 
-                <div class="why-services-box">
+                <div class="bg-gradient-to-b
+                from-[#4c1d95]
+                to-[#6d28d9]
 
-                    <h3>
+                rounded-[24px]
+                p-5 sm:p-6 lg:p-8
+                text-white">
+
+                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+
                         Why Choose Us?
+
                     </h3>
 
-                    <ul>
+                    <div class="w-16 h-1 bg-white rounded-full mb-8"></div>
 
-                        <li>Advanced ultrasound machines</li>
-                        <li>Experienced radiologists</li>
-                        <li>Accurate reports</li>
-                        <li>Comfortable environment</li>
-                        <li>Compassionate patient care</li>
+                    <ul class="space-y-5 text-[15px] sm:text-lg">
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check-circle mt-1"></i>
+                            <span>Advanced high-resolution ultrasound machines</span>
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check-circle mt-1"></i>
+                            <span>Experienced & certified radiologists</span>
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check-circle mt-1"></i>
+                            <span>Accurate diagnosis & fast reporting</span>
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check-circle mt-1"></i>
+                            <span>Hygienic, safe & comfortable environment</span>
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fas fa-check-circle mt-1"></i>
+                            <span>Compassionate care for you and your family</span>
+                        </li>
 
                     </ul>
 
                 </div>
 
-                <!-- CONTACT BOX -->
+                <!-- NEED A SCAN -->
 
-                <div class="scan-book-box mt-4">
+                <div class="bg-[#f8f5ff]
+                border border-gray-200
+                rounded-[24px]
+                p-5 sm:p-6 lg:p-8">
 
-                    <h4>Need a Scan?</h4>
+                    <h3 class="text-[#5b21b6]
+                    text-2xl sm:text-3xl lg:text-4xl
+                    font-bold mb-6">
 
-                    <p>
-                        Book your appointment today
-                        and get expert care.
-                    </p>
+                        Need a Scan?
 
-                    <p>
-                        <i class="bi bi-telephone"></i>
-                        +91 89770 48927
-                    </p>
-
-                    <p>
-                        <i class="bi bi-envelope"></i>
-                        narenultrasound@gmail.com
-                    </p>
-
-                    <a href="/contact/" class="hero-btn">
-                        Book Appointment
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CTA SECTION -->
-
-<section class="services-cta-section">
-
-    <div class="container">
-
-        <div class="services-cta-box">
-
-            <div class="row align-items-center">
-
-                <div class="col-lg-8">
-
-                    <h3>
-                        Your Journey to Parenthood,
-                        Our Priority
                     </h3>
 
-                    <p>
-                        From early pregnancy scans
-                        to advanced fetal medicine,
-                        we are with you every step.
+                    <p class="text-gray-700
+                    text-[15px] sm:text-lg
+                    leading-relaxed mb-8">
+
+                        Book your appointment today and get
+                        world-class care from our experts.
+
                     </p>
 
-                </div>
+                    <div class="space-y-5 text-[15px] sm:text-lg text-gray-800">
 
-                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                        <div class="flex gap-4 items-start">
 
-                    <a href="/contact/" class="hero-btn">
-                        Book Your Scan Today
+                            <i class="fas fa-phone text-[#5b21b6] mt-1"></i>
+
+                            <span>+91 89770 48927</span>
+
+                        </div>
+
+                        <div class="flex gap-4 items-start break-all">
+
+                            <i class="fas fa-envelope text-[#5b21b6] mt-1"></i>
+
+                            <span>narenultrasound@gmail.com</span>
+
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+
+                            <i class="fas fa-map-marker-alt text-[#5b21b6] mt-1"></i>
+
+                            <span>
+                                Door No: 49-36-54,
+                                Maharani Peta,
+                                Near KGH,
+                                Visakhapatnam - 530002
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <a href="{% url 'contact' %}"
+
+                    class="inline-flex items-center justify-center
+                    mt-8
+
+                    bg-[#5b21b6]
+                    hover:bg-[#4c1d95]
+
+                    text-white
+                    font-semibold
+
+                    px-7 sm:px-8
+                    py-3 sm:py-4
+
+                    rounded-xl
+                    transition duration-300
+
+                    w-full sm:w-auto">
+
+                        Book Appointment
+
                     </a>
 
                 </div>
