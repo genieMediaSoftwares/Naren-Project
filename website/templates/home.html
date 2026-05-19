@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 
 <section class="bg-[#f8f5ff] overflow-hidden">
 
@@ -11,7 +11,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
 
-            <!-- LEFT CONTENT -->
+            <!-- LEFT -->
 
             <div class="text-center lg:text-left">
 
@@ -19,11 +19,7 @@
                     Advanced Care. Accurate Scans.
                 </p>
 
-                <h1 class="text-[#08113a] font-extrabold leading-[1.1]
-                text-[38px]
-                sm:text-5xl
-                md:text-6xl
-                lg:text-7xl">
+                <h1 class="text-[#08113a] font-extrabold leading-[1.1] text-[38px] sm:text-5xl md:text-6xl lg:text-7xl">
 
                     Care You Can Trust,
                     Images You Can
@@ -35,22 +31,15 @@
                 </h1>
 
                 <p class="text-gray-600 text-base sm:text-lg leading-relaxed mt-6 max-w-xl mx-auto lg:mx-0">
-
-                    Naren Ultrasound & Fetal Medicine Center provides advanced
-                    ultrasound & fetal care with compassion and accuracy.
-
+                    Naren Ultrasound & Fetal Medicine Center provides advanced ultrasound & fetal care with compassion and accuracy.
                 </p>
 
                 <!-- BUTTONS -->
 
                 <div class="flex flex-col sm:flex-row sm:flex-wrap gap-4 mt-8 justify-center lg:justify-start">
 
-                    <a href="{% url 'contact' %}"
-                    class="bg-[#5b21b6] hover:bg-[#4c1d95] text-white font-semibold
-                    px-6 sm:px-10
-                    py-3 sm:py-4
-                    rounded-xl transition duration-300
-                    flex items-center justify-center gap-2">
+                    <a href="{% url 'patient_info' %}"
+                        class="bg-[#5b21b6] hover:bg-[#4c1d95] text-white font-semibold px-6 sm:px-10 py-3 sm:py-4 rounded-xl transition duration-300 flex items-center justify-center gap-2">
 
                         <i class="fa-solid fa-calendar-check"></i>
                         Book Appointment
@@ -58,13 +47,7 @@
                     </a>
 
                     <a href="{% url 'services' %}"
-                    class="border-2 border-[#5b21b6] text-[#5b21b6]
-                    hover:bg-[#5b21b6] hover:text-white
-                    font-semibold
-                    px-6 sm:px-10
-                    py-3 sm:py-4
-                    rounded-xl transition duration-300
-                    flex items-center justify-center gap-2">
+                        class="border-2 border-[#5b21b6] text-[#5b21b6] hover:bg-[#5b21b6] hover:text-white font-semibold px-6 sm:px-10 py-3 sm:py-4 rounded-xl transition duration-300 flex items-center justify-center gap-2">
 
                         Our Services
                         <i class="fa-solid fa-arrow-right"></i>
@@ -77,10 +60,11 @@
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-7">
 
+                    <!-- ITEM -->
+
                     <div class="flex items-center gap-3 justify-center lg:justify-start">
 
-                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff]
-                        bg-white shadow-sm flex items-center justify-center shrink-0">
+                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff] bg-white shadow-sm flex items-center justify-center shrink-0">
 
                             <i class="fa-solid fa-microchip text-[#5b21b6] text-xl"></i>
 
@@ -92,10 +76,11 @@
 
                     </div>
 
+                    <!-- ITEM -->
+
                     <div class="flex items-center gap-3 justify-center lg:justify-start">
 
-                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff]
-                        bg-white shadow-sm flex items-center justify-center shrink-0">
+                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff] bg-white shadow-sm flex items-center justify-center shrink-0">
 
                             <i class="fa-solid fa-user-doctor text-[#5b21b6] text-xl"></i>
 
@@ -107,10 +92,11 @@
 
                     </div>
 
+                    <!-- ITEM -->
+
                     <div class="flex items-center gap-3 justify-center lg:justify-start">
 
-                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff]
-                        bg-white shadow-sm flex items-center justify-center shrink-0">
+                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff] bg-white shadow-sm flex items-center justify-center shrink-0">
 
                             <i class="fa-solid fa-file-medical text-[#5b21b6] text-xl"></i>
 
@@ -122,10 +108,11 @@
 
                     </div>
 
+                    <!-- ITEM -->
+
                     <div class="flex items-center gap-3 justify-center lg:justify-start">
 
-                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff]
-                        bg-white shadow-sm flex items-center justify-center shrink-0">
+                        <div class="w-12 h-12 rounded-full border border-[#d7c9ff] bg-white shadow-sm flex items-center justify-center shrink-0">
 
                             <i class="fa-solid fa-star text-[#5b21b6] text-xl"></i>
 
@@ -141,35 +128,29 @@
 
             </div>
 
-            <!-- RIGHT IMAGE -->
+            <!-- RIGHT -->
 
             <div>
 
                 <img src="{% static 'images/hero.jpg' %}"
-                alt="Hero"
-                class="w-full
-                h-[260px]
-                sm:h-[420px]
-                lg:h-[520px]
-                object-cover rounded-[28px] shadow-xl">
+                    alt="Hero"
+                    class="w-full h-[260px] sm:h-[420px] lg:h-[520px] object-cover rounded-[28px] shadow-xl">
 
             </div>
 
         </div>
 
-        <!-- STATS SECTION -->
+        <!-- STATS -->
 
         <div class="px-0 lg:px-2 pt-6">
 
-            <div class="bg-gradient-to-r from-[#34117c] to-[#4f1ea9]
-                rounded-[28px]
-                overflow-hidden
-                grid grid-cols-2 lg:grid-cols-4">
+            <div class="bg-gradient-to-r from-[#34117c] to-[#4f1ea9] rounded-[28px] overflow-hidden grid grid-cols-2 lg:grid-cols-4">
+
+                <!-- ITEM -->
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-6 border-b lg:border-b-0 lg:border-r border-white/20 text-center sm:text-left">
 
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30
-                    flex items-center justify-center shrink-0">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30 flex items-center justify-center shrink-0">
 
                         <i class="fa-solid fa-users text-white text-3xl sm:text-4xl"></i>
 
@@ -189,10 +170,11 @@
 
                 </div>
 
+                <!-- ITEM -->
+
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-6 border-b lg:border-b-0 lg:border-r border-white/20 text-center sm:text-left">
 
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30
-                    flex items-center justify-center shrink-0">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30 flex items-center justify-center shrink-0">
 
                         <i class="fa-regular fa-heart text-white text-3xl sm:text-4xl"></i>
 
@@ -212,10 +194,11 @@
 
                 </div>
 
+                <!-- ITEM -->
+
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-6 lg:border-r border-white/20 text-center sm:text-left">
 
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30
-                    flex items-center justify-center shrink-0">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30 flex items-center justify-center shrink-0">
 
                         <i class="fa-solid fa-user-doctor text-white text-3xl sm:text-4xl"></i>
 
@@ -235,10 +218,11 @@
 
                 </div>
 
+                <!-- ITEM -->
+
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-6 text-center sm:text-left">
 
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30
-                    flex items-center justify-center shrink-0">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30 flex items-center justify-center shrink-0">
 
                         <i class="fa-solid fa-star text-[#FFD54A] text-3xl sm:text-4xl"></i>
 
@@ -266,13 +250,15 @@
 
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- ABOUT -->
 
 <section class="py-10 sm:py-12 lg:py-16 bg-white">
 
     <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+
+            <!-- LEFT -->
 
             <div class="text-center lg:text-left">
 
@@ -288,30 +274,17 @@
 
                 </div>
 
-                <h2 class="text-[#08113a] font-extrabold leading-tight
-                text-4xl
-                sm:text-5xl
-                lg:text-6xl">
-
+                <h2 class="text-[#08113a] font-extrabold leading-tight text-4xl sm:text-5xl lg:text-6xl">
                     Trusted Ultrasound
                     & Diagnostic Care
-
                 </h2>
 
                 <p class="text-gray-600 text-base sm:text-lg leading-relaxed mt-6 max-w-xl mx-auto lg:mx-0">
-
-                    Naren Ultrasound provides advanced diagnostic imaging with
-                    compassionate patient care, accurate reports, and modern
-                    ultrasound technology for every stage of healthcare.
-
+                    Naren Ultrasound provides advanced diagnostic imaging with compassionate patient care, accurate reports, and modern ultrasound technology for every stage of healthcare.
                 </p>
 
                 <a href="{% url 'about' %}"
-                class="inline-block mt-6 bg-[#5b21b6] hover:bg-[#4c1d95]
-                text-white font-semibold
-                px-6 sm:px-10
-                py-3 sm:py-4
-                rounded-xl transition duration-300">
+                    class="inline-block mt-6 bg-[#5b21b6] hover:bg-[#4c1d95] text-white font-semibold px-6 sm:px-10 py-3 sm:py-4 rounded-xl transition duration-300">
 
                     Learn More
 
@@ -319,15 +292,13 @@
 
             </div>
 
+            <!-- RIGHT -->
+
             <div>
 
                 <img src="{% static 'images/contact-banner.png' %}"
-                alt="About"
-                class="w-full
-                h-[240px]
-                sm:h-[320px]
-                lg:h-[450px]
-                object-cover rounded-[28px] shadow-lg">
+                    alt="About"
+                    class="w-full h-[240px] sm:h-[320px] lg:h-[450px] object-cover rounded-[28px] shadow-lg">
 
             </div>
 
@@ -337,7 +308,7 @@
 
 </section>
 
-<!-- SERVICES SECTION -->
+<!-- SERVICES -->
 
 <section class="bg-[#faf7ff] py-10 sm:py-12 lg:py-16">
 
@@ -349,124 +320,112 @@
                 Our Services
             </p>
 
-            <h2 class="text-[#08113a] font-extrabold leading-tight
-            text-4xl
-            sm:text-5xl
-            lg:text-6xl">
-
+            <h2 class="text-[#08113a] font-extrabold leading-tight text-4xl sm:text-5xl lg:text-6xl">
                 Comprehensive Ultrasound Services
-
             </h2>
 
         </div>
 
-        <div class="grid
-        grid-cols-1
-        sm:grid-cols-2
-        lg:grid-cols-4
-        gap-5">
+        <!-- GRID -->
 
-            <!-- SERVICE 1 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-<div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
+            <!-- CARD -->
 
-    <img src="{% static 'images/service1.jpg' %}"
-    alt="Pregnancy Scan"
-    class="w-full h-[230px] object-cover">
+            <div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-    <div class="p-6">
+                <img src="{% static 'images/service1.jpg' %}"
+                    alt="Pregnancy Scan"
+                    class="w-full h-[230px] object-cover">
 
-        <h3 class="text-[#08113a] font-bold text-2xl mb-4">
-            Pregnancy Scan
-        </h3>
+                <div class="p-6">
 
-        <p class="text-gray-600 text-lg leading-relaxed">
-            Safe pregnancy scans, anomaly scans, growth scans and fetal wellbeing assessments.
-        </p>
+                    <h3 class="text-[#08113a] font-bold text-2xl mb-4">
+                        Pregnancy Scan
+                    </h3>
 
-    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Safe pregnancy scans, anomaly scans, growth scans and fetal wellbeing assessments.
+                    </p>
 
-</div>
+                </div>
 
-<!-- SERVICE 2 -->
+            </div>
 
-<div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
+            <!-- CARD -->
 
-    <img src="{% static 'images/service2.jpg' %}"
-    alt="Color Doppler"
-    class="w-full h-[230px] object-cover">
+            <div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-    <div class="p-6">
+                <img src="{% static 'images/service2.jpg' %}"
+                    alt="Color Doppler"
+                    class="w-full h-[230px] object-cover">
 
-        <h3 class="text-[#08113a] font-bold text-2xl mb-4">
-            Color Doppler
-        </h3>
+                <div class="p-6">
 
-        <p class="text-gray-600 text-lg leading-relaxed">
-            Advanced vascular Doppler imaging for accurate blood flow assessment.
-        </p>
+                    <h3 class="text-[#08113a] font-bold text-2xl mb-4">
+                        Color Doppler
+                    </h3>
 
-    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Advanced vascular Doppler imaging for accurate blood flow assessment.
+                    </p>
 
-</div>
+                </div>
 
-<!-- SERVICE 3 -->
+            </div>
 
-<div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
+            <!-- CARD -->
 
-    <img src="{% static 'images/service3.jpg' %}"
-    alt="3D 4D Scan"
-    class="w-full h-[230px] object-cover">
+            <div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-    <div class="p-6">
+                <img src="{% static 'images/service3.jpg' %}"
+                    alt="3D 4D Scan"
+                    class="w-full h-[230px] object-cover">
 
-        <h3 class="text-[#08113a] font-bold text-2xl mb-4">
-            3D / 4D Scan
-        </h3>
+                <div class="p-6">
 
-        <p class="text-gray-600 text-lg leading-relaxed">
-            High-quality 3D & 4D imaging to capture precious moments of your baby.
-        </p>
+                    <h3 class="text-[#08113a] font-bold text-2xl mb-4">
+                        3D / 4D Scan
+                    </h3>
 
-    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        High-quality 3D & 4D imaging to capture precious moments of your baby.
+                    </p>
 
-</div>
+                </div>
 
-<!-- SERVICE 4 -->
+            </div>
 
-<div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
+            <!-- CARD -->
 
-    <img src="{% static 'images/services-banner.jpg' %}"
-    alt="General Ultrasound"
-    class="w-full h-[230px] object-cover">
+            <div class="bg-white rounded-[24px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-    <div class="p-6">
+                <img src="{% static 'images/services-banner.jpg' %}"
+                    alt="General Ultrasound"
+                    class="w-full h-[230px] object-cover">
 
-        <h3 class="text-[#08113a] font-bold text-2xl mb-4">
-            General Ultrasound
-        </h3>
+                <div class="p-6">
 
-        <p class="text-gray-600 text-lg leading-relaxed">
-            Comprehensive ultrasound imaging for abdomen, thyroid, pelvis and more.
-        </p>
+                    <h3 class="text-[#08113a] font-bold text-2xl mb-4">
+                        General Ultrasound
+                    </h3>
 
-    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Comprehensive ultrasound imaging for abdomen, thyroid, pelvis and more.
+                    </p>
 
-</div>
+                </div>
+
+            </div>
 
         </div>
+
+        <!-- BUTTON -->
 
         <div class="text-center mt-8">
 
             <a href="{% url 'services' %}"
-            class="inline-flex items-center gap-3
-            bg-[#5b21b6]
-            hover:bg-[#4c1d95]
-            text-white
-            px-8 py-4
-            rounded-xl
-            font-semibold
-            transition duration-300">
+                class="inline-flex items-center gap-3 bg-[#5b21b6] hover:bg-[#4c1d95] text-white px-8 py-4 rounded-xl font-semibold transition duration-300">
 
                 View All Services
 
@@ -480,7 +439,7 @@
 
 </section>
 
-<!-- DOCTOR SECTION -->
+<!-- DOCTOR -->
 
 <section class="py-10 sm:py-12 lg:py-16 bg-white">
 
@@ -490,15 +449,16 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
+                <!-- IMAGE -->
+
                 <div>
 
                     <img src="{% static 'images/doctors-banner.jpg' %}"
-                    class="w-full
-                    h-[260px]
-                    sm:h-[420px]
-                    object-cover rounded-[24px]">
+                        class="w-full h-[260px] sm:h-[420px] object-cover rounded-[24px]">
 
                 </div>
+
+                <!-- CONTENT -->
 
                 <div class="text-center lg:text-left">
 
@@ -514,14 +474,9 @@
 
                     </div>
 
-                    <h2 class="text-[#08113a]
-                    text-3xl
-                    sm:text-5xl
-                    font-extrabold leading-tight">
-
+                    <h2 class="text-[#08113a] text-3xl sm:text-5xl font-extrabold leading-tight">
                         Meet Our Expert
                         Dr. Naren
-
                     </h2>
 
                     <p class="text-[#5b21b6] font-semibold text-xl sm:text-2xl mt-4">
@@ -529,31 +484,16 @@
                     </p>
 
                     <p class="text-gray-600 text-base sm:text-lg leading-relaxed mt-6">
-
-                        Providing expert fetal imaging, pregnancy scans,
-                        and maternal care with advanced technology and
-                        compassionate medical excellence.
-
+                        Providing expert fetal imaging, pregnancy scans, and maternal care with advanced technology and compassionate medical excellence.
                     </p>
 
                     <a href="{% url 'doctors' %}"
-                    class="inline-block mt-8 bg-[#5b21b6] hover:bg-[#4c1d95]
-                    text-white px-6 sm:px-10
-                    py-3 sm:py-4
-                    rounded-xl font-semibold transition duration-300">
-
+                        class="inline-block mt-8 bg-[#5b21b6] hover:bg-[#4c1d95] text-white px-6 sm:px-10 py-3 sm:py-4 rounded-xl font-semibold transition duration-300">
                         Know More
-
                     </a>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
-
 {% endblock %}
