@@ -8,6 +8,7 @@
     <title>Naren Ultrasound & Fetal Medicine Center</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -67,7 +68,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-phone"></i>
-                <span>+91 98770 48927</span>
+                <span>+91 98482 04278</span>
             </div>
 
         </div>
@@ -83,38 +84,136 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 
                 <!-- LOGO -->
 
-                <a href="{% url 'home' %}" class="flex items-center gap-2 sm:gap-3">
+<a href="{% url 'home' %}" class="flex items-center gap-3 sm:gap-5 shrink-0">
 
-                    <img src="{% static 'images/logo.png' %}"
-                        alt="Logo"
-                        class="w-12 sm:w-16 h-12 sm:h-16 object-contain">
+    <!-- LOGO IMAGE -->
 
-                    <div>
-                        <h1 class="text-[28px] sm:text-4xl font-extrabold leading-none text-[#8b2d23]">
-                            NAREN
-                        </h1>
+    <img
+        src="{% static 'images/logo.png' %}"
+        alt="Naren Logo"
+        class="w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain shrink-0"
+    >
 
-                        <p class="text-black font-bold text-[8px] sm:text-[13px] leading-tight">
-                            ULTRASOUND AND <br>
-                            FETAL MEDICINE CENTER
-                        </p>
-                    </div>
+    <!-- LOGO TEXT -->
 
-                </a>
+    <div class="flex flex-col leading-none">
+
+        <!-- NAREN -->
+
+        <h1
+            class="
+            text-[#9B2C2C]
+            text-[23px]
+            sm:text-[34px]
+            md:text-[44px]
+            font-medium
+            tracking-[2px]
+            leading-none
+            "
+            style="font-family: 'Cormorant Garamond', serif;"
+        >
+            NAREN
+        </h1>
+
+        <!-- ULTRASOUND + AND -->
+
+        <div class="flex items-end gap-2 mt-[1px]">
+
+            <h2
+                class="
+                text-[#1F4F6B]
+                text-[10px]
+                sm:text-[18px]
+                md:text-[28px]
+                font-medium
+                tracking-[1px]
+                leading-none
+                "
+                style="font-family: 'Cormorant Garamond', serif;"
+            >
+                ULTRASOUND
+            </h2>
+
+            <span
+                class="
+                text-gray-500
+                text-[10px]
+                sm:text-[18px]
+                md:text-[28px]
+                leading-none
+                "
+                style="font-family: 'Cormorant Garamond', serif;"
+            >
+                AND
+            </span>
+
+        </div>
+
+        <!-- GREY LINE -->
+
+        <div class="h-[1px] bg-gray-400 w-full mt-[2px]"></div>
+
+        <!-- FETAL MEDICINE -->
+
+        <p
+            class="
+            text-[#1F4F6B]
+            text-[8px]
+            sm:text-[14px]
+            md:text-[22px]
+            tracking-[0.5px]
+            leading-none
+            mt-[4px]
+            "
+            style="font-family: 'Cormorant Garamond', serif;"
+        >
+            FETAL MEDICINE CENTER
+        </p>
+
+    </div>
+
+</a>
 
                 <!-- DESKTOP NAV -->
 
                 <nav class="hidden lg:flex items-center gap-8 xl:gap-10 text-[16px] font-medium">
 
-                    <a href="{% url 'home' %}" class="nav-link">Home</a>
-                    <a href="{% url 'about' %}" class="nav-link">About</a>
-                    <a href="{% url 'services' %}" class="nav-link">Services</a>
-                    <a href="{% url 'doctors' %}" class="nav-link">Doctors</a>
-                    <a href="{% url 'gallery' %}" class="nav-link">Gallery</a>
-                    <a href="{% url 'patient_info' %}" class="nav-link">Patient Info</a>
-                    <a href="{% url 'contact' %}" class="nav-link">Contact Us</a>
+    <a href="{% url 'home' %}"
+       class="nav-link {% if request.path == '/' %}text-[#5b21b6] font-semibold{% endif %}">
+       Home
+    </a>
 
-                </nav>
+    <a href="{% url 'about' %}"
+       class="nav-link {% if 'about' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       About
+    </a>
+
+    <a href="{% url 'services' %}"
+       class="nav-link {% if 'services' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       Services
+    </a>
+
+    <a href="{% url 'doctors' %}"
+       class="nav-link {% if 'doctors' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       Doctor
+    </a>
+
+    <a href="{% url 'gallery' %}"
+       class="nav-link {% if 'gallery' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       Gallery
+    </a>
+
+    <a href="{% url 'patient_info' %}"
+       class="nav-link {% if 'patient' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       Patient Info
+    </a>
+
+    <a href="{% url 'contact' %}"
+       class="nav-link {% if 'contact' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       Contact Us
+    </a>
+
+</nav>
 
                 <!-- BUTTON -->
 
@@ -148,7 +247,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
                 <a href="{% url 'home' %}">Home</a>
                 <a href="{% url 'about' %}">About</a>
                 <a href="{% url 'services' %}">Services</a>
-                <a href="{% url 'doctors' %}">Doctors</a>
+                <a href="{% url 'doctors' %}">Doctor</a>
                 <a href="{% url 'gallery' %}">Gallery</a>
                 <a href="{% url 'patient_info' %}">Patient Info</a>
                 <a href="{% url 'contact' %}">Contact Us</a>
@@ -177,35 +276,94 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 
     <footer class="bg-[#43228b] text-white mt-10 overflow-hidden">
 
-        <div class="max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-12 py-10">
+        <div class="max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-12 py-6">
 
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1fr_0.9fr_0.9fr_1.2fr] gap-10 xl:gap-8">
-
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1fr_0.9fr_0.9fr_1.1fr] gap-6 xl:gap-5">
                 <!-- ABOUT -->
 
                 <div>
 
-                    <div class="flex items-start gap-3 mb-5">
+                    <div class="flex items-start gap-3 mb-4">
 
-                        <img src="{% static 'images/logo.png' %}"
-                            alt="Logo"
-                            class="w-14 h-14 object-contain">
+    <!-- IMAGE -->
 
-                        <div>
+    <img
+        src="{% static 'images/logo.png' %}"
+        alt="Naren Logo"
+        class="w-14 h-14 object-contain shrink-0"
+    >
 
-                            <h2 class="text-3xl font-extrabold leading-none">
-                                NAREN
-                            </h2>
+    <!-- TEXT -->
 
-                            <p class="text-[11px] leading-tight mt-1">
-                                ULTRASOUND & <br>
-                                FETAL MEDICINE <br>
-                                CENTER
-                            </p>
+    <div class="flex flex-col leading-none">
 
-                        </div>
+        <!-- NAREN -->
 
-                    </div>
+        <h2
+            class="
+            text-[#ffffff]
+            text-[28px]
+            font-semibold
+            tracking-[1px]
+            leading-none
+            "
+            style="font-family: 'Cormorant Garamond', serif;"
+        >
+            NAREN
+        </h2>
+
+        <!-- ULTRASOUND + AND -->
+
+        <div class="flex items-end gap-1 mt-[2px]">
+
+            <h3
+                class="
+                text-[#dbeafe]
+                text-[12px]
+                font-medium
+                tracking-[0.5px]
+                leading-none
+                "
+                style="font-family: 'Cormorant Garamond', serif;"
+            >
+                ULTRASOUND
+            </h3>
+
+            <span
+                class="
+                text-gray-300
+                text-[11px]
+                leading-none
+                "
+                style="font-family: 'Cormorant Garamond', serif;"
+            >
+                AND
+            </span>
+
+        </div>
+
+        <!-- LINE -->
+
+        <div class="h-[1px] bg-white/30 w-full mt-[2px]"></div>
+
+        <!-- FETAL -->
+
+        <p
+            class="
+            text-[#dbeafe]
+            text-[10px]
+            tracking-[0.5px]
+            leading-none
+            mt-[3px]
+            "
+            style="font-family: 'Cormorant Garamond', serif;"
+        >
+            FETAL MEDICINE CENTER
+        </p>
+
+    </div>
+
+</div>
 
                     <p class="text-[14px] leading-8 text-gray-100 max-w-[320px]">
                         Naren Ultrasound & Fetal Medicine Center is dedicated to providing advanced ultrasound services
@@ -235,11 +393,11 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 
                 <div>
 
-                    <h3 class="text-[26px] sm:text-[30px] font-bold mb-5">
+                    <h3 class="text-[22px] sm:text-[26px] font-bold mb-5">
                         Quick Links
                     </h3>
 
-                    <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-[15px]">
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-[14px]">
 
                         <a href="{% url 'home' %}" class="footer-link">Home</a>
                         <a href="{% url 'gallery' %}" class="footer-link">Gallery</a>
@@ -264,7 +422,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
                         Our Services
                     </h3>
 
-                    <div class="space-y-3 text-[15px]">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-[14px]">
 
                         <a href="{% url 'services' %}" class="block footer-link">Pregnancy Scans</a>
 
@@ -278,6 +436,18 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 
                         <a href="{% url 'services' %}" class="block footer-link">Thyroid Scan</a>
 
+                        <a href="{% url 'services' %}" class="block footer-link">Kidney & Urinary Scans</a>
+
+                        <a href="{% url 'services' %}" class="block footer-link">Breast Ultrasound</a>
+
+                        <a href="{% url 'services' %}" class="block footer-link">Interventional Procedures</a>
+
+                        <a href="{% url 'services' %}" class="block footer-link">Vascular Scan</a>
+
+                        <a href="{% url 'services' %}" class="block footer-link">Scrotal Scan</a>
+
+                        <a href="{% url 'services' %}" class="block footer-link">Follicular Study</a>
+
                     </div>
 
                 </div>
@@ -290,74 +460,70 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
                         Contact Us
                     </h3>
 
-                    <div class="flex flex-col sm:flex-row items-start gap-5">
+                    <div class="space-y-2 text-[15px] sm:text-[16px]">
 
-                        <!-- LEFT -->
+    <!-- ADDRESS -->
 
-                        <div class="space-y-4 flex-1 text-[14px] sm:text-[15px]">
+    <div class="flex items-start gap-4">
 
-                            <div class="flex items-start gap-3">
+        <i class="fa-solid fa-location-dot mt-1 shrink-0"></i>
 
-                                <i class="fa-solid fa-location-dot mt-1 shrink-0"></i>
+        <p class="leading-5">
+            14-34-9/1, 14-34-9/2 (Opp. Saibaba Temple) <br>
+            Revenue Ward 20, Angadi Dhibba <br>
+            Angathi Street (Opp. KGH Gate 1/In Gate) <br>
+            Maharanipeta, Visakhapatnam - 530002
+        </p>
 
-                                <p class="leading-7">
-                                    Door No: 49-36-54,<br>
-                                    Maharani Peta, Near KGH,<br>
-                                    Visakhapatnam - 530002
-                                </p>
+    </div>
 
-                            </div>
+    <!-- PHONE -->
 
-                            <div class="flex items-center gap-3">
+    <div class="flex items-center gap-4">
 
-                                <i class="fa-solid fa-phone shrink-0"></i>
+        <i class="fa-solid fa-phone shrink-0"></i>
 
-                                <p>+91 98770 48927</p>
+        <p>
+            +91 98482 04278
+        </p>
 
-                            </div>
+    </div>
 
-                            <div class="flex items-start gap-3">
+    <!-- EMAIL -->
 
-                                <i class="fa-solid fa-envelope mt-1 shrink-0"></i>
+    <div class="flex items-center gap-4">
 
-                                <p class="break-all">
-                                    narenultrasound@gmail.com
-                                </p>
+        <i class="fa-solid fa-envelope shrink-0"></i>
 
-                            </div>
+        <p class="break-all sm:break-normal">
+            Narenultrasound@gmail.com
+        </p>
 
-                        </div>
+    </div>
 
-                        <!-- RIGHT -->
+    <!-- TIMINGS -->
 
-                        <div class="w-full sm:w-[210px] shrink-0 sm:-mt-8">
+    <div class="flex items-start gap-4">
 
-                            <div class="rounded-2xl overflow-hidden border border-white/10">
+        <i class="fa-regular fa-clock mt-1 shrink-0"></i>
 
-                                <iframe
-                                    src="https://www.google.com/maps?q=49-36-54,Maharani%20Peta,Visakhapatnam&output=embed"
-                                    class="w-full h-[170px]"
-                                    style="border:0;"
-                                    allowfullscreen=""
-                                    loading="lazy">
-                                </iframe>
+        <div class="leading-8">
 
-                            </div>
+            <p>
+                <span class="font-semibold">Mon - Sat:</span>
+                9:00 AM - 9:30 PM
+            </p>
 
-                            <div class="flex items-start gap-3 mt-4 text-[14px] sm:text-[15px]">
+            <p>
+                <span class="font-semibold">Sunday:</span>
+                Holiday
+            </p>
 
-                                <i class="fa-regular fa-clock mt-1 shrink-0"></i>
+        </div>
 
-                                <p class="leading-7">
-                                    Mon - Sat: 9:00 AM - 8:00 PM <br>
-                                    Sunday: 9:00 AM - 1:00 PM
-                                </p>
+    </div>
 
-                            </div>
-
-                        </div>
-
-                    </div>
+</div>
 
                 </div>
 
@@ -365,7 +531,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 
             <!-- COPYRIGHT -->
 
-            <div class="border-t border-white/20 mt-10 pt-5 text-center">
+            <div class="border-t border-white/20 mt-4 pt-2 text-center">
 
                 <p class="text-sm">
                     © 2026 Naren Ultrasound & Fetal Medicine Center. All Rights Reserved.
@@ -379,7 +545,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
 
     <!-- WHATSAPP -->
 
-    <a href="https://wa.me/919877048927"
+    <a href="https://wa.me/919848204278"
         target="_blank"
         class="fixed bottom-5 right-5 z-50">
 

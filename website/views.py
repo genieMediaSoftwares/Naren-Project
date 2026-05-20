@@ -4,7 +4,7 @@ from .forms import AppointmentForm
 
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'home': home})
 
 
 def about(request):

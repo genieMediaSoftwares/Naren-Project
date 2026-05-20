@@ -3,434 +3,218 @@
 
 {% block content %}
 
-<!-- HERO -->
+<section class="bg-[#f8f5fc] py-8 sm:py-10 lg:py-12">
 
-<section class="bg-[#f8f5ff] overflow-hidden">
+    <div class="w-full max-w-[95%] mx-auto px-2 sm:px-4 lg:px-5">
 
-    <div class="max-w-[1500px] mx-auto">
+        <!-- HERO SECTION -->
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mb-14">
 
-            <!-- LEFT -->
+            <!-- LEFT CONTENT -->
 
-            <div class="px-5 sm:px-8 lg:px-16 py-10 sm:py-14 lg:py-16 text-center lg:text-left">
+            <div>
 
-                <h6 class="uppercase text-[#5b21b6] font-semibold tracking-[3px] text-xs sm:text-sm lg:text-lg mb-4 lg:mb-5">
-                    Our Experts
-                </h6>
+                <p class="text-[#5B2BC8] uppercase tracking-[5px] text-xs sm:text-sm font-semibold mb-4">
+                    Meet Our Specialist
+                </p>
 
-                <h1 class="text-[#08113a] text-[36px] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08]">
-                    Meet Our
-                    <span class="text-[#5b21b6]">
-                        Experienced Doctors
-                    </span>
-                </h1>
+                <h1 class="text-[#07114D] text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+    Dr. Naren <span class="text-[#6A30D9]">Satya</span>
+</h1>
 
-                <p class="text-gray-600 text-[15px] sm:text-lg lg:text-xl leading-relaxed mt-6 lg:mt-8 max-w-2xl mx-auto lg:mx-0">
-                    Our team of highly skilled and compassionate specialists is dedicated to providing the best care for you and your baby.
+                <p class="text-gray-600 text-lg sm:text-xl leading-9 mt-6 max-w-2xl">
+                    Dedicated to providing advanced fetal medicine,
+                    pregnancy scans, anomaly screening and compassionate
+                    prenatal care with precision and excellence.
                 </p>
 
             </div>
 
-            <!-- RIGHT -->
+            <!-- RIGHT IMAGE -->
 
-            <div class="h-[240px] sm:h-[380px] md:h-[450px] lg:h-full">
+            <div class="flex justify-center lg:justify-end">
 
-                <img src="{% static 'images/doctors-banner.jpg' %}"
-                    alt="Doctors Banner"
-                    class="w-full h-full object-cover">
+                <img
+                    src="{% static 'images/doctor1.jpg' %}"
+                    alt="Dr. Naren Satya"
+                    class="w-full max-w-[240px] sm:max-w-[300px] lg:max-w-[280px] rounded-[28px] shadow-xl object-cover"
+                >
 
             </div>
 
         </div>
 
-    </div>
+        <!-- MAIN DOCTOR CARD -->
 
-</section>
+        <div class="bg-white rounded-[28px] shadow-sm overflow-hidden">
 
-<!-- DOCTORS -->
+            <div class="grid grid-cols-1 xl:grid-cols-[320px_1fr]">
 
-<section class="bg-[#f5f5f5] py-10 sm:py-14 lg:py-20">
+                <!-- LEFT IMAGE -->
 
-    <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="bg-white rounded-[24px] lg:rounded-[28px] p-5 sm:p-8 lg:p-10 shadow-sm">
-
-            <!-- TITLE -->
-
-            <div class="text-center mb-14">
-
-                <div class="flex items-center justify-center gap-4 mb-4">
-
-                    <div class="w-12 h-[2px] bg-[#5b21b6]"></div>
-
-                    <h6 class="uppercase text-[#5b21b6] font-semibold tracking-wide">
-                        Our Doctors
-                    </h6>
-
-                    <div class="w-12 h-[2px] bg-[#5b21b6]"></div>
+                <div class="bg-[#faf7ff] flex items-start justify-center pt-10 sm:pt-12 lg:pt-16 p-6 sm:p-8">
+                    <img
+                        src="{% static 'images/doctor1.jpg' %}"
+                        alt="Dr. Naren Satya"
+                        class="w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover border-[8px] border-[#f3e8ff] shadow-lg"
+                    >
 
                 </div>
 
-                <h2 class="text-[#08113a] text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                    Highly Qualified & Caring Specialists
-                </h2>
+                <!-- RIGHT CONTENT -->
 
-                <div class="w-24 h-1 bg-[#5b21b6] rounded-full mx-auto mt-5"></div>
+                <div class="p-5 sm:p-6 lg:p-8">
 
-            </div>
+                    <!-- LABEL -->
 
-            <!-- GRID -->
+                    <p class="text-[#5B2BC8] uppercase tracking-[5px] text-xs sm:text-sm font-semibold">
+                        Fetal Medicine Specialist
+                    </p>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
+                    <!-- NAME -->
 
-                <!-- CARD 1 -->
+                    <h2 class="text-[#07114D] text-3xl sm:text-4xl xl:text-5xl font-bold leading-tight mt-3">
+                        Dr. Naren Satya
+                    </h2>
 
-                <div class="border border-gray-200 rounded-[24px] p-5 sm:p-7 hover:shadow-xl transition bg-white flex flex-col h-full">
+                    <!-- LINE -->
 
-                    <div class="flex justify-center">
+                    <div class="w-24 h-1 bg-[#6A30D9] rounded-full mt-5"></div>
 
-                        <img src="{% static 'images/doctor1.jpg' %}"
-                            class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-8 border-[#f3e8ff]"
-                            alt="Doctor">
+                    <!-- INFO CARDS -->
 
-                    </div>
+                    <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5">
 
-                    <div class="text-center mt-6">
+                        <!-- Qualification -->
 
-                        <h3 class="text-[#5b21b6] text-2xl sm:text-3xl font-bold">
-                            Dr. Naren
-                        </h3>
+                        <div class="bg-[#faf7ff] rounded-2xl p-6">
 
-                        <h5 class="text-[#08113a] text-lg sm:text-xl font-semibold mt-2">
-                            Fetal Medicine Specialist
-                        </h5>
+                            <h3 class="text-[#5B2BC8] text-2xl font-bold mb-4">
+                                Qualification
+                            </h3>
 
-                        <p class="text-gray-500 mt-3">MD Radiology</p>
-
-                        <p class="text-gray-500">
-                            Fellowship in Fetal Medicine
-                        </p>
-
-                    </div>
-
-                    <div class="border-t border-gray-200 my-6"></div>
-
-                    <div class="flex-grow">
-
-                        <h4 class="text-[#5b21b6] text-lg sm:text-xl font-bold mb-4">
-                            Expertise
-                        </h4>
-
-                        <div class="space-y-3 text-gray-700 text-sm sm:text-base">
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>High-risk Pregnancy Scans</span>
-                            </div>
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Fetal Anomaly Screening</span>
-                            </div>
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Doppler Studies</span>
-                            </div>
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>3D / 4D Ultrasound</span>
-                            </div>
+                            <p class="text-gray-700 leading-8 text-lg">
+                                MBBS, MD (Radiology), FIAOGU
+                                <br>
+                                Consultant Radiologist &
+                                <br>
+                                Fetal Medicine Specialist
+                            </p>
 
                         </div>
 
-                    </div>
+                        <!-- Experience -->
 
-                    <div class="mt-auto bg-[#faf7ff] rounded-2xl p-4 sm:p-5 flex items-center gap-4">
+                        <div class="bg-[#faf7ff] rounded-2xl p-6">
 
-                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-3xl">
+                            <h3 class="text-[#5B2BC8] text-2xl font-bold mb-4">
+                                Experience
+                            </h3>
 
-                            <i class="fas fa-user-md"></i>
-
-                        </div>
-
-                        <div>
-
-                            <h4 class="text-[#08113a] text-2xl sm:text-3xl font-bold">
-                                15+
-                            </h4>
-
-                            <p class="text-gray-600">
-                                Years of Experience
+                            <p class="text-gray-700 leading-8 text-lg">
+                                20+ Years of Clinical Experience
                             </p>
 
                         </div>
 
                     </div>
 
-                </div>
+                    <!-- ABOUT -->
 
-                <!-- CARD 2 -->
+                    <div class="mt-10">
 
-                <div class="border border-gray-200 rounded-[24px] p-5 sm:p-7 hover:shadow-xl transition bg-white flex flex-col h-full">
-
-                    <div class="flex justify-center">
-
-                        <img src="{% static 'images/doctor2.jpg' %}"
-                            class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-8 border-[#f3e8ff]"
-                            alt="Doctor">
-
-                    </div>
-
-                    <div class="text-center mt-6">
-
-                        <h3 class="text-[#5b21b6] text-2xl sm:text-3xl font-bold">
-                            Dr. Satish
+                        <h3 class="text-[#5B2BC8] text-3xl font-bold mb-5">
+                            About Doctor
                         </h3>
 
-                        <h5 class="text-[#08113a] text-lg sm:text-xl font-semibold mt-2">
-                            Consultant Radiologist
-                        </h5>
+                        <div class="space-y-6 text-gray-700 leading-9 text-lg">
 
-                        <p class="text-gray-500 mt-3">MD Radiology</p>
+                            <p>
+                                Dr. Naren Satya secured MBBS (2005) and MD Radiodiagnosis (2011)
+                                from Rajiv Gandhi University of Health Sciences, bringing more than
+                                two decades of experience into his work.
+                            </p>
 
-                        <p class="text-gray-500">
-                            10+ Years Experience
-                        </p>
+                            <p>
+                                He pursued specialized training in Obstetric and Fetal Ultrasound
+                                at Mediscan, one of Asia's leading centers for fetal medicine and
+                                diagnostic imaging.
+                            </p>
 
-                    </div>
+                            <p>
+                                Dr. Naren has performed over 3 lakh ultrasound scans and more than
+                                10,000 image-guided procedures across multiple specialties, with
+                                a strong focus on fetal medicine.
+                            </p>
 
-                    <div class="border-t border-gray-200 my-6"></div>
+                            <p>
+                                He has also published research papers in various medical journals
+                                on ultrasound applications in thyroid disorders, fetal medicine,
+                                kidney disease, infertility and endometriosis.
+                            </p>
 
-                    <div class="flex-grow">
-
-                        <h4 class="text-[#5b21b6] text-lg sm:text-xl font-bold mb-4">
-                            Expertise
-                        </h4>
-
-                        <div class="space-y-3 text-gray-700 text-sm sm:text-base">
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Diagnostic Ultrasound</span>
-                            </div>
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Abdominal Imaging</span>
-                            </div>
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Interventional Procedures</span>
-                            </div>
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Vascular & Doppler Ultrasound</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="mt-auto bg-[#faf7ff] rounded-2xl p-4 sm:p-5 flex items-center gap-4">
-
-                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-3xl">
-
-                            <i class="fas fa-user-md"></i>
-
-                        </div>
-
-                        <div>
-
-                            <h4 class="text-[#08113a] text-2xl sm:text-3xl font-bold">
-                                10+
-                            </h4>
-
-                            <p class="text-gray-600">
-                                Years of Experience
+                            <p>
+                                Known for his patient-centered approach and attention to detail,
+                                Dr. Naren Satya focuses on providing accurate diagnosis,
+                                compassionate care and advanced fetal imaging services.
                             </p>
 
                         </div>
 
                     </div>
 
-                </div>
+                    <!-- EXPERTISE -->
 
-                <!-- CARD 3 -->
+                    <div class="mt-12">
 
-                <div class="border border-gray-200 rounded-[24px] p-5 sm:p-7 hover:shadow-xl transition bg-white flex flex-col h-full">
-
-                    <div class="flex justify-center">
-
-                        <img src="{% static 'images/doctor3.jpg' %}"
-                            class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-8 border-[#f3e8ff]"
-                            alt="Doctor">
-
-                    </div>
-
-                    <div class="text-center mt-6">
-
-                        <h3 class="text-[#5b21b6] text-2xl sm:text-3xl font-bold">
-                            Dr. Kaveri
+                        <h3 class="text-[#5B2BC8] text-3xl font-bold mb-6">
+                            Areas of Expertise
                         </h3>
 
-                        <h5 class="text-[#08113a] text-lg sm:text-xl font-semibold mt-2">
-                            Obstetrician & Gynecologist
-                        </h5>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-                        <p class="text-gray-500 mt-3">MS (OBG)</p>
-
-                        <p class="text-gray-500">
-                            12+ Years Experience
-                        </p>
-
-                    </div>
-
-                    <div class="border-t border-gray-200 my-6"></div>
-
-                    <div class="flex-grow">
-
-                        <h4 class="text-[#5b21b6] text-lg sm:text-xl font-bold mb-4">
-                            Expertise
-                        </h4>
-
-                        <div class="space-y-3 text-gray-700 text-sm sm:text-base">
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Prenatal Care</span>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#6A30D9] mt-1"></i>
+                                <span class="text-gray-700 text-lg">
+                                    High-risk Pregnancy Scans
+                                </span>
                             </div>
 
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>High-risk Pregnancy Management</span>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#6A30D9] mt-1"></i>
+                                <span class="text-gray-700 text-lg">
+                                    Fetal Anomaly Screening
+                                </span>
                             </div>
 
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Gynecological Ultrasound</span>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#6A30D9] mt-1"></i>
+                                <span class="text-gray-700 text-lg">
+                                    3D / 4D Ultrasound
+                                </span>
                             </div>
 
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Women's Health Care</span>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#6A30D9] mt-1"></i>
+                                <span class="text-gray-700 text-lg">
+                                    Doppler Studies
+                                </span>
                             </div>
 
-                        </div>
-
-                    </div>
-
-                    <div class="mt-auto bg-[#faf7ff] rounded-2xl p-4 sm:p-5 flex items-center gap-4">
-
-                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-3xl">
-
-                            <i class="fas fa-user-md"></i>
-
-                        </div>
-
-                        <div>
-
-                            <h4 class="text-[#08113a] text-2xl sm:text-3xl font-bold">
-                                12+
-                            </h4>
-
-                            <p class="text-gray-600">
-                                Years of Experience
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- CARD 4 -->
-
-                <div class="border border-gray-200 rounded-[24px] p-5 sm:p-7 hover:shadow-xl transition bg-white flex flex-col h-full">
-
-                    <div class="flex justify-center">
-
-                        <img src="{% static 'images/doctor4.jpg' %}"
-                            class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-8 border-[#f3e8ff]"
-                            alt="Doctor">
-
-                    </div>
-
-                    <div class="text-center mt-6">
-
-                        <h3 class="text-[#5b21b6] text-2xl sm:text-3xl font-bold">
-                            Dr. Anusha
-                        </h3>
-
-                        <h5 class="text-[#08113a] text-lg sm:text-xl font-semibold mt-2">
-                            Sonologist
-                        </h5>
-
-                        <p class="text-gray-500 mt-3">
-                            DMRD, DNB (Radiology)
-                        </p>
-
-                        <p class="text-gray-500">
-                            8+ Years Experience
-                        </p>
-
-                    </div>
-
-                    <div class="border-t border-gray-200 my-6"></div>
-
-                    <div class="flex-grow">
-
-                        <h4 class="text-[#5b21b6] text-lg sm:text-xl font-bold mb-4">
-                            Expertise
-                        </h4>
-
-                        <div class="space-y-3 text-gray-700 text-sm sm:text-base">
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>General Ultrasound</span>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#6A30D9] mt-1"></i>
+                                <span class="text-gray-700 text-lg">
+                                    Advanced Fetal Screening
+                                </span>
                             </div>
 
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Breast Ultrasound</span>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-[#6A30D9] mt-1"></i>
+                                <span class="text-gray-700 text-lg">
+                                    Fetal Medicine Consultation
+                                </span>
                             </div>
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Thyroid & Neck Ultrasound</span>
-                            </div>
-
-                            <div class="flex gap-3 items-start">
-                                <i class="fas fa-check-circle text-[#5b21b6] mt-1"></i>
-                                <span>Musculoskeletal Ultrasound</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="mt-auto bg-[#faf7ff] rounded-2xl p-4 sm:p-5 flex items-center gap-4">
-
-                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-3xl">
-
-                            <i class="fas fa-user-md"></i>
-
-                        </div>
-
-                        <div>
-
-                            <h4 class="text-[#08113a] text-2xl sm:text-3xl font-bold">
-                                8+
-                            </h4>
-
-                            <p class="text-gray-600">
-                                Years of Experience
-                            </p>
 
                         </div>
 
