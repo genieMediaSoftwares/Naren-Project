@@ -110,11 +110,11 @@ body {
 
         <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-10">
 
-            <div class="flex items-center justify-between py-4">
+            <div class="relative flex items-center justify-between py-4">
 
                 <!-- LOGO -->
 
-<a href="{% url 'home' %}" class="flex items-center gap-3 sm:gap-5 shrink-0">
+<a href="{% url 'home' %}" class="flex items-center gap-3 sm:gap-5 shrink-0 mx-auto lg:mx-0">
 
     <!-- LOGO IMAGE -->
 
@@ -126,7 +126,7 @@ body {
 
     <!-- LOGO TEXT -->
 
-    <div class="flex flex-col leading-none">
+    <div class="flex flex-col leading-none items-center lg:items-start text-center lg:text-left">
 
         <!-- NAREN -->
 
@@ -136,7 +136,7 @@ body {
             text-[23px]
             sm:text-[34px]
             md:text-[44px]
-            font-medium
+            ffont-black sm:font-semibold
             tracking-[2px]
             leading-none
             "
@@ -155,7 +155,7 @@ body {
                 text-[10px]
                 sm:text-[18px]
                 md:text-[28px]
-                font-medium
+                font-black sm:font-semibold
                 tracking-[1px]
                 leading-none
                 "
@@ -171,6 +171,7 @@ body {
                 sm:text-[18px]
                 md:text-[28px]
                 leading-none
+                font-black sm:font-semibold
                 "
                 style="font-family: 'Cormorant Garamond', serif;"
             >
@@ -194,6 +195,7 @@ body {
             tracking-[0.5px]
             leading-none
             mt-[4px]
+            font-black sm:font-semibold
             "
             style="font-family: 'Cormorant Garamond', serif;"
         >
@@ -260,7 +262,7 @@ body {
 
                 <!-- MOBILE BUTTON -->
 
-                <button id="menu-btn" class="lg:hidden text-3xl text-[#43228b]">
+                <button id="menu-btn" class="lg:hidden text-3xl text-[#43228b] absolute right-0">
 
     <i id="menu-icon" class="fa-solid fa-bars transition-all duration-300"></i>
 
@@ -308,7 +310,7 @@ body {
 
     <footer class="bg-[#43228b] text-white mt-10 overflow-hidden">
 
-        <div class="max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-12 py-6">
+        <div class="max-w-[1700px] mx-auto px-2 sm:px-0 lg:px-10 py-2 sm:py-1">
 
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1fr_0.9fr_0.9fr_1.1fr] gap-6 xl:gap-5">
                 <!-- ABOUT -->
@@ -425,11 +427,11 @@ body {
 
                 <div>
 
-                    <h3 class="text-[20px] sm:text-[24px] font-bold mb-5">
+                    <h3 class="text-[20px] sm:text-[22px] font-bold mb-5">
                         Quick Links
                     </h3>
 
-                    <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-[11px] sm:text-[12px]">
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-[11px] sm:text-[11px]">
 
                         <a href="{% url 'home' %}" class="footer-link">Home</a>
                         <a href="{% url 'gallery' %}" class="footer-link">Gallery</a>
@@ -450,11 +452,11 @@ body {
 
                 <div>
 
-                    <h3 class="text-[20px] sm:text-[24px] font-bold mb-5">
+                    <h3 class="text-[20px] sm:text-[22px] font-bold mb-5">
                         Our Services
                     </h3>
 
-                    <div class="columns-2 gap-x-8 gap-y-2 text-[11px] sm:text-[12px]">
+                    <div class="columns-2 gap-x-8 gap-y-2 text-[11px] sm:text-[11px]">
 
                         <a href="{% url 'services' %}" class="block footer-link leading-7 break-inside-avoid mb-2">Pregnancy Scans</a>
 
@@ -488,11 +490,11 @@ body {
 
                 <div>
 
-                    <h3 class="text-[20px] sm:text-[24px] font-bold mb-5">
+                    <h3 class="text-[20px] sm:text-[22px] font-bold mb-5">
                         Contact Us
                     </h3>
 
-                    <div class="space-y-2 text-[11px] sm:text-[13px]">
+                    <div class="space-y-2 text-[11px] sm:text-[11px]">
 
     <!-- ADDRESS -->
 
