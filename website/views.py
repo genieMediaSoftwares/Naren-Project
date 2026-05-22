@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Service, Gallery, PatientBooking
+from .models import Service, PatientBooking
 from .forms import AppointmentForm
 
 
@@ -21,8 +21,7 @@ def doctors(request):
 
 
 def gallery(request):
-    gallery = Gallery.objects.all()
-    return render(request, 'gallery.html', {'gallery': gallery})
+    return render(request, 'gallery.html')
 
 
 def contact(request):
