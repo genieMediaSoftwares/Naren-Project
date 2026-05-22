@@ -3,34 +3,34 @@
 
 {% block content %}
 
-<!-- HERO -->
+<!-- HERO SECTION -->
 
 <section class="bg-[#f8f5ff] overflow-hidden">
 
     <div class="max-w-[1500px] mx-auto">
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-4 lg:gap-6">
 
             <!-- LEFT -->
 
-            <div class="px-5 sm:px-8 lg:px-16 py-10 sm:py-14 lg:py-16">
+            <div class="px-5 sm:px-8 lg:px-12 py-5 sm:py-6 lg:py-8">
 
-                <h6 class="uppercase text-[#5b21b6] font-semibold tracking-[3px] text-sm mb-4">
+                <h6 class="uppercase text-[#5b21b6] font-semibold tracking-[3px] text-[11px] sm:text-xs mb-3">
                     OUR SERVICES
                 </h6>
 
-                <h1 class="text-[#08113a] text-[34px] sm:text-5xl lg:text-7xl font-extrabold leading-[1.1]">
+                <h1 class="text-[#08113a] text-[32px] sm:text-5xl lg:text-[56px] font-extrabold leading-[1.08]">
 
                     Comprehensive Ultrasound &
                     Fetal Care
 
-                    <span class="text-[#5b21b6]">
+                    <span class="text-[#5b21b6] inline">
                         Services
                     </span>
 
                 </h1>
 
-                <p class="text-gray-600 text-[15px] sm:text-lg leading-relaxed mt-6 max-w-2xl">
+                <p class="text-gray-600 text-[14px] sm:text-[16px] leading-relaxed mt-5 max-w-xl">
 
                     We offer a wide range of advanced ultrasound and diagnostic services for you and your baby's health.
 
@@ -38,13 +38,13 @@
 
             </div>
 
-            <!-- IMAGE -->
+            <!-- RIGHT IMAGE -->
 
-            <div>
+            <div class="flex justify-center lg:justify-end p-3 sm:p-4 lg:p-5">
 
                 <img src="{% static 'images/services-banner.jpg' %}"
                     alt="Services Banner"
-                    class="w-full h-[240px] sm:h-[380px] lg:h-[620px] object-cover">
+                    class="w-full max-w-[950px] h-[120px] sm:h-[280px] lg:h-[420px] object-cover rounded-[34px] shadow-lg">
 
             </div>
 
@@ -54,365 +54,487 @@
 
 </section>
 
-<!-- MAIN -->
+<!-- MAIN SECTION -->
 
-<section class="bg-[#f5f5f5] py-8 sm:py-12 lg:py-14">
+<section class="bg-[#f5f5f5] py-5 sm:py-6 lg:py-8">
 
-    <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="grid grid-cols-1 2xl:grid-cols-3 gap-6 xl:gap-8">
+        <div class="bg-white rounded-[28px] p-4 sm:p-5 lg:p-6 shadow-sm">
 
-            <!-- LEFT -->
+            <!-- TITLE -->
 
-            <div class="2xl:col-span-2">
+            <div class="text-center mb-5 sm:mb-7">
 
-                <div class="bg-white rounded-[24px] lg:rounded-[28px] p-4 sm:p-7 lg:p-10 shadow-sm">
+                <div class="flex items-center justify-center gap-3 sm:gap-4 mb-4">
 
-                    <!-- TITLE -->
+                    <div class="w-8 sm:w-10 h-[2px] bg-[#5b21b6]"></div>
 
-                    <div class="text-center mb-10 sm:mb-12">
+                    <h6 class="uppercase text-[#5b21b6] tracking-[3px] text-xs sm:text-sm font-semibold">
+                        WHAT WE OFFER
+                    </h6>
 
-                        <div class="flex items-center justify-center gap-3 sm:gap-4 mb-4">
-
-                            <div class="w-8 sm:w-10 h-[2px] bg-[#5b21b6]"></div>
-
-                            <h6 class="uppercase text-[#5b21b6] tracking-[3px] text-xs sm:text-sm font-semibold">
-                                WHAT WE OFFER
-                            </h6>
-
-                            <div class="w-8 sm:w-10 h-[2px] bg-[#5b21b6]"></div>
-
-                        </div>
-
-                        <h2 class="text-[#08113a] text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                            Our Ultrasound & Diagnostic Services
-                        </h2>
-
-                        <div class="w-20 sm:w-24 h-1 bg-[#5b21b6] rounded-full mx-auto mt-5"></div>
-
-                    </div>
-
-                    <!-- SERVICES GRID -->
-
-                    <!-- SERVICES GRID -->
-
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
-
-    <!-- Pregnancy -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fa-solid fa-baby-carriage"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            Pregnancy Scans
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            Early pregnancy, viability, NT scan, anomaly scan and growth scans.
-        </p>
-
-    </div>
-
-    <!-- 3D / 4D -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fas fa-baby"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            3D / 4D Baby Scan
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            Real-time baby imaging to capture precious fetal moments.
-        </p>
-
-    </div>
-
-    <!-- Doppler -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fas fa-wave-square"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            Doppler Scans
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            Fetal, color and vascular Doppler scans for blood flow analysis.
-        </p>
-
-    </div>
-
-    <!-- Abdomen -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fas fa-x-ray"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            Abdomen Scan
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            Liver, pancreas, spleen, gallbladder and abdominal organ scans.
-        </p>
-
-    </div>
-
-    <!-- Pelvic -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fas fa-venus"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            Pelvic Scan
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            Evaluation of uterus, ovaries, fibroids and pelvic conditions.
-        </p>
-
-    </div>
-
-    <!-- Thyroid -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fas fa-user-nurse"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            Thyroid Scan
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            Accurate thyroid gland and nodule evaluation scans.
-        </p>
-
-    </div>
-
-    <!-- Kidney -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fas fa-tint"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            Kidney & Urinary Scan
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            Kidney, bladder and urinary tract ultrasound examination.
-        </p>
-
-    </div>
-
-    <!-- Breast -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fas fa-ribbon"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            Breast Ultrasound
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            Breast lump detection and breast tissue evaluation scans.
-        </p>
-
-    </div>
-
-    <!-- Interventional -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fas fa-syringe"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            Interventional Procedures
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            USG-guided FNAC, biopsy and diagnostic procedures.
-        </p>
-
-    </div>
-
-    <!-- Vascular -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fas fa-heart-pulse"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            Vascular Scan
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            Arterial and venous Doppler scans for vascular conditions.
-        </p>
-
-    </div>
-
-    <!-- Scrotal -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fas fa-mars"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            Scrotal Scan
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            Evaluation of scrotal and testicular abnormalities.
-        </p>
-
-    </div>
-
-    <!-- Follicular -->
-
-    <div class="border border-gray-200 rounded-2xl p-5 sm:p-6 bg-white hover:shadow-xl transition duration-300">
-
-        <div class="w-16 h-16 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#5b21b6] text-4xl mb-5 mx-auto">
-            <i class="fas fa-seedling"></i>
-        </div>
-
-        <h4 class="text-[#08113a] font-bold text-xl mb-3 text-center">
-            Follicular Study
-        </h4>
-
-        <p class="text-gray-600 leading-relaxed text-center">
-            Ovulation monitoring and infertility-related scans.
-        </p>
-
-    </div>
-
-</div>
+                    <div class="w-8 sm:w-10 h-[2px] bg-[#5b21b6]"></div>
 
                 </div>
+
+                <h2 class="text-[#08113a] text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                    Our Ultrasound & Diagnostic Services
+                </h2>
+
+                <div class="w-24 h-1 bg-[#5b21b6] rounded-full mx-auto mt-5"></div>
 
             </div>
 
-            <!-- SIDEBAR -->
+            <!-- MAIN GRID -->
 
-            <div class="space-y-5 lg:space-y-6">
+            <div class="grid grid-cols-1 2xl:grid-cols-[1.35fr_1fr_0.9fr] gap-4 lg:gap-5 items-start">
 
-                <!-- WHY -->
+                <!-- LEFT LARGE COLUMN -->
 
-                <div class="bg-gradient-to-b from-[#4c1d95] to-[#6d28d9] rounded-[24px] p-5 sm:p-6 lg:p-8 text-white">
+                <div>
 
-                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-                        Why Choose Us?
-                    </h3>
+                    <div class="border border-gray-200 rounded-3xl p-4 sm:p-4 bg-white">
 
-                    <div class="w-16 h-1 bg-white rounded-full mb-8"></div>
+                        <h3 class="text-[#5b21b6] text-lg sm:text-xl font-bold mb-6">
+                            Antenatal & Gynecological Scans
+                        </h3>
 
-                    <ul class="space-y-5 text-[15px] sm:text-lg">
+                        <div class="space-y-2 text-[13px] sm:text-[14px]">
 
-                        <li class="flex gap-3">
-                            <i class="fas fa-check-circle mt-1"></i>
-                            <span>Advanced high-resolution ultrasound machines</span>
-                        </li>
+                            <!-- 1 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>1. Tiffa / Anomaly Scan (18-22 WKS)</span>
+                                <span class="font-semibold whitespace-nowrap">₹2500/-</span>
+                            </div>
 
-                        <li class="flex gap-3">
-                            <i class="fas fa-check-circle mt-1"></i>
-                            <span>Experienced & certified radiologists</span>
-                        </li>
+                            <!-- 2 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>2. Twins Tiffa</span>
+                                <span class="font-semibold whitespace-nowrap">₹5000/-</span>
+                            </div>
 
-                        <li class="flex gap-3">
-                            <i class="fas fa-check-circle mt-1"></i>
-                            <span>Accurate diagnosis & fast reporting</span>
-                        </li>
+                            <!-- 3 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>3. Early Tiffa / Anomaly Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹3000/-</span>
+                            </div>
 
-                        <li class="flex gap-3">
-                            <i class="fas fa-check-circle mt-1"></i>
-                            <span>Hygienic, safe & comfortable environment</span>
-                        </li>
+                            <!-- 4 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>4. Twins Early Tiffa / Anomaly Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹6000/-</span>
+                            </div>
 
-                        <li class="flex gap-3">
-                            <i class="fas fa-check-circle mt-1"></i>
-                            <span>Compassionate care for you and your family</span>
-                        </li>
+                            <!-- 5 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>5. Late Tiffa / Anomaly Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹3000/-</span>
+                            </div>
 
-                    </ul>
+                            <!-- 6 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>6. Twins Late Tiffa / Anomaly Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹6000/-</span>
+                            </div>
 
-                </div>
+                            <!-- 7 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>7. Fetal Echo</span>
+                                <span class="font-semibold whitespace-nowrap">₹3000/-</span>
+                            </div>
 
-                <!-- CONTACT -->
+                            <!-- 8 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>8. Twins Fetal Echo</span>
+                                <span class="font-semibold whitespace-nowrap">₹6000/-</span>
+                            </div>
 
-                <div class="bg-[#f8f5ff] border border-gray-200 rounded-[24px] p-5 sm:p-6 lg:p-8">
+                            <!-- 9 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>9. Nuchal Translucency (NT) Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹2000/-</span>
+                            </div>
 
-                    <h3 class="text-[#5b21b6] text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-                        Need a Scan?
-                    </h3>
+                            <!-- 10 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>10. Twins Nuchal Translucency (NT) Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹4000/-</span>
+                            </div>
 
-                    <p class="text-gray-700 text-[15px] sm:text-lg leading-relaxed mb-8">
-                        Book your appointment today and get world-class care from our experts.
-                    </p>
+                            <!-- 11 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>11. Viability Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹1500/-</span>
+                            </div>
 
-                    <div class="space-y-5 text-[15px] sm:text-lg text-gray-800">
+                            <!-- 12 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>12. Twins Viability Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹3000/-</span>
+                            </div>
 
-                        <div class="flex gap-4 items-start">
+                            <!-- 13 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>13. Dating Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹1500/-</span>
+                            </div>
 
-                            <i class="fas fa-phone text-[#5b21b6] mt-1"></i>
+                            <!-- 14 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>14. Twins Dating Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹3000/-</span>
+                            </div>
 
-                            <span>+91 98482 04278</span>
+                            <!-- 15 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>15. Routine Growth Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹1500/-</span>
+                            </div>
 
-                        </div>
+                            <!-- 16 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>16. Twins Routine Growth Scan</span>
+                                <span class="font-semibold whitespace-nowrap">₹3000/-</span>
+                            </div>
 
-                        <div class="flex gap-4 items-start break-all">
+                            <!-- 17 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>17. Growth + Biophysical Profile</span>
+                                <span class="font-semibold whitespace-nowrap">₹1800/-</span>
+                            </div>
 
-                            <i class="fas fa-envelope text-[#5b21b6] mt-1"></i>
+                            <!-- 18 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>18. Twins Growth + Biophysical Profile</span>
+                                <span class="font-semibold whitespace-nowrap">₹3600/-</span>
+                            </div>
 
-                            <span>Narenultrasound@gmail.com</span>
+                            <!-- 19 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>19. Obstetric Doppler (Only)</span>
+                                <span class="font-semibold whitespace-nowrap">₹1500/-</span>
+                            </div>
 
-                        </div>
+                            <!-- 20 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>20. Twins Obstetric Doppler (Only)</span>
+                                <span class="font-semibold whitespace-nowrap">₹3000/-</span>
+                            </div>
 
-                        <div class="flex gap-4 items-start">
+                            <!-- 21 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>21. Growth + Obstetric Doppler + B.P.P</span>
+                                <span class="font-semibold whitespace-nowrap">₹2500/-</span>
+                            </div>
 
-                            <i class="fas fa-map-marker-alt text-[#5b21b6] mt-1"></i>
+                            <!-- 22 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>22. Twins Growth + Obstetric Doppler + B.P.P</span>
+                                <span class="font-semibold whitespace-nowrap">₹5000/-</span>
+                            </div>
 
-                            <span>
-                                14-34-9/1, 14-34-9/2 (Opp. Saibaba Temple) Revenue Ward 20, Angadi Dhibba Angathi Street (Opp. KGH Gate 1/In Gate) Maharanipeta, Visakhapatnam 530002
-                            </span>
+                            <!-- 23 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>23. Follicular Study (Up to 3 Scans incl 3D Cavity)</span>
+                                <span class="font-semibold whitespace-nowrap">₹2500/-</span>
+                            </div>
+
+                            <!-- 24 -->
+                            <div class="flex justify-between gap-4 border-b pb-2">
+                                <span>24. Breast Unilateral</span>
+                                <span class="font-semibold whitespace-nowrap">₹1500/-</span>
+                            </div>
+
+                            <!-- 25 -->
+                            <div class="flex justify-between gap-4">
+                                <span>25. Breast Bilateral</span>
+                                <span class="font-semibold whitespace-nowrap">₹2000/-</span>
+                            </div>
 
                         </div>
 
                     </div>
 
-                    <a href="{% url 'contact' %}"
-                        class="inline-flex items-center justify-center mt-8 bg-[#5b21b6] hover:bg-[#4c1d95] text-white font-semibold px-7 sm:px-8 py-3 sm:py-4 rounded-xl transition duration-300 w-full sm:w-auto">
+                </div>
 
-                        Book Appointment
+                <!-- MIDDLE COLUMN -->
 
-                    </a>
+                <div class="space-y-4">
+
+                    <!-- ROUTINE -->
+
+                    <div class="border border-gray-200 rounded-3xl p-4 bg-white">
+
+                        <h3 class="text-[#5b21b6] text-lg font-bold mb-5">
+                            Routine Scans
+                        </h3>
+
+                        <div class="space-y-3 text-[13px]">
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>1. Whole Abdomen</span>
+                                <span class="font-semibold">₹1500/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>2. Pelvis</span>
+                                <span class="font-semibold">₹1500/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>3. KUB</span>
+                                <span class="font-semibold">₹1500/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2 gap-3">
+                                <span>4. Abdomen / Pelvis (incl TVS)</span>
+                                <span class="font-semibold whitespace-nowrap">₹2000/-</span>
+                            </div>
+
+                            <div class="flex justify-between gap-3">
+                                <span>5. Pelvis (3D - TVS)</span>
+                                <span class="font-semibold whitespace-nowrap">₹3500/-</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- PAEDIATRIC -->
+
+                    <div class="border border-gray-200 rounded-3xl p-4 bg-white">
+
+                        <h3 class="text-[#5b21b6] text-lg font-bold mb-5">
+                            Paediatric Scans
+                        </h3>
+
+                        <div class="space-y-3 text-[13px]">
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>1. Paediatric Abdomen</span>
+                                <span class="font-semibold">₹1500/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2 gap-3">
+                                <span>2. Neurosonogram / USG Cranium</span>
+                                <span class="font-semibold whitespace-nowrap">₹2000/-</span>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <span>3. Neonatal Spine</span>
+                                <span class="font-semibold">₹2500/-</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- DOPPLER -->
+
+                    <div class="border border-gray-200 rounded-3xl p-4 bg-white">
+
+                        <h3 class="text-[#5b21b6] text-lg font-bold mb-5">
+                            Doppler Scans
+                        </h3>
+
+                        <div class="space-y-3 text-[13px]">
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>1. Carotid Doppler</span>
+                                <span class="font-semibold">₹2500/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>2. Renal Doppler</span>
+                                <span class="font-semibold">₹3000/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>3. Unilateral Arterial Doppler</span>
+                                <span class="font-semibold">₹2500/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>4. Unilateral Venous Doppler</span>
+                                <span class="font-semibold">₹2500/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>5. Bilateral Arterial Doppler</span>
+                                <span class="font-semibold">₹5000/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>6. Bilateral Venous Doppler</span>
+                                <span class="font-semibold">₹5000/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2 gap-3">
+                                <span>7. Unilateral Arterial and Venous Doppler</span>
+                                <span class="font-semibold whitespace-nowrap">₹5000/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2 gap-3">
+                                <span>8. Bilateral Arterial and Venous Doppler</span>
+                                <span class="font-semibold whitespace-nowrap">₹10000/-</span>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <span>9. Penile Doppler</span>
+                                <span class="font-semibold">₹7000/-</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- USG GUIDED -->
+
+                    <div class="border border-gray-200 rounded-3xl p-4 bg-white">
+
+                        <h3 class="text-[#5b21b6] text-lg font-bold mb-5">
+                            USG Guided Procedures
+                        </h3>
+
+                        <div class="space-y-3 text-[13px]">
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>1. Amniocentesis</span>
+                                <span class="font-semibold">Contact Us</span>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <span>2. Fetal Reduction</span>
+                                <span class="font-semibold">Contact Us</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- SMALL PARTS -->
+
+                    <div class="border border-gray-200 rounded-3xl p-4 bg-white">
+
+                        <h3 class="text-[#5b21b6] text-lg font-bold mb-5">
+                            USG Small Parts
+                        </h3>
+
+                        <div class="space-y-3 text-[13px]">
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>1. Neck / Thyroid</span>
+                                <span class="font-semibold">₹2500/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2 gap-3">
+                                <span>2. USG Scrotum / Scrotal Doppler</span>
+                                <span class="font-semibold whitespace-nowrap">₹3000/-</span>
+                            </div>
+
+                            <div class="flex justify-between border-b pb-2">
+                                <span>3. Chest</span>
+                                <span class="font-semibold">₹2500/-</span>
+                            </div>
+
+                            <div class="flex justify-between gap-3">
+                                <span>4. Soft Tissue / Small Parts / Joints</span>
+                                <span class="font-semibold whitespace-nowrap">₹2500/-</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- SIDEBAR -->
+
+                <div class="space-y-6">
+
+                    <!-- WHY CHOOSE US -->
+
+                    <div class="bg-gradient-to-b from-[#4c1d95] to-[#6d28d9] rounded-[28px] p-5 text-white">
+
+                        <h3 class="text-2xl font-bold mb-5">
+                            Why Choose Us?
+                        </h3>
+
+                        <ul class="space-y-4 text-[14px] leading-relaxed">
+
+                            <li class="flex gap-3">
+                                <i class="fas fa-check-circle mt-1"></i>
+                                <span>Advanced high-resolution ultrasound machines</span>
+                            </li>
+
+                            <li class="flex gap-3">
+                                <i class="fas fa-check-circle mt-1"></i>
+                                <span>Experienced & certified radiologists</span>
+                            </li>
+
+                            <li class="flex gap-3">
+                                <i class="fas fa-check-circle mt-1"></i>
+                                <span>Accurate diagnosis & fast reporting</span>
+                            </li>
+
+                            <li class="flex gap-3">
+                                <i class="fas fa-check-circle mt-1"></i>
+                                <span>Hygienic, safe & comfortable environment</span>
+                            </li>
+
+                            <li class="flex gap-3">
+                                <i class="fas fa-check-circle mt-1"></i>
+                                <span>Compassionate care for you and your family</span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- NEED A SCAN -->
+
+                    <div class="bg-[#f8f5ff] border border-gray-200 rounded-[28px] p-5">
+
+                        <h3 class="text-[#5b21b6] text-2xl font-bold mb-5">
+                            Need a Scan?
+                        </h3>
+
+                        <p class="text-gray-700 text-[14px] leading-relaxed mb-6">
+                            Book your appointment today and get world-class care from our experts.
+                        </p>
+
+                        <div class="space-y-5 text-[14px] text-gray-800">
+
+                            <div class="flex gap-4 items-start">
+                                <i class="fas fa-phone text-[#5b21b6] mt-1"></i>
+                                <span>+91 98482 04278</span>
+                            </div>
+
+                            <div class="flex gap-4 items-start break-all">
+                                <i class="fas fa-envelope text-[#5b21b6] mt-1"></i>
+                                <span>Narenultrasound@gmail.com</span>
+                            </div>
+
+                            <div class="flex gap-4 items-start">
+                                <i class="fas fa-map-marker-alt text-[#5b21b6] mt-1"></i>
+                                <span>
+                                    14-34-9/1, 14-34-9/2 (Opp. Saibaba Temple)
+                                    Revenue Ward 20, Maharanipeta,
+                                    Visakhapatnam 530002
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <a href="{% url 'patient_info' %}"
+                            class="inline-flex items-center justify-center mt-7 bg-[#5b21b6] hover:bg-[#4c1d95] text-white font-semibold px-7 py-3 rounded-xl transition duration-300 w-full">
+
+                            Book Appointment
+
+                        </a>
+
+                    </div>
 
                 </div>
 
