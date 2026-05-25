@@ -112,24 +112,27 @@
     <div>
 
         <label class="block font-semibold mb-3">
-            Gender *
-        </label>
+    Gender *
+</label>
 
-        <div class="flex flex-wrap gap-6 mt-3">
+<div class="flex flex-wrap gap-6 mt-3">
 
-            <label class="flex items-center gap-2">
-                <input type="radio" name="gender"> Female
-            </label>
+    <label class="flex items-center gap-2">
+        <input type="radio" name="gender" value="Female">
+        Female
+    </label>
 
-            <label class="flex items-center gap-2">
-                <input type="radio" name="gender"> Male
-            </label>
+    <label class="flex items-center gap-2">
+        <input type="radio" name="gender" value="Male">
+        Male
+    </label>
 
-            <label class="flex items-center gap-2">
-                <input type="radio" name="gender"> Other
-            </label>
+    <label class="flex items-center gap-2">
+        <input type="radio" name="gender" value="Other">
+        Other
+    </label>
 
-        </div>
+</div>
 
     </div>
 
@@ -177,6 +180,7 @@
 
                                     <input type="text"
                                            placeholder="Enter doctor name"
+                                           name="referred_doctor"
                                            class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none">
 
                                 </div>
@@ -188,6 +192,7 @@
                                     </label>
 
                                     <input type="text"
+                                            name="hospital_name"
                                            placeholder="Enter hospital or clinic name"
                                            class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none">
 
@@ -200,6 +205,7 @@
                                     </label>
 
                                     <input type="date"
+                                            name="ldd_date"
                                            class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none">
 
                                 </div>

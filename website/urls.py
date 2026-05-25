@@ -22,4 +22,6 @@ urlpatterns = [
     ),
 
     path('patient-info/', views.patient_info, name='patient_info'),
+
+    path('contact-success/', views.contact_success, name='contact_success'),
 ]

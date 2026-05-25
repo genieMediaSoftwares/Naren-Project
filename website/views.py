@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Service, PatientBooking
+from .models import Service, PatientBooking, ContactMessage
 from .forms import AppointmentForm
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 def home(request):
@@ -23,21 +25,51 @@ def doctors(request):
 def gallery(request):
     return render(request, 'gallery.html')
 
-
 def contact(request):
 
     if request.method == 'POST':
 
-        form = AppointmentForm(request.POST)
+        contact = ContactMessage.objects.create(
 
-        if form.is_valid():
-            form.save()
-            return redirect('appointment_success')
+            name=request.POST.get('name'),
 
-    else:
-        form = AppointmentForm()
+            phone=request.POST.get('phone'),
 
-    return render(request, 'contact.html', {'form': form})
+            email=request.POST.get('email'),
+
+            message=request.POST.get('message'),
+        )
+
+        # SEND EMAIL
+        send_mail(
+            subject='New Contact Form Submission',
+
+            message=f'''
+New Appointment Request
+
+Name: {contact.name}
+
+Phone: {contact.phone}
+
+Email: {contact.email}
+
+Message:
+{contact.message}
+            ''',
+
+            from_email=settings.EMAIL_HOST_USER,
+
+            recipient_list=['narenultrasound@gmail.com'],
+
+            fail_silently=False,
+        )
+
+        return redirect('contact_success')
+
+    return render(request, 'contact.html')
+
+def contact_success(request):
+    return render(request, 'contact_success.html')
 
 
 def appointment_success(request):
@@ -47,38 +79,60 @@ def patient_info(request):
 
     if request.method == "POST":
 
-        full_name = request.POST.get('full_name')
-        phone = request.POST.get('phone')
-        email = request.POST.get('email')
+        booking = PatientBooking.objects.create(
 
-        city = request.POST.get('city')
-        state = request.POST.get('state')
-        pincode = request.POST.get('pincode')
+            full_name=request.POST.get('full_name'),
+            age=request.POST.get('age'),
+            gender=request.POST.get('gender'),
+            phone=request.POST.get('phone'),
+            referred_doctor=request.POST.get('referred_doctor'),
+            hospital_name=request.POST.get('hospital_name'),
 
-        preferred_date = request.POST.get('preferred_date')
-        preferred_time = request.POST.get('preferred_time')
+            ldd_date=request.POST.get('ldd_date') or None,
 
-        services = request.POST.getlist('services')
+            preferred_date=request.POST.get('preferred_date') or None,
 
-        message = request.POST.get('message')
+            preferred_time=request.POST.get('preferred_time'),
 
-        PatientBooking.objects.create(
+            services=', '.join(request.POST.getlist('services')),
 
-            full_name=full_name,
-            phone=phone,
-            email=email,
+            message=request.POST.get('message'),
+        )
 
-            city=city,
-            state=state,
-            pincode=pincode,
 
-            preferred_date=preferred_date,
-            preferred_time=preferred_time,
 
-            services=", ".join(services),
+        # EMAIL SEND
 
-            message=message
+        subject = "New Patient Appointment Booking"
 
+        message = f"""
+New patient booking received.
+
+Full Name: {booking.full_name}
+Age: {booking.age}
+Gender: {booking.gender}
+Phone: {booking.phone}
+
+Referred Doctor: {booking.referred_doctor}
+Hospital Name: {booking.hospital_name}
+
+LDD Date: {booking.ldd_date}
+
+Preferred Date: {booking.preferred_date}
+Preferred Time: {booking.preferred_time}
+
+Services: {booking.services}
+
+Message:
+{booking.message}
+"""
+
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            ['narenultrasound@gmail.com'],
+            fail_silently=False,
         )
 
         return redirect('appointment_success')

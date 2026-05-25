@@ -30,57 +30,64 @@ class Appointment(models.Model):
     
 class PatientBooking(models.Model):
 
-    SERVICE_CHOICES = [
-        ('Pregnancy Scans', 'Pregnancy Scans'),
-        ('3D / 4D Baby Scan', '3D / 4D Baby Scan'),
-        ('Doppler Scans', 'Doppler Scans'),
-        ('Abdomen Scan', 'Abdomen Scan'),
-        ('Pelvic Scan', 'Pelvic Scan'),
-        ('Thyroid Scan', 'Thyroid Scan'),
-        ('Kidney & Urinary Scan', 'Kidney & Urinary Scan'),
-        ('Breast Ultrasound', 'Breast Ultrasound'),
-        ('Interventional Procedures', 'Interventional Procedures'),
-        ('Vascular Scan', 'Vascular Scan'),
-        ('Scrotal Scan', 'Scrotal Scan'),
-        ('Follicular Study', 'Follicular Study'),
-    ]
-
-    TIME_SLOTS = [
-        ('9:00 AM - 10:00 AM', '9:00 AM - 10:00 AM'),
-        ('10:00 AM - 11:00 AM', '10:00 AM - 11:00 AM'),
-        ('11:00 AM - 12:00 PM', '11:00 AM - 12:00 PM'),
-        ('12:00 PM - 1:00 PM', '12:00 PM - 1:00 PM'),
-        ('1:00 PM - 2:00 PM', '1:00 PM - 2:00 PM'),
-        ('2:00 PM - 3:00 PM', '2:00 PM - 3:00 PM'),
-        ('3:00 PM - 4:00 PM', '3:00 PM - 4:00 PM'),
-        ('4:00 PM - 5:00 PM', '4:00 PM - 5:00 PM'),
-        ('5:00 PM - 6:00 PM', '5:00 PM - 6:00 PM'),
-        ('6:00 PM - 7:00 PM', '6:00 PM - 7:00 PM'),
-        ('7:00 PM - 8:00 PM', '7:00 PM - 8:00 PM'),
-        ('8:00 PM - 9:00 PM', '8:00 PM - 9:00 PM'),
-        ('9:00 PM - 9:30 PM', '9:00 PM - 9:30 PM'),
-    ]
-
     full_name = models.CharField(max_length=200)
-    phone = models.CharField(max_length=15)
-    email = models.EmailField(blank=True, null=True)
 
-    city = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    pincode = models.CharField(max_length=10)
+    age = models.IntegerField(null=True, blank=True)
+
+    gender = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True
+    )
+
+    phone = models.CharField(max_length=15)
+
+    referred_doctor = models.CharField(
+        max_length=200,
+        null=True,
+        blank=True
+    )
+
+    hospital_name = models.CharField(
+        max_length=200,
+        null=True,
+        blank=True
+    )
+
+    ldd_date = models.DateField(
+        null=True,
+        blank=True
+    )
 
     preferred_date = models.DateField()
 
-    preferred_time = models.CharField(
-        max_length=50,
-        choices=TIME_SLOTS
-    )
+    preferred_time = models.CharField(max_length=50)
 
     services = models.TextField()
 
-    message = models.TextField(blank=True, null=True)
+    message = models.TextField(
+        null=True,
+        blank=True
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.full_name} - {self.preferred_date}"
+        return self.full_name
+    
+class ContactMessage(models.Model):
+
+    name = models.CharField(max_length=200)
+
+    phone = models.CharField(max_length=15)
+
+    email = models.EmailField()
+
+    subject = models.CharField(max_length=200)
+
+    message = models.TextField()
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
