@@ -84,11 +84,11 @@ body {
 </style>
 </head>
 
-<body class="bg-[#f7f5fb] overflow-x-hidden">
+<body class="bg-[#d7eceb] overflow-x-hidden">
 
     <!-- TOP BAR -->
 
-    <div class="bg-[#43228b] text-white hidden lg:block">
+    <div class="bg-[#065f56] text-white hidden lg:block">
         <div class="max-w-[1700px] mx-auto px-6 py-2 flex justify-between items-center text-sm">
 
             <div class="flex items-center gap-2">
@@ -106,7 +106,7 @@ body {
 
     <!-- NAVBAR -->
 
-    <header class="bg-white sticky top-0 z-50 shadow-sm">
+    <header class="bg-[#00A99D] sticky top-0 z-50 shadow-sm">
 
         <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-10">
 
@@ -131,7 +131,7 @@ body {
 
         <h1
             class="
-            text-[#9B2C2C]
+            text-white
             text-[32px] sm:text-[34px] md:text-[44px]
             sm:text-[34px]
             md:text-[44px]
@@ -150,7 +150,7 @@ body {
 
             <h2
                 class="
-                text-[#1F4F6B]
+                text-white
                 text-[14px] sm:text-[18px] md:text-[28px]
                 sm:text-[18px]
                 md:text-[28px]
@@ -165,7 +165,7 @@ body {
 
             <span
                 class="
-                text-gray-500
+                text-white
                 text-[14px] sm:text-[18px] md:text-[28px]
                 sm:text-[18px]
                 md:text-[28px]
@@ -187,7 +187,7 @@ body {
 
         <p
             class="
-            text-[#1F4F6B]
+            text-white
             text-[12px] sm:text-[14px] md:text-[22px]
             sm:text-[14px]
             md:text-[22px]
@@ -210,37 +210,37 @@ body {
                 <nav class="hidden lg:flex items-center gap-8 xl:gap-10 text-[16px] font-medium">
 
     <a href="{% url 'home' %}"
-       class="nav-link {% if request.path == '/' %}text-[#5b21b6] font-semibold{% endif %}">
+       class="nav-link {% if request.path == '/' %}text-white font-semibold{% endif %}">
        Home
     </a>
 
     <a href="{% url 'about' %}"
-       class="nav-link {% if 'about' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       class="nav-link {% if 'about' in request.path %}text-white font-semibold{% endif %}">
        About
     </a>
 
     <a href="{% url 'services' %}"
-       class="nav-link {% if 'services' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       class="nav-link {% if 'services' in request.path %}text-whhite font-semibold{% endif %}">
        Services
     </a>
 
     <a href="{% url 'doctors' %}"
-       class="nav-link {% if 'doctors' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       class="nav-link {% if 'doctors' in request.path %}text-white font-semibold{% endif %}">
        Doctor
     </a>
 
     <a href="{% url 'gallery' %}"
-       class="nav-link {% if 'gallery' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       class="nav-link {% if 'gallery' in request.path %}text-white font-semibold{% endif %}">
        Gallery
     </a>
 
     <a href="{% url 'patient_info' %}"
-       class="nav-link {% if 'patient' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       class="nav-link {% if 'patient' in request.path %}text-white font-semibold{% endif %}">
        Patient Info
     </a>
 
     <a href="{% url 'contact' %}"
-       class="nav-link {% if 'contact' in request.path %}text-[#5b21b6] font-semibold{% endif %}">
+       class="nav-link {% if 'contact' in request.path %}text-white font-semibold{% endif %}">
        Contact Us
     </a>
 
@@ -251,7 +251,7 @@ body {
                 <div class="hidden lg:block">
 
                     <a href="{% url 'patient_info' %}"
-                        class="bg-[#43228b] hover:bg-[#5b21b6] text-white px-7 py-3 rounded-2xl font-semibold transition duration-300">
+                        class="bg-[#f4a940] hover:bg-[#e59a2f] text-[#06233f] text-white px-7 py-3 rounded-2xl font-semibold transition duration-300">
 
                         Book Appointment
 
@@ -307,7 +307,7 @@ body {
 
     <!-- FOOTER -->
 
-    <footer class="bg-[#43228b] text-white mt-10 overflow-hidden">
+    <footer class="bg-[#065f56] text-white mt-10 overflow-hidden">
 
         <div class="max-w-[1700px] mx-auto px-2 sm:px-0 lg:px-10 py-2 sm:py-1">
 
