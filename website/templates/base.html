@@ -61,7 +61,7 @@ body {
     height: 2px;
     left: 0;
     bottom: -6px;
-    background: #6d28d9;
+    background: white ;
     transition: .3s;
 }
 
@@ -108,13 +108,13 @@ body {
 
     <header class="bg-[#00A99D] sticky top-0 z-50 shadow-sm">
 
-        <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-6">
 
             <div class="relative flex items-center justify-between py-4">
 
                 <!-- LOGO -->
 
-<a href="{% url 'home' %}" class="flex items-center gap-2 sm:gap-5 shrink-0 mx-auto lg:mx-0 pr-10 lg:pr-0">
+<a href="{% url 'home' %}" class="flex items-center gap-2 sm:gap-3 shrink-0 mx-auto lg:mx-0 pr-10 lg:pr-0">
     <!-- LOGO IMAGE -->
 
     <img
@@ -207,42 +207,77 @@ body {
 
                 <!-- DESKTOP NAV -->
 
-                <nav class="hidden lg:flex items-center gap-8 xl:gap-10 text-[16px] font-medium">
+                <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-[16px] font-medium whitespace-nowrap">
 
-    <a href="{% url 'home' %}"
-       class="nav-link {% if request.path == '/' %}text-white font-semibold{% endif %}">
-       Home
-    </a>
+<a href="{% url 'home' %}"
+class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+{% if request.path == '/' %}
+bg-white/20 text-white font-semibold
+{% else %}
+text-white hover:text-white
+{% endif %}">
+Home
+</a>
 
-    <a href="{% url 'about' %}"
-       class="nav-link {% if 'about' in request.path %}text-white font-semibold{% endif %}">
-       About
-    </a>
+<a href="{% url 'about' %}"
+class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+{% if 'about' in request.path %}
+bg-white/20 text-white font-semibold
+{% else %}
+text-white hover:text-white
+{% endif %}">
+About
+</a>
 
-    <a href="{% url 'services' %}"
-       class="nav-link {% if 'services' in request.path %}text-whhite font-semibold{% endif %}">
-       Services
-    </a>
+<a href="{% url 'services' %}"
+class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+{% if 'services' in request.path %}
+bg-white/20 text-white font-semibold
+{% else %}
+text-white hover:text-white
+{% endif %}">
+Services
+</a>
 
-    <a href="{% url 'doctors' %}"
-       class="nav-link {% if 'doctors' in request.path %}text-white font-semibold{% endif %}">
-       Doctor
-    </a>
+<a href="{% url 'doctors' %}"
+class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+{% if 'doctors' in request.path %}
+bg-white/20 text-white font-semibold
+{% else %}
+text-white hover:text-white
+{% endif %}">
+Doctor
+</a>
 
-    <a href="{% url 'gallery' %}"
-       class="nav-link {% if 'gallery' in request.path %}text-white font-semibold{% endif %}">
-       Gallery
-    </a>
+<a href="{% url 'gallery' %}"
+class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+{% if 'gallery' in request.path %}
+bg-white/20 text-white font-semibold
+{% else %}
+text-white hover:text-white
+{% endif %}">
+Gallery
+</a>
 
-    <a href="{% url 'patient_info' %}"
-       class="nav-link {% if 'patient' in request.path %}text-white font-semibold{% endif %}">
-       Patient Info
-    </a>
+<a href="{% url 'patient_info' %}"
+class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+{% if 'patient' in request.path %}
+bg-white/20 text-white font-semibold
+{% else %}
+text-white hover:text-white
+{% endif %}">
+Patient Info
+</a>
 
-    <a href="{% url 'contact' %}"
-       class="nav-link {% if 'contact' in request.path %}text-white font-semibold{% endif %}">
-       Contact Us
-    </a>
+<a href="{% url 'contact' %}"
+class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+{% if 'contact' in request.path %}
+bg-white/20 text-white font-semibold
+{% else %}
+text-white hover:text-white
+{% endif %}">
+Contact Us
+</a>
 
 </nav>
 
@@ -261,7 +296,7 @@ body {
 
                 <!-- MOBILE BUTTON -->
 
-                <button id="menu-btn" class="lg:hidden text-3xl text-[#43228b] absolute right-0">
+                <button id="menu-btn" class="lg:hidden text-3xl text-white absolute right-0">
 
     <i id="menu-icon" class="fa-solid fa-bars transition-all duration-300"></i>
 
@@ -273,20 +308,20 @@ body {
 
         <!-- MOBILE MENU -->
 
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t shadow-lg">
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#00A99D] border-t border-[#0F9B8E] shadow-lg">
 
-            <div class="flex flex-col px-6 py-5 gap-5 text-[16px] font-medium">
+            <div class="flex flex-col px-6 py-5 gap-6 text-[18px] font-medium text-white">
 
-                <a href="{% url 'home' %}">Home</a>
-                <a href="{% url 'about' %}">About</a>
-                <a href="{% url 'services' %}">Services</a>
-                <a href="{% url 'doctors' %}">Doctor</a>
-                <a href="{% url 'gallery' %}">Gallery</a>
-                <a href="{% url 'patient_info' %}">Patient Info</a>
-                <a href="{% url 'contact' %}">Contact Us</a>
+<a href="{% url 'home' %}" class="{% if 'home' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Home</a>
+<a href="{% url 'about' %}" class="{% if 'about' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">About</a>
+<a href="{% url 'services' %}" class="{% if 'services' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Services</a>
+<a href="{% url 'doctors' %}" class="{% if 'doctors' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Doctor</a>
+<a href="{% url 'gallery' %}" class="{% if 'gallery' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Gallery</a>
+<a href="{% url 'patient_info' %}" class="{% if 'patient_info' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Patient Info</a>
+<a href="{% url 'contact' %}" class="{% if 'contact' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}"">Contact Us</a>
 
                 <a href="{% url 'patient_info' %}"
-                    class="bg-[#43228b] text-white py-3 rounded-xl text-center font-semibold">
+                    class="bg-[#f4a940] text-white py-3 rounded-xl text-center font-semibold">
 
                     Book Appointment
 
