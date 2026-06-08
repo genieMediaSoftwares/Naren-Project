@@ -54,9 +54,18 @@
                 <!-- LEFT FORM -->
                 <div class="xl:col-span-2 space-y-4 w-full min-w-0">
 
-                    <form method="POST">
+                    <form method="POST" id="patientForm">
 
                         {% csrf_token %}
+                        {% if error %}
+
+<div class="bg-red-100 text-red-700 p-4 rounded-xl mb-4">
+
+{{ error }}
+
+</div>
+
+{% endif %}
 
                         <!-- PERSONAL -->
                         <div class="border border-gray-200 rounded-[20px] p-4 sm:p-5">
@@ -78,11 +87,12 @@
                                 <div>
 
                                     <label class="block font-semibold mb-2">
-                                        Full Name *
+                                        Full Name 
                                     </label>
 
                                     <input type="text"
                                             name="full_name"
+                                            required
                                            placeholder="Enter full name"
                                            class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#0F9B8E] outline-none">
 
@@ -91,11 +101,12 @@
                                 <div>
 
                                     <label class="block font-semibold mb-2">
-    Age *
+    Age 
 </label>
 
 <input type="number"
        name="age"
+       required
        placeholder="Enter age"
        class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#0F9B8E] outline-none">
 
@@ -112,13 +123,13 @@
     <div>
 
         <label class="block font-semibold mb-3">
-    Gender *
+    Gender 
 </label>
 
 <div class="flex flex-wrap gap-6 mt-3">
 
     <label class="flex items-center gap-2">
-        <input type="radio" name="gender" value="Female">
+        <input type="radio" name="gender" value="Female" required>
         Female
     </label>
 
@@ -136,11 +147,12 @@
     <div>
 
         <label class="block font-semibold mb-2">
-            Mobile Number *
+            Mobile Number 
         </label>
 
         <input type="text"
                 name="phone"
+                required
                placeholder="Enter mobile number"
                class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#0F9B8E] outline-none">
 
@@ -223,6 +235,7 @@
 
                                     <input type="date"
                                             name="preferred_date"
+                                            required
                                            class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none">
 
                                 </div>
@@ -234,9 +247,9 @@
                                         Preferred Time
                                     </label>
 
-                                    <select name="preferred_time" class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none">
+                                    <select name="preferred_time" required class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none">
 
-                                        <option>Select time slot</option>
+                                        <option value="">Select time slot</option>
 
                                         <option>8:00 AM - 8:30 AM</option>
                                         <option>8:30 AM - 9:00 AM</option>
@@ -604,7 +617,7 @@
                             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mt-5">
 
                                 <label class="flex items-start gap-2 text-gray-700">
-                                    <input type="checkbox" class="mt-1">
+                                    <input type="checkbox" required class="mt-1">
                                     I confirm that the above information is correct.
                                 </label>
 

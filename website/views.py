@@ -79,60 +79,98 @@ def patient_info(request):
 
     if request.method == "POST":
 
+        required_fields = [
+
+            'full_name',
+
+            'age',
+
+            'gender',
+
+            'phone',
+
+            'preferred_date',
+
+            'preferred_time'
+
+        ]
+
+        for field in required_fields:
+
+            if not request.POST.get(field):
+
+                return render(
+
+                    request,
+
+                    'patient_info.html',
+
+                    {
+
+                        'error': 'Please fill all required fields.'
+
+                    }
+
+                )
+
         booking = PatientBooking.objects.create(
 
             full_name=request.POST.get('full_name'),
-            age=request.POST.get('age'),
+
+            age=int(request.POST.get('age')) if request.POST.get('age') else None,
+
             gender=request.POST.get('gender'),
+
             phone=request.POST.get('phone'),
+
             referred_doctor=request.POST.get('referred_doctor'),
+
             hospital_name=request.POST.get('hospital_name'),
 
             ldd_date=request.POST.get('ldd_date') or None,
 
-            preferred_date=request.POST.get('preferred_date') or None,
+            preferred_date=request.POST.get('preferred_date'),
 
             preferred_time=request.POST.get('preferred_time'),
 
             services=', '.join(request.POST.getlist('services')),
 
             message=request.POST.get('message'),
+
         )
-
-
-
-        # EMAIL SEND
 
         subject = "New Patient Appointment Booking"
 
         message = f"""
+
 New patient booking received.
 
 Full Name: {booking.full_name}
+
 Age: {booking.age}
+
 Gender: {booking.gender}
+
 Phone: {booking.phone}
 
-Referred Doctor: {booking.referred_doctor}
-Hospital Name: {booking.hospital_name}
-
-LDD Date: {booking.ldd_date}
-
 Preferred Date: {booking.preferred_date}
+
 Preferred Time: {booking.preferred_time}
 
-Services: {booking.services}
-
-Message:
-{booking.message}
 """
 
         send_mail(
+
             subject,
+
             message,
+
             settings.EMAIL_HOST_USER,
+
             ['narenultrasound@gmail.com'],
+
             fail_silently=False,
+
         )
 
         return redirect('appointment_success')
