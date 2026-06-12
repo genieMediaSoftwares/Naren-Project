@@ -78,11 +78,14 @@ WSGI_APPLICATION = 'naren_ultrasound.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'naren_db',
-        'USER': 'postgres',
-        'PASSWORD': 'Sril@kshmi',
-        'HOST': 'localhost',
+        'NAME': 'neondb',
+        'USER': 'neondb_owner',
+        'PASSWORD': 'npg_YoATlL54rKyw',
+        'HOST': 'ep-restless-sun-ator3vwd.c-9.us-east-1.aws.neon.tech',
         'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        }
     }
 }
 
