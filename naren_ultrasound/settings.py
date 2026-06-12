@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-radm@l&!3xn^le31)=6sg7st8de!_yqiz8^%@sflr)h_*gv=39
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['narenultrasound.in', "www.narenultrasound.in"] 
 
 
 # Application definition
