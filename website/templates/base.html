@@ -279,6 +279,16 @@ text-white hover:text-white
 Contact Us
 </a>
 
+<a href="{% url 'blog_list' %}"
+class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap
+{% if 'blog' in request.path %}
+bg-white/20 text-white font-semibold
+{% else %}
+text-white hover:text-white
+{% endif %}">
+Blog
+</a>
+
 </nav>
 
                 <!-- BUTTON -->
@@ -319,6 +329,8 @@ Contact Us
 <a href="{% url 'gallery' %}" class="{% if 'gallery' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Gallery</a>
 <a href="{% url 'patient_info' %}" class="{% if 'patient_info' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Patient Info</a>
 <a href="{% url 'contact' %}" class="{% if 'contact' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}"">Contact Us</a>
+<a href="{% url 'blog_list' %}" class="{% if 'blog' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}"> Blog </a>
+
 
                 <a href="{% url 'patient_info' %}"
                     class="bg-[#f4a940] text-white py-3 rounded-xl text-center font-semibold">

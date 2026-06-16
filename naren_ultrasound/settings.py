@@ -45,8 +45,43 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     "tailwind",
-    "theme"
+    "theme",
+    'django.contrib.sitemaps',
+    'django_ckeditor_5',
 ]
+
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': {
+            'items': [
+                'heading',
+
+                '|',
+
+                'bold',
+                'italic',
+                'underline',
+                'strikethrough',
+
+                '|',
+
+                'bulletedList',
+                'numberedList',
+
+                '|',
+
+                'link',
+                'blockQuote',
+                'insertTable',
+
+                '|',
+
+                'undo',
+                'redo',
+            ]
+        }
+    }
+}
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',

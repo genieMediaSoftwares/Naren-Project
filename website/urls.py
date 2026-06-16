@@ -24,4 +24,16 @@ urlpatterns = [
     path('patient-info/', views.patient_info, name='patient_info'),
 
     path('contact-success/', views.contact_success, name='contact_success'),
+
+    path(
+    'blog/',
+    views.blog_list,
+    name='blog_list'
+),
+
+path(
+    'blog/<slug:slug>/',
+    views.blog_detail,
+    name='blog_detail'
+),
 ]

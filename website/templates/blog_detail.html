@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+.blog-content h1{
+    font-size:48px;
+    font-weight:700;
+    color:#008f8c;
+    margin-top:30px;
+    margin-bottom:20px;
+}
+
+.blog-content h2{
+    font-size:38px;
+    font-weight:700;
+    color:#008f8c;
+    margin-top:30px;
+    margin-bottom:20px;
+}
+
+.blog-content h3{
+    font-size:30px;
+    font-weight:700;
+    color:#008f8c;
+    margin-top:25px;
+    margin-bottom:15px;
+}
+
+.blog-content p{
+    margin-bottom:18px;
+    line-height:1.9;
+}
+
+.blog-content ul{
+    margin:20px 0;
+    padding-left:25px;
+    list-style:disc;
+}
+
+.blog-content ol{
+    margin:20px 0;
+    padding-left:25px;
+    list-style:decimal;
+}
+
+.blog-content strong{
+    font-weight:700;
+}
+
+.blog-content img{
+    border-radius:16px;
+    margin:20px 0;
+}
+
+</style>
+
+<section class="py-16 bg-[#dfeeee]">
+
+    <div class="max-w-5xl mx-auto px-6">
+
+        <h1 class="text-5xl font-bold mb-6 text-[#008f8c]">
+            {{ post.title }}
+        </h1>
+
+        <img
+            src="{{ post.featured_image.url }}"
+            alt="{{ post.title }}"
+            class="w-full max-w-3xl h-80 object-cover mx-auto rounded-2xl mb-8"
+        >
+
+        <div class="blog-content bg-white p-8 rounded-2xl shadow-lg">
+
+            {{ post.content|safe }}
+
+            <hr class="my-8">
+
+<div class="mt-8">
+
+    <p class="text-lg font-semibold text-[#008f8c]">
+        Author: {{ post.author }}
+    </p>
+
+    <div class="mt-4">
+
+        {% for tag in post.tags.all %}
+
+            <span class="inline-block px-4 py-2 mr-2 mb-2 bg-[#00b5ad] text-white rounded-full">
+
+                {{ tag.name }}
+
+            </span>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

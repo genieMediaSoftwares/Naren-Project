@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Service, PatientBooking, ContactMessage
+from .models import Service, PatientBooking, ContactMessage, BlogPost
 from .forms import AppointmentForm
 from django.core.mail import send_mail
 from django.conf import settings
+
 
 
 def home(request):
@@ -176,3 +177,75 @@ Preferred Time: {booking.preferred_time}
         return redirect('appointment_success')
 
     return render(request, 'patient_info.html')
+
+from django.http import HttpResponse
+
+
+def robots_txt(request):
+
+    lines = [
+        "User-agent: *",
+        "Allow: /",
+        "",
+        "Sitemap: https://narenultrasound.in/sitemap.xml",
+    ]
+
+    return HttpResponse(
+        "\n".join(lines),
+        content_type="text/plain"
+    )
+
+def sitemap_index(request):
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<sitemap>
+<loc>https://narenultrasound.in/pages.xml</loc>
+</sitemap>
+
+<sitemap>
+<loc>https://narenultrasound.in/services.xml</loc>
+</sitemap>
+
+</sitemapindex>
+"""
+
+    return HttpResponse(
+        xml,
+        content_type="application/xml"
+    )
+
+
+def blog_list(request):
+
+    posts = BlogPost.objects.filter(
+        is_published=True
+    ).order_by('-created_at')
+
+    print("POST COUNT:", posts.count())
+
+    return render(
+        request,
+        'blog_list.html',
+        {
+            'posts': posts
+        }
+    )
+
+
+def blog_detail(request, slug):
+
+    post = BlogPost.objects.get(
+        slug=slug,
+        is_published=True
+    )
+
+    return render(
+        request,
+        'blog_detail.html',
+        {
+            'post': post
+        }
+    )
