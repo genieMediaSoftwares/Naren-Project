@@ -105,9 +105,11 @@
 
         </div>
 
-        {# Client photos - appended AFTER the full article and its CTA/conclusion.
+        {% comment %}
+           Client photos - appended AFTER the full article and its CTA/conclusion.
            Renders nothing when a post has no photos, so existing blogs are
-           untouched. Never injected into post.content. #}
+           untouched. Never injected into post.content.
+        {% endcomment %}
         {% with photos=post.client_photos.all %}
         {% if photos %}
 

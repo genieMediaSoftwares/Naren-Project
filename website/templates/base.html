@@ -20,9 +20,11 @@
     <title>Naren Ultrasound & Fetal Medicine Center</title>
     <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
 
-    {# Compiled Tailwind build from the "theme" app (theme/static/css/dist/styles.css).
+    {% comment %}
+       Compiled Tailwind build from the "theme" app (theme/static/css/dist/styles.css).
        The cdn.tailwindcss.com script is a dev-only JIT compiler and must not be used
-       in production. line-clamp is bundled with Tailwind since v3.3, so it needs no plugin. #}
+       in production. line-clamp is bundled with Tailwind since v3.3, so it needs no plugin.
+    {% endcomment %}
     {% tailwind_css %}
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
