@@ -20,11 +20,15 @@
 
             <div class="bg-white rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 transition duration-300">
 
+                {% if post.featured_image %}
+
                 <img
                     src="{{ post.featured_image.url }}"
                     alt="{{ post.title }}"
                     class="w-full h-56 object-cover"
                 >
+
+                {% endif %}
 
                 <div class="p-6">
 

@@ -167,16 +167,63 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-TAILWIND_APP_NAME="theme"
+TAILWIND_APP_NAME = "theme"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'website/static'),
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# User-uploaded files (blog featured images, gallery, services).
+# MEDIA_URL is what the browser requests, MEDIA_ROOT is where the bytes live
+# on disk. Both are also used by ImageField.url / FileSystemStorage, so they
+# must stay in sync - never build a media URL by hand in a template.
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Make sure the media tree exists before the first upload, otherwise the very
+# first ImageField save on a fresh checkout fails. Guarded because some hosts
+# (Vercel) mount the deployment bundle read-only.
+for _media_dir in ('blog', 'blog/photos'):
+    try:
+        os.makedirs(os.path.join(MEDIA_ROOT, _media_dir), exist_ok=True)
+    except OSError:
+        pass
+
+# Django 5.1+ ignores the old DEFAULT_FILE_STORAGE / STATICFILES_STORAGE
+# settings - they must be declared through STORAGES instead. Without this the
+# whitenoise static backend was silently ignored, and 'default' is what
+# ImageField uses to write into MEDIA_ROOT.
+#
+# 'default' is the single switch for every uploaded image on the site
+# (featured images, gallery, services, and blog client photos) - they all go
+# through an ImageField, so none of them need code changes to move.
+#
+# Vercel's filesystem is read-only and thrown away on each deploy, so anything
+# written there at runtime is lost. Point DJANGO_MEDIA_STORAGE_BACKEND at a
+# persistent backend (e.g. 'storages.backends.s3.S3Storage' or Cloudinary) in
+# the Vercel environment to make uploads survive; the local default keeps
+# development working off MEDIA_ROOT.
+STORAGES = {
+    'default': {
+        'BACKEND': os.environ.get(
+            'DJANGO_MEDIA_STORAGE_BACKEND',
+            'django.core.files.storage.FileSystemStorage',
+        ),
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
+
+# ChatGPT-generated PNGs run around 2 MB. Keep a single image in memory, and
+# leave enough headroom for the CKEditor body posted alongside it.
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024
+DATA_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024
+
+# Largest remote image we are willing to pull in from a ChatGPT/OpenAI URL.
+BLOG_IMAGE_DOWNLOAD_MAX_BYTES = 20 * 1024 * 1024
+BLOG_IMAGE_DOWNLOAD_TIMEOUT = 30
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

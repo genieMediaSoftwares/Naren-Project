@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf import settings
-from django.conf.urls.static import static
+from django.views.static import serve as serve_media
 from django.contrib.sitemaps.views import sitemap
 from website.custom_sitemaps import (
     PagesSitemap,
@@ -94,7 +94,19 @@ path(
 ),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Serve MEDIA_ROOT ourselves.
+#
+# django.conf.urls.static.static() only returns a route while DEBUG is True, and
+# WhiteNoise only ever serves STATIC_ROOT - it never touches MEDIA_ROOT. That
+# combination is why /media/blog/<file>.png returned 404 once DEBUG was off.
+# The route is derived from MEDIA_URL so nothing is hardcoded.
+urlpatterns += [
+    re_path(
+        r'^%s(?P<path>.*)$' % settings.MEDIA_URL.lstrip('/'),
+        serve_media,
+        {'document_root': settings.MEDIA_ROOT},
+        name='media',
+    ),
+]
 
 

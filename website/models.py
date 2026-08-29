@@ -1,3 +1,6 @@
+import os
+
+from django.core.validators import FileExtensionValidator
 from django.db import models
 from django_ckeditor_5.fields import CKEditor5Field
 
@@ -218,3 +221,57 @@ class BlogPost(models.Model):
     def __str__(self):
         return self.title
     
+
+
+class BlogPhoto(models.Model):
+    """A client-supplied photo shown in a gallery at the END of a blog post.
+
+    Deliberately a separate model rather than anything embedded in
+    ``BlogPost.content``: the content field stays exactly as the client wrote
+    it, and these photos are appended by the template after the article and its
+    CTA/conclusion. Storage goes through the ImageField like every other image
+    on the site, so switching to an external/persistent backend is a change to
+    STORAGES['default'] alone.
+    """
+
+    post = models.ForeignKey(
+        BlogPost,
+        on_delete=models.CASCADE,
+        related_name='client_photos'
+    )
+
+    image = models.ImageField(
+        upload_to='blog/photos/',
+        validators=[
+            FileExtensionValidator(
+                allowed_extensions=['jpg', 'jpeg', 'png']
+            )
+        ],
+        help_text='JPG, JPEG or PNG.'
+    )
+
+    caption = models.CharField(
+        max_length=200,
+        blank=True,
+        help_text='Optional. Shown under the photo, and used as its alt text.'
+    )
+
+    order = models.PositiveIntegerField(
+        default=0,
+        help_text='Lower numbers appear first in the gallery.'
+    )
+
+    uploaded_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    class Meta:
+
+        ordering = ['order', 'id']
+
+        verbose_name = 'Client photo'
+
+        verbose_name_plural = 'Client photos'
+
+    def __str__(self):
+        return self.caption or os.path.basename(self.image.name or 'photo')

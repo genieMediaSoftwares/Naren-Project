@@ -8,3 +8,36 @@
   * the scope of this path.
   */
 @source "../../../**/*.{html,py,js}";
+
+/**
+  * Tailwind v3 compatibility layer.
+  *
+  * The site was previously styled by the cdn.tailwindcss.com script, which ships
+  * Tailwind v3. This compiled build is Tailwind v4, whose Preflight changed three
+  * defaults. These rules restore the v3 defaults so the existing design renders
+  * identically after the CDN was removed.
+  *
+  * (This is the snippet from the official Tailwind v4 upgrade guide.)
+  */
+@layer base {
+
+  /* v3 default border color was gray-200; v4 uses currentColor. */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  /* v3 default placeholder color was gray-400; v4 uses 50% currentColor. */
+  ::placeholder {
+    color: var(--color-gray-400, currentColor);
+  }
+
+  /* v3 made buttons use the pointer cursor; v4 follows the browser default. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
