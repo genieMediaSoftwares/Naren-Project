@@ -1,7 +1,7 @@
 import os
 
 from django.core.validators import FileExtensionValidator
-from django.db import models
+from django.db import DatabaseError, models
 from django_ckeditor_5.fields import CKEditor5Field
 
 
@@ -275,3 +275,90 @@ class BlogPhoto(models.Model):
 
     def __str__(self):
         return self.caption or os.path.basename(self.image.name or 'photo')
+
+
+class DoctorProfile(models.Model):
+    """The single, site-wide "About the Doctor" card shown under every blog post.
+
+    Intentionally NOT related to BlogPost: the photo is uploaded once here and
+    every post - existing ones included - picks it up automatically, so no blog
+    ever has to be re-saved and no per-post doctor upload exists. This is a
+    different thing from BlogPhoto (per-post client photos).
+
+    The image goes through a normal ImageField, so it uses whatever backend
+    STORAGES['default'] points at - set DJANGO_MEDIA_STORAGE_BACKEND to a
+    persistent backend on Vercel and this photo moves with everything else.
+    """
+
+    name = models.CharField(
+        max_length=150,
+        default='Dr. Naren Satya'
+    )
+
+    designation = models.CharField(
+        max_length=200,
+        default='Consultant Radiologist'
+    )
+
+    organisation = models.CharField(
+        max_length=250,
+        blank=True,
+        default='Naren Ultrasound and Fetal Medicine Center, Visakhapatnam',
+        help_text='Centre and city, shown under the designation.'
+    )
+
+    photo = models.ImageField(
+        upload_to='doctor/',
+        blank=True,
+        validators=[
+            FileExtensionValidator(
+                allowed_extensions=['jpg', 'jpeg', 'png', 'webp']
+            )
+        ],
+        help_text='Uploaded once and reused on every blog post.'
+    )
+
+    bio = models.TextField(
+        blank=True,
+        help_text='Optional. A short paragraph shown beside the photo.'
+    )
+
+    is_active = models.BooleanField(
+        default=True,
+        help_text='Untick to hide the doctor section from all blog posts.'
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True
+    )
+
+    class Meta:
+
+        verbose_name = 'Doctor profile'
+
+        verbose_name_plural = 'Doctor profile'
+
+    @classmethod
+    def get_active(cls):
+        """The profile to render, or None when nothing is configured.
+
+        Returns None rather than raising so a blog page never breaks before the
+        client has filled this in.
+        """
+
+        try:
+            return cls.objects.filter(is_active=True).first()
+        except DatabaseError:
+            # The table may not exist yet on a not-quite-migrated deploy.
+            return None
+
+    def save(self, *args, **kwargs):
+
+        super().save(*args, **kwargs)
+
+        # Only ever one active profile, so every post renders the same doctor.
+        if self.is_active:
+            DoctorProfile.objects.exclude(pk=self.pk).update(is_active=False)
+
+    def __str__(self):
+        return self.name

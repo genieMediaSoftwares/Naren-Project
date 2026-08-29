@@ -184,7 +184,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Make sure the media tree exists before the first upload, otherwise the very
 # first ImageField save on a fresh checkout fails. Guarded because some hosts
 # (Vercel) mount the deployment bundle read-only.
-for _media_dir in ('blog', 'blog/photos'):
+for _media_dir in ('blog', 'blog/photos', 'doctor'):
     try:
         os.makedirs(os.path.join(MEDIA_ROOT, _media_dir), exist_ok=True)
     except OSError:

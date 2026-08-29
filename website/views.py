@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Service, PatientBooking, ContactMessage, BlogPost
+from .models import Service, PatientBooking, ContactMessage, BlogPost, DoctorProfile
 from .forms import AppointmentForm
 from django.core.mail import send_mail
 from django.conf import settings
@@ -246,6 +246,10 @@ def blog_detail(request, slug):
         request,
         'blog_detail.html',
         {
-            'post': post
+            'post': post,
+
+            # Site-wide doctor card appended to every post. None when the
+            # client has not configured one yet - the template skips it.
+            'doctor': DoctorProfile.get_active(),
         }
     )

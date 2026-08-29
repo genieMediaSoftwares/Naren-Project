@@ -9,8 +9,53 @@ from .models import (
     BlogPhoto,
     BlogPost,
     BlogCategory,
-    BlogTag
+    BlogTag,
+    DoctorProfile
 )
+
+
+@admin.register(DoctorProfile)
+class DoctorProfileAdmin(admin.ModelAdmin):
+    """Single site-wide doctor card, reused by every blog post.
+
+    Only one record is allowed: the "Add" button disappears once a profile
+    exists, so the photo is uploaded once here and changed by editing this same
+    record rather than by re-uploading it per blog.
+    """
+
+    list_display = ('name', 'designation', 'is_active', 'updated_at')
+
+    readonly_fields = ('preview', 'updated_at')
+
+    fields = (
+        'name',
+        'designation',
+        'organisation',
+        'preview',
+        'photo',
+        'bio',
+        'is_active',
+        'updated_at',
+    )
+
+    @admin.display(description='Current photo')
+    def preview(self, obj):
+
+        if not obj.pk or not obj.photo:
+            return 'No photo uploaded yet.'
+
+        return format_html(
+            '<img src="{}" style="height:150px;border-radius:50%;'
+            'object-fit:cover;" />',
+            obj.photo.url,
+        )
+
+    def has_add_permission(self, request):
+
+        if DoctorProfile.objects.exists():
+            return False
+
+        return super().has_add_permission(request)
 
 admin.site.register(BlogCategory)
 admin.site.register(BlogTag)
