@@ -81,90 +81,89 @@
 
             <hr class="my-8">
 
-<div class="mt-8">
+            {% if doctor %}
 
-    <p class="text-lg font-semibold text-[#008f8c]">
-        Author: {{ post.author }}
-    </p>
+            <div class="mb-8">
 
-    <div class="mt-4">
+                <h2 class="text-3xl font-bold mb-6 text-[#008f8c]">
+                    About the Doctor
+                </h2>
 
-        {% for tag in post.tags.all %}
+                <div class="flex flex-col sm:flex-row items-center gap-8">
 
-            <span class="inline-block px-4 py-2 mr-2 mb-2 bg-[#00b5ad] text-white rounded-full">
+                    {% if doctor.photo %}
 
-                {{ tag.name }}
-
-            </span>
-
-        {% endfor %}
-
-    </div>
-
-</div>
-
-        </div>
-
-        {% comment %}
-           About the Doctor - the single site-wide DoctorProfile, appended AFTER
-           the full article and its CTA/conclusion. Supplied by the view, so
-           every existing post picks it up without being re-saved. Renders
-           nothing when no profile is configured.
-        {% endcomment %}
-        {% if doctor %}
-
-        <div class="mt-10 bg-white p-8 rounded-2xl shadow-lg">
-
-            <h2 class="text-3xl font-bold mb-6 text-[#008f8c]">
-                About the Doctor
-            </h2>
-
-            <div class="flex flex-col sm:flex-row items-center gap-8">
-
-                {% if doctor.photo %}
-
-                <img
-                    src="{{ doctor.photo.url }}"
-                    alt="{{ doctor.name }}"
-                    loading="lazy"
-                    class="w-40 h-40 sm:w-56 sm:h-56 rounded-full object-cover shadow-md shrink-0"
-                >
-
-                {% endif %}
-
-                <div class="text-center sm:text-left">
-
-                    <p class="text-2xl font-bold text-[#008f8c]">
-                        {{ doctor.name }}
-                    </p>
-
-                    <p class="text-lg font-semibold text-gray-700 mt-1">
-                        {{ doctor.designation }}
-                    </p>
-
-                    {% if doctor.organisation %}
-
-                    <p class="text-gray-600 mt-1">
-                        {{ doctor.organisation }}
-                    </p>
+                    <div class="w-40 h-40 sm:w-56 sm:h-56 rounded-full overflow-hidden shadow-md shrink-0">
+                        <img
+                            src="{{ doctor.photo.url }}"
+                            alt="{{ doctor.name }}"
+                            loading="lazy"
+                            class="w-full h-full object-cover object-center !m-0 !rounded-none"
+                            style="margin: 0 !important; border-radius: 0 !important;"
+                        >
+                    </div>
 
                     {% endif %}
 
-                    {% if doctor.bio %}
+                    <div class="text-center sm:text-left">
 
-                    <p class="text-gray-600 mt-4 leading-relaxed">
-                        {{ doctor.bio }}
-                    </p>
+                        <p class="text-2xl font-bold text-[#008f8c]">
+                            {{ doctor.name }}
+                        </p>
 
-                    {% endif %}
+                        <p class="text-lg font-semibold text-gray-700 mt-1">
+                            {{ doctor.designation }}
+                        </p>
+
+                        {% if doctor.organisation %}
+
+                        <p class="text-gray-600 mt-1">
+                            {{ doctor.organisation }}
+                        </p>
+
+                        {% endif %}
+
+                        {% if doctor.bio %}
+
+                        <p class="text-gray-600 mt-4 leading-relaxed">
+                            {{ doctor.bio }}
+                        </p>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr class="my-8">
+
+            {% endif %}
+
+            <div class="mt-8">
+
+                <p class="text-lg font-semibold text-[#008f8c]">
+                    Related Topics
+                </p>
+
+                <div class="mt-4">
+
+                    {% for tag in post.tags.all %}
+
+                        <span class="inline-block px-4 py-2 mr-2 mb-2 bg-[#00b5ad] text-white rounded-full">
+
+                            {{ tag.name }}
+
+                        </span>
+
+                    {% endfor %}
 
                 </div>
 
             </div>
 
         </div>
-
-        {% endif %}
 
     </div>
 
