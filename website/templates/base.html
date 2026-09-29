@@ -8,97 +8,115 @@
     <meta name="google-site-verification" content="5KYKj3dX5wdS_DcPaVdaoTbIMHFf5o3oNizcxDsApIk" />
 
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DN5SG05CJ7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DN5SG05CJ7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-DN5SG05CJ7');
-</script>
+        gtag('config', 'G-DN5SG05CJ7');
+    </script>
 
     <title>Naren Ultrasound & Fetal Medicine Center</title>
     <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
 
     {% comment %}
-       Compiled Tailwind build from the "theme" app (theme/static/css/dist/styles.css).
-       The cdn.tailwindcss.com script is a dev-only JIT compiler and must not be used
-       in production. line-clamp is bundled with Tailwind since v3.3, so it needs no plugin.
+    Compiled Tailwind build from the "theme" app (theme/static/css/dist/styles.css).
+    The cdn.tailwindcss.com script is a dev-only JIT compiler and must not be used
+    in production. line-clamp is bundled with Tailwind since v3.3, so it needs no plugin.
     {% endcomment %}
     {% tailwind_css %}
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap"
+        rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-
-/* =========================================
+        /* =========================================
    GLOBAL TYPOGRAPHY
 ========================================= */
 
-body {
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
 
-@media (max-width: 639px) {
+        @media (max-width: 639px) {
 
-    main p,
-    main span,
-    main li,
-    main label,
-    main input,
-    main textarea,
-    main select,
-    main button {
-        line-height: 1.6;
-    }
+            main p,
+            main span,
+            main li,
+            main label,
+            main input,
+            main textarea,
+            main select,
+            main button {
+                line-height: 1.6;
+            }
 
-}
+        }
 
-/* =========================================
+        /* =========================================
    NAVBAR EFFECTS
 ========================================= */
 
-.nav-link {
-    position: relative;
-}
+        .nav-link {
+            position: relative;
+        }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    left: 0;
-    bottom: -6px;
-    background: white ;
-    transition: .3s;
-}
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -6px;
+            background: white;
+            transition: .3s;
+        }
 
-.nav-link:hover::after {
-    width: 100%;
-}
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
-/* =========================================
+        /* =========================================
    FOOTER
 ========================================= */
 
-.footer-link {
-    transition: .3s;
-}
+        .footer-link {
+            transition: .3s;
+        }
 
-.footer-link:hover {
-    color: #d8c4ff;
-}
+        .footer-link:hover {
+            color: #d8c4ff;
+        }
 
-</style>
+        .powered-by {
+            margin-top: 4px;
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: .85;
+            overflow-wrap: anywhere;
+        }
+
+        .powered-by a {
+            color: inherit;
+            text-decoration: none;
+            display: inline-block;
+            padding: 2px 0;
+            transition: .3s;
+        }
+
+        .powered-by a:hover {
+            color: #d8c4ff;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body class="bg-[#d7eceb] overflow-x-hidden">
@@ -115,7 +133,7 @@ body {
 
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-phone"></i>
-                <span>+91  91823 95352</span>
+                <span>+91 91823 95352</span>
             </div>
 
         </div>
@@ -131,23 +149,20 @@ body {
 
                 <!-- LOGO -->
 
-<a href="{% url 'home' %}" class="flex items-center gap-2 sm:gap-3 shrink-0 mx-auto lg:mx-0 pr-10 lg:pr-0">
-    <!-- LOGO IMAGE -->
+                <a href="{% url 'home' %}"
+                    class="flex items-center gap-2 sm:gap-3 shrink-0 mx-auto lg:mx-0 pr-10 lg:pr-0">
+                    <!-- LOGO IMAGE -->
 
-    <img
-        src="{% static 'images/logo.png' %}"
-        alt="Naren Logo"
-        class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain shrink-0"
-    >
+                    <img src="{% static 'images/logo.png' %}" alt="Naren Logo"
+                        class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain shrink-0">
 
-    <!-- LOGO TEXT -->
+                    <!-- LOGO TEXT -->
 
-    <div class="flex flex-col leading-none items-center lg:items-start text-center lg:text-left">
+                    <div class="flex flex-col leading-none items-center lg:items-start text-center lg:text-left">
 
-        <!-- NAREN -->
+                        <!-- NAREN -->
 
-        <h1
-            class="
+                        <h1 class="
             text-white
             text-[32px] sm:text-[34px] md:text-[44px]
             sm:text-[34px]
@@ -155,18 +170,15 @@ body {
             font-black sm:font-semibold
             tracking-[2px]
             leading-none
-            "
-            style="font-family: 'Cormorant Garamond', serif;"
-        >
-            NAREN
-        </h1>
+            " style="font-family: 'Cormorant Garamond', serif;">
+                            NAREN
+                        </h1>
 
-        <!-- ULTRASOUND + AND -->
+                        <!-- ULTRASOUND + AND -->
 
-        <div class="flex items-end gap-2 mt-[1px]">
+                        <div class="flex items-end gap-2 mt-[1px]">
 
-            <h2
-                class="
+                            <h2 class="
                 text-white
                 text-[14px] sm:text-[18px] md:text-[28px]
                 sm:text-[18px]
@@ -174,36 +186,30 @@ body {
                 font-black sm:font-semibold
                 tracking-[1px]
                 leading-none
-                "
-                style="font-family: 'Cormorant Garamond', serif;"
-            >
-                ULTRASOUND
-            </h2>
+                " style="font-family: 'Cormorant Garamond', serif;">
+                                ULTRASOUND
+                            </h2>
 
-            <span
-                class="
+                            <span class="
                 text-white
                 text-[14px] sm:text-[18px] md:text-[28px]
                 sm:text-[18px]
                 md:text-[28px]
                 leading-none
                 font-black sm:font-semibold
-                "
-                style="font-family: 'Cormorant Garamond', serif;"
-            >
-                AND
-            </span>
+                " style="font-family: 'Cormorant Garamond', serif;">
+                                AND
+                            </span>
 
-        </div>
+                        </div>
 
-        <!-- GREY LINE -->
+                        <!-- GREY LINE -->
 
-        <div class="h-[1px] bg-gray-400 w-full mt-[2px]"></div>
+                        <div class="h-[1px] bg-gray-400 w-full mt-[2px]"></div>
 
-        <!-- FETAL MEDICINE -->
+                        <!-- FETAL MEDICINE -->
 
-        <p
-            class="
+                        <p class="
             text-white
             text-[12px] sm:text-[14px] md:text-[22px]
             sm:text-[14px]
@@ -212,101 +218,91 @@ body {
             leading-none
             mt-[4px]
             font-black sm:font-semibold
-            "
-            style="font-family: 'Cormorant Garamond', serif;"
-        >
-            FETAL MEDICINE CENTER
-        </p>
+            " style="font-family: 'Cormorant Garamond', serif;">
+                            FETAL MEDICINE CENTER
+                        </p>
 
-    </div>
+                    </div>
 
-</a>
+                </a>
 
                 <!-- DESKTOP NAV -->
 
                 <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-[16px] font-medium whitespace-nowrap">
 
-<a href="{% url 'home' %}"
-class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'home' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
 {% if request.path == '/' %}
 bg-white/20 text-white font-semibold
 {% else %}
 text-white hover:text-white
 {% endif %}">
-Home
-</a>
+                        Home
+                    </a>
 
-<a href="{% url 'about' %}"
-class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'about' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
 {% if 'about' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
 text-white hover:text-white
 {% endif %}">
-About
-</a>
+                        About
+                    </a>
 
-<a href="{% url 'services' %}"
-class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'services' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
 {% if 'services' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
 text-white hover:text-white
 {% endif %}">
-Services
-</a>
+                        Services
+                    </a>
 
-<a href="{% url 'doctors' %}"
-class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'doctors' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
 {% if 'doctors' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
 text-white hover:text-white
 {% endif %}">
-Doctor
-</a>
+                        Doctor
+                    </a>
 
-<a href="{% url 'gallery' %}"
-class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'gallery' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
 {% if 'gallery' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
 text-white hover:text-white
 {% endif %}">
-Gallery
-</a>
+                        Gallery
+                    </a>
 
-<a href="{% url 'patient_info' %}"
-class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'patient_info' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
 {% if 'patient' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
 text-white hover:text-white
 {% endif %}">
-Patient Info
-</a>
+                        Patient Info
+                    </a>
 
-<a href="{% url 'contact' %}"
-class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'contact' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
 {% if 'contact' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
 text-white hover:text-white
 {% endif %}">
-Contact Us
-</a>
+                        Contact Us
+                    </a>
 
-<a href="{% url 'blog_list' %}"
-class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap
+                    <a href="{% url 'blog_list' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap
 {% if 'blog' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
 text-white hover:text-white
 {% endif %}">
-Blog
-</a>
+                        Blog
+                    </a>
 
-</nav>
+                </nav>
 
                 <!-- BUTTON -->
 
@@ -325,9 +321,9 @@ Blog
 
                 <button id="menu-btn" class="lg:hidden text-3xl text-white absolute right-0">
 
-    <i id="menu-icon" class="fa-solid fa-bars transition-all duration-300"></i>
+                    <i id="menu-icon" class="fa-solid fa-bars transition-all duration-300"></i>
 
-</button>
+                </button>
 
             </div>
 
@@ -339,14 +335,24 @@ Blog
 
             <div class="flex flex-col px-6 py-5 gap-6 text-[18px] font-medium text-white">
 
-<a href="{% url 'home' %}" class="{% if 'home' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Home</a>
-<a href="{% url 'about' %}" class="{% if 'about' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">About</a>
-<a href="{% url 'services' %}" class="{% if 'services' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Services</a>
-<a href="{% url 'doctors' %}" class="{% if 'doctors' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Doctor</a>
-<a href="{% url 'gallery' %}" class="{% if 'gallery' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Gallery</a>
-<a href="{% url 'patient_info' %}" class="{% if 'patient_info' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Patient Info</a>
-<a href="{% url 'contact' %}" class="{% if 'contact' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}"">Contact Us</a>
-<a href="{% url 'blog_list' %}" class="{% if 'blog' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}"> Blog </a>
+                <a href="{% url 'home' %}"
+                    class="{% if 'home' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Home</a>
+                <a href="{% url 'about' %}"
+                    class="{% if 'about' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">About</a>
+                <a href="{% url 'services' %}"
+                    class="{% if 'services' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Services</a>
+                <a href="{% url 'doctors' %}"
+                    class="{% if 'doctors' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Doctor</a>
+                <a href="{% url 'gallery' %}"
+                    class="{% if 'gallery' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Gallery</a>
+                <a href="{% url 'patient_info' %}"
+                    class="{% if 'patient_info' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Patient
+                    Info</a>
+                <a href="{% url 'contact' %}"
+                    class="{% if 'contact' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}"">Contact Us</a>
+<a href=" {% url 'blog_list' %}"
+                    class="{% if 'blog' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}"> Blog
+                </a>
 
 
                 <a href="{% url 'patient_info' %}"
@@ -382,85 +388,70 @@ Blog
 
                     <div class="flex items-start gap-3 mb-4">
 
-    <!-- IMAGE -->
+                        <!-- IMAGE -->
 
-    <img
-        src="{% static 'images/logo.png' %}"
-        alt="Naren Logo"
-        class="w-14 h-14 object-contain shrink-0"
-    >
+                        <img src="{% static 'images/logo.png' %}" alt="Naren Logo"
+                            class="w-14 h-14 object-contain shrink-0">
 
-    <!-- TEXT -->
+                        <!-- TEXT -->
 
-    <div class="flex flex-col leading-none">
+                        <div class="flex flex-col leading-none">
 
-        <!-- NAREN -->
+                            <!-- NAREN -->
 
-        <h2
-            class="
+                            <h2 class="
             text-[#ffffff]
             text-[28px]
             font-semibold
             tracking-[1px]
             leading-none
-            "
-            style="font-family: 'Cormorant Garamond', serif;"
-        >
-            NAREN
-        </h2>
+            " style="font-family: 'Cormorant Garamond', serif;">
+                                NAREN
+                            </h2>
 
-        <!-- ULTRASOUND + AND -->
+                            <!-- ULTRASOUND + AND -->
 
-        <div class="flex items-end gap-1 mt-[2px]">
+                            <div class="flex items-end gap-1 mt-[2px]">
 
-            <h3
-                class="
+                                <h3 class="
                 text-[#dbeafe]
                 text-[12px]
                 font-medium
                 tracking-[0.5px]
                 leading-none
-                "
-                style="font-family: 'Cormorant Garamond', serif;"
-            >
-                ULTRASOUND
-            </h3>
+                " style="font-family: 'Cormorant Garamond', serif;">
+                                    ULTRASOUND
+                                </h3>
 
-            <span
-                class="
+                                <span class="
                 text-gray-300
                 text-[11px]
                 leading-none
-                "
-                style="font-family: 'Cormorant Garamond', serif;"
-            >
-                AND
-            </span>
+                " style="font-family: 'Cormorant Garamond', serif;">
+                                    AND
+                                </span>
 
-        </div>
+                            </div>
 
-        <!-- LINE -->
+                            <!-- LINE -->
 
-        <div class="h-[1px] bg-white/30 w-full mt-[2px]"></div>
+                            <div class="h-[1px] bg-white/30 w-full mt-[2px]"></div>
 
-        <!-- FETAL -->
+                            <!-- FETAL -->
 
-        <p
-            class="
+                            <p class="
             text-[#dbeafe]
             text-[10px]
             tracking-[0.5px]
             leading-none
             mt-[3px]
-            "
-            style="font-family: 'Cormorant Garamond', serif;"
-        >
-            FETAL MEDICINE CENTER
-        </p>
+            " style="font-family: 'Cormorant Garamond', serif;">
+                                FETAL MEDICINE CENTER
+                            </p>
 
-    </div>
+                        </div>
 
-</div>
+                    </div>
 
                     <p class="text-[12px] leading-8 text-gray-100 max-w-[320px]">
                         Naren Ultrasound & Fetal Medicine Center is dedicated to providing advanced ultrasound services
@@ -513,47 +504,41 @@ Blog
 
                 <!-- SERVICES -->
 
-<div>
+                <div>
 
-    <h3 class="text-[20px] sm:text-[22px] font-bold mb-5">
-        Available Services
-    </h3>
+                    <h3 class="text-[20px] sm:text-[22px] font-bold mb-5">
+                        Available Services
+                    </h3>
 
-    <div class="space-y-3 text-[11px] sm:text-[12px]">
+                    <div class="space-y-3 text-[11px] sm:text-[12px]">
 
-        <a href="{% url 'services' %}"
-            class="block footer-link leading-6">
-            Antenatal & Gynecological Scans
-        </a>
+                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                            Antenatal & Gynecological Scans
+                        </a>
 
-        <a href="{% url 'services' %}"
-            class="block footer-link leading-6">
-            Routine Scans
-        </a>
+                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                            Routine Scans
+                        </a>
 
-        <a href="{% url 'services' %}"
-            class="block footer-link leading-6">
-            Paediatric Scans
-        </a>
+                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                            Paediatric Scans
+                        </a>
 
-        <a href="{% url 'services' %}"
-            class="block footer-link leading-6">
-            Doppler Scans
-        </a>
+                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                            Doppler Scans
+                        </a>
 
-        <a href="{% url 'services' %}"
-            class="block footer-link leading-6">
-            USG Guided Procedures
-        </a>
+                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                            USG Guided Procedures
+                        </a>
 
-        <a href="{% url 'services' %}"
-            class="block footer-link leading-6">
-            USG Small Parts
-        </a>
+                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                            USG Small Parts
+                        </a>
 
-    </div>
+                    </div>
 
-</div>
+                </div>
 
                 <!-- CONTACT -->
 
@@ -565,71 +550,71 @@ Blog
 
                     <div class="space-y-2 text-[11px] sm:text-[11px]">
 
-    <!-- ADDRESS -->
+                        <!-- ADDRESS -->
 
-    <div class="flex items-start gap-4">
+                        <div class="flex items-start gap-4">
 
-        <i class="fa-solid fa-location-dot mt-1 shrink-0"></i>
+                            <i class="fa-solid fa-location-dot mt-1 shrink-0"></i>
 
-        <p class="leading-5">
-            14-34-9/1, 14-34-9/2 (Opp. Saibaba Temple) <br>
-            Revenue Ward 20, Angadi Dhibba <br>
-            Angathi Street (Opp. KGH Gate 1/In Gate) <br>
-            Maharanipeta, Visakhapatnam - 530002
-        </p>
+                            <p class="leading-5">
+                                14-34-9/1, 14-34-9/2 (Opp. Saibaba Temple) <br>
+                                Revenue Ward 20, Angadi Dhibba <br>
+                                Angathi Street (Opp. KGH Gate 1/In Gate) <br>
+                                Maharanipeta, Visakhapatnam - 530002
+                            </p>
 
-    </div>
+                        </div>
 
-    <!-- PHONE -->
+                        <!-- PHONE -->
 
-    <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-4">
 
-        <i class="fa-solid fa-phone shrink-0"></i>
+                            <i class="fa-solid fa-phone shrink-0"></i>
 
-        <p>
-            +91 91823 95352
-        </p>
-        <p>
-            0891-4599116
-        </p>
+                            <p>
+                                +91 91823 95352
+                            </p>
+                            <p>
+                                0891-4599116
+                            </p>
 
-    </div>
+                        </div>
 
-    <!-- EMAIL -->
+                        <!-- EMAIL -->
 
-    <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-4">
 
-        <i class="fa-solid fa-envelope shrink-0"></i>
+                            <i class="fa-solid fa-envelope shrink-0"></i>
 
-        <p class="break-all sm:break-normal">
-            Narenultrasound@gmail.com
-        </p>
+                            <p class="break-all sm:break-normal">
+                                Narenultrasound@gmail.com
+                            </p>
 
-    </div>
+                        </div>
 
-    <!-- TIMINGS -->
+                        <!-- TIMINGS -->
 
-    <div class="flex items-start gap-4">
+                        <div class="flex items-start gap-4">
 
-        <i class="fa-regular fa-clock mt-1 shrink-0"></i>
+                            <i class="fa-regular fa-clock mt-1 shrink-0"></i>
 
-        <div class="leading-8">
+                            <div class="leading-8">
 
-            <p>
-                <span class="font-semibold">Mon - Sat:</span>
-                8:00 AM - 8:00 PM
-            </p>
+                                <p>
+                                    <span class="font-semibold">Mon - Sat:</span>
+                                    8:00 AM - 8:00 PM
+                                </p>
 
-            <p>
-                <span class="font-semibold">Sunday:</span>
-                Holiday
-            </p>
+                                <p>
+                                    <span class="font-semibold">Sunday:</span>
+                                    Holiday
+                                </p>
 
-        </div>
+                            </div>
 
-    </div>
+                        </div>
 
-</div>
+                    </div>
 
                 </div>
 
@@ -642,6 +627,13 @@ Blog
                 <p class="text-sm">
                     © 2026 Naren Ultrasound & Fetal Medicine Center. All Rights Reserved.
                 </p>
+                <p class="powered-by">
+                    Powered by:
+                    <a href="https://www.kkdigitalgrowth.com/" target="_blank" rel="noopener noreferrer">KK Digital
+                        Growth</a>
+                    <span aria-hidden="true"> | </span>
+                    <a href="https://geniemedia.in/" target="_blank" rel="noopener noreferrer">Genie Media</a>
+                </p>
 
             </div>
 
@@ -652,10 +644,10 @@ Blog
     <!-- WHATSAPP -->
 
     <a href="https://wa.me/919182395352?text=Hello,%20I%20am%20interested%20in%20your%20Ultrasound%20Services.%20Please%20share%20more%20details."
-        target="_blank"
-        class="fixed bottom-5 right-5 z-50">
+        target="_blank" class="fixed bottom-5 right-5 z-50">
 
-        <div class="w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-[#25D366] shadow-lg flex items-center justify-center text-white text-2xl sm:text-4xl">
+        <div
+            class="w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-[#25D366] shadow-lg flex items-center justify-center text-white text-2xl sm:text-4xl">
 
             <i class="fab fa-whatsapp"></i>
 
@@ -667,29 +659,29 @@ Blog
 
     <script>
 
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
 
-    menuBtn.addEventListener('click', () => {
+        menuBtn.addEventListener('click', () => {
 
-        mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('hidden');
 
-        if (mobileMenu.classList.contains('hidden')) {
+            if (mobileMenu.classList.contains('hidden')) {
 
-            menuIcon.classList.remove('fa-xmark');
-            menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
 
-        } else {
+            } else {
 
-            menuIcon.classList.remove('fa-bars');
-            menuIcon.classList.add('fa-xmark');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
 
-        }
+            }
 
-    });
+        });
 
-</script>
+    </script>
 
 </body>
 
