@@ -7,19 +7,19 @@
 
 <section class="bg-[#d7eceb] overflow-hidden">
 
-    <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
+    <div class="site-container py-6 sm:py-8 lg:py-10">
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
 
             <!-- LEFT -->
 
-            <div class="text-center lg:text-left">
+            <div class="text-center lg:text-left min-w-0">
 
                 <p class="uppercase tracking-wide text-[#0f9b8e] font-semibold text-sm mb-5">
                     Advanced Care. Accurate Scans.
                 </p>
 
-                <h1 class="text-[#06233f] font-extrabold leading-[1.1] text-[38px] sm:text-5xl md:text-6xl lg:text-7xl">
+                <h1 class="fluid-display text-[#06233f] font-extrabold leading-[1.1]">
 
                   <span class="text-[#0f9b8e]">Care You Can Trust,</span> 
                     Images You Can
@@ -39,7 +39,7 @@
                 <div class="flex flex-col sm:flex-row sm:flex-wrap gap-4 mt-8 justify-center lg:justify-start">
 
                     <a href="{% url 'patient_info' %}"
-                        class="bg-[#0f9b8e] hover:bg-[#065f56] text-white font-semibold px-6 sm:px-10 py-3 sm:py-4 rounded-xl transition duration-300 flex items-center justify-center gap-2">
+                        class="btn-flex bg-[#0f9b8e] hover:bg-[#065f56] text-white font-semibold py-3 sm:py-4 rounded-xl transition duration-300">
 
                         <i class="fa-solid fa-calendar-check"></i>
                         Book Appointment
@@ -47,7 +47,7 @@
                     </a>
 
                     <a href="{% url 'services' %}"
-                        class="border-2 border-[#0f9b8e] text-[#0f9b8e] hover:bg-[#0f9b8e] hover:text-white font-semibold px-6 sm:px-10 py-3 sm:py-4 rounded-xl transition duration-300 flex items-center justify-center gap-2">
+                        class="btn-flex border-2 border-[#0f9b8e] text-[#0f9b8e] hover:bg-[#0f9b8e] hover:text-white font-semibold py-3 sm:py-4 rounded-xl transition duration-300">
 
                         Our Services
                         <i class="fa-solid fa-arrow-right"></i>
@@ -58,7 +58,7 @@
 
                 <!-- FEATURES -->
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-3 sm:gap-x-6 mt-7">
+                <div class="feature-grid mt-7">
 
                     <!-- ITEM -->
 
@@ -133,7 +133,7 @@
 
                 <img src="{% static 'images/hero.png' %}"
                     alt="Hero"
-                    class="w-full h-[260px] sm:h-[420px] lg:h-[520px] object-cover rounded-[28px] shadow-xl">
+                    class="media-fit rounded-[28px] shadow-xl">
 
             </div>
 
@@ -147,21 +147,21 @@
 
                 <!-- ITEM -->
 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-6 border-b lg:border-b-0 lg:border-r border-white/20 text-center sm:text-left">
+                <div class="stat-item border-b lg:border-b-0 lg:border-r border-white/20">
 
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30 flex items-center justify-center shrink-0">
+                    <div class="stat-icon rounded-full border border-white/30">
 
-                        <i class="fa-solid fa-users text-white text-3xl sm:text-4xl"></i>
+                        <i class="fa-solid fa-users text-white"></i>
 
                     </div>
 
                     <div>
 
-                        <h2 class="text-white text-3xl sm:text-5xl font-bold leading-none">
+                        <h2 class="stat-value text-white font-bold leading-none">
                             20+
                         </h2>
 
-                        <p class="text-white text-sm sm:text-lg mt-2">
+                        <p class="stat-label text-white mt-2">
                             Years of Experience
                         </p>
 
@@ -171,21 +171,21 @@
 
                 <!-- ITEM -->
 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-6 border-b lg:border-b-0 lg:border-r border-white/20 text-center sm:text-left">
+                <div class="stat-item border-b lg:border-b-0 lg:border-r border-white/20">
 
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30 flex items-center justify-center shrink-0">
+                    <div class="stat-icon rounded-full border border-white/30">
 
-                        <i class="fa-regular fa-heart text-white text-3xl sm:text-4xl"></i>
+                        <i class="fa-regular fa-heart text-white"></i>
 
                     </div>
 
                     <div>
 
-                        <h2 class="text-white text-3xl sm:text-5xl font-bold leading-none">
+                        <h2 class="stat-value text-white font-bold leading-none">
                             300K+
                         </h2>
 
-                        <p class="text-white text-sm sm:text-lg mt-2">
+                        <p class="stat-label text-white mt-2">
                             Happy Patients
                         </p>
 
@@ -195,21 +195,21 @@
 
                 <!-- ITEM -->
 
-<div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-6 lg:border-r border-white/20 text-center sm:text-left">
+<div class="stat-item lg:border-r border-white/20">
 
-    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30 flex items-center justify-center shrink-0">
+    <div class="stat-icon rounded-full border border-white/30">
 
-        <i class="fa-solid fa-heart-circle-check text-white text-3xl sm:text-4xl"></i>
+        <i class="fa-solid fa-heart-circle-check text-white"></i>
 
     </div>
 
     <div>
 
-        <h2 class="text-white text-xl sm:text-3xl lg:text-4xl font-bold leading-none">
+        <h2 class="stat-value stat-value--word text-white font-bold leading-none">
             Trusted
         </h2>
 
-        <p class="text-white text-sm sm:text-lg mt-2 leading-snug">
+        <p class="stat-label text-white mt-2 leading-snug">
             Prenatal Care
         </p>
 
@@ -219,21 +219,21 @@
 
 <!-- ITEM -->
 
-<div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 py-6 text-center sm:text-left">
+<div class="stat-item">
 
-    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30 flex items-center justify-center shrink-0">
+    <div class="stat-icon rounded-full border border-white/30">
 
-        <i class="fa-solid fa-file-waveform text-white text-3xl sm:text-4xl"></i>
+        <i class="fa-solid fa-file-waveform text-white"></i>
 
     </div>
 
     <div>
 
-        <h2 class="text-white text-xl sm:text-3xl lg:text-4xl font-bold leading-none">
+        <h2 class="stat-value stat-value--word text-white font-bold leading-none">
             Same Day
         </h2>
 
-        <p class="text-white text-sm sm:text-lg mt-2 leading-snug">
+        <p class="stat-label text-white mt-2 leading-snug">
             Reports
         </p>
 
@@ -253,7 +253,7 @@
 
 <section class="py-10 sm:py-12 lg:py-16 bg-[#eef8f7]">
 
-    <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="site-container">
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
@@ -273,7 +273,7 @@
 
                 </div>
 
-                <h2 class="text-[#06233f] font-extrabold leading-tight text-4xl sm:text-5xl lg:text-6xl">
+                <h2 class="fluid-h2 text-[#06233f] font-extrabold leading-tight">
                     Trusted Ultrasound
                     & Diagnostic Care
                 </h2>
@@ -283,7 +283,7 @@
                 </p>
 
                 <a href="{% url 'about' %}"
-                    class="inline-block mt-6 bg-[#0f9b8e] hover:bg-[#065f56] text-white font-semibold px-6 sm:px-10 py-3 sm:py-4 rounded-xl transition duration-300">
+                    class="btn-flex mt-6 bg-[#0f9b8e] hover:bg-[#065f56] text-white font-semibold py-3 sm:py-4 rounded-xl transition duration-300">
 
                     Learn More
 
@@ -297,7 +297,7 @@
 
                 <img src="{% static 'images/contact-banner.png' %}"
                     alt="About"
-                    class="w-full h-[240px] sm:h-[320px] lg:h-[450px] object-cover rounded-[28px] shadow-lg">
+                    class="media-cover ar-16-10 ar-lg-3-2 rounded-[28px] shadow-lg">
 
             </div>
 
@@ -311,7 +311,7 @@
 
 <section class="bg-[#d7eceb] py-10 sm:py-12 lg:py-16">
 
-    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="site-container">
 
         <div class="text-center mb-8">
 
@@ -319,7 +319,7 @@
                 Our Services
             </p>
 
-            <h2 class="text-[#06233f] font-extrabold leading-tight text-4xl sm:text-5xl lg:text-6xl">
+            <h2 class="fluid-h2 text-[#06233f] font-extrabold leading-tight">
                 Comprehensive Ultrasound Services
             </h2>
 
@@ -327,7 +327,7 @@
 
         <!-- GRID -->
 
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-4 lg:gap-5">
+<div class="auto-grid auto-grid--six">
 
     <!-- CARD 1 -->
 
@@ -335,7 +335,7 @@
 
         <img src="{% static 'images/service1.png' %}"
             alt="Antenatal"
-            class="w-full h-[150px] object-cover">
+            class="media-fit">
 
         <div class="p-4">
 
@@ -357,7 +357,7 @@
 
         <img src="{% static 'images/service2.png' %}"
             alt="Routine"
-            class="w-full h-[150px] object-cover">
+            class="media-fit">
 
         <div class="p-4">
 
@@ -379,7 +379,7 @@
 
         <img src="{% static 'images/service3.png' %}"
             alt="Paediatric"
-            class="w-full h-[150px] object-cover">
+            class="media-fit">
 
         <div class="p-4">
 
@@ -401,7 +401,7 @@
 
         <img src="{% static 'images/service4.png' %}"
             alt="Doppler"
-            class="w-full h-[150px] object-cover">
+            class="media-fit">
 
         <div class="p-4">
 
@@ -423,7 +423,7 @@
 
         <img src="{% static 'images/service5.png' %}"
             alt="USG Guided"
-            class="w-full h-[150px] object-cover">
+            class="media-fit">
 
         <div class="p-4">
 
@@ -445,7 +445,7 @@
 
         <img src="{% static 'images/service6.png' %}"
             alt="USG Small Parts"
-            class="w-full h-[150px] object-cover">
+            class="media-fit">
 
         <div class="p-4">
 
@@ -468,7 +468,7 @@
         <div class="text-center mt-8">
 
             <a href="{% url 'services' %}"
-                class="inline-flex items-center gap-3 bg-[#0f9b8e] hover:bg-[#065f56] text-white px-8 py-4 rounded-xl font-semibold transition duration-300">
+                class="btn-flex bg-[#0f9b8e] hover:bg-[#065f56] text-white py-4 rounded-xl font-semibold transition duration-300">
 
                 View All Services
 
@@ -486,7 +486,7 @@
 
 <section class="py-10 sm:py-12 lg:py-16 bg-[#eef8f7]">
 
-    <div class="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="site-container">
 
         <div class="bg-[#f8f5ff] rounded-[30px] p-5 sm:p-6 lg:p-10">
 
@@ -496,8 +496,8 @@
 
                 <div>
 
-                    <img src="{% static 'images/doctorsBanner.png' %}"
-                        class="w-full h-[260px] sm:h-[420px] object-cover rounded-[24px]">
+                    <img src="{% static 'images/doctorsBanner.png' %}" alt="Dr. Naren Satya"
+                        class="media-fit rounded-[24px]">
 
                 </div>
 
@@ -517,7 +517,7 @@
 
                     </div>
 
-                    <h2 class="text-[#06233f] text-3xl sm:text-5xl font-extrabold leading-tight">
+                    <h2 class="fluid-h2-sm text-[#06233f] font-extrabold leading-tight">
                         Meet Our Expert <br>
                         <span class="text-[#0f9b8e]">Dr. Naren Satya</span>
                     </h2>
@@ -531,7 +531,7 @@
                     </p>
 
                     <a href="{% url 'doctors' %}"
-                        class="inline-block mt-8 bg-[#0f9b8e] hover:bg-[#065f56] text-white px-6 sm:px-10 py-3 sm:py-4 rounded-xl font-semibold transition duration-300">
+                        class="btn-flex mt-8 bg-[#0f9b8e] hover:bg-[#065f56] text-white py-3 sm:py-4 rounded-xl font-semibold transition duration-300">
                         Know More
                     </a>
                 </div>

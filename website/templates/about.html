@@ -6,18 +6,18 @@
 <!-- HERO SECTION -->
 
 <section class="bg-[#c3dddd] overflow-hidden">
-    <div class="max-w-[1600px] mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-4 lg:gap-6">
+    <div class="site-container py-6 sm:py-8 lg:py-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 lg:gap-10">
 
             <!-- LEFT -->
 
-            <div class="px-5 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 text-center lg:text-left flex flex-col justify-center">
+            <div class="text-center lg:text-left flex flex-col justify-center min-w-0">
 
                 <p class="uppercase tracking-[3px] text-[#0F9B8E] font-semibold text-xs sm:text-sm mb-4">
                     About Us
                 </p>
 
-                <h1 class="text-[#08113a] text-[34px] sm:text-[46px] md:text-[54px] lg:text-[56px] font-black leading-[1] tracking-[-1px] max-w-[1000px] mx-auto lg:mx-0">
+                <h1 class="fluid-h1 text-[#08113a] font-black leading-[1] tracking-[-1px] max-w-[1000px] mx-auto lg:mx-0">
 
     Compassionate Care,
 
@@ -38,7 +38,7 @@
             <div>
                <img src="{% static 'images/contact-banner.png' %}"
     alt="About Banner"
-    class="w-full h-[240px] sm:h-[300px] md:h-[360px] lg:h-[430px] object-cover object-center rounded-[40px]">
+    class="media-cover ar-16-10 ar-lg-5-4 object-center rounded-[40px]">
             </div>
 
         </div>
@@ -49,29 +49,29 @@
 
 <section class="bg-[#f5f5f5] py-0 sm:py-0 lg:py-1">
 
-    <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="site-container">
 
         <div class="bg-white rounded-[24px] lg:rounded-[30px] p-4 sm:p-5 lg:p-6">
 
-            <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 lg:gap-5 items-start">
+            <div class="story-grid">
 
                 <!-- IMAGE -->
 
                 <div>
                     <img src="{% static 'images/about-doctor.png' %}"
                         alt="Doctor"
-                        class="w-full h-[280px] sm:h-[400px] xl:h-full object-cover rounded-3xl">
+                        class="story-image media-cover media-cover--top ar-4-3 rounded-3xl">
                 </div>
 
                 <!-- CONTENT -->
 
-                <div class="text-center xl:text-left">
+                <div class="text-center lg:text-left min-w-0">
 
                     <p class="uppercase tracking-[3px] text-[#0F9B8E] font-semibold text-xs sm:text-sm mb-4">
                         Our Story
                     </p>
 
-                    <h2 class="text-[#08113a] text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                    <h2 class="fluid-h2-sm text-[#08113a] font-bold leading-tight">
                         Committed to Your Health
                         and Your Baby’s Well-being
                     </h2>
@@ -88,16 +88,16 @@
 
                 <!-- STATS -->
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="story-stats">
 
                     <!-- CARD -->
 
                     <div class="border border-gray-200 rounded-3xl p-5 flex flex-col items-center text-center">
-                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#0F9B8E] text-2xl mb-5">
+                        <div class="icon-box w-14 h-14 rounded-full bg-[#f3e8ff] text-[#0F9B8E] text-2xl mb-5">
                             <i class="fa-solid fa-users"></i>
                         </div>
 
-                        <h3 class="text-3xl font-bold text-[#0F9B8E] min-h-[48px] flex items-center justify-center text-center">20+</h3>
+                        <h3 class="story-stat-value font-bold text-[#0F9B8E] min-h-[48px] flex items-center justify-center text-center">20+</h3>
 
                         <p class="mt-3 text-sm text-[#08113a] text-center leading-6">
                             Years of Experience
@@ -105,11 +105,11 @@
                     </div>
 
                     <div class="border border-gray-200 rounded-3xl p-5 flex flex-col items-center text-center">
-                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#0F9B8E] text-2xl mb-5">
+                        <div class="icon-box w-14 h-14 rounded-full bg-[#f3e8ff] text-[#0F9B8E] text-2xl mb-5">
                             <i class="fa-solid fa-star"></i>
                         </div>
 
-                        <h3 class="text-3xl font-bold text-[#0F9B8E] min-h-[48px] flex items-center justify-center text-center">300K+</h3>
+                        <h3 class="story-stat-value font-bold text-[#0F9B8E] min-h-[48px] flex items-center justify-center text-center">300K+</h3>
 
                         <p class="mt-3 text-sm text-[#08113a] text-center leading-6">
                             Happy Patients
@@ -117,11 +117,11 @@
                     </div>
 
                     <div class="border border-gray-200 rounded-3xl p-5 flex flex-col items-center text-center">
-                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#0F9B8E] text-2xl mb-5">
+                        <div class="icon-box w-14 h-14 rounded-full bg-[#f3e8ff] text-[#0F9B8E] text-2xl mb-5">
                             <i class="fa-solid fa-award"></i>
                         </div>
 
-                        <h3 class="text-3xl font-bold text-[#0F9B8E] min-h-[48px] flex items-center justify-center text-center">Trusted</h3>
+                        <h3 class="story-stat-value font-bold text-[#0F9B8E] min-h-[48px] flex items-center justify-center text-center">Trusted</h3>
 
                         <p class="mt-3 text-sm text-[#08113a] text-center leading-6">
                             Prenatal Care
@@ -129,11 +129,11 @@
                     </div>
 
                     <div class="border border-gray-200 rounded-3xl p-5 flex flex-col items-center text-center">
-                        <div class="w-14 h-14 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#0F9B8E] text-2xl mb-5">
+                        <div class="icon-box w-14 h-14 rounded-full bg-[#f3e8ff] text-[#0F9B8E] text-2xl mb-5">
                             <i class="fa-solid fa-shield-halved"></i>
                         </div>
 
-                        <h3 class="text-3xl font-bold text-[#0F9B8E] min-h-[48px] flex items-center justify-center text-center">
+                        <h3 class="story-stat-value font-bold text-[#0F9B8E] min-h-[48px] flex items-center justify-center text-center">
                             Advanced
                         </h3>
 
@@ -156,7 +156,7 @@
 
 <section class="py-4 sm:py-5 lg:py-6">
 
-    <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="site-container">
 
         <div class="bg-[#c3dddd] rounded-[28px] sm:rounded-[34px] px-5 sm:px-7 lg:px-8 py-5 sm:py-6">
 
@@ -168,7 +168,7 @@
                     Our Values
                 </p>
 
-                <h2 class="text-[#08113a] font-extrabold leading-tight text-[32px] sm:text-5xl lg:text-6xl">
+                <h2 class="fluid-h2 text-[#08113a] font-extrabold leading-tight">
                     The Principles that Guide Our Care
                 </h2>
 
@@ -183,11 +183,11 @@
                 {% comment %} VALUE CARD {% endcomment %}
 
                 <div class="text-center lg:text-left px-2 sm:px-4 lg:border-r lg:border-gray-200">
-                    <div class="w-20 h-20 rounded-full border border-[#d8c4ff] flex items-center justify-center mx-auto lg:mx-0 mb-4">
+                    <div class="icon-box w-20 h-20 rounded-full border border-[#d8c4ff] mx-auto lg:mx-0 mb-4">
                         <i class="fa-solid fa-hand-holding-heart text-[#0F9B8E] text-4xl"></i>
                     </div>
 
-                    <h3 class="text-[#08113a] text-2xl font-bold mb-4">
+                    <h3 class="fluid-h3 text-[#08113a] font-bold mb-4">
                         Compassion
                     </h3>
 
@@ -197,11 +197,11 @@
                 </div>
 
                 <div class="text-center lg:text-left px-2 sm:px-4 lg:border-r lg:border-gray-200">
-                    <div class="w-20 h-20 rounded-full border border-[#d8c4ff] flex items-center justify-center mx-auto lg:mx-0 mb-4">
+                    <div class="icon-box w-20 h-20 rounded-full border border-[#d8c4ff] mx-auto lg:mx-0 mb-4">
                         <i class="fa-solid fa-bullseye text-[#0F9B8E] text-4xl"></i>
                     </div>
 
-                    <h3 class="text-[#08113a] text-2xl font-bold mb-4">
+                    <h3 class="fluid-h3 text-[#08113a] font-bold mb-4">
                         Accuracy
                     </h3>
 
@@ -211,11 +211,11 @@
                 </div>
 
                 <div class="text-center lg:text-left px-2 sm:px-4 lg:border-r lg:border-gray-200">
-                    <div class="w-20 h-20 rounded-full border border-[#d8c4ff] flex items-center justify-center mx-auto lg:mx-0 mb-4">
+                    <div class="icon-box w-20 h-20 rounded-full border border-[#d8c4ff] mx-auto lg:mx-0 mb-4">
                         <i class="fa-solid fa-shield-halved text-[#0F9B8E] text-4xl"></i>
                     </div>
 
-                    <h3 class="text-[#08113a] text-2xl font-bold mb-4">
+                    <h3 class="fluid-h3 text-[#08113a] font-bold mb-4">
                         Safety
                     </h3>
 
@@ -225,11 +225,11 @@
                 </div>
 
                 <div class="text-center lg:text-left px-2 sm:px-4 lg:border-r lg:border-gray-200">
-                    <div class="w-20 h-20 rounded-full border border-[#d8c4ff] flex items-center justify-center mx-auto lg:mx-0 mb-4">
+                    <div class="icon-box w-20 h-20 rounded-full border border-[#d8c4ff] mx-auto lg:mx-0 mb-4">
                         <i class="fa-solid fa-user-group text-[#0F9B8E] text-4xl"></i>
                     </div>
 
-                    <h3 class="text-[#08113a] text-2xl font-bold mb-4">
+                    <h3 class="fluid-h3 text-[#08113a] font-bold mb-4">
                         Patient First
                     </h3>
 
@@ -239,11 +239,11 @@
                 </div>
 
                 <div class="text-center lg:text-left px-2 sm:px-4">
-                    <div class="w-20 h-20 rounded-full border border-[#d8c4ff] flex items-center justify-center mx-auto lg:mx-0 mb-4">
+                    <div class="icon-box w-20 h-20 rounded-full border border-[#d8c4ff] mx-auto lg:mx-0 mb-4">
                         <i class="fa-solid fa-handshake text-[#0F9B8E] text-4xl"></i>
                     </div>
 
-                    <h3 class="text-[#08113a] text-2xl font-bold mb-4">
+                    <h3 class="fluid-h3 text-[#08113a] font-bold mb-4">
                         Trust
                     </h3>
 
@@ -264,7 +264,7 @@
 
 <section class="bg-[#f5f5f5] pb-5 lg:pb-6">
 
-    <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="site-container">
 
         <div class="bg-gradient-to-r from-[#0F9B8E] to-[#306255] rounded-[24px] p-4 sm:p-5 lg:p-6">
 
@@ -272,7 +272,7 @@
 
                 <div class="flex flex-col sm:flex-row items-center gap-5 text-center lg:text-left">
 
-                    <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center text-4xl">
+                    <div class="icon-box w-20 h-20 rounded-full bg-white/20 text-4xl">
                         <i class="fa-solid fa-heart-pulse"></i>
                     </div>
 
@@ -294,7 +294,7 @@
                 <div class="text-center lg:text-right">
 
                     <a href="{% url 'patient_info' %}"
-                    class="inline-flex items-center gap-3 bg-white hover:bg-gray-100 text-[#0F9B8E] px-6 sm:px-8 py-4 rounded-2xl text-sm sm:text-lg font-bold transition duration-300">
+                    class="btn-flex bg-white hover:bg-gray-100 text-[#0F9B8E] py-4 rounded-2xl text-sm sm:text-lg font-bold transition duration-300">
 
                         Book Your Appointment
                         <i class="fa-solid fa-arrow-right"></i>

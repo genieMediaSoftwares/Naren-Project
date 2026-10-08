@@ -36,6 +36,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- Responsive layer: container, header, grids, fluid type. Must load after Tailwind. -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
     <style>
         /* =========================================
    GLOBAL TYPOGRAPHY
@@ -43,7 +46,6 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
         }
 
         @media (max-width: 639px) {
@@ -119,22 +121,22 @@
     </style>
 </head>
 
-<body class="bg-[#d7eceb] overflow-x-hidden">
+<body class="bg-[#d7eceb]">
 
     <!-- TOP BAR -->
 
     <div class="bg-[#065f56] text-white hidden lg:block">
-        <div class="max-w-[1700px] mx-auto px-6 py-2 flex justify-between items-center text-sm">
+        <div class="site-container py-2 flex justify-between items-center gap-4 text-sm">
 
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-location-dot"></i>
+            <div class="flex items-center gap-2 min-w-0">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                 <span>Visakhapatnam, Andhra Pradesh</span>
             </div>
 
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-phone"></i>
+            <a href="tel:+919182395352" class="flex items-center gap-2 shrink-0">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
                 <span>+91 91823 95352</span>
-            </div>
+            </a>
 
         </div>
     </div>
@@ -143,61 +145,40 @@
 
     <header class="bg-[#00A99D] sticky top-0 z-50 shadow-sm">
 
-        <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-6">
+        <div class="site-container">
 
-            <div class="relative flex items-center justify-between py-4">
+            <div class="site-header__bar">
 
                 <!-- LOGO -->
 
-                <a href="{% url 'home' %}"
-                    class="flex items-center gap-2 sm:gap-3 shrink-0 mx-auto lg:mx-0 pr-10 lg:pr-0">
+                <a href="{% url 'home' %}" class="brand">
+
                     <!-- LOGO IMAGE -->
 
-                    <img src="{% static 'images/logo.png' %}" alt="Naren Logo"
-                        class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain shrink-0">
+                    <img src="{% static 'images/logo.png' %}" alt="Naren Logo" class="brand__logo">
 
                     <!-- LOGO TEXT -->
 
-                    <div class="flex flex-col leading-none items-center lg:items-start text-center lg:text-left">
+                    <div class="brand__text">
 
                         <!-- NAREN -->
 
-                        <h1 class="
-            text-white
-            text-[32px] sm:text-[34px] md:text-[44px]
-            sm:text-[34px]
-            md:text-[44px]
-            font-black sm:font-semibold
-            tracking-[2px]
-            leading-none
-            " style="font-family: 'Cormorant Garamond', serif;">
+                        <h1 class="brand__name text-white font-black sm:font-semibold tracking-[2px] leading-none"
+                            style="font-family: 'Cormorant Garamond', serif;">
                             NAREN
                         </h1>
 
                         <!-- ULTRASOUND + AND -->
 
-                        <div class="flex items-end gap-2 mt-[1px]">
+                        <div class="brand__sub">
 
-                            <h2 class="
-                text-white
-                text-[14px] sm:text-[18px] md:text-[28px]
-                sm:text-[18px]
-                md:text-[28px]
-                font-black sm:font-semibold
-                tracking-[1px]
-                leading-none
-                " style="font-family: 'Cormorant Garamond', serif;">
+                            <h2 class="text-white font-black sm:font-semibold tracking-[1px] leading-none"
+                                style="font-family: 'Cormorant Garamond', serif;">
                                 ULTRASOUND
                             </h2>
 
-                            <span class="
-                text-white
-                text-[14px] sm:text-[18px] md:text-[28px]
-                sm:text-[18px]
-                md:text-[28px]
-                leading-none
-                font-black sm:font-semibold
-                " style="font-family: 'Cormorant Garamond', serif;">
+                            <span class="text-white leading-none font-black sm:font-semibold"
+                                style="font-family: 'Cormorant Garamond', serif;">
                                 AND
                             </span>
 
@@ -209,16 +190,8 @@
 
                         <!-- FETAL MEDICINE -->
 
-                        <p class="
-            text-white
-            text-[12px] sm:text-[14px] md:text-[22px]
-            sm:text-[14px]
-            md:text-[22px]
-            tracking-[0.5px]
-            leading-none
-            mt-[4px]
-            font-black sm:font-semibold
-            " style="font-family: 'Cormorant Garamond', serif;">
+                        <p class="brand__tagline text-white tracking-[0.5px] leading-none mt-[4px] font-black sm:font-semibold"
+                            style="font-family: 'Cormorant Garamond', serif;">
                             FETAL MEDICINE CENTER
                         </p>
 
@@ -226,11 +199,11 @@
 
                 </a>
 
-                <!-- DESKTOP NAV -->
+                <!-- DESKTOP NAV (1280px and up, see responsive.css) -->
 
-                <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-[16px] font-medium whitespace-nowrap">
+                <nav class="site-nav font-medium" aria-label="Main">
 
-                    <a href="{% url 'home' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'home' %}" class="nav-link rounded-xl transition duration-300
 {% if request.path == '/' %}
 bg-white/20 text-white font-semibold
 {% else %}
@@ -239,7 +212,7 @@ text-white hover:text-white
                         Home
                     </a>
 
-                    <a href="{% url 'about' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'about' %}" class="nav-link rounded-xl transition duration-300
 {% if 'about' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
@@ -248,7 +221,7 @@ text-white hover:text-white
                         About
                     </a>
 
-                    <a href="{% url 'services' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'services' %}" class="nav-link rounded-xl transition duration-300
 {% if 'services' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
@@ -257,7 +230,7 @@ text-white hover:text-white
                         Services
                     </a>
 
-                    <a href="{% url 'doctors' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'doctors' %}" class="nav-link rounded-xl transition duration-300
 {% if 'doctors' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
@@ -266,7 +239,7 @@ text-white hover:text-white
                         Doctor
                     </a>
 
-                    <a href="{% url 'gallery' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'gallery' %}" class="nav-link rounded-xl transition duration-300
 {% if 'gallery' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
@@ -275,7 +248,7 @@ text-white hover:text-white
                         Gallery
                     </a>
 
-                    <a href="{% url 'patient_info' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'patient_info' %}" class="nav-link rounded-xl transition duration-300
 {% if 'patient' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
@@ -284,7 +257,7 @@ text-white hover:text-white
                         Patient Info
                     </a>
 
-                    <a href="{% url 'contact' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap 
+                    <a href="{% url 'contact' %}" class="nav-link rounded-xl transition duration-300
 {% if 'contact' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
@@ -293,7 +266,7 @@ text-white hover:text-white
                         Contact Us
                     </a>
 
-                    <a href="{% url 'blog_list' %}" class="nav-link px-3 py-2 rounded-xl transition duration-300 whitespace-nowrap
+                    <a href="{% url 'blog_list' %}" class="nav-link rounded-xl transition duration-300
 {% if 'blog' in request.path %}
 bg-white/20 text-white font-semibold
 {% else %}
@@ -306,22 +279,17 @@ text-white hover:text-white
 
                 <!-- BUTTON -->
 
-                <div class="hidden lg:block">
-
-                    <a href="{% url 'patient_info' %}"
-                        class="bg-[#f4a940] hover:bg-[#e59a2f] text-[#06233f] text-white px-7 py-3 rounded-2xl font-semibold transition duration-300">
-
-                        Book Appointment
-
-                    </a>
-
-                </div>
+                <a href="{% url 'patient_info' %}"
+                    class="header-cta bg-[#f4a940] hover:bg-[#e59a2f] text-white rounded-2xl font-semibold transition duration-300">
+                    Book Appointment
+                </a>
 
                 <!-- MOBILE BUTTON -->
 
-                <button id="menu-btn" class="lg:hidden text-3xl text-white absolute right-0">
+                <button id="menu-btn" type="button" class="menu-toggle" aria-label="Open menu"
+                    aria-controls="mobile-menu" aria-expanded="false">
 
-                    <i id="menu-icon" class="fa-solid fa-bars transition-all duration-300"></i>
+                    <i id="menu-icon" class="fa-solid fa-bars transition-all duration-300" aria-hidden="true"></i>
 
                 </button>
 
@@ -331,12 +299,12 @@ text-white hover:text-white
 
         <!-- MOBILE MENU -->
 
-        <div id="mobile-menu" class="hidden lg:hidden bg-[#00A99D] border-t border-[#0F9B8E] shadow-lg">
+        <div id="mobile-menu" class="mobile-menu hidden bg-[#00A99D] border-t border-[#0F9B8E] shadow-lg">
 
-            <div class="flex flex-col px-6 py-5 gap-6 text-[18px] font-medium text-white">
+            <nav class="site-container mobile-menu__panel text-[18px] font-medium text-white" aria-label="Mobile">
 
                 <a href="{% url 'home' %}"
-                    class="{% if 'home' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Home</a>
+                    class="{% if request.path == '/' %}font-bold text-white{% else %}text-white/90{% endif %}">Home</a>
                 <a href="{% url 'about' %}"
                     class="{% if 'about' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">About</a>
                 <a href="{% url 'services' %}"
@@ -346,23 +314,18 @@ text-white hover:text-white
                 <a href="{% url 'gallery' %}"
                     class="{% if 'gallery' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Gallery</a>
                 <a href="{% url 'patient_info' %}"
-                    class="{% if 'patient_info' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Patient
-                    Info</a>
+                    class="{% if 'patient' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Patient Info</a>
                 <a href="{% url 'contact' %}"
-                    class="{% if 'contact' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}"">Contact Us</a>
-<a href=" {% url 'blog_list' %}"
-                    class="{% if 'blog' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}"> Blog
-                </a>
-
+                    class="{% if 'contact' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Contact Us</a>
+                <a href="{% url 'blog_list' %}"
+                    class="{% if 'blog' in request.path %}font-bold text-white{% else %}text-white/90{% endif %}">Blog</a>
 
                 <a href="{% url 'patient_info' %}"
-                    class="bg-[#f4a940] text-white py-3 rounded-xl text-center font-semibold">
-
+                    class="mobile-menu__cta bg-[#f4a940] text-white py-3 rounded-xl text-center font-semibold">
                     Book Appointment
-
                 </a>
 
-            </div>
+            </nav>
 
         </div>
 
@@ -379,9 +342,10 @@ text-white hover:text-white
 
     <footer class="bg-[#065f56] text-white mt-10 overflow-hidden">
 
-        <div class="max-w-[1700px] mx-auto px-2 sm:px-0 lg:px-10 py-2 sm:py-1">
+        <div class="site-container site-footer__inner">
 
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1fr_0.9fr_0.9fr_1.1fr] gap-6 xl:gap-5">
+            <div class="footer-grid">
+
                 <!-- ABOUT -->
 
                 <div>
@@ -399,13 +363,8 @@ text-white hover:text-white
 
                             <!-- NAREN -->
 
-                            <h2 class="
-            text-[#ffffff]
-            text-[28px]
-            font-semibold
-            tracking-[1px]
-            leading-none
-            " style="font-family: 'Cormorant Garamond', serif;">
+                            <h2 class="text-[#ffffff] text-[28px] font-semibold tracking-[1px] leading-none"
+                                style="font-family: 'Cormorant Garamond', serif;">
                                 NAREN
                             </h2>
 
@@ -413,21 +372,13 @@ text-white hover:text-white
 
                             <div class="flex items-end gap-1 mt-[2px]">
 
-                                <h3 class="
-                text-[#dbeafe]
-                text-[12px]
-                font-medium
-                tracking-[0.5px]
-                leading-none
-                " style="font-family: 'Cormorant Garamond', serif;">
+                                <h3 class="text-[#dbeafe] text-[13px] font-medium tracking-[0.5px] leading-none"
+                                    style="font-family: 'Cormorant Garamond', serif;">
                                     ULTRASOUND
                                 </h3>
 
-                                <span class="
-                text-gray-300
-                text-[11px]
-                leading-none
-                " style="font-family: 'Cormorant Garamond', serif;">
+                                <span class="text-gray-300 text-[12px] leading-none"
+                                    style="font-family: 'Cormorant Garamond', serif;">
                                     AND
                                 </span>
 
@@ -439,13 +390,8 @@ text-white hover:text-white
 
                             <!-- FETAL -->
 
-                            <p class="
-            text-[#dbeafe]
-            text-[10px]
-            tracking-[0.5px]
-            leading-none
-            mt-[3px]
-            " style="font-family: 'Cormorant Garamond', serif;">
+                            <p class="text-[#dbeafe] text-[12px] tracking-[0.5px] leading-none mt-[3px]"
+                                style="font-family: 'Cormorant Garamond', serif;">
                                 FETAL MEDICINE CENTER
                             </p>
 
@@ -453,14 +399,14 @@ text-white hover:text-white
 
                     </div>
 
-                    <p class="text-[12px] leading-8 text-gray-100 max-w-[320px]">
+                    <p class="footer-text text-gray-100 max-w-[320px]">
                         Naren Ultrasound & Fetal Medicine Center is dedicated to providing advanced ultrasound services
                         with accuracy, care and compassion.
                     </p>
 
                     <!-- SOCIAL -->
 
-                    <div class="flex gap-3 mt-5">
+                    <div class="flex flex-wrap gap-3 mt-5">
 
                         {% for icon in social_icons %}
 
@@ -481,11 +427,11 @@ text-white hover:text-white
 
                 <div>
 
-                    <h3 class="text-[20px] sm:text-[22px] font-bold mb-5">
+                    <h3 class="footer-heading font-bold">
                         Quick Links
                     </h3>
 
-                    <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-[11px] sm:text-[11px]">
+                    <div class="footer-links footer-text grid grid-cols-2 gap-x-6">
 
                         <a href="{% url 'home' %}" class="footer-link">Home</a>
                         <a href="{% url 'gallery' %}" class="footer-link">Gallery</a>
@@ -506,33 +452,33 @@ text-white hover:text-white
 
                 <div>
 
-                    <h3 class="text-[20px] sm:text-[22px] font-bold mb-5">
+                    <h3 class="footer-heading font-bold">
                         Available Services
                     </h3>
 
-                    <div class="space-y-3 text-[11px] sm:text-[12px]">
+                    <div class="footer-links footer-text flex flex-col gap-1">
 
-                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                        <a href="{% url 'services' %}" class="footer-link">
                             Antenatal & Gynecological Scans
                         </a>
 
-                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                        <a href="{% url 'services' %}" class="footer-link">
                             Routine Scans
                         </a>
 
-                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                        <a href="{% url 'services' %}" class="footer-link">
                             Paediatric Scans
                         </a>
 
-                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                        <a href="{% url 'services' %}" class="footer-link">
                             Doppler Scans
                         </a>
 
-                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                        <a href="{% url 'services' %}" class="footer-link">
                             USG Guided Procedures
                         </a>
 
-                        <a href="{% url 'services' %}" class="block footer-link leading-6">
+                        <a href="{% url 'services' %}" class="footer-link">
                             USG Small Parts
                         </a>
 
@@ -544,19 +490,19 @@ text-white hover:text-white
 
                 <div>
 
-                    <h3 class="text-[20px] sm:text-[22px] font-bold mb-5">
+                    <h3 class="footer-heading font-bold">
                         Contact Us
                     </h3>
 
-                    <div class="space-y-2 text-[11px] sm:text-[11px]">
+                    <div class="footer-contact footer-text">
 
                         <!-- ADDRESS -->
 
-                        <div class="flex items-start gap-4">
+                        <div class="footer-contact__row">
 
-                            <i class="fa-solid fa-location-dot mt-1 shrink-0"></i>
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
 
-                            <p class="leading-5">
+                            <p>
                                 14-34-9/1, 14-34-9/2 (Opp. Saibaba Temple) <br>
                                 Revenue Ward 20, Angadi Dhibba <br>
                                 Angathi Street (Opp. KGH Gate 1/In Gate) <br>
@@ -567,38 +513,36 @@ text-white hover:text-white
 
                         <!-- PHONE -->
 
-                        <div class="flex items-center gap-4">
+                        <div class="footer-contact__row">
 
-                            <i class="fa-solid fa-phone shrink-0"></i>
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
 
-                            <p>
-                                +91 91823 95352
-                            </p>
-                            <p>
-                                0891-4599116
-                            </p>
+                            <div class="footer-phones">
+                                <a href="tel:+919182395352" class="footer-link">+91 91823 95352</a>
+                                <a href="tel:+918914599116" class="footer-link">0891-4599116</a>
+                            </div>
 
                         </div>
 
                         <!-- EMAIL -->
 
-                        <div class="flex items-center gap-4">
+                        <div class="footer-contact__row">
 
-                            <i class="fa-solid fa-envelope shrink-0"></i>
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
 
-                            <p class="break-all sm:break-normal">
+                            <a href="mailto:Narenultrasound@gmail.com" class="footer-link break-anywhere">
                                 Narenultrasound@gmail.com
-                            </p>
+                            </a>
 
                         </div>
 
                         <!-- TIMINGS -->
 
-                        <div class="flex items-start gap-4">
+                        <div class="footer-contact__row">
 
-                            <i class="fa-regular fa-clock mt-1 shrink-0"></i>
+                            <i class="fa-regular fa-clock" aria-hidden="true"></i>
 
-                            <div class="leading-8">
+                            <div>
 
                                 <p>
                                     <span class="font-semibold">Mon - Sat:</span>
@@ -622,7 +566,7 @@ text-white hover:text-white
 
             <!-- COPYRIGHT -->
 
-            <div class="border-t border-white/20 mt-4 pt-2 text-center">
+            <div class="footer-bottom border-t border-white/20 text-center">
 
                 <p class="text-sm">
                     © 2026 Naren Ultrasound & Fetal Medicine Center. All Rights Reserved.
@@ -644,12 +588,12 @@ text-white hover:text-white
     <!-- WHATSAPP -->
 
     <a href="https://wa.me/919182395352?text=Hello,%20I%20am%20interested%20in%20your%20Ultrasound%20Services.%20Please%20share%20more%20details."
-        target="_blank" class="fixed bottom-5 right-5 z-50">
+        target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" class="wa-float fixed z-50">
 
         <div
-            class="w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-[#25D366] shadow-lg flex items-center justify-center text-white text-2xl sm:text-4xl">
+            class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#25D366] shadow-lg flex items-center justify-center text-white text-2xl sm:text-4xl">
 
-            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
 
         </div>
 
@@ -663,21 +607,36 @@ text-white hover:text-white
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
 
+        function setMenu(open) {
+
+            mobileMenu.classList.toggle('hidden', !open);
+            menuIcon.classList.toggle('fa-bars', !open);
+            menuIcon.classList.toggle('fa-xmark', open);
+            menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+
+        }
+
         menuBtn.addEventListener('click', () => {
 
-            mobileMenu.classList.toggle('hidden');
+            setMenu(mobileMenu.classList.contains('hidden'));
 
-            if (mobileMenu.classList.contains('hidden')) {
+        });
 
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
+        document.addEventListener('keydown', (e) => {
 
-            } else {
-
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-xmark');
-
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                setMenu(false);
+                menuBtn.focus();
             }
+
+        });
+
+        // Reset the menu when the viewport grows into the desktop nav,
+        // so rotating a tablet never leaves a stale open menu behind.
+        window.matchMedia('(min-width: 1280px)').addEventListener('change', (e) => {
+
+            if (e.matches) setMenu(false);
 
         });
 

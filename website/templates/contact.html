@@ -7,19 +7,19 @@
 
 <section class="bg-[#c3dddd] overflow-hidden">
 
-    <div class="max-w-[1500px] mx-auto">
+    <div class="site-container">
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-4 lg:gap-10">
 
             <!-- LEFT -->
 
-            <div class="px-5 sm:px-6 lg:px-10 py-4 sm:py-6 lg:py-8 text-center lg:text-left">
+            <div class="pt-6 sm:pt-8 lg:py-8 text-center lg:text-left min-w-0">
 
                 <h6 class="uppercase text-[#0F9B8E] font-semibold tracking-[3px] text-xs sm:text-sm mb-4">
                     Get In Touch
                 </h6>
 
-                <h1 class="text-[#08113a] text-[32px] sm:text-5xl md:text-6xl lg:text-[60px] font-extrabold leading-[1.05]">
+                <h1 class="fluid-h1 text-[#08113a] font-extrabold leading-[1.05]">
                     Contact
                     <span class="text-[#0F9B8E]">Us</span>
                 </h1>
@@ -32,11 +32,11 @@
 
             <!-- RIGHT -->
 
-            <div class="relative h-[200px] sm:h-[260px] md:h-[320px] lg:h-[360px] xl:h-[400px]">
+            <div class="hero-media min-w-0">
 
                 <img src="{% static 'images/contact-banner.png' %}"
                     alt="Contact Banner"
-                    class="w-full h-full object-cover">
+                    class="media-cover ar-16-9 ar-lg-16-10 rounded-[24px] sm:rounded-[34px]">
 
             </div>
 
@@ -50,13 +50,13 @@
 
 <section class="bg-[#f5f5f5] py-4 sm:py-4 lg:py-6">
 
-    <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="site-container">
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-4">
 
             <!-- LEFT -->
 
-            <div class="space-y-3">
+            <div class="space-y-3 min-w-0">
 
                 <!-- CONTACT INFO -->
 
@@ -76,7 +76,7 @@
 
                         </div>
 
-                        <div>
+                        <div class="min-w-0">
 
                             <h4 class="text-[#08113a] text-lg font-bold mb-2">
                                 Address
@@ -100,18 +100,18 @@
 
                         </div>
 
-                        <div>
+                        <div class="min-w-0">
 
                             <h4 class="text-[#08113a] text-lg font-bold mb-2">
                                 Phone
                             </h4>
 
                             <p class="text-gray-600 text-sm sm:text-base">
-                                +91 91823 95352
+                                <a href="tel:+919182395352">+91 91823 95352</a>
                             </p>
                             <p class="text-gray-600 text-sm sm:text-base">
-                        0891-4599116 
-                    </p>
+                                <a href="tel:+918914599116">0891-4599116</a>
+                            </p>
 
                         </div>
 
@@ -127,14 +127,14 @@
 
                         </div>
 
-                        <div>
+                        <div class="min-w-0">
 
                             <h4 class="text-[#08113a] text-lg font-bold mb-2">
                                 Email
                             </h4>
 
-                            <p class="text-gray-600 text-sm sm:text-base break-all">
-                                Narenultrasound@gmail.com
+                            <p class="text-gray-600 text-sm sm:text-base break-anywhere">
+                                <a href="mailto:Narenultrasound@gmail.com">Narenultrasound@gmail.com</a>
                             </p>
 
                         </div>
@@ -151,7 +151,7 @@
 
                         </div>
 
-                        <div>
+                        <div class="min-w-0">
 
                             <h4 class="text-[#08113a] text-lg font-bold mb-2">
                                 Working Hours
@@ -182,33 +182,33 @@
                     <div class="space-y-3 text-gray-700 relative z-10 text-sm sm:text-base">
 
                         <div class="flex items-center gap-3">
-                            <i class="bi bi-check-circle text-[#0F9B8E]"></i>
+                            <i class="bi bi-check-circle text-[#0F9B8E] shrink-0"></i>
                             Advanced Technology
                         </div>
 
                         <div class="flex items-center gap-3">
-                            <i class="bi bi-check-circle text-[#0F9B8E]"></i>
+                            <i class="bi bi-check-circle text-[#0F9B8E] shrink-0"></i>
                             Expert Radiologists
                         </div>
 
                         <div class="flex items-center gap-3">
-                            <i class="bi bi-check-circle text-[#0F9B8E]"></i>
+                            <i class="bi bi-check-circle text-[#0F9B8E] shrink-0"></i>
                             Accurate Reports
                         </div>
 
                         <div class="flex items-center gap-3">
-                            <i class="bi bi-check-circle text-[#0F9B8E]"></i>
+                            <i class="bi bi-check-circle text-[#0F9B8E] shrink-0"></i>
                             Patient First Approach
                         </div>
 
                         <div class="flex items-center gap-3">
-                            <i class="bi bi-check-circle text-[#0F9B8E]"></i>
+                            <i class="bi bi-check-circle text-[#0F9B8E] shrink-0"></i>
                             Comfortable & Safe Environment
                         </div>
 
                     </div>
 
-                    <div class="absolute right-3 bottom-0 text-[#0F9B8E]/10 text-[80px] sm:text-[120px]">
+                    <div class="absolute right-3 bottom-0 text-[#0F9B8E]/10 text-[80px] sm:text-[120px]" aria-hidden="true">
                         <i class="bi bi-heart-pulse"></i>
                     </div>
 
@@ -218,7 +218,7 @@
 
             <!-- RIGHT -->
 
-            <div class="lg:col-span-2 space-y-3">
+            <div class="lg:col-span-2 space-y-3 min-w-0">
 
                 <!-- FORM -->
 
@@ -350,7 +350,7 @@
                         style="border:0;"
                         allowfullscreen=""
                         loading="lazy"
-                        class="w-full h-[200px] sm:h-[350px]">
+                        class="block w-full h-[260px] sm:h-[350px]">
                     </iframe>
 
                 </div>

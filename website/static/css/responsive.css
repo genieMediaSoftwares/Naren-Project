@@ -1,0 +1,794 @@
+/* =====================================================================
+   Naren Ultrasound - responsive layer
+   ---------------------------------------------------------------------
+   Loaded after the compiled Tailwind build (theme/static/css/dist).
+
+   Rules outside a @layer are "unlayered", and unlayered CSS always wins
+   over Tailwind's layered utilities regardless of specificity. The
+   semantic classes below (site-container, site-header, auto-grid, ...)
+   rely on that, so they are only put on elements whose conflicting
+   Tailwind size/layout utilities have been removed from the template.
+
+   Breakpoints (aligned with Tailwind's so both systems agree):
+     640px   sm   large phones / small tablets
+     768px   md   tablets (portrait)
+     1024px  lg   tablets (landscape) / small laptops - 2-column layouts
+     1280px  xl   desktop - full navigation bar
+     1536px  2xl  large desktop
+   ===================================================================== */
+
+:root {
+    --gutter: clamp(16px, 4vw, 40px);
+    --container-max: 1440px;
+
+    /* Header logo lockup (overridden per breakpoint below). */
+    --brand-img: clamp(44px, 14vw, 64px);
+    --brand-1: clamp(24px, 8.4vw, 32px);
+    --brand-2: clamp(11px, 3.7vw, 14px);
+    --brand-3: clamp(9.5px, 3.2vw, 12px);
+}
+
+/* ---------------------------------------------------------------------
+   1. Global foundation
+   Kept in the base layer so Tailwind utilities on individual elements
+   (e.g. an avatar's fixed w-40 h-40) still take precedence.
+   --------------------------------------------------------------------- */
+
+@layer base {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    img,
+    svg,
+    video,
+    canvas,
+    iframe {
+        max-width: 100%;
+    }
+
+    img,
+    video {
+        height: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        overflow-wrap: break-word;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   2. Container
+   --------------------------------------------------------------------- */
+
+.site-container {
+    width: min(100% - 2 * var(--gutter), var(--container-max));
+    margin-inline: auto;
+}
+
+/* Reading width for long-form blog posts. */
+.site-container--narrow {
+    --container-max: 64rem;
+}
+
+/* ---------------------------------------------------------------------
+   3. Header
+   Below 1280px: [spacer | centered logo | menu button] grid, so the
+   logo can never run under the menu button.
+   1280px and up: logo | nav | CTA in one flex row.
+   --------------------------------------------------------------------- */
+
+.site-header__bar {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    align-items: center;
+    column-gap: 4px;
+    padding-block: 16px;
+}
+
+.brand {
+    grid-column: 2;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 1.5vw, 12px);
+    min-width: 0;
+}
+
+.brand__logo {
+    width: var(--brand-img);
+    height: var(--brand-img);
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.brand__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 0;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.brand__name {
+    font-size: var(--brand-1);
+}
+
+.brand__sub {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.4em;
+    margin-top: 1px;
+}
+
+.brand__sub > * {
+    font-size: var(--brand-2);
+}
+
+.brand__tagline {
+    font-size: var(--brand-3);
+}
+
+.menu-toggle {
+    grid-column: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-right: -4px;
+    font-size: 28px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.menu-toggle:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+.site-nav,
+.header-cta {
+    display: none;
+}
+
+.mobile-menu__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-block: 12px 20px;
+    /* Scrollable when a phone is in landscape and the list is taller
+       than the space left under the sticky header. */
+    max-height: calc(100vh - 120px);
+    max-height: calc(100dvh - 120px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.mobile-menu__panel a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 4px;
+}
+
+.mobile-menu__panel .mobile-menu__cta {
+    justify-content: center;
+    margin-top: 12px;
+    padding-inline: 16px;
+}
+
+@media (min-width: 640px) {
+    :root {
+        --brand-img: 80px;
+        --brand-1: 34px;
+        --brand-2: 18px;
+        --brand-3: 14px;
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        --brand-img: 96px;
+        --brand-1: 44px;
+        --brand-2: 28px;
+        --brand-3: 22px;
+    }
+}
+
+@media (min-width: 1280px) {
+    :root {
+        /* Fluid between 1280px and ~1920px so nav + CTA always fit. */
+        --brand-img: clamp(60px, 5vw, 96px);
+        --brand-1: clamp(30px, 2.3vw, 44px);
+        --brand-2: clamp(18px, 1.46vw, 28px);
+        --brand-3: clamp(14px, 1.15vw, 22px);
+    }
+
+    .site-header__bar {
+        display: flex;
+        justify-content: space-between;
+        gap: clamp(12px, 1.5vw, 32px);
+    }
+
+    .brand {
+        flex-shrink: 0;
+    }
+
+    .brand__text {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .site-nav {
+        display: flex;
+        align-items: center;
+        gap: clamp(2px, 0.5vw, 12px);
+        min-width: 0;
+        font-size: clamp(14.5px, 0.4vw + 10px, 16px);
+    }
+
+    .site-nav a {
+        padding: 0.5rem clamp(8px, 0.75vw, 14px);
+        white-space: nowrap;
+    }
+
+    .header-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        min-height: 48px;
+        padding-inline: clamp(18px, 1.6vw, 28px);
+        font-size: clamp(14.5px, 0.4vw + 10px, 16px);
+        white-space: nowrap;
+    }
+
+    .menu-toggle,
+    .mobile-menu {
+        display: none;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   4. Fluid typography
+   Same hierarchy as the original Tailwind steps, interpolated between
+   them instead of jumping at breakpoints.
+   --------------------------------------------------------------------- */
+
+/* Home hero (was 38 / 48 / 60 / 72px) */
+.fluid-display {
+    font-size: clamp(2.125rem, 1.2rem + 4vw, 4.5rem);
+}
+
+/* Inner-page hero titles (were 28-36px -> 52-60px) */
+.fluid-h1 {
+    font-size: clamp(2rem, 1.1rem + 3.4vw, 3.5rem);
+}
+
+/* Section titles (were text-4xl / 5xl / 6xl) */
+.fluid-h2 {
+    font-size: clamp(1.875rem, 1rem + 3.2vw, 3.75rem);
+}
+
+/* Smaller section titles (were text-3xl / 4xl / 5xl) */
+.fluid-h2-sm {
+    font-size: clamp(1.625rem, 1rem + 2.4vw, 3rem);
+}
+
+/* Card titles (were text-2xl / 20px) */
+.fluid-h3 {
+    font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+}
+
+/* ---------------------------------------------------------------------
+   5. Buttons
+   Content-sized, never wider than their container, 44px touch target.
+   --------------------------------------------------------------------- */
+
+.btn-flex {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    min-height: 48px;
+    max-width: 100%;
+    padding-inline: clamp(20px, 3vw, 40px);
+    text-align: center;
+}
+
+/* ---------------------------------------------------------------------
+   6. Media
+   Two behaviours, chosen per image:
+
+   .media-fit    The whole image, always. Width follows the column and the
+                 height follows the file's own aspect ratio, so nothing is
+                 cropped or stretched at any viewport. Used for every image
+                 that carries text or design: blog banners, the service-room
+                 photos (wall signage), doctor / patient / services banners.
+                 max-width is deliberately not set here so Tailwind max-w-*
+                 utilities on the same element still apply.
+
+   .media-cover  Fills a fixed-ratio box and crops the overflow. Only for
+   + .ar-*       plain scene photos where trimming the edges is harmless
+                 (the square reception photo, whose logo sits in the centre,
+                 and the About story photo).
+   --------------------------------------------------------------------- */
+
+.media-fit {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Blog images: preserve complete source image and natural aspect ratio */
+.blog-card-image,
+.blog-featured-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.media-cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Keep faces in frame when a portrait-ish photo is cropped. */
+.media-cover--top {
+    object-position: center top;
+}
+
+.ar-16-9 { aspect-ratio: 16 / 9; }
+.ar-16-10 { aspect-ratio: 16 / 10; }
+.ar-4-3 { aspect-ratio: 4 / 3; }
+
+@media (min-width: 1024px) {
+    .ar-lg-5-4 { aspect-ratio: 5 / 4; }
+    .ar-lg-16-10 { aspect-ratio: 16 / 10; }
+    .ar-lg-3-2 { aspect-ratio: 3 / 2; }
+}
+
+/* ---------------------------------------------------------------------
+   7. Responsive card grid
+   auto-fit/auto-fill decides the column count from the space available;
+   --cols caps it so 6 cards never end up as an awkward 5 + 1 or 4 + 2.
+   --------------------------------------------------------------------- */
+
+.auto-grid {
+    --min: 260px;
+    --cols: 3;
+    --gap: 20px;
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(max(min(100%, var(--min)), (100% - (var(--cols) - 1) * var(--gap)) / var(--cols)), 1fr)
+    );
+}
+
+/* Variable item count (blog): keep empty tracks so a single post does not
+   stretch across the whole row. */
+.auto-grid--fill {
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(max(min(100%, var(--min)), (100% - (var(--cols) - 1) * var(--gap)) / var(--cols)), 1fr)
+    );
+}
+
+.auto-grid > * {
+    min-width: 0;
+}
+
+/* Home "Comprehensive Ultrasound Services": 6 across on large desktops. */
+@media (min-width: 1536px) {
+    .auto-grid--six {
+        --cols: 6;
+        --min: 180px;
+    }
+}
+
+.card-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-flex__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.card-flex__cta {
+    margin-top: auto;
+    align-self: flex-start;
+    min-height: 44px;
+}
+
+/* ---------------------------------------------------------------------
+   8. Home page
+   --------------------------------------------------------------------- */
+
+/* Hero mini-features: 2 columns on phones, as many as fit elsewhere. */
+.feature-grid {
+    --min: 130px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+    gap: 24px 12px;
+}
+
+.feature-grid > * {
+    min-width: 0;
+}
+
+@media (min-width: 1024px) {
+    .feature-grid {
+        --min: 150px;
+    }
+}
+
+/* Stats band */
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px 16px;
+    padding: 24px 16px;
+    min-width: 0;
+    text-align: center;
+}
+
+.stat-item > div:last-child {
+    min-width: 0;
+}
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: clamp(56px, 4vw + 40px, 80px);
+    height: clamp(56px, 4vw + 40px, 80px);
+    font-size: clamp(1.625rem, 1rem + 1.2vw, 2.25rem);
+}
+
+.stat-value {
+    font-size: clamp(1.75rem, 1rem + 2vw, 3rem);
+}
+
+.stat-value--word {
+    font-size: clamp(1.25rem, 0.9rem + 1.4vw, 2.25rem);
+}
+
+.stat-label {
+    font-size: clamp(0.875rem, 0.8rem + 0.4vw, 1.125rem);
+}
+
+/* Side-by-side icon + text only where each cell is wide enough:
+   2-up tablets and 4-up desktops (not 4-up small laptops or phones). */
+@media (min-width: 640px) and (max-width: 1023.98px), (min-width: 1280px) {
+    .stat-item {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   9. About page
+   --------------------------------------------------------------------- */
+
+.story-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+}
+
+.story-stats {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+}
+
+.story-stats > * {
+    min-width: 0;
+}
+
+.story-stat-value {
+    font-size: clamp(1.5rem, 1.1rem + 0.8vw, 1.875rem);
+}
+
+@media (min-width: 768px) {
+    .story-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .story-stats {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 1440px) {
+    .story-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .story-stats {
+        grid-column: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 768px) {
+    .story-grid .story-image {
+        height: 100%;
+        min-height: 320px;
+        aspect-ratio: auto;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   10. Services page
+   1 column -> 2 columns (tablet) -> 3 columns (desktop). The sidebar
+   cards sit side by side under the lists on tablets.
+   --------------------------------------------------------------------- */
+
+.services-layout {
+    display: grid;
+    gap: 16px 20px;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+}
+
+.services-layout > * {
+    min-width: 0;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.services-aside {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .services-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .services-aside {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1280px) {
+    .services-layout {
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 0.9fr);
+    }
+
+    .services-aside {
+        grid-column: auto;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   11. Patient info
+   --------------------------------------------------------------------- */
+
+@media (min-width: 1280px) {
+    .sticky-aside {
+        position: sticky;
+        /* Clears the sticky header, whose height follows --brand-img. */
+        top: calc(var(--brand-img) * 1.25 + 48px);
+    }
+}
+
+/* ---------------------------------------------------------------------
+   12. Shared helpers
+   --------------------------------------------------------------------- */
+
+/* Long unbroken strings (emails, URLs) wrap only when they must. */
+.break-anywhere {
+    overflow-wrap: anywhere;
+}
+
+.icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.min-w-0-safe {
+    min-width: 0;
+}
+
+/* Hero image column: space under the stacked image on phones/tablets,
+   even top/bottom spacing once it sits beside the text. */
+.hero-media {
+    padding-bottom: clamp(24px, 4vw, 32px);
+}
+
+@media (min-width: 1024px) {
+    .hero-media {
+        padding-block: 32px;
+    }
+}
+
+/* Thank-you card on /contact-success/ (was px-10 py-16 md:px-32 md:py-24,
+   which left ~220px for the heading on a 320px phone). */
+.success-card {
+    padding: clamp(48px, 8vw, 96px) clamp(20px, 8vw, 128px);
+}
+
+/* Responsive card / panel padding */
+.pad-fluid {
+    padding: clamp(20px, 4vw, 32px);
+}
+
+/* ---------------------------------------------------------------------
+   13. Footer
+   1 column -> 2 columns (640px) -> 4 columns (1280px).
+   --------------------------------------------------------------------- */
+
+.site-footer__inner {
+    padding-top: clamp(32px, 5vw, 56px);
+}
+
+.footer-grid {
+    display: grid;
+    gap: clamp(28px, 4vw, 40px) clamp(24px, 3vw, 40px);
+    grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 640px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1280px) {
+    .footer-grid {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1.25fr);
+    }
+}
+
+.footer-heading {
+    font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+    margin-bottom: 16px;
+}
+
+.footer-text {
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.footer-links a {
+    display: inline-block;
+    padding-block: 4px;
+}
+
+.footer-links.grid a {
+    white-space: nowrap;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-contact__row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.footer-contact__row > i {
+    width: 1.1em;
+    margin-top: 0.35em;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.footer-contact__row > :last-child {
+    min-width: 0;
+}
+
+.footer-phones {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 16px;
+}
+
+.footer-bottom {
+    margin-top: clamp(28px, 4vw, 40px);
+    padding-block: 16px 20px;
+}
+
+/* Keep the last footer line clear of the floating WhatsApp button. */
+@media (max-width: 639.98px) {
+    .footer-bottom {
+        padding-bottom: 76px;
+    }
+}
+
+/* Floating WhatsApp button: respect iPhone home-indicator / notch. */
+.wa-float {
+    bottom: max(20px, env(safe-area-inset-bottom));
+    right: max(20px, env(safe-area-inset-right));
+}
+
+/* ---------------------------------------------------------------------
+   14. Blog content (rich text from CKEditor)
+   --------------------------------------------------------------------- */
+
+.blog-content {
+    overflow-wrap: break-word;
+}
+
+.blog-content figure {
+    max-width: 100%;
+    margin-inline: 0;
+}
+
+.blog-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.blog-content figure.table,
+.blog-content pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.blog-content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.blog-content th,
+.blog-content td {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    text-align: left;
+    vertical-align: top;
+}
+
+.blog-content iframe,
+.blog-content video,
+.blog-content embed {
+    max-width: 100%;
+}

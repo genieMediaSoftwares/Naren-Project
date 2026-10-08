@@ -6,7 +6,7 @@
 <style>
 
 .blog-content h1{
-    font-size:48px;
+    font-size:clamp(1.875rem, 1.1rem + 2.6vw, 3rem);
     font-weight:700;
     color:#008f8c;
     margin-top:30px;
@@ -14,7 +14,7 @@
 }
 
 .blog-content h2{
-    font-size:38px;
+    font-size:clamp(1.5rem, 1rem + 2vw, 2.375rem);
     font-weight:700;
     color:#008f8c;
     margin-top:30px;
@@ -22,7 +22,7 @@
 }
 
 .blog-content h3{
-    font-size:30px;
+    font-size:clamp(1.25rem, 0.95rem + 1.4vw, 1.875rem);
     font-weight:700;
     color:#008f8c;
     margin-top:25px;
@@ -57,11 +57,11 @@
 
 </style>
 
-<section class="py-16 bg-[#dfeeee]">
+<section class="py-10 sm:py-12 lg:py-16 bg-[#dfeeee]">
 
-    <div class="max-w-5xl mx-auto px-6">
+    <div class="site-container site-container--narrow">
 
-        <h1 class="text-5xl font-bold mb-6 text-[#008f8c]">
+        <h1 class="fluid-h1 font-bold mb-6 text-[#008f8c] leading-tight">
             {{ post.title }}
         </h1>
 
@@ -70,12 +70,12 @@
         <img
             src="{{ post.featured_image.url }}"
             alt="{{ post.title }}"
-            class="w-full max-w-3xl h-80 object-cover mx-auto rounded-2xl mb-8"
+            class="blog-featured-image max-w-3xl mx-auto rounded-2xl mb-8"
         >
 
         {% endif %}
 
-        <div class="blog-content bg-white p-8 rounded-2xl shadow-lg">
+        <div class="blog-content pad-fluid bg-white rounded-2xl shadow-lg">
 
             {{ post.content|safe }}
 
@@ -85,7 +85,7 @@
 
             <div class="mb-8">
 
-                <h2 class="text-3xl font-bold mb-6 text-[#008f8c]">
+                <h2 class="fluid-h2-sm font-bold mb-6 text-[#008f8c]">
                     About the Doctor
                 </h2>
 
@@ -105,7 +105,7 @@
 
                     {% endif %}
 
-                    <div class="text-center sm:text-left">
+                    <div class="text-center sm:text-left min-w-0">
 
                         <p class="text-2xl font-bold text-[#008f8c]">
                             {{ doctor.name }}

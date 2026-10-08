@@ -4,36 +4,36 @@
 
 <!-- HERO -->
 <section class="bg-[#d7eceb] overflow-hidden">
-    <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="site-container">
 
         <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-4 lg:gap-8 py-5 sm:py-6 lg:py-8">
 
             <!-- LEFT -->
-            <div class="text-center lg:text-left">
+            <div class="text-center lg:text-left min-w-0">
 
-                <h6 class="uppercase text-[#0F9B8E] font-semibold tracking-[3px] text-[11px] sm:text-sm mb-3">
+                <h6 class="uppercase text-[#0F9B8E] font-semibold tracking-[3px] text-xs sm:text-sm mb-3">
                     Patient Information
                 </h6>
 
-                <h1 class="text-[#08113a] text-[28px] sm:text-4xl lg:text-[52px] font-extrabold leading-[1.15]">
+                <h1 class="fluid-h1 text-[#08113a] font-extrabold leading-[1.15]">
                     Patient Information
                     <span class="text-[#0F9B8E] block mt-2 lg:mt-4">
                         Submission
                     </span>
                 </h1>
 
-                <p class="text-gray-600 text-[14px] sm:text-[16px] leading-relaxed mt-4 max-w-xl">
+                <p class="text-gray-600 text-[14px] sm:text-[16px] leading-relaxed mt-4 max-w-xl mx-auto lg:mx-0">
                     Please fill in the details below to help us serve you better.
                 </p>
 
             </div>
 
             <!-- IMAGE -->
-            <div class="flex justify-center lg:justify-end">
+            <div class="flex justify-center lg:justify-end min-w-0">
 
                 <img src="{% static 'images/patient-banner.png' %}"
                      alt="Patient Banner"
-                     class="w-full max-w-[620px] h-[200px] sm:h-[260px] lg:h-[340px] object-cover rounded-[24px] shadow-xl">
+                     class="media-fit max-w-[620px] rounded-[24px] shadow-xl">
 
             </div>
 
@@ -45,7 +45,7 @@
 <!-- FORM SECTION -->
 <section class="bg-[#f5f5f5] py-4 sm:py-5 lg:py-6">
 
-    <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="site-container">
 
         <div class="bg-white rounded-[24px] lg:rounded-[30px] shadow-sm p-4 sm:p-5 lg:p-6">
 
@@ -72,11 +72,11 @@
 
                             <div class="flex items-center gap-4 mb-3">
 
-                                <div class="w-12 h-12 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#0F9B8E] text-xl">
+                                <div class="icon-box w-12 h-12 rounded-full bg-[#f3e8ff] text-[#0F9B8E] text-xl">
                                     <i class="bi bi-person-vcard-fill"></i>
                                 </div>
 
-                                <h3 class="text-[#0F9B8E] text-2xl font-bold">
+                                <h3 class="fluid-h3 text-[#0F9B8E] font-bold min-w-0">
                                     Personal Information
                                 </h3>
 
@@ -167,11 +167,11 @@
 
                             <div class="flex items-center gap-4 mb-3">
 
-                                <div class="w-12 h-12 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#0F9B8E] text-xl">
+                                <div class="icon-box w-12 h-12 rounded-full bg-[#f3e8ff] text-[#0F9B8E] text-xl">
                                     <i class="bi bi-heart-pulse-fill"></i>
                                 </div>
 
-                                <h3 class="text-[#0F9B8E] text-2xl font-bold">
+                                <h3 class="fluid-h3 text-[#0F9B8E] font-bold min-w-0">
                                     Medical Information
                                 </h3>
 
@@ -214,11 +214,11 @@
 
                             <div class="flex items-center gap-4 mb-3">
 
-                                <div class="w-12 h-12 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[#0F9B8E] text-xl">
+                                <div class="icon-box w-12 h-12 rounded-full bg-[#f3e8ff] text-[#0F9B8E] text-xl">
                                     <i class="bi bi-calendar2-check-fill"></i>
                                 </div>
 
-                                <h3 class="text-[#0F9B8E] text-2xl font-bold">
+                                <h3 class="fluid-h3 text-[#0F9B8E] font-bold min-w-0">
                                     Appointment Preference
                                 </h3>
 
@@ -634,7 +634,7 @@
                 </div>
 
                 <!-- RIGHT SIDE -->
-<div class="space-y-6 w-full xl:sticky xl:top-20">
+<div class="sticky-aside space-y-6 w-full min-w-0">
 
     <!-- CONTACT CARD -->
     <div class="bg-[#d7eceb] rounded-[24px] p-5 border border-[#b6d5d4] w-full overflow-hidden">
@@ -647,20 +647,20 @@
 
             <div class="flex items-start gap-4">
 
-                <div class="w-11 h-11 rounded-full bg-[#d7eceb] flex items-center justify-center text-[#0F9B8E]">
+                <div class="icon-box w-11 h-11 rounded-full bg-[#d7eceb] text-[#0F9B8E]">
                     <i class="bi bi-telephone-fill"></i>
                 </div>
 
-                <div>
+                <div class="min-w-0">
                     <h5 class="font-semibold text-[#111827]">
                         Phone Number
                     </h5>
 
                     <p class="text-gray-600 mt-1">
-                        +91 91823 95352 
+                        <a href="tel:+919182395352">+91 91823 95352</a>
                     </p>
-                     <p class="text-gray-600 mt-1">
-                        0891-4599116 
+                    <p class="text-gray-600 mt-1">
+                        <a href="tel:+918914599116">0891-4599116</a>
                     </p>
                 </div>
 
@@ -668,17 +668,17 @@
 
             <div class="flex items-start gap-4">
 
-                <div class="w-11 h-11 rounded-full bg-[#d7eceb] flex items-center justify-center text-[#0F9B8E]">
+                <div class="icon-box w-11 h-11 rounded-full bg-[#d7eceb] text-[#0F9B8E]">
                     <i class="bi bi-envelope-fill"></i>
                 </div>
 
-                <div>
+                <div class="min-w-0">
                     <h5 class="font-semibold text-[#111827]">
                         Email Address
                     </h5>
 
-                    <p class="text-gray-600 mt-1 break-all">
-                        narenultrasound@gmail.com
+                    <p class="text-gray-600 mt-1 break-anywhere">
+                        <a href="mailto:narenultrasound@gmail.com">narenultrasound@gmail.com</a>
                     </p>
                 </div>
 
@@ -690,7 +690,7 @@
         <i class="bi bi-geo-alt-fill"></i>
     </div>
 
-    <div class="pt-[2px]">
+    <div class="pt-[2px] min-w-0">
         <h5 class="font-semibold text-[#111827]">
             Clinic Address
         </h5>
@@ -704,11 +704,11 @@
 
             <div class="flex items-start gap-4">
 
-                <div class="w-11 h-11 rounded-full bg-[#d7eceb] flex items-center justify-center text-[#0F9B8E]">
+                <div class="icon-box w-11 h-11 rounded-full bg-[#d7eceb] text-[#0F9B8E]">
                     <i class="bi bi-clock-fill"></i>
                 </div>
 
-                <div>
+                <div class="min-w-0">
                     <h5 class="font-semibold text-[#111827]">
                         Working Hours
                     </h5>
@@ -734,42 +734,42 @@
     <div class="space-y-4">
 
         <div class="flex items-start gap-2">
-            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1"></i>
+            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1 shrink-0"></i>
             <span class="text-gray-700 leading-relaxed">
                 Antenatal & Gynecological Scans
             </span>
         </div>
 
         <div class="flex items-start gap-2">
-            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1"></i>
+            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1 shrink-0"></i>
             <span class="text-gray-700 leading-relaxed">
                 Routine Scans
             </span>
         </div>
 
         <div class="flex items-start gap-2">
-            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1"></i>
+            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1 shrink-0"></i>
             <span class="text-gray-700 leading-relaxed">
                 Paediatric Scans
             </span>
         </div>
 
         <div class="flex items-start gap-2">
-            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1"></i>
+            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1 shrink-0"></i>
             <span class="text-gray-700 leading-relaxed">
                 Doppler Scans
             </span>
         </div>
 
         <div class="flex items-start gap-2">
-            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1"></i>
+            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1 shrink-0"></i>
             <span class="text-gray-700 leading-relaxed">
                 USG Guided Procedures
             </span>
         </div>
 
         <div class="flex items-start gap-2">
-            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1"></i>
+            <i class="bi bi-check-circle-fill text-[#0F9B8E] mt-1 shrink-0"></i>
             <span class="text-gray-700 leading-relaxed">
                 USG Small Parts
             </span>
@@ -791,7 +791,7 @@
 
         </div>
 
-        <h3 class="text-[#0F9B8E] text-2xl sm:text-3xl font-bold leading-tight">
+        <h3 class="text-[#0F9B8E] text-2xl sm:text-3xl font-bold leading-tight min-w-0">
             Your Information is Safe
         </h3>
 
