@@ -347,15 +347,13 @@
     height: auto;
 }
 
-/* Blog card image container - uniform ratio, auto-adjusts fluidly, never crops/cuts edges */
+/* Blog card image container - uniform ratio, auto-adjusts fluidly, auto fills seamlessly */
 .blog-card-image-wrap {
     position: relative;
     width: 100%;
     aspect-ratio: 3 / 2;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #f8fafc;
+    display: block;
     overflow: hidden;
 }
 
@@ -364,7 +362,7 @@
     height: 100%;
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     display: block;
 }
