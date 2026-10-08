@@ -796,6 +796,18 @@
     height: auto;
 }
 
+.blog-content img.doctor-circle-img,
+.doctor-circle-img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: 58% 20% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    display: block !important;
+}
+
 .blog-content figure.table,
 .blog-content pre {
     overflow-x: auto;
