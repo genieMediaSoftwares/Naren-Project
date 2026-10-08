@@ -21,32 +21,31 @@
             <div class="card-flex bg-white rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 transition duration-300">
 
                 {% if post.featured_image %}
-
-                <img
-                    src="{{ post.featured_image.url }}"
-                    alt="{{ post.title }}"
-                    class="blog-card-image"
-                >
-
+                <div class="blog-card-image-wrap">
+                    <img
+                        src="{{ post.featured_image.url }}"
+                        alt="{{ post.title }}"
+                        class="blog-card-image"
+                        loading="lazy"
+                    >
+                </div>
                 {% endif %}
 
                 <div class="card-flex__body p-5 sm:p-6">
 
-                    <h2 class="fluid-h3 font-bold mb-3">
-
+                    <h2 class="blog-card-title fluid-h3 font-bold mb-3">
                         {{ post.title }}
-
                     </h2>
 
+                    {% if post.short_description %}
                     <p class="text-gray-600 mb-4">
-
                         {{ post.short_description }}
-
                     </p>
+                    {% endif %}
 
                     <a
                         href="{% url 'blog_detail' post.slug %}"
-                        class="card-flex__cta inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#00b5ad] text-white"
+                        class="card-flex__cta inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#00b5ad] text-white hover:bg-[#008f8c] transition duration-200"
                     >
                         Read More
                     </a>
