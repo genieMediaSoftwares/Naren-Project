@@ -114,6 +114,27 @@ def patient_info(request):
 
                 )
 
+        # Collect scans by category
+        scan_categories = [
+            ('1. ANTENATAL & GYNECOLOGICAL SCANS', request.POST.getlist('scan_antenatal')),
+            ('2. ROUTINE SCANS', request.POST.getlist('scan_routine')),
+            ('3. PAEDIATRIC SCANS', request.POST.getlist('scan_paediatric')),
+            ('4. DOPPLER SCANS', request.POST.getlist('scan_doppler')),
+            ('5. USG GUIDED PROCEDURES', request.POST.getlist('scan_usg_guided')),
+            ('6. USG SMALL PARTS', request.POST.getlist('scan_usg_small')),
+        ]
+
+        # Build formatted services text for DB storage and notification
+        category_blocks = []
+        for category_name, selected in scan_categories:
+            if selected:
+                block_lines = [category_name]
+                for scan in selected:
+                    block_lines.append(f"- {scan}")
+                category_blocks.append("\n".join(block_lines))
+
+        services_text = "\n\n".join(category_blocks).strip()
+
         booking = PatientBooking.objects.create(
 
             full_name=request.POST.get('full_name'),
@@ -134,7 +155,7 @@ def patient_info(request):
 
             preferred_time=request.POST.get('preferred_time'),
 
-            services=', '.join(request.POST.getlist('services')),
+            services=services_text,
 
             message=request.POST.get('message'),
 
@@ -142,22 +163,25 @@ def patient_info(request):
 
         subject = "New Patient Appointment Booking"
 
-        message = f"""
-New patient booking received.
+        scan_section = f"\n\n{services_text}" if services_text else "\nNone selected"
 
+        message = f"""NEW PATIENT APPOINTMENT
+
+PERSONAL INFORMATION
 Full Name: {booking.full_name}
 Age: {booking.age}
 Gender: {booking.gender}
-Phone: {booking.phone}
+Mobile Number: {booking.phone}
 
-Referred By (Doctor Name): {booking.referred_doctor or 'N/A'}
-Hospital / Clinic Name: {booking.hospital_name or 'N/A'}
+MEDICAL INFORMATION
+Referred Doctor: {booking.referred_doctor or 'N/A'}
+Hospital / Clinic: {booking.hospital_name or 'N/A'}
 
+APPOINTMENT PREFERENCE
 Preferred Date: {booking.preferred_date}
 Preferred Time: {booking.preferred_time}
 
-Selected Services / Scans:
-{booking.services or 'None'}
+SELECTED SERVICES / SCANS{scan_section}
 """
 
         send_mail(
