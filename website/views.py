@@ -143,21 +143,21 @@ def patient_info(request):
         subject = "New Patient Appointment Booking"
 
         message = f"""
-
 New patient booking received.
 
 Full Name: {booking.full_name}
-
 Age: {booking.age}
-
 Gender: {booking.gender}
-
 Phone: {booking.phone}
 
-Preferred Date: {booking.preferred_date}
+Referred By (Doctor Name): {booking.referred_doctor or 'N/A'}
+Hospital / Clinic Name: {booking.hospital_name or 'N/A'}
 
+Preferred Date: {booking.preferred_date}
 Preferred Time: {booking.preferred_time}
 
+Selected Services / Scans:
+{booking.services or 'None'}
 """
 
         send_mail(
