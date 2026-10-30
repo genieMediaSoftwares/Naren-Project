@@ -23,6 +23,8 @@ urlpatterns = [
 
     path('patient-info/', views.patient_info, name='patient_info'),
 
+    path('api/booked-slots/', views.booked_slots_api, name='booked_slots_api'),
+
     path('contact-success/', views.contact_success, name='contact_success'),
 
     path(

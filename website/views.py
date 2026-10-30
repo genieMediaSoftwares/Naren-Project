@@ -1,8 +1,14 @@
-from django.shortcuts import render, redirect
-from .models import Service, PatientBooking, ContactMessage, BlogPost, DoctorProfile
-from .forms import AppointmentForm
-from django.core.mail import send_mail
+from datetime import datetime
+import hashlib
+
 from django.conf import settings
+from django.core.mail import send_mail
+from django.db import connection, transaction
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import redirect, render
+
+from .forms import AppointmentForm
+from .models import BlogPost, ContactMessage, DoctorProfile, PatientBooking, Service
 
 
 
@@ -73,6 +79,26 @@ def contact_success(request):
     return render(request, 'contact_success.html')
 
 
+def booked_slots_api(request):
+    """Return JSON list of booked, non-cancelled appointment time slots for a given date."""
+    date_str = request.GET.get('date', '').strip()
+    if not date_str:
+        return JsonResponse({'booked_slots': []})
+
+    try:
+        query_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+    except ValueError:
+        return JsonResponse({'error': 'Invalid date format. Expected YYYY-MM-DD.'}, status=400)
+
+    booked_slots = list(
+        PatientBooking.objects.filter(
+            preferred_date=query_date,
+            is_cancelled=False
+        ).values_list('preferred_time', flat=True).distinct()
+    )
+    return JsonResponse({'booked_slots': booked_slots})
+
+
 def appointment_success(request):
     return render(request, 'appointment_success.html')
 
@@ -80,43 +106,83 @@ def patient_info(request):
 
     if request.method == "POST":
 
-        required_fields = [
+        all_selected_scans = (
+            request.POST.getlist('scan_antenatal') +
+            request.POST.getlist('scan_routine') +
+            request.POST.getlist('scan_paediatric') +
+            request.POST.getlist('scan_doppler') +
+            request.POST.getlist('scan_usg_guided') +
+            request.POST.getlist('scan_usg_small')
+        )
+        form_context = {
+            'form_data': request.POST,
+            'selected_scans': all_selected_scans,
+        }
 
-            'full_name',
+        # 1. Personal Information Validation (Mandatory)
+        full_name = request.POST.get('full_name', '').strip()
+        if not full_name:
+            return render(request, 'patient_info.html', {**form_context, 'error': 'Please enter your Full Name.'})
 
-            'age',
+        age_val = request.POST.get('age', '').strip()
+        if not age_val:
+            return render(request, 'patient_info.html', {**form_context, 'error': 'Please enter your Age.'})
+        try:
+            age = int(age_val)
+        except ValueError:
+            return render(request, 'patient_info.html', {**form_context, 'error': 'Please enter a valid numeric Age.'})
 
-            'gender',
+        gender = request.POST.get('gender', '').strip()
+        if not gender:
+            return render(request, 'patient_info.html', {**form_context, 'error': 'Please select your Gender.'})
 
-            'phone',
+        phone = request.POST.get('phone', '').strip()
+        if not phone:
+            return render(request, 'patient_info.html', {**form_context, 'error': 'Please enter your Mobile Number.'})
 
-            'preferred_date',
+        # 2. Appointment Preference Validation (Mandatory)
+        preferred_date_raw = request.POST.get('preferred_date', '').strip()
+        if not preferred_date_raw:
+            return render(request, 'patient_info.html', {**form_context, 'error': 'Please select a Preferred Date.'})
 
-            'preferred_time'
+        try:
+            preferred_date = datetime.strptime(preferred_date_raw, '%Y-%m-%d').date()
+        except ValueError:
+            return render(
+                request,
+                'patient_info.html',
+                {**form_context, 'error': 'Invalid date format. Please select a valid appointment date.'}
+            )
 
-        ]
+        preferred_time = request.POST.get('preferred_time', '').strip()
+        if not preferred_time:
+            return render(request, 'patient_info.html', {**form_context, 'error': 'Please select a Preferred Time Slot.'})
 
-        for field in required_fields:
+        # 3. Preferred Service / Scan – Mandatory Antenatal Selection
+        antenatal_scans = request.POST.getlist('scan_antenatal')
+        if not antenatal_scans:
+            return render(
+                request,
+                'patient_info.html',
+                {**form_context, 'error': 'Please select at least one scan from Antenatal & Gynecological Scans.'}
+            )
 
-            if not request.POST.get(field):
+        # 4. Confirmation Checkbox Validation (Mandatory)
+        confirmation = request.POST.get('confirmation')
+        if not confirmation:
+            return render(
+                request,
+                'patient_info.html',
+                {**form_context, 'error': 'Please confirm that the above information is correct.'}
+            )
 
-                return render(
-
-                    request,
-
-                    'patient_info.html',
-
-                    {
-
-                        'error': 'Please fill all required fields.'
-
-                    }
-
-                )
+        # Optional Medical Information
+        referred_doctor = request.POST.get('referred_doctor', '').strip()
+        hospital_name = request.POST.get('hospital_name', '').strip()
 
         # Collect scans by category
         scan_categories = [
-            ('1. ANTENATAL & GYNECOLOGICAL SCANS', request.POST.getlist('scan_antenatal')),
+            ('1. ANTENATAL & GYNECOLOGICAL SCANS', antenatal_scans),
             ('2. ROUTINE SCANS', request.POST.getlist('scan_routine')),
             ('3. PAEDIATRIC SCANS', request.POST.getlist('scan_paediatric')),
             ('4. DOPPLER SCANS', request.POST.getlist('scan_doppler')),
@@ -135,31 +201,55 @@ def patient_info(request):
 
         services_text = "\n\n".join(category_blocks).strip()
 
-        booking = PatientBooking.objects.create(
+        # Database-level concurrency lock & duplicate check
+        with transaction.atomic():
+            if connection.vendor == 'postgresql':
+                with connection.cursor() as cursor:
+                    slot_key = f"{preferred_date}_{preferred_time}"
+                    lock_id = int(hashlib.md5(slot_key.encode('utf-8')).hexdigest()[:15], 16)
+                    cursor.execute("SELECT pg_advisory_xact_lock(%s);", [lock_id])
 
-            full_name=request.POST.get('full_name'),
+            if PatientBooking.objects.filter(
+                preferred_date=preferred_date,
+                preferred_time=preferred_time,
+                is_cancelled=False
+            ).exists():
+                return render(
+                    request,
+                    'patient_info.html',
+                    {
+                        **form_context,
+                        'error': f'The time slot "{preferred_time}" on {preferred_date} is already booked. Please choose another time slot.'
+                    }
+                )
 
-            age=int(request.POST.get('age')) if request.POST.get('age') else None,
+            booking = PatientBooking.objects.create(
 
-            gender=request.POST.get('gender'),
+                full_name=full_name,
 
-            phone=request.POST.get('phone'),
+                age=age,
 
-            referred_doctor=request.POST.get('referred_doctor'),
+                gender=gender,
 
-            hospital_name=request.POST.get('hospital_name'),
+                phone=phone,
 
-            ldd_date=request.POST.get('ldd_date') or None,
+                referred_doctor=referred_doctor or None,
 
-            preferred_date=request.POST.get('preferred_date'),
+                hospital_name=hospital_name or None,
 
-            preferred_time=request.POST.get('preferred_time'),
+                ldd_date=request.POST.get('ldd_date') or None,
 
-            services=services_text,
+                preferred_date=preferred_date,
 
-            message=request.POST.get('message'),
+                preferred_time=preferred_time,
 
-        )
+                services=services_text,
+
+                is_cancelled=False,
+
+                message=request.POST.get('message'),
+
+            )
 
         subject = "New Patient Appointment Booking"
 

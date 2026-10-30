@@ -23,11 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-radm@l&!3xn^le31)=6sg7st8de!_yqiz8^%@sflr)h_*gv=39'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False').lower() in ('true', '1')
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
+    'testserver',
     'www.narenultrasound.in',
     'narenultrasound.in',
     '.vercel.app',

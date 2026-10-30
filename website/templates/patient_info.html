@@ -92,6 +92,7 @@
 
                                     <input type="text"
                                             name="full_name"
+                                            value="{{ form_data.full_name|default:'' }}"
                                             required
                                            placeholder="Enter full name"
                                            class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#0F9B8E] outline-none">
@@ -106,6 +107,7 @@
 
 <input type="number"
        name="age"
+       value="{{ form_data.age|default:'' }}"
        required
        placeholder="Enter age"
        class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#0F9B8E] outline-none">
@@ -129,12 +131,12 @@
 <div class="flex flex-wrap gap-6 mt-3">
 
     <label class="flex items-center gap-2">
-        <input type="radio" name="gender" value="Female" required>
+        <input type="radio" name="gender" value="Female" required {% if form_data.gender == 'Female' %}checked{% endif %}>
         Female
     </label>
 
     <label class="flex items-center gap-2">
-        <input type="radio" name="gender" value="Male">
+        <input type="radio" name="gender" value="Male" {% if form_data.gender == 'Male' %}checked{% endif %}>
         Male
     </label>
 
@@ -152,6 +154,7 @@
 
         <input type="text"
                 name="phone"
+                value="{{ form_data.phone|default:'' }}"
                 required
                placeholder="Enter mobile number"
                class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#0F9B8E] outline-none">
@@ -188,6 +191,7 @@
                                     <input type="text"
                                            placeholder="Enter doctor name"
                                            name="referred_doctor"
+                                           value="{{ form_data.referred_doctor|default:'' }}"
                                            class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none">
 
                                 </div>
@@ -200,6 +204,7 @@
 
                                     <input type="text"
                                             name="hospital_name"
+                                            value="{{ form_data.hospital_name|default:'' }}"
                                            placeholder="Enter hospital or clinic name"
                                            class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none">
 
@@ -235,6 +240,7 @@
 
                                     <input type="date"
                                             name="preferred_date"
+                                            value="{{ form_data.preferred_date|default:'' }}"
                                             required
                                            class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none">
 
@@ -251,26 +257,26 @@
 
                                         <option value="">Select time slot</option>
 
-                                        <option>10:00 AM - 10:30 AM</option>
-                                        <option>10:30 AM - 11:00 AM</option>
-                                        <option>11:00 AM - 11:30 PM</option>
-                                        <option>11:30 AM - 12:00 AM</option>
-                                        <option>12:00 PM - 12:30 PM</option>
-                                        <option>12:30 AM - 1:00 AM</option>
-                                        <option>1:00 PM - 1:30 PM</option>
-                                        <option>1:30 AM - 2:00 AM</option>
-                                        <option>2:00 PM - 2:30 PM</option>
-                                        <option>2:30 AM - 3:00 AM</option>
-                                        <option>3:00 PM - 3:30 PM</option>
-                                        <option>3:30 AM - 4:00 AM</option>
-                                        <option>4:00 PM - 4:30 PM</option>
-                                        <option>4:30 AM - 5:00 AM</option>
-                                        <option>5:00 PM - 5:30 PM</option>
-                                        <option>5:30 AM - 6:00 AM</option>
-                                        <option>6:00 PM - 6:30 PM</option>
-                                        <option>6:30 AM - 7:00 AM</option>
-                                        <option>7:00 PM - 7:30 PM</option>
-                                        <option>7:30 PM - 8:00 PM</option>
+                                        <option {% if form_data.preferred_time == "10:00 AM - 10:30 AM" %}selected{% endif %}>10:00 AM - 10:30 AM</option>
+                                        <option {% if form_data.preferred_time == "10:30 AM - 11:00 AM" %}selected{% endif %}>10:30 AM - 11:00 AM</option>
+                                        <option {% if form_data.preferred_time == "11:00 AM - 11:30 PM" %}selected{% endif %}>11:00 AM - 11:30 PM</option>
+                                        <option {% if form_data.preferred_time == "11:30 AM - 12:00 AM" %}selected{% endif %}>11:30 AM - 12:00 AM</option>
+                                        <option {% if form_data.preferred_time == "12:00 PM - 12:30 PM" %}selected{% endif %}>12:00 PM - 12:30 PM</option>
+                                        <option {% if form_data.preferred_time == "12:30 AM - 1:00 AM" %}selected{% endif %}>12:30 AM - 1:00 AM</option>
+                                        <option {% if form_data.preferred_time == "1:00 PM - 1:30 PM" %}selected{% endif %}>1:00 PM - 1:30 PM</option>
+                                        <option {% if form_data.preferred_time == "1:30 AM - 2:00 AM" %}selected{% endif %}>1:30 AM - 2:00 AM</option>
+                                        <option {% if form_data.preferred_time == "2:00 PM - 2:30 PM" %}selected{% endif %}>2:00 PM - 2:30 PM</option>
+                                        <option {% if form_data.preferred_time == "2:30 AM - 3:00 AM" %}selected{% endif %}>2:30 AM - 3:00 AM</option>
+                                        <option {% if form_data.preferred_time == "3:00 PM - 3:30 PM" %}selected{% endif %}>3:00 PM - 3:30 PM</option>
+                                        <option {% if form_data.preferred_time == "3:30 AM - 4:00 AM" %}selected{% endif %}>3:30 AM - 4:00 AM</option>
+                                        <option {% if form_data.preferred_time == "4:00 PM - 4:30 PM" %}selected{% endif %}>4:00 PM - 4:30 PM</option>
+                                        <option {% if form_data.preferred_time == "4:30 AM - 5:00 AM" %}selected{% endif %}>4:30 AM - 5:00 AM</option>
+                                        <option {% if form_data.preferred_time == "5:00 PM - 5:30 PM" %}selected{% endif %}>5:00 PM - 5:30 PM</option>
+                                        <option {% if form_data.preferred_time == "5:30 AM - 6:00 AM" %}selected{% endif %}>5:30 AM - 6:00 AM</option>
+                                        <option {% if form_data.preferred_time == "6:00 PM - 6:30 PM" %}selected{% endif %}>6:00 PM - 6:30 PM</option>
+                                        <option {% if form_data.preferred_time == "6:30 AM - 7:00 AM" %}selected{% endif %}>6:30 AM - 7:00 AM</option>
+                                        <option {% if form_data.preferred_time == "7:00 PM - 7:30 PM" %}selected{% endif %}>7:00 PM - 7:30 PM</option>
+                                        <option {% if form_data.preferred_time == "7:30 PM - 8:00 PM" %}selected{% endif %}>7:30 PM - 8:00 PM</option>
 
                                     </select>
 
@@ -289,133 +295,133 @@
         <div class="border border-gray-200 rounded-2xl p-3 sm:p-4">
 
             <h4 class="text-[#0F9B8E] font-bold text-lg mb-3">
-                Antenatal & Gynecological Scans
+                Antenatal & Gynecological Scans <span class="text-red-500 text-sm font-normal">(Required: Select at least one)</span>
             </h4>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Tiffa / Anomaly Scan">
+                    <input type="checkbox" name="scan_antenatal" value="Tiffa / Anomaly Scan" {% if "Tiffa / Anomaly Scan" in selected_scans %}checked{% endif %}>
                     <span>1. Tiffa / Anomaly Scan (18-22 WKS)</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Twins Tiffa">
+                    <input type="checkbox" name="scan_antenatal" value="Twins Tiffa" {% if "Twins Tiffa" in selected_scans %}checked{% endif %}>
                     <span>2. Twins Tiffa</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Early Tiffa">
+                    <input type="checkbox" name="scan_antenatal" value="Early Tiffa" {% if "Early Tiffa" in selected_scans %}checked{% endif %}>
                     <span>3. Early Tiffa / Anomaly Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Twins Early Tiffa">
+                    <input type="checkbox" name="scan_antenatal" value="Twins Early Tiffa" {% if "Twins Early Tiffa" in selected_scans %}checked{% endif %}>
                     <span>4. Twins Early Tiffa / Anomaly Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Late Tiffa">
+                    <input type="checkbox" name="scan_antenatal" value="Late Tiffa" {% if "Late Tiffa" in selected_scans %}checked{% endif %}>
                     <span>5. Late Tiffa / Anomaly Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Twins Late Tiffa">
+                    <input type="checkbox" name="scan_antenatal" value="Twins Late Tiffa" {% if "Twins Late Tiffa" in selected_scans %}checked{% endif %}>
                     <span>6. Twins Late Tiffa / Anomaly Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Fetal Echo">
+                    <input type="checkbox" name="scan_antenatal" value="Fetal Echo" {% if "Fetal Echo" in selected_scans %}checked{% endif %}>
                     <span>7. Fetal Echo</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Twins Fetal Echo">
+                    <input type="checkbox" name="scan_antenatal" value="Twins Fetal Echo" {% if "Twins Fetal Echo" in selected_scans %}checked{% endif %}>
                     <span>8. Twins Fetal Echo</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="NT Scan">
+                    <input type="checkbox" name="scan_antenatal" value="NT Scan" {% if "NT Scan" in selected_scans %}checked{% endif %}>
                     <span>9. Nuchal Translucency (NT) Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Twins NT Scan">
+                    <input type="checkbox" name="scan_antenatal" value="Twins NT Scan" {% if "Twins NT Scan" in selected_scans %}checked{% endif %}>
                     <span>10. Twins Nuchal Translucency (NT) Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Viability Scan">
+                    <input type="checkbox" name="scan_antenatal" value="Viability Scan" {% if "Viability Scan" in selected_scans %}checked{% endif %}>
                     <span>11. Viability Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Twins Viability Scan">
+                    <input type="checkbox" name="scan_antenatal" value="Twins Viability Scan" {% if "Twins Viability Scan" in selected_scans %}checked{% endif %}>
                     <span>12. Twins Viability Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Dating Scan">
+                    <input type="checkbox" name="scan_antenatal" value="Dating Scan" {% if "Dating Scan" in selected_scans %}checked{% endif %}>
                     <span>13. Dating Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Twins Dating Scan">
+                    <input type="checkbox" name="scan_antenatal" value="Twins Dating Scan" {% if "Twins Dating Scan" in selected_scans %}checked{% endif %}>
                     <span>14. Twins Dating Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Routine Growth Scan">
+                    <input type="checkbox" name="scan_antenatal" value="Routine Growth Scan" {% if "Routine Growth Scan" in selected_scans %}checked{% endif %}>
                     <span>15. Routine Growth Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Twins Routine Growth Scan">
+                    <input type="checkbox" name="scan_antenatal" value="Twins Routine Growth Scan" {% if "Twins Routine Growth Scan" in selected_scans %}checked{% endif %}>
                     <span>16. Twins Routine Growth Scan</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Growth + Biophysical Profile">
+                    <input type="checkbox" name="scan_antenatal" value="Growth + Biophysical Profile" {% if "Growth + Biophysical Profile" in selected_scans %}checked{% endif %}>
                     <span>17. Growth + Biophysical Profile</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Twins Growth + Biophysical Profile">
+                    <input type="checkbox" name="scan_antenatal" value="Twins Growth + Biophysical Profile" {% if "Twins Growth + Biophysical Profile" in selected_scans %}checked{% endif %}>
                     <span>18. Twins Growth + Biophysical Profile</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Obstetric Doppler">
+                    <input type="checkbox" name="scan_antenatal" value="Obstetric Doppler" {% if "Obstetric Doppler" in selected_scans %}checked{% endif %}>
                     <span>19. Obstetric Doppler (Only)</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Twins Obstetric Doppler">
+                    <input type="checkbox" name="scan_antenatal" value="Twins Obstetric Doppler" {% if "Twins Obstetric Doppler" in selected_scans %}checked{% endif %}>
                     <span>20. Twins Obstetric Doppler (Only)</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Growth + Obstetric Doppler + BPP">
+                    <input type="checkbox" name="scan_antenatal" value="Growth + Obstetric Doppler + BPP" {% if "Growth + Obstetric Doppler + BPP" in selected_scans %}checked{% endif %}>
                     <span>21. Growth + Obstetric Doppler + B.P.P</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Twins Growth + Obstetric Doppler + BPP">
+                    <input type="checkbox" name="scan_antenatal" value="Twins Growth + Obstetric Doppler + BPP" {% if "Twins Growth + Obstetric Doppler + BPP" in selected_scans %}checked{% endif %}>
                     <span>22. Twins Growth + Obstetric Doppler + B.P.P</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Follicular Study">
+                    <input type="checkbox" name="scan_antenatal" value="Follicular Study" {% if "Follicular Study" in selected_scans %}checked{% endif %}>
                     <span>23. Follicular Study (Up to 3 Scans incl 3D Cavity)</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Breast Unilateral">
+                    <input type="checkbox" name="scan_antenatal" value="Breast Unilateral" {% if "Breast Unilateral" in selected_scans %}checked{% endif %}>
                     <span>24. Breast Unilateral</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_antenatal" value="Breast Bilateral">
+                    <input type="checkbox" name="scan_antenatal" value="Breast Bilateral" {% if "Breast Bilateral" in selected_scans %}checked{% endif %}>
                     <span>25. Breast Bilateral</span>
                 </label>
 
@@ -433,27 +439,27 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_routine" value="Whole Abdomen">
+                    <input type="checkbox" name="scan_routine" value="Whole Abdomen" {% if "Whole Abdomen" in selected_scans %}checked{% endif %}>
                     <span>1. Whole Abdomen</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_routine" value="Pelvis">
+                    <input type="checkbox" name="scan_routine" value="Pelvis" {% if "Pelvis" in selected_scans %}checked{% endif %}>
                     <span>2. Pelvis</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_routine" value="KUB">
+                    <input type="checkbox" name="scan_routine" value="KUB" {% if "KUB" in selected_scans %}checked{% endif %}>
                     <span>3. KUB</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_routine" value="Abdomen / Pelvis (incl TVS)">
+                    <input type="checkbox" name="scan_routine" value="Abdomen / Pelvis (incl TVS)" {% if "Abdomen / Pelvis (incl TVS)" in selected_scans %}checked{% endif %}>
                     <span>4. Abdomen / Pelvis (incl TVS)</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_routine" value="Pelvis (3D - TVS)">
+                    <input type="checkbox" name="scan_routine" value="Pelvis (3D - TVS)" {% if "Pelvis (3D - TVS)" in selected_scans %}checked{% endif %}>
                     <span>5. Pelvis (3D - TVS)</span>
                 </label>
 
@@ -471,17 +477,17 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_paediatric" value="Paediatric Abdomen">
+                    <input type="checkbox" name="scan_paediatric" value="Paediatric Abdomen" {% if "Paediatric Abdomen" in selected_scans %}checked{% endif %}>
                     <span>1. Paediatric Abdomen</span>
                 </label>
 
                 <label class="flex items-start gap-2">
-                    <input type="checkbox" name="scan_paediatric" value="Neurosonogram / USG Cranium">
+                    <input type="checkbox" name="scan_paediatric" value="Neurosonogram / USG Cranium" {% if "Neurosonogram / USG Cranium" in selected_scans %}checked{% endif %}>
                     <span>2. Neurosonogram / USG Cranium</span>
                 </label>
 
                <label class="flex items-start gap-2 sm:col-span-2">
-                    <input type="checkbox" name="scan_paediatric" value="Neonatal Spine">
+                    <input type="checkbox" name="scan_paediatric" value="Neonatal Spine" {% if "Neonatal Spine" in selected_scans %}checked{% endif %}>
                     <span>3. Neonatal Spine</span>
                 </label>
 
@@ -499,47 +505,47 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_doppler" value="Carotid Doppler">
+            <input type="checkbox" name="scan_doppler" value="Carotid Doppler" {% if "Carotid Doppler" in selected_scans %}checked{% endif %}>
             <span>1. Carotid Doppler</span>
         </label>
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_doppler" value="Renal Doppler">
+            <input type="checkbox" name="scan_doppler" value="Renal Doppler" {% if "Renal Doppler" in selected_scans %}checked{% endif %}>
             <span>2. Renal Doppler</span>
         </label>
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_doppler" value="Unilateral Arterial Doppler">
+            <input type="checkbox" name="scan_doppler" value="Unilateral Arterial Doppler" {% if "Unilateral Arterial Doppler" in selected_scans %}checked{% endif %}>
             <span>3. Unilateral Arterial Doppler</span>
         </label>
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_doppler" value="Unilateral Venous Doppler">
+            <input type="checkbox" name="scan_doppler" value="Unilateral Venous Doppler" {% if "Unilateral Venous Doppler" in selected_scans %}checked{% endif %}>
             <span>4. Unilateral Venous Doppler</span>
         </label>
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_doppler" value="Bilateral Arterial Doppler">
+            <input type="checkbox" name="scan_doppler" value="Bilateral Arterial Doppler" {% if "Bilateral Arterial Doppler" in selected_scans %}checked{% endif %}>
             <span>5. Bilateral Arterial Doppler</span>
         </label>
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_doppler" value="Bilateral Venous Doppler">
+            <input type="checkbox" name="scan_doppler" value="Bilateral Venous Doppler" {% if "Bilateral Venous Doppler" in selected_scans %}checked{% endif %}>
             <span>6. Bilateral Venous Doppler</span>
         </label>
 
         <label class="flex items-start gap-2 ">
-            <input type="checkbox" name="scan_doppler" value="Unilateral Arterial and Venous Doppler">
+            <input type="checkbox" name="scan_doppler" value="Unilateral Arterial and Venous Doppler" {% if "Unilateral Arterial and Venous Doppler" in selected_scans %}checked{% endif %}>
             <span>7. Unilateral Arterial and Venous Doppler</span>
         </label>
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_doppler" value="Bilateral Arterial and Venous Doppler">
+            <input type="checkbox" name="scan_doppler" value="Bilateral Arterial and Venous Doppler" {% if "Bilateral Arterial and Venous Doppler" in selected_scans %}checked{% endif %}>
             <span>8. Bilateral Arterial and Venous Doppler</span>
         </label>
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_doppler" value="Penile Doppler">
+            <input type="checkbox" name="scan_doppler" value="Penile Doppler" {% if "Penile Doppler" in selected_scans %}checked{% endif %}>
             <span>9. Penile Doppler</span>
         </label>
 
@@ -557,12 +563,12 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_usg_guided" value="Amniocentesis">
+            <input type="checkbox" name="scan_usg_guided" value="Amniocentesis" {% if "Amniocentesis" in selected_scans %}checked{% endif %}>
             <span>1. Amniocentesis</span>
         </label>
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_usg_guided" value="Fetal Reduction">
+            <input type="checkbox" name="scan_usg_guided" value="Fetal Reduction" {% if "Fetal Reduction" in selected_scans %}checked{% endif %}>
             <span>2. Fetal Reduction</span>
         </label>
 
@@ -580,22 +586,22 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_usg_small" value="Neck / Thyroid">
+            <input type="checkbox" name="scan_usg_small" value="Neck / Thyroid" {% if "Neck / Thyroid" in selected_scans %}checked{% endif %}>
             <span>1. Neck / Thyroid</span>
         </label>
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_usg_small" value="USG Scrotum / Scrotal Doppler">
+            <input type="checkbox" name="scan_usg_small" value="USG Scrotum / Scrotal Doppler" {% if "USG Scrotum / Scrotal Doppler" in selected_scans %}checked{% endif %}>
             <span>2. USG Scrotum / Scrotal Doppler</span>
         </label>
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_usg_small" value="Chest">
+            <input type="checkbox" name="scan_usg_small" value="Chest" {% if "Chest" in selected_scans %}checked{% endif %}>
             <span>3. Chest</span>
         </label>
 
         <label class="flex items-start gap-2">
-            <input type="checkbox" name="scan_usg_small" value="Soft Tissue / Small Parts / Joints">
+            <input type="checkbox" name="scan_usg_small" value="Soft Tissue / Small Parts / Joints" {% if "Soft Tissue / Small Parts / Joints" in selected_scans %}checked{% endif %}>
             <span>4. Soft Tissue / Small Parts / Joints</span>
         </label>
 
@@ -613,7 +619,7 @@
                             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mt-5">
 
                                 <label class="flex items-start gap-2 text-gray-700">
-                                    <input type="checkbox" required class="mt-1">
+                                    <input type="checkbox" name="confirmation" required class="mt-1" {% if form_data.confirmation %}checked{% endif %}>
                                     I confirm that the above information is correct.
                                 </label>
 
@@ -813,5 +819,105 @@
     </div>
 
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const dateInput = document.querySelector('input[name="preferred_date"]');
+    const timeSelect = document.querySelector('select[name="preferred_time"]');
+    if (!dateInput || !timeSelect) return;
+
+    // Cache clean base slot text for every option
+    Array.from(timeSelect.options).forEach(function (opt) {
+        if (opt.value !== "") {
+            opt.dataset.baseSlot = opt.textContent.replace(/\s*\(Booked\)$/i, '').trim();
+        }
+    });
+
+    function updateSlotAvailability() {
+        const selectedDate = dateInput.value;
+        if (!selectedDate) {
+            // Restore all options to normal unbooked state
+            Array.from(timeSelect.options).forEach(function (opt) {
+                if (opt.value !== "") {
+                    const baseSlot = opt.dataset.baseSlot || opt.value;
+                    opt.textContent = baseSlot;
+                    opt.disabled = false;
+                }
+            });
+            return;
+        }
+
+        fetch('/api/booked-slots/?date=' + encodeURIComponent(selectedDate))
+            .then(function (response) {
+                if (!response.ok) throw new Error('Network error fetching slots');
+                return response.json();
+            })
+            .then(function (data) {
+                const booked = Array.isArray(data.booked_slots) ? data.booked_slots : [];
+
+                Array.from(timeSelect.options).forEach(function (opt) {
+                    if (opt.value === "") return;
+                    const baseSlot = opt.dataset.baseSlot || opt.value;
+                    const isBooked = booked.includes(baseSlot) || booked.includes(opt.value);
+
+                    if (isBooked) {
+                        opt.disabled = true;
+                        opt.textContent = baseSlot + " (Booked)";
+                        if (timeSelect.value === opt.value || timeSelect.value === baseSlot) {
+                            timeSelect.value = "";
+                        }
+                    } else {
+                        opt.disabled = false;
+                        opt.textContent = baseSlot;
+                    }
+                });
+            })
+            .catch(function (error) {
+                console.error('Error fetching booked slots:', error);
+            });
+    }
+
+    dateInput.addEventListener('change', updateSlotAvailability);
+    dateInput.addEventListener('input', updateSlotAvailability);
+
+    if (dateInput.value) {
+        updateSlotAvailability();
+    }
+
+    // Antenatal scan selection validation (at least one required)
+    const patientForm = document.getElementById('patientForm');
+    const antenatalCheckboxes = Array.from(document.querySelectorAll('input[name="scan_antenatal"]'));
+    if (patientForm && antenatalCheckboxes.length > 0) {
+        const firstAntenatal = antenatalCheckboxes[0];
+
+        function checkAntenatalSelection() {
+            const hasSelection = antenatalCheckboxes.some(function (cb) { return cb.checked; });
+            if (hasSelection) {
+                firstAntenatal.setCustomValidity("");
+            }
+            return hasSelection;
+        }
+
+        antenatalCheckboxes.forEach(function (cb) {
+            cb.addEventListener('change', function () {
+                if (cb.checked) {
+                    firstAntenatal.setCustomValidity("");
+                }
+            });
+        });
+
+        patientForm.addEventListener('submit', function (e) {
+            if (!checkAntenatalSelection()) {
+                e.preventDefault();
+                firstAntenatal.setCustomValidity("Please select at least one scan from Antenatal & Gynecological Scans.");
+                firstAntenatal.reportValidity();
+                firstAntenatal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                firstAntenatal.setCustomValidity("");
+            }
+        });
+    }
+});
+</script>
 
 {% endblock %}

@@ -10,7 +10,8 @@ from .models import (
     BlogPost,
     BlogCategory,
     BlogTag,
-    DoctorProfile
+    DoctorProfile,
+    PatientBooking
 )
 
 
@@ -137,3 +138,27 @@ class BlogPostAdmin(admin.ModelAdmin):
 admin.site.register(Service)
 admin.site.register(Gallery)
 admin.site.register(Appointment)
+
+
+@admin.register(PatientBooking)
+class PatientBookingAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'full_name',
+        'phone',
+        'preferred_date',
+        'preferred_time',
+        'is_cancelled',
+        'created_at',
+    )
+    list_filter = ('is_cancelled', 'preferred_date')
+    search_fields = ('full_name', 'phone', 'preferred_date')
+    actions = ['mark_cancelled', 'mark_active']
+
+    @admin.action(description="Cancel selected bookings (releases appointment slots)")
+    def mark_cancelled(self, request, queryset):
+        queryset.update(is_cancelled=True)
+
+    @admin.action(description="Re-activate selected bookings")
+    def mark_active(self, request, queryset):
+        queryset.update(is_cancelled=False)

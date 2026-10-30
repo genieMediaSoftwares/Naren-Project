@@ -74,6 +74,13 @@ class PatientBooking(models.Model):
         blank=True
     )
 
+    is_cancelled = models.BooleanField(
+        default=False,
+        db_default=False,
+        db_index=True,
+        help_text="Designates whether this appointment has been cancelled, releasing the slot."
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
