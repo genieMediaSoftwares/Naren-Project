@@ -9,7 +9,7 @@ from django.shortcuts import redirect, render
 
 from .forms import AppointmentForm
 from .models import BlogPost, ContactMessage, DoctorProfile, PatientBooking, Service
-from .whatsapp import send_contact_message_whatsapp, send_patient_booking_whatsapp
+from .whatsapp import send_patient_booking_whatsapp
 
 
 
@@ -71,9 +71,6 @@ Message:
 
             fail_silently=False,
         )
-
-        # SEND WHATSAPP NOTIFICATION
-        send_contact_message_whatsapp(contact, subject=request.POST.get('subject'))
 
         return redirect('contact_success')
 
