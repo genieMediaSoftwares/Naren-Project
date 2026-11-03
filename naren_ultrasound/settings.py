@@ -237,3 +237,10 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'narenultrasound@gmail.com'
 
 EMAIL_HOST_PASSWORD = 'iadj snhw ufwz vhed'
+
+# WhatsApp Notification Configuration
+WHATSAPP_NOTIFICATION_ENABLED = os.environ.get('WHATSAPP_NOTIFICATION_ENABLED', 'True').lower() in ('true', '1')
+WHATSAPP_RECIPIENT_NUMBER = os.environ.get('WHATSAPP_RECIPIENT_NUMBER', '919848204278')
+WHATSAPP_ACCESS_TOKEN = os.environ.get('WHATSAPP_ACCESS_TOKEN', '')
+WHATSAPP_PHONE_NUMBER_ID = os.environ.get('WHATSAPP_PHONE_NUMBER_ID', '')
+WHATSAPP_WEBHOOK_URL = os.environ.get('WHATSAPP_WEBHOOK_URL', '')
