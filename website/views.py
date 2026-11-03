@@ -158,16 +158,10 @@ def patient_info(request):
         if not preferred_time:
             return render(request, 'patient_info.html', {**form_context, 'error': 'Please select a Preferred Time Slot.'})
 
-        # 3. Preferred Service / Scan – Mandatory Antenatal Selection
+        # Collect antenatal scans (optional)
         antenatal_scans = request.POST.getlist('scan_antenatal')
-        if not antenatal_scans:
-            return render(
-                request,
-                'patient_info.html',
-                {**form_context, 'error': 'Please select at least one scan from Antenatal & Gynecological Scans.'}
-            )
 
-        # 4. Confirmation Checkbox Validation (Mandatory)
+        # 3. Confirmation Checkbox Validation (Mandatory)
         confirmation = request.POST.get('confirmation')
         if not confirmation:
             return render(

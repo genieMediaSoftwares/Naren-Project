@@ -295,7 +295,7 @@
         <div class="border border-gray-200 rounded-2xl p-3 sm:p-4">
 
             <h4 class="text-[#0F9B8E] font-bold text-lg mb-3">
-                Antenatal & Gynecological Scans <span class="text-red-500">*</span> <span class="text-red-500 text-sm font-normal">(Required: Select at least one)</span>
+                Antenatal & Gynecological Scans
             </h4>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -882,40 +882,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (dateInput.value) {
         updateSlotAvailability();
-    }
-
-    // Antenatal scan selection validation (at least one required)
-    const patientForm = document.getElementById('patientForm');
-    const antenatalCheckboxes = Array.from(document.querySelectorAll('input[name="scan_antenatal"]'));
-    if (patientForm && antenatalCheckboxes.length > 0) {
-        const firstAntenatal = antenatalCheckboxes[0];
-
-        function checkAntenatalSelection() {
-            const hasSelection = antenatalCheckboxes.some(function (cb) { return cb.checked; });
-            if (hasSelection) {
-                firstAntenatal.setCustomValidity("");
-            }
-            return hasSelection;
-        }
-
-        antenatalCheckboxes.forEach(function (cb) {
-            cb.addEventListener('change', function () {
-                if (cb.checked) {
-                    firstAntenatal.setCustomValidity("");
-                }
-            });
-        });
-
-        patientForm.addEventListener('submit', function (e) {
-            if (!checkAntenatalSelection()) {
-                e.preventDefault();
-                firstAntenatal.setCustomValidity("Please select at least one scan from Antenatal & Gynecological Scans.");
-                firstAntenatal.reportValidity();
-                firstAntenatal.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                firstAntenatal.setCustomValidity("");
-            }
-        });
     }
 });
 </script>
