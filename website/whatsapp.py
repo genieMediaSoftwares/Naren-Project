@@ -40,79 +40,141 @@ def get_formatted_submission_time(dt=None) -> str:
         return datetime.now().strftime("%d %b %Y, %I:%M %p")
 
 
-def _send_whatsapp_payload(message_text: str, recipient: str = None) -> bool:
-    """Send WhatsApp message using Meta WhatsApp Business Cloud API or generic Webhook."""
+def _send_whatsapp_payload(message_text: str, recipient: str = None, template_data: dict = None) -> dict:
+    """
+    Send WhatsApp message using Meta WhatsApp Business Cloud API or generic Webhook.
+    Returns dict with status details: {"success": bool, "status_code": int, "response": str, "error": str}
+    """
+    if not getattr(settings, 'WHATSAPP_NOTIFICATION_ENABLED', True):
+        logger.info("WhatsApp notifications are disabled via WHATSAPP_NOTIFICATION_ENABLED.")
+        return {"success": False, "status_code": 0, "response": "", "error": "Disabled"}
+
     target_number = clean_phone_number(
         recipient or getattr(settings, 'WHATSAPP_RECIPIENT_NUMBER', '919848204278')
     )
     access_token = getattr(settings, 'WHATSAPP_ACCESS_TOKEN', '').strip()
     phone_number_id = getattr(settings, 'WHATSAPP_PHONE_NUMBER_ID', '').strip()
+    template_name = getattr(settings, 'WHATSAPP_TEMPLATE_NAME', '').strip()
+    template_language = getattr(settings, 'WHATSAPP_TEMPLATE_LANGUAGE', 'en_US').strip() or 'en_US'
     webhook_url = getattr(settings, 'WHATSAPP_WEBHOOK_URL', '').strip()
+
+    result = {
+        "success": False,
+        "status_code": 0,
+        "response": "",
+        "error": "",
+        "provider": None,
+    }
 
     # 1. Meta WhatsApp Business Cloud API
     if access_token and phone_number_id:
+        result["provider"] = "Meta Cloud API"
         url = f"https://graph.facebook.com/v21.0/{phone_number_id}/messages"
         headers = {
             "Authorization": f"Bearer {access_token}",
             "Content-Type": "application/json",
         }
-        payload = {
-            "messaging_product": "whatsapp",
-            "recipient_type": "individual",
-            "to": target_number,
-            "type": "text",
-            "text": {
-                "preview_url": False,
-                "body": message_text,
-            },
-        }
+
+        # Use pre-approved template if configured, otherwise text payload
+        if template_name:
+            components = []
+            if template_data and "body_params" in template_data:
+                components.append({
+                    "type": "body",
+                    "parameters": [{"type": "text", "text": str(p)} for p in template_data["body_params"]]
+                })
+            payload = {
+                "messaging_product": "whatsapp",
+                "to": target_number,
+                "type": "template",
+                "template": {
+                    "name": template_name,
+                    "language": {"code": template_language},
+                    "components": components,
+                },
+            }
+        else:
+            payload = {
+                "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "to": target_number,
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": message_text,
+                },
+            }
+
         try:
-            response = requests.post(url, headers=headers, json=payload, timeout=10)
+            response = requests.post(url, headers=headers, json=payload, timeout=5)
+            result["status_code"] = response.status_code
+            result["response"] = response.text
             if response.status_code in (200, 201):
                 logger.info("WhatsApp Cloud API notification sent successfully to %s: %s", target_number, response.text)
-                return True
+                result["success"] = True
+                return result
             else:
-                logger.error("WhatsApp Cloud API failed (%s): %s", response.status_code, response.text)
+                logger.error("WhatsApp Cloud API error (%s) to %s: %s", response.status_code, target_number, response.text)
+                result["error"] = response.text
+                return result
         except Exception as e:
-            logger.error("Error connecting to WhatsApp Cloud API: %s", e)
+            logger.error("Connection error to WhatsApp Cloud API: %s", e)
+            result["error"] = str(e)
+            return result
 
-    # 2. Generic WhatsApp Webhook / Integration Gateway (e.g. WATI, UltraMsg, Zapier, Make)
+    # 2. Generic WhatsApp Webhook / Gateway (e.g., WATI, UltraMsg, Zapier, Make)
     if webhook_url:
+        result["provider"] = "Webhook Gateway"
         payload = {
             "to": target_number,
+            "recipient": target_number,
             "message": message_text,
+            "text": message_text,
             "timestamp": datetime.now().isoformat(),
         }
         try:
-            response = requests.post(webhook_url, json=payload, timeout=10)
+            response = requests.post(webhook_url, json=payload, timeout=5)
+            result["status_code"] = response.status_code
+            result["response"] = response.text
             if response.status_code in (200, 201, 202):
-                logger.info("WhatsApp Webhook notification sent successfully to %s", target_number)
-                return True
+                logger.info("WhatsApp Webhook notification sent successfully to %s: %s", target_number, response.text)
+                result["success"] = True
+                return result
             else:
-                logger.error("WhatsApp Webhook failed (%s): %s", response.status_code, response.text)
+                logger.error("WhatsApp Webhook error (%s) to %s: %s", response.status_code, target_number, response.text)
+                result["error"] = response.text
+                return result
         except Exception as e:
-            logger.error("Error posting to WhatsApp Webhook: %s", e)
+            logger.error("Connection error to WhatsApp Webhook: %s", e)
+            result["error"] = str(e)
+            return result
 
-    if not (access_token and phone_number_id) and not webhook_url:
-        logger.info(
-            "WhatsApp notification queued for %s (Awaiting WHATSAPP_ACCESS_TOKEN & WHATSAPP_PHONE_NUMBER_ID or WHATSAPP_WEBHOOK_URL):\n%s",
-            target_number,
-            message_text,
-        )
-    return False
+    # 3. Neither credentials nor webhook configured
+    result["error"] = "No WhatsApp credentials configured (WHATSAPP_ACCESS_TOKEN/WHATSAPP_PHONE_NUMBER_ID or WHATSAPP_WEBHOOK_URL missing)"
+    logger.warning(
+        "WhatsApp notification skipped for %s: %s",
+        target_number,
+        result["error"],
+    )
+    return result
 
 
-def send_whatsapp_async(message_text: str, recipient: str = None):
-    """Run notification in background thread so HTTP response to user is never delayed."""
+def dispatch_whatsapp_notification(message_text: str, recipient: str = None, template_data: dict = None) -> dict:
+    """
+    Dispatch WhatsApp notification synchronously with resilient short timeout.
+    Synchronous execution is required on serverless platforms (e.g., Vercel / AWS Lambda)
+    because background daemon threads are frozen/terminated immediately when the HTTP response returns.
+    """
     try:
-        thread = threading.Thread(
-            target=_send_whatsapp_payload,
-            args=(message_text, recipient),
-            daemon=True,
-        )
-        thread.start()
+        return _send_whatsapp_payload(message_text, recipient, template_data)
     except Exception as e:
-        logger.error("Failed to start WhatsApp notification thread: %s", e)
+        logger.error("Unexpected error in dispatch_whatsapp_notification: %s", e)
+        return {"success": False, "status_code": 0, "response": "", "error": str(e)}
+
+
+# Backward-compatible alias for existing imports
+def send_whatsapp_async(message_text: str, recipient: str = None):
+    return dispatch_whatsapp_notification(message_text, recipient)
 
 
 def send_patient_booking_whatsapp(booking, recipient: str = None):
@@ -140,9 +202,19 @@ def send_patient_booking_whatsapp(booking, recipient: str = None):
             f"🕒 *SUBMISSION TIME*\n{submission_time}\n\n"
             "📍 *Naren Ultrasound & Fetal Medicine Center*"
         )
-        send_whatsapp_async(message, recipient)
+        template_data = {
+            "body_params": [
+                booking.full_name,
+                booking.phone,
+                f"{booking.preferred_date} ({booking.preferred_time})",
+                services_display[:200],  # Meta template body params limit
+                submission_time
+            ]
+        }
+        return dispatch_whatsapp_notification(message, recipient, template_data)
     except Exception as e:
         logger.error("Error creating patient booking WhatsApp notification: %s", e)
+        return {"success": False, "status_code": 0, "response": "", "error": str(e)}
 
 
 def send_contact_message_whatsapp(contact, subject: str = None, recipient: str = None):
@@ -164,7 +236,17 @@ def send_contact_message_whatsapp(contact, subject: str = None, recipient: str =
             f"🕒 *SUBMISSION TIME*\n{submission_time}\n\n"
             "📍 *Naren Ultrasound & Fetal Medicine Center*"
         )
-        send_whatsapp_async(message, recipient)
+        template_data = {
+            "body_params": [
+                contact.name,
+                contact.phone,
+                subj,
+                msg_body[:200],
+                submission_time
+            ]
+        }
+        return dispatch_whatsapp_notification(message, recipient, template_data)
     except Exception as e:
         logger.error("Error creating contact message WhatsApp notification: %s", e)
+        return {"success": False, "status_code": 0, "response": "", "error": str(e)}
 
