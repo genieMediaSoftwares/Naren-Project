@@ -108,6 +108,14 @@
 
                     <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full">
 
+                        {% if whatsapp_url %}
+                        <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"
+                           class="bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-3 rounded-xl font-semibold text-center transition duration-300 text-[15px] flex items-center justify-center gap-2">
+                            <i class="bi bi-whatsapp text-lg"></i>
+                            <span>Send via WhatsApp (+91 9848204278)</span>
+                        </a>
+                        {% endif %}
+
                         <a href="/"
                            class="bg-[#0F9B8E] hover:bg-[#6d28d9] text-white px-6 py-3 rounded-xl font-semibold text-center transition duration-300 text-[15px]">
 

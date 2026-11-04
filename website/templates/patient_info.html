@@ -883,6 +883,71 @@ document.addEventListener('DOMContentLoaded', function () {
     if (dateInput.value) {
         updateSlotAvailability();
     }
+
+    const patientForm = document.getElementById('patientForm');
+    if (patientForm) {
+        patientForm.addEventListener('submit', function () {
+            const fullName = (patientForm.querySelector('[name="full_name"]')?.value || '').trim();
+            const age = (patientForm.querySelector('[name="age"]')?.value || '').trim();
+            const genderSelect = patientForm.querySelector('[name="gender"]');
+            const gender = (genderSelect?.value || '').trim();
+            const phone = (patientForm.querySelector('[name="phone"]')?.value || '').trim();
+            const preferredDate = (patientForm.querySelector('[name="preferred_date"]')?.value || '').trim();
+            const preferredTimeSelect = patientForm.querySelector('[name="preferred_time"]');
+            const preferredTime = (preferredTimeSelect?.value || '').trim();
+            const confirmation = patientForm.querySelector('[name="confirmation"]')?.checked;
+
+            if (!fullName || !age || !gender || !phone || !preferredDate || !preferredTime || !confirmation) {
+                return;
+            }
+
+            const refDoctor = (patientForm.querySelector('[name="referred_doctor"]')?.value || '').trim();
+            const hospital = (patientForm.querySelector('[name="hospital_name"]')?.value || '').trim();
+
+            const checkedScans = Array.from(patientForm.querySelectorAll('input[type="checkbox"][name^="scan_"]:checked'))
+                .map(function (cb) { return '• ' + cb.value; });
+            const scansText = checkedScans.length > 0 ? checkedScans.join('\n') : 'None selected';
+
+            const now = new Date();
+            const timeStr = now.toLocaleDateString('en-IN', {
+                day: '2-digit', month: 'short', year: 'numeric',
+                hour: '2-digit', minute: '2-digit', hour12: true
+            }) + ' IST';
+
+            const lines = [
+                '🔔 *NEW PATIENT APPOINTMENT*',
+                '',
+                '👤 *PATIENT INFORMATION*',
+                '• *Full Name:* ' + fullName,
+                '• *Age:* ' + age,
+                '• *Gender:* ' + gender,
+                '• *Mobile Number:* ' + phone,
+                '',
+                '🏥 *MEDICAL INFORMATION*',
+                '• *Referred Doctor:* ' + (refDoctor || 'N/A'),
+                '• *Hospital / Clinic:* ' + (hospital || 'N/A'),
+                '',
+                '📅 *APPOINTMENT PREFERENCE*',
+                '• *Preferred Date:* ' + preferredDate,
+                '• *Preferred Time:* ' + preferredTime,
+                '',
+                '🔬 *SELECTED SERVICES / SCANS*',
+                scansText,
+                '',
+                '🕒 *SUBMISSION TIME*',
+                timeStr,
+                '',
+                '📍 *Naren Ultrasound & Fetal Medicine Center*'
+            ];
+
+            const waUrl = 'https://wa.me/919848204278?text=' + encodeURIComponent(lines.join('\n'));
+            try {
+                window.open(waUrl, '_blank', 'noopener,noreferrer');
+            } catch (err) {
+                console.error('WhatsApp window open error:', err);
+            }
+        });
+    }
 });
 </script>
 

@@ -9,7 +9,12 @@ from django.shortcuts import redirect, render
 
 from .forms import AppointmentForm
 from .models import BlogPost, ContactMessage, DoctorProfile, PatientBooking, Service
-from .whatsapp import send_patient_booking_whatsapp
+from .whatsapp import (
+    get_contact_whatsapp_url,
+    get_patient_booking_whatsapp_url,
+    send_contact_message_whatsapp,
+    send_patient_booking_whatsapp,
+)
 
 
 
@@ -37,15 +42,18 @@ def contact(request):
 
     if request.method == 'POST':
 
+        name = request.POST.get('name', '').strip()
+        phone = request.POST.get('phone', '').strip()
+        email = request.POST.get('email', '').strip()
+        subject = request.POST.get('subject', '').strip() or 'Appointment Booking / Enquiry'
+        message_text = request.POST.get('message', '').strip()
+
         contact = ContactMessage.objects.create(
-
-            name=request.POST.get('name'),
-
-            phone=request.POST.get('phone'),
-
-            email=request.POST.get('email'),
-
-            message=request.POST.get('message'),
+            name=name,
+            phone=phone,
+            email=email,
+            subject=subject,
+            message=message_text,
         )
 
         # SEND EMAIL
@@ -61,6 +69,8 @@ Phone: {contact.phone}
 
 Email: {contact.email}
 
+Subject: {contact.subject}
+
 Message:
 {contact.message}
             ''',
@@ -72,12 +82,20 @@ Message:
             fail_silently=False,
         )
 
+        # SEND WHATSAPP NOTIFICATION
+        send_contact_message_whatsapp(contact, subject=subject)
+
+        # Store WhatsApp link in session for the confirmation page
+        wa_url = get_contact_whatsapp_url(contact, subject=subject)
+        request.session['whatsapp_url'] = wa_url
+
         return redirect('contact_success')
 
     return render(request, 'contact.html')
 
 def contact_success(request):
-    return render(request, 'contact_success.html')
+    whatsapp_url = request.session.pop('whatsapp_url', None)
+    return render(request, 'contact_success.html', {'whatsapp_url': whatsapp_url})
 
 
 def booked_slots_api(request):
@@ -101,7 +119,8 @@ def booked_slots_api(request):
 
 
 def appointment_success(request):
-    return render(request, 'appointment_success.html')
+    whatsapp_url = request.session.pop('whatsapp_url', None)
+    return render(request, 'appointment_success.html', {'whatsapp_url': whatsapp_url})
 
 def patient_info(request):
 
@@ -285,6 +304,10 @@ SELECTED SERVICES / SCANS{scan_section}
 
         # SEND WHATSAPP NOTIFICATION
         send_patient_booking_whatsapp(booking)
+
+        # Store WhatsApp link in session for the confirmation page
+        wa_url = get_patient_booking_whatsapp_url(booking)
+        request.session['whatsapp_url'] = wa_url
 
         return redirect('appointment_success')
 
