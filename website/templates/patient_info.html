@@ -136,14 +136,12 @@ Center in Visakhapatnam. Contact our center for ultrasound scan appointments and
                                     <div class="flex flex-wrap gap-6 mt-3">
 
                                         <label class="flex items-center gap-2">
-                                            <input type="radio" name="gender" value="Female" required {% if
-                                                form_data.gender=='Female' %}checked{% endif %}>
+                                            <input type="radio" name="gender" value="Female" required {% if form_data.gender == 'Female' %}checked{% endif %}>
                                             Female
                                         </label>
 
                                         <label class="flex items-center gap-2">
-                                            <input type="radio" name="gender" value="Male" {% if
-                                                form_data.gender=='Male' %}checked{% endif %}>
+                                            <input type="radio" name="gender" value="Male" {% if form_data.gender == 'Male' %}checked{% endif %}>
                                             Male
                                         </label>
 
