@@ -6,7 +6,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.db import connection, transaction
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import AppointmentForm
 from .models import BlogPost, ContactMessage, DoctorProfile, PatientBooking, Service
@@ -393,7 +393,8 @@ def blog_list(request):
 
 
 def blog_detail(request, slug):
-    post = BlogPost.objects.get(
+    post = get_object_or_404(
+        BlogPost,
         slug=slug,
         is_published=True
     )
