@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% block robots %}noindex, follow{% endblock %}
 
 {% block content %}
 
 <section class="bg-[#dff1ef] overflow-hidden">
 
-<div class="w-full bg-[#eef8f7] border-y border-[#c9e6e3]">
+    <div class="w-full bg-[#eef8f7] border-y border-[#c9e6e3]">
 
         <div class="site-container py-5 sm:py-8">
 
@@ -16,7 +17,8 @@
 
                     <!-- ICON -->
 
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#efe7ff] flex items-center justify-center shadow-sm">
+                    <div
+                        class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#efe7ff] flex items-center justify-center shadow-sm">
 
                         <i class="fa-solid fa-check text-[#0F9B8E] text-2xl sm:text-3xl"></i>
 
@@ -36,7 +38,8 @@
 
                     <!-- SUBTEXT -->
 
-                    <p class="mt-4 text-[15px] sm:text-[17px] leading-[1.8] text-[#42526b] max-w-[620px] mx-auto lg:mx-0">
+                    <p
+                        class="mt-4 text-[15px] sm:text-[17px] leading-[1.8] text-[#42526b] max-w-[620px] mx-auto lg:mx-0">
 
                         Thank you for choosing
 
@@ -56,7 +59,8 @@
 
                         <!-- BOX 1 -->
 
-                        <div class="flex items-center gap-3 bg-white border border-[#ece3ff] rounded-2xl px-4 py-4 shadow-sm">
+                        <div
+                            class="flex items-center gap-3 bg-white border border-[#ece3ff] rounded-2xl px-4 py-4 shadow-sm">
 
                             <div class="w-10 h-10 rounded-full bg-[#f3ebff] flex items-center justify-center shrink-0">
 
@@ -80,7 +84,8 @@
 
                         <!-- BOX 2 -->
 
-                        <div class="flex items-center gap-3 bg-white border border-[#ece3ff] rounded-2xl px-4 py-4 shadow-sm">
+                        <div
+                            class="flex items-center gap-3 bg-white border border-[#ece3ff] rounded-2xl px-4 py-4 shadow-sm">
 
                             <div class="w-10 h-10 rounded-full bg-[#f3ebff] flex items-center justify-center shrink-0">
 
@@ -110,21 +115,21 @@
 
                         {% if whatsapp_url %}
                         <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"
-                           class="bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-3 rounded-xl font-semibold text-center transition duration-300 text-[15px] flex items-center justify-center gap-2">
+                            class="bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-3 rounded-xl font-semibold text-center transition duration-300 text-[15px] flex items-center justify-center gap-2">
                             <i class="bi bi-whatsapp text-lg"></i>
                             <span>Send via WhatsApp (+91 9848204278)</span>
                         </a>
                         {% endif %}
 
                         <a href="/"
-                           class="bg-[#0F9B8E] hover:bg-[#6d28d9] text-white px-6 py-3 rounded-xl font-semibold text-center transition duration-300 text-[15px]">
+                            class="bg-[#0F9B8E] hover:bg-[#6d28d9] text-white px-6 py-3 rounded-xl font-semibold text-center transition duration-300 text-[15px]">
 
                             Go Back Home
 
                         </a>
 
                         <a href="{% url 'patient_info' %}"
-                           class="border-2 border-[#5b21b6] text-[#0F9B8E] hover:bg-[#0F9B8E] hover:text-white px-6 py-3 rounded-xl font-semibold text-center transition duration-300 text-[15px]">
+                            class="border-2 border-[#5b21b6] text-[#0F9B8E] hover:bg-[#0F9B8E] hover:text-white px-6 py-3 rounded-xl font-semibold text-center transition duration-300 text-[15px]">
 
                             Book Another Appointment
 
@@ -140,9 +145,11 @@
 
                     <!-- OUTER -->
 
-                    <div class="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] lg:w-[280px] lg:h-[280px] rounded-full bg-[#efe7ff] flex items-center justify-center mt-20 lg:mt-0">
+                    <div
+                        class="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] lg:w-[280px] lg:h-[280px] rounded-full bg-[#efe7ff] flex items-center justify-center mt-20 lg:mt-0">
                         <!-- INNER -->
-<div class="w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] lg:w-[190px] lg:h-[190px] rounded-full bg-[#0F9B8E] flex items-center justify-center shadow-[0_15px_40px_rgba(91,33,182,0.20)]">
+                        <div
+                            class="w-[150px] h-[150px] sm:w-[180px] sm:h-[180px] lg:w-[190px] lg:h-[190px] rounded-full bg-[#0F9B8E] flex items-center justify-center shadow-[0_15px_40px_rgba(91,33,182,0.20)]">
 
                             <i class="fa-solid fa-heart-pulse text-white text-[42px] sm:text-[50px] lg:text-[55px]"></i>
 
@@ -152,34 +159,36 @@
 
                     <!-- FLOAT CARD 1 -->
 
-                   <div class="absolute top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:top-auto lg:right-[12%] bg-white rounded-2xl px-4 sm:px-5 py-3 sm:py-4 shadow-md border border-[#e9ddff] w-[90%] max-w-[360px] z-20">
+                    <div
+                        class="absolute top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:top-auto lg:right-[12%] bg-white rounded-2xl px-4 sm:px-5 py-3 sm:py-4 shadow-md border border-[#e9ddff] w-[90%] max-w-[360px] z-20">
 
-    <div class="flex items-start gap-3">
+                        <div class="flex items-start gap-3">
 
-        <i class="bi bi-calendar-check-fill text-[#0F9B8E] text-xl mt-1"></i>
+                            <i class="bi bi-calendar-check-fill text-[#0F9B8E] text-xl mt-1"></i>
 
-        <div>
+                            <div>
 
-            <h4 class="font-semibold text-[#08113a] text-lg">
-                Appointment Scheduled
-            </h4>
+                                <h4 class="font-semibold text-[#08113a] text-lg">
+                                    Appointment Scheduled
+                                </h4>
 
-            <p class="text-sm text-gray-500 mt-1">
-                Booked On:
-                <span class="font-medium text-[#0F9B8E]">
-                    {% now "d M Y" %}
-                </span>
-            </p>
+                                <p class="text-sm text-gray-500 mt-1">
+                                    Booked On:
+                                    <span class="font-medium text-[#0F9B8E]">
+                                        {% now "d M Y" %}
+                                    </span>
+                                </p>
 
-        </div>
+                            </div>
 
-    </div>
+                        </div>
 
-</div>
+                    </div>
 
                     <!-- FLOAT CARD 2 -->
 
-                    <div class="absolute bottom-10 right-2 bg-white rounded-xl shadow-md border border-[#ece3ff] px-4 py-3">
+                    <div
+                        class="absolute bottom-10 right-2 bg-white rounded-xl shadow-md border border-[#ece3ff] px-4 py-3">
 
                         <div class="flex items-center gap-2">
 

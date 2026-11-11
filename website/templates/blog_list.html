@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% block title %}Pregnancy & Fetal Medicine Blogs | Naren Ultrasound Visakhapatnam{% endblock %}
+
+{% block meta_description %}Read pregnancy and fetal medicine articles from Naren Ultrasound in Visakhapatnam, covering
+fetal anomaly scans, NT scans, growth scans, fetal echo and pregnancy ultrasound.{% endblock %}
+
+{% block og_title %}Pregnancy & Fetal Medicine Blogs | Naren Ultrasound{% endblock %}
+
+{% block og_description %}Explore educational articles about pregnancy ultrasound and fetal medicine from Naren
+Ultrasound, Visakhapatnam.{% endblock %}
+
+{% block twitter_title %}Pregnancy & Fetal Medicine Blogs | Naren Ultrasound{% endblock %}
+
+{% block twitter_description %}Explore articles about pregnancy ultrasound and fetal medicine in Visakhapatnam.{%
+endblock %}
 
 {% block content %}
 
@@ -18,16 +32,13 @@
 
             {% for post in posts %}
 
-            <div class="card-flex bg-white rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 transition duration-300">
+            <div
+                class="card-flex bg-white rounded-3xl overflow-hidden shadow-xl hover:-translate-y-2 transition duration-300">
 
                 {% if post.featured_image %}
                 <div class="blog-card-image-wrap">
-                    <img
-                        src="{{ post.featured_image.url }}"
-                        alt="{{ post.title }}"
-                        class="blog-card-image"
-                        loading="lazy"
-                    >
+                    <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="blog-card-image"
+                        loading="lazy">
                 </div>
                 {% endif %}
 
@@ -43,10 +54,8 @@
                     </p>
                     {% endif %}
 
-                    <a
-                        href="{% url 'blog_detail' post.slug %}"
-                        class="card-flex__cta inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#00b5ad] text-white hover:bg-[#008f8c] transition duration-200"
-                    >
+                    <a href="{% url 'blog_detail' post.slug %}"
+                        class="card-flex__cta inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#00b5ad] text-white hover:bg-[#008f8c] transition duration-200">
                         Read More
                     </a>
 

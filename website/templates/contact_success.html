@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block robots %}noindex, follow{% endblock %}
 
 {% block content %}
 
@@ -7,53 +8,57 @@
 
     <div class="site-container">
 
-    <div class="bg-white w-full max-w-5xl mx-auto rounded-[36px] shadow-xl border border-gray-200 success-card text-center relative overflow-hidden">
+        <div
+            class="bg-white w-full max-w-5xl mx-auto rounded-[36px] shadow-xl border border-gray-200 success-card text-center relative overflow-hidden">
 
-        <div class="w-28 h-28 bg-[#f3e8ff] rounded-full flex items-center justify-center mx-auto mb-7 relative z-10">
+            <div
+                class="w-28 h-28 bg-[#f3e8ff] rounded-full flex items-center justify-center mx-auto mb-7 relative z-10">
 
-            <i class="bi bi-check-lg text-[#0F9B8E] text-5xl"></i>
+                <i class="bi bi-check-lg text-[#0F9B8E] text-5xl"></i>
+
+            </div>
+
+            <h1 class="fluid-h2 font-extrabold text-[#08113a] mb-4 relative z-10">
+
+                Thank You!
+
+            </h1>
+
+            <p class="text-gray-600 text-lg sm:text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto relative z-10">
+
+                Thank you for choosing
+                <span class="text-[#0F9B8E] font-semibold">
+                    Naren Ultrasound & Fetal Medicine Center
+                </span>.
+
+                <br><br>
+
+                Our team will contact you shortly.
+
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
+                {% if whatsapp_url %}
+                <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-8 py-3.5 rounded-xl font-semibold shadow-md transition duration-300 w-full sm:w-auto">
+                    <i class="bi bi-whatsapp text-xl"></i>
+                    <span>Send via WhatsApp (+91 9848204278)</span>
+                </a>
+                {% endif %}
+
+                <a href="/"
+                    class="btn-flex bg-gradient-to-r from-[#306255] to-[#0F9B8E] text-white py-3.5 px-8 rounded-xl font-semibold hover:opacity-95 transition w-full sm:w-auto">
+                    Back To Home
+                </a>
+            </div>
+
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#d7eceb] rounded-full opacity-60" aria-hidden="true">
+            </div>
+
+            <div class="absolute -bottom-10 -left-10 w-52 h-52 bg-[#f3e8ff] rounded-full opacity-50" aria-hidden="true">
+            </div>
 
         </div>
-
-        <h1 class="fluid-h2 font-extrabold text-[#08113a] mb-4 relative z-10">
-
-            Thank You!
-
-        </h1>
-
-        <p class="text-gray-600 text-lg sm:text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto relative z-10">
-
-            Thank you for choosing
-            <span class="text-[#0F9B8E] font-semibold">
-                Naren Ultrasound & Fetal Medicine Center
-            </span>.
-
-            <br><br>
-
-            Our team will contact you shortly.
-
-        </p>
-
-        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-            {% if whatsapp_url %}
-            <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"
-                class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-8 py-3.5 rounded-xl font-semibold shadow-md transition duration-300 w-full sm:w-auto">
-                <i class="bi bi-whatsapp text-xl"></i>
-                <span>Send via WhatsApp (+91 9848204278)</span>
-            </a>
-            {% endif %}
-
-            <a href="/"
-                class="btn-flex bg-gradient-to-r from-[#306255] to-[#0F9B8E] text-white py-3.5 px-8 rounded-xl font-semibold hover:opacity-95 transition w-full sm:w-auto">
-                Back To Home
-            </a>
-        </div>
-
-        <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#d7eceb] rounded-full opacity-60" aria-hidden="true"></div>
-
-<div class="absolute -bottom-10 -left-10 w-52 h-52 bg-[#f3e8ff] rounded-full opacity-50" aria-hidden="true"></div>
-
-    </div>
 
     </div>
 
