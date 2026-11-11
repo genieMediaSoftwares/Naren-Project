@@ -1,3 +1,4 @@
+
 from datetime import datetime
 import hashlib
 
@@ -15,7 +16,6 @@ from .whatsapp import (
     send_contact_message_whatsapp,
     send_patient_booking_whatsapp,
 )
-
 
 
 def home(request):
@@ -38,10 +38,9 @@ def doctors(request):
 def gallery(request):
     return render(request, 'gallery.html')
 
+
 def contact(request):
-
     if request.method == 'POST':
-
         name = request.POST.get('name', '').strip()
         phone = request.POST.get('phone', '').strip()
         email = request.POST.get('email', '').strip()
@@ -59,7 +58,6 @@ def contact(request):
         # SEND EMAIL
         send_mail(
             subject='New Contact Form Submission',
-
             message=f'''
 New Appointment Request
 
@@ -74,11 +72,8 @@ Subject: {contact.subject}
 Message:
 {contact.message}
             ''',
-
             from_email=settings.EMAIL_HOST_USER,
-
             recipient_list=['narenultrasound@gmail.com'],
-
             fail_silently=False,
         )
 
@@ -93,6 +88,7 @@ Message:
 
     return render(request, 'contact.html')
 
+
 def contact_success(request):
     whatsapp_url = request.session.pop('whatsapp_url', None)
     return render(request, 'contact_success.html', {'whatsapp_url': whatsapp_url})
@@ -101,13 +97,17 @@ def contact_success(request):
 def booked_slots_api(request):
     """Return JSON list of booked, non-cancelled appointment time slots for a given date."""
     date_str = request.GET.get('date', '').strip()
+
     if not date_str:
         return JsonResponse({'booked_slots': []})
 
     try:
         query_date = datetime.strptime(date_str, '%Y-%m-%d').date()
     except ValueError:
-        return JsonResponse({'error': 'Invalid date format. Expected YYYY-MM-DD.'}, status=400)
+        return JsonResponse(
+            {'error': 'Invalid date format. Expected YYYY-MM-DD.'},
+            status=400
+        )
 
     booked_slots = list(
         PatientBooking.objects.filter(
@@ -115,6 +115,7 @@ def booked_slots_api(request):
             is_cancelled=False
         ).values_list('preferred_time', flat=True).distinct()
     )
+
     return JsonResponse({'booked_slots': booked_slots})
 
 
@@ -122,10 +123,9 @@ def appointment_success(request):
     whatsapp_url = request.session.pop('whatsapp_url', None)
     return render(request, 'appointment_success.html', {'whatsapp_url': whatsapp_url})
 
+
 def patient_info(request):
-
     if request.method == "POST":
-
         all_selected_scans = (
             request.POST.getlist('scan_antenatal') +
             request.POST.getlist('scan_routine') +
@@ -134,6 +134,7 @@ def patient_info(request):
             request.POST.getlist('scan_usg_guided') +
             request.POST.getlist('scan_usg_small')
         )
+
         form_context = {
             'form_data': request.POST,
             'selected_scans': all_selected_scans,
@@ -142,41 +143,75 @@ def patient_info(request):
         # 1. Personal Information Validation (Mandatory)
         full_name = request.POST.get('full_name', '').strip()
         if not full_name:
-            return render(request, 'patient_info.html', {**form_context, 'error': 'Please enter your Full Name.'})
+            return render(
+                request,
+                'patient_info.html',
+                {**form_context, 'error': 'Please enter your Full Name.'}
+            )
 
         age_val = request.POST.get('age', '').strip()
         if not age_val:
-            return render(request, 'patient_info.html', {**form_context, 'error': 'Please enter your Age.'})
+            return render(
+                request,
+                'patient_info.html',
+                {**form_context, 'error': 'Please enter your Age.'}
+            )
+
         try:
             age = int(age_val)
-        except ValueError:
-            return render(request, 'patient_info.html', {**form_context, 'error': 'Please enter a valid numeric Age.'})
-
-        gender = request.POST.get('gender', '').strip()
-        if not gender:
-            return render(request, 'patient_info.html', {**form_context, 'error': 'Please select your Gender.'})
-
-        phone = request.POST.get('phone', '').strip()
-        if not phone:
-            return render(request, 'patient_info.html', {**form_context, 'error': 'Please enter your Mobile Number.'})
-
-        # 2. Appointment Preference Validation (Mandatory)
-        preferred_date_raw = request.POST.get('preferred_date', '').strip()
-        if not preferred_date_raw:
-            return render(request, 'patient_info.html', {**form_context, 'error': 'Please select a Preferred Date.'})
-
-        try:
-            preferred_date = datetime.strptime(preferred_date_raw, '%Y-%m-%d').date()
         except ValueError:
             return render(
                 request,
                 'patient_info.html',
-                {**form_context, 'error': 'Invalid date format. Please select a valid appointment date.'}
+                {**form_context, 'error': 'Please enter a valid numeric Age.'}
+            )
+
+        gender = request.POST.get('gender', '').strip()
+        if not gender:
+            return render(
+                request,
+                'patient_info.html',
+                {**form_context, 'error': 'Please select your Gender.'}
+            )
+
+        phone = request.POST.get('phone', '').strip()
+        if not phone:
+            return render(
+                request,
+                'patient_info.html',
+                {**form_context, 'error': 'Please enter your Mobile Number.'}
+            )
+
+        # 2. Appointment Preference Validation (Mandatory)
+        preferred_date_raw = request.POST.get('preferred_date', '').strip()
+        if not preferred_date_raw:
+            return render(
+                request,
+                'patient_info.html',
+                {**form_context, 'error': 'Please select a Preferred Date.'}
+            )
+
+        try:
+            preferred_date = datetime.strptime(
+                preferred_date_raw, '%Y-%m-%d'
+            ).date()
+        except ValueError:
+            return render(
+                request,
+                'patient_info.html',
+                {
+                    **form_context,
+                    'error': 'Invalid date format. Please select a valid appointment date.'
+                }
             )
 
         preferred_time = request.POST.get('preferred_time', '').strip()
         if not preferred_time:
-            return render(request, 'patient_info.html', {**form_context, 'error': 'Please select a Preferred Time Slot.'})
+            return render(
+                request,
+                'patient_info.html',
+                {**form_context, 'error': 'Please select a Preferred Time Slot.'}
+            )
 
         # Collect antenatal scans (optional)
         antenatal_scans = request.POST.getlist('scan_antenatal')
@@ -187,7 +222,10 @@ def patient_info(request):
             return render(
                 request,
                 'patient_info.html',
-                {**form_context, 'error': 'Please confirm that the above information is correct.'}
+                {
+                    **form_context,
+                    'error': 'Please confirm that the above information is correct.'
+                }
             )
 
         # Optional Medical Information
@@ -220,8 +258,14 @@ def patient_info(request):
             if connection.vendor == 'postgresql':
                 with connection.cursor() as cursor:
                     slot_key = f"{preferred_date}_{preferred_time}"
-                    lock_id = int(hashlib.md5(slot_key.encode('utf-8')).hexdigest()[:15], 16)
-                    cursor.execute("SELECT pg_advisory_xact_lock(%s);", [lock_id])
+                    lock_id = int(
+                        hashlib.md5(slot_key.encode('utf-8')).hexdigest()[:15],
+                        16
+                    )
+                    cursor.execute(
+                        "SELECT pg_advisory_xact_lock(%s);",
+                        [lock_id]
+                    )
 
             if PatientBooking.objects.filter(
                 preferred_date=preferred_date,
@@ -238,36 +282,25 @@ def patient_info(request):
                 )
 
             booking = PatientBooking.objects.create(
-
                 full_name=full_name,
-
                 age=age,
-
                 gender=gender,
-
                 phone=phone,
-
                 referred_doctor=referred_doctor or None,
-
                 hospital_name=hospital_name or None,
-
                 ldd_date=request.POST.get('ldd_date') or None,
-
                 preferred_date=preferred_date,
-
                 preferred_time=preferred_time,
-
                 services=services_text,
-
                 is_cancelled=False,
-
                 message=request.POST.get('message'),
-
             )
 
         subject = "New Patient Appointment Booking"
 
-        scan_section = f"\n\n{services_text}" if services_text else "\nNone selected"
+        scan_section = (
+            f"\n\n{services_text}" if services_text else "\nNone selected"
+        )
 
         message = f"""NEW PATIENT APPOINTMENT
 
@@ -289,17 +322,11 @@ SELECTED SERVICES / SCANS{scan_section}
 """
 
         send_mail(
-
             subject,
-
             message,
-
             settings.EMAIL_HOST_USER,
-
             ['narenultrasound@gmail.com'],
-
             fail_silently=False,
-
         )
 
         # SEND WHATSAPP NOTIFICATION
@@ -313,16 +340,13 @@ SELECTED SERVICES / SCANS{scan_section}
 
     return render(request, 'patient_info.html')
 
-from django.http import HttpResponse
-
 
 def robots_txt(request):
-
     lines = [
         "User-agent: *",
         "Allow: /",
         "",
-        "Sitemap: https://narenultrasound.in/sitemap.xml",
+        "Sitemap: https://www.narenultrasound.in/sitemap.xml",
     ]
 
     return HttpResponse(
@@ -330,20 +354,19 @@ def robots_txt(request):
         content_type="text/plain"
     )
 
+
 def sitemap_index(request):
-
-    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
-
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-<sitemap>
-<loc>https://narenultrasound.in/pages.xml</loc>
-</sitemap>
-
-<sitemap>
-<loc>https://narenultrasound.in/services.xml</loc>
-</sitemap>
-
+    <sitemap>
+        <loc>https://www.narenultrasound.in/pages.xml</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.narenultrasound.in/services.xml</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.narenultrasound.in/posts.xml</loc>
+    </sitemap>
 </sitemapindex>
 """
 
@@ -354,7 +377,6 @@ def sitemap_index(request):
 
 
 def blog_list(request):
-
     posts = BlogPost.objects.filter(
         is_published=True
     ).order_by('-created_at')
@@ -371,7 +393,6 @@ def blog_list(request):
 
 
 def blog_detail(request, slug):
-
     post = BlogPost.objects.get(
         slug=slug,
         is_published=True
