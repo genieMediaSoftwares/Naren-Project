@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Contact Naren Ultrasound & Fetal Medicine Center | Visakhapatnam{% endblock %}
+{% block title %}{{ seo.title }}{% endblock %}
 
-{% block meta_description %}Contact Naren Ultrasound & Fetal Medicine Center in Maharanipeta, Visakhapatnam for
-pregnancy ultrasound appointments, scan enquiries, location and clinic information.{% endblock %}
+{% block meta_description %}{{ seo.description }}{% endblock %}
 
-{% block og_title %}Contact Naren Ultrasound | Visakhapatnam{% endblock %}
+{% block og_title %}{{ seo.title }}{% endblock %}
 
-{% block og_description %}Get in touch with Naren Ultrasound & Fetal Medicine Center in Visakhapatnam.{% endblock %}
+{% block og_description %}{{ seo.description }}{% endblock %}
 
-{% block twitter_title %}Contact Naren Ultrasound | Visakhapatnam{% endblock %}
+{% block twitter_title %}{{ seo.title }}{% endblock %}
 
-{% block twitter_description %}Contact our ultrasound center in Visakhapatnam for appointments and enquiries.{% endblock %}
+{% block twitter_description %}{{ seo.description }}{% endblock %}
 
 {% block content %}
 
@@ -27,9 +26,9 @@ pregnancy ultrasound appointments, scan enquiries, location and clinic informati
 
             <div class="pt-6 sm:pt-8 lg:py-8 text-center lg:text-left min-w-0">
 
-                <h6 class="uppercase text-[#0F9B8E] font-semibold tracking-[3px] text-xs sm:text-sm mb-4">
+                <div class="uppercase text-[#0F9B8E] font-semibold tracking-[3px] text-xs sm:text-sm mb-4">
                     Get In Touch
-                </h6>
+                </div>
 
                 <h1 class="fluid-h1 text-[#08113a] font-extrabold leading-[1.05]">
                     Contact
@@ -37,7 +36,7 @@ pregnancy ultrasound appointments, scan enquiries, location and clinic informati
                 </h1>
 
                 <p class="text-gray-600 text-[15px] sm:text-lg leading-relaxed mt-3 max-w-xl mx-auto lg:mx-0">
-                    We are here to help you! Reach out to us for appointments, queries or any assistance.
+                    Contact Naren Ultrasound in Maharanipeta, Vizag for appointments, queries or assistance.
                 </p>
 
             </div>
@@ -46,7 +45,7 @@ pregnancy ultrasound appointments, scan enquiries, location and clinic informati
 
             <div class="hero-media min-w-0">
 
-                <img src="{% static 'images/contact-banner.png' %}" alt="Contact Banner"
+                <img src="{% static 'images/contact-banner.png' %}" alt="Reception desk and patient waiting lounge at Naren Ultrasound &amp; Fetal Medicine Center in Visakhapatnam"
                     class="media-cover ar-16-9 ar-lg-16-10 rounded-[24px] sm:rounded-[34px]">
 
             </div>
@@ -362,6 +361,7 @@ pregnancy ultrasound appointments, scan enquiries, location and clinic informati
 
                     <iframe
                         src="https://www.google.com/maps?q=Naren+Ultrasound+and+Fetal+Medicine+Center,+Visakhapatnam&output=embed"
+                        title="Map location of Naren Ultrasound and Fetal Medicine Center, Visakhapatnam"
                         width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
                         class="block w-full h-[260px] sm:h-[350px]">
                     </iframe>

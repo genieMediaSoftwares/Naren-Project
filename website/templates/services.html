@@ -1,19 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Ultrasound Scan Services in Visakhapatnam | Naren Ultrasound{% endblock %}
+{% block title %}{{ seo.title }}{% endblock %}
 
-{% block meta_description %}Explore ultrasound services at Naren Ultrasound in Visakhapatnam, including pregnancy scans,
-NT scans, fetal anomaly scans, fetal echocardiography, growth scans and Doppler studies.{% endblock %}
+{% block meta_description %}{{ seo.description }}{% endblock %}
 
-{% block og_title %}Ultrasound Scan Services in Visakhapatnam{% endblock %}
+{% block og_title %}{{ seo.title }}{% endblock %}
 
-{% block og_description %}Explore pregnancy ultrasound and diagnostic imaging services at Naren Ultrasound & Fetal
-Medicine Center.{% endblock %}
+{% block og_description %}{{ seo.description }}{% endblock %}
 
-{% block twitter_title %}Ultrasound Scan Services in Visakhapatnam{% endblock %}
+{% block twitter_title %}{{ seo.title }}{% endblock %}
 
-{% block twitter_description %}Pregnancy ultrasound and diagnostic imaging services in Visakhapatnam.{% endblock %}
+{% block twitter_description %}{{ seo.description }}{% endblock %}
 
 {% block content %}
 
@@ -28,9 +26,9 @@ Medicine Center.{% endblock %}
 
             <div class="pt-6 sm:pt-8 lg:py-8 min-w-0">
 
-                <h6 class="uppercase text-[#306255] font-semibold tracking-[3px] text-xs mb-3">
+                <div class="uppercase text-[#306255] font-semibold tracking-[3px] text-xs mb-3">
                     OUR SERVICES
-                </h6>
+                </div>
 
                 <h1 class="fluid-h1 text-[#071744] font-extrabold leading-[1.08]">
 
@@ -55,7 +53,7 @@ Medicine Center.{% endblock %}
 
             <div class="flex justify-center lg:justify-end hero-media min-w-0">
 
-                <img src="{% static 'images/services-banner.jpg' %}" alt="Services Banner"
+                <img src="{% static 'images/services-banner.jpg' %}" alt="Clinician performing a diagnostic ultrasound scan for an expectant mother at Naren Ultrasound"
                     class="media-fit max-w-[950px] rounded-[24px] sm:rounded-[34px] shadow-lg">
 
             </div>
@@ -82,9 +80,9 @@ Medicine Center.{% endblock %}
 
                     <div class="w-8 sm:w-10 h-[2px] bg-[#306255]"></div>
 
-                    <h6 class="uppercase text-[#306255] tracking-[3px] text-xs sm:text-sm font-semibold">
+                    <div class="uppercase text-[#306255] tracking-[3px] text-xs sm:text-sm font-semibold">
                         WHAT WE OFFER
-                    </h6>
+                    </div>
 
                     <div class="w-8 sm:w-10 h-[2px] bg-[#306255]"></div>
 
@@ -109,7 +107,7 @@ Medicine Center.{% endblock %}
                     <div
                         class="border border-[#b6d5d4] rounded-3xl p-4 sm:p-4 bg-[#c3dddd] shadow-sm hover:shadow-lg transition duration-300">
 
-                        <h3 class="text-[#306255] text-lg sm:text-xl font-bold mb-6">
+                        <h3 id="antenatal-gynecological-scans" class="text-[#306255] text-lg sm:text-xl font-bold mb-6">
                             Antenatal & Gynecological Scans
                         </h3>
 
@@ -273,7 +271,7 @@ Medicine Center.{% endblock %}
                     <div
                         class="border border-[#b6d5d4] rounded-3xl p-4 bg-[#c3dddd] shadow-sm hover:shadow-lg transition duration-300">
 
-                        <h3 class="text-[#306255] text-lg font-bold mb-5">
+                        <h3 id="usg-guided-procedures" class="text-[#306255] text-lg font-bold mb-5">
                             USG Guided Procedures
                         </h3>
 
@@ -302,7 +300,7 @@ Medicine Center.{% endblock %}
                     <div
                         class="border border-[#b6d5d4] rounded-3xl p-4 bg-[#c3dddd] shadow-sm hover:shadow-lg transition duration-300">
 
-                        <h3 class="text-[#306255] text-lg font-bold mb-5">
+                        <h3 id="routine-scans" class="text-[#306255] text-lg font-bold mb-5">
                             Routine Scans
                         </h3>
 
@@ -342,7 +340,7 @@ Medicine Center.{% endblock %}
                     <div
                         class="border border-[#b6d5d4] rounded-3xl p-4 bg-[#c3dddd] shadow-sm hover:shadow-lg transition duration-300">
 
-                        <h3 class="text-[#306255] text-lg font-bold mb-5">
+                        <h3 id="paediatric-scans" class="text-[#306255] text-lg font-bold mb-5">
                             Paediatric Scans
                         </h3>
 
@@ -372,7 +370,7 @@ Medicine Center.{% endblock %}
                     <div
                         class="border border-[#b6d5d4] rounded-3xl p-4 bg-[#c3dddd] shadow-sm hover:shadow-lg transition duration-300">
 
-                        <h3 class="text-[#306255] text-lg font-bold mb-5">
+                        <h3 id="doppler-scans" class="text-[#306255] text-lg font-bold mb-5">
                             Doppler Scans
                         </h3>
 
@@ -434,7 +432,7 @@ Medicine Center.{% endblock %}
                     <div
                         class="border border-[#b6d5d4] rounded-3xl p-4 bg-[#c3dddd] shadow-sm hover:shadow-lg transition duration-300">
 
-                        <h3 class="text-[#306255] text-lg font-bold mb-5">
+                        <h3 id="usg-small-parts" class="text-[#306255] text-lg font-bold mb-5">
                             USG Small Parts
                         </h3>
 

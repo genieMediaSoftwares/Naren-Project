@@ -399,11 +399,22 @@ def blog_detail(request, slug):
         is_published=True
     )
 
+    featured_image_url = ""
+    if post.featured_image:
+        img_url = post.featured_image.url
+        if img_url.startswith("https://"):
+            featured_image_url = img_url
+        elif img_url.startswith("http://"):
+            featured_image_url = "https://" + img_url[len("http://"):]
+        else:
+            featured_image_url = f"https://www.narenultrasound.in{img_url}"
+
     return render(
         request,
         'blog_detail.html',
         {
             'post': post,
+            'featured_image_url': featured_image_url,
 
             # Site-wide doctor card appended to every post. None when the
             # client has not configured one yet - the template skips it.

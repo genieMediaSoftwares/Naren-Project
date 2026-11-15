@@ -1,4 +1,5 @@
-{% load static tailwind_tags %}
+{% load static tailwind_tags seo_tags %}
+{% seo_metadata as seo %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,6 +53,9 @@
         content="{% block twitter_image %}https://www.narenultrasound.in{% static 'images/logo.png' %}{% endblock %}">
 
     <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     {% tailwind_css %}
 
@@ -136,8 +140,10 @@
 {
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
-  "name": "NAREN ULTRASOUND AND FETAL MEDICINE CENTER",
+  "@id": "https://www.narenultrasound.in/#clinic",
+  "name": "Naren Ultrasound & Fetal Medicine Center",
   "url": "https://www.narenultrasound.in/",
+  "logo": "https://www.narenultrasound.in{% static 'images/logo.png' %}",
   "telephone": "+91-91823-95352",
   "address": {
     "@type": "PostalAddress",
@@ -165,6 +171,7 @@
   "medicalSpecialty": "Radiology"
 }
 </script>
+    {% if seo.schema %}<script type="application/ld+json">{{ seo.schema }}</script>{% endif %}
     {% block extra_head %}{% endblock %}
 </head>
 
@@ -202,7 +209,7 @@
 
                     <!-- LOGO IMAGE -->
 
-                    <img src="{% static 'images/logo.png' %}" alt="Naren Logo" class="brand__logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Naren Ultrasound & Fetal Medicine Center logo" class="brand__logo">
 
                     <!-- LOGO TEXT -->
 
@@ -210,10 +217,10 @@
 
                         <!-- NAREN -->
 
-                        <h1 class="brand__name text-white font-black sm:font-semibold tracking-[2px] leading-none"
-                            style="font-family: 'Cormorant Garamond', serif;">
+                        <div class="brand__name text-white font-black sm:font-semibold tracking-[2px] leading-none"
+                            style="font-family: 'Cormorant Garamond', serif; overflow-wrap: break-word;">
                             NAREN
-                        </h1>
+                        </div>
 
                         <!-- ULTRASOUND + AND -->
 
@@ -403,7 +410,7 @@ text-white hover:text-white
 
                         <!-- IMAGE -->
 
-                        <img src="{% static 'images/logo.png' %}" alt="Naren Logo"
+                        <img src="{% static 'images/logo.png' %}" alt="Naren Ultrasound & Fetal Medicine Center logo"
                             class="w-14 h-14 object-contain shrink-0">
 
                         <!-- TEXT -->
@@ -507,27 +514,27 @@ text-white hover:text-white
 
                     <div class="footer-links footer-text flex flex-col gap-1">
 
-                        <a href="{% url 'services' %}" class="footer-link">
+                        <a href="{% url 'services' %}#antenatal-gynecological-scans" class="footer-link">
                             Antenatal & Gynecological Scans
                         </a>
 
-                        <a href="{% url 'services' %}" class="footer-link">
+                        <a href="{% url 'services' %}#routine-scans" class="footer-link">
                             Routine Scans
                         </a>
 
-                        <a href="{% url 'services' %}" class="footer-link">
+                        <a href="{% url 'services' %}#paediatric-scans" class="footer-link">
                             Paediatric Scans
                         </a>
 
-                        <a href="{% url 'services' %}" class="footer-link">
+                        <a href="{% url 'services' %}#doppler-scans" class="footer-link">
                             Doppler Scans
                         </a>
 
-                        <a href="{% url 'services' %}" class="footer-link">
+                        <a href="{% url 'services' %}#usg-guided-procedures" class="footer-link">
                             USG Guided Procedures
                         </a>
 
-                        <a href="{% url 'services' %}" class="footer-link">
+                        <a href="{% url 'services' %}#usg-small-parts" class="footer-link">
                             USG Small Parts
                         </a>
 

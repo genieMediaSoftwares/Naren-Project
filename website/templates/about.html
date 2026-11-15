@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}About Naren Ultrasound & Fetal Medicine Center | Visakhapatnam{% endblock %}
+{% block title %}{{ seo.title }}{% endblock %}
 
-{% block meta_description %}Learn about Naren Ultrasound & Fetal Medicine Center in Visakhapatnam, our diagnostic
-imaging services, patient-focused approach and commitment to quality ultrasound care.{% endblock %}
+{% block meta_description %}{{ seo.description }}{% endblock %}
 
-{% block og_title %}About Naren Ultrasound & Fetal Medicine Center{% endblock %}
+{% block og_title %}{{ seo.title }}{% endblock %}
 
-{% block og_description %}Learn about our center and approach to ultrasound and fetal medicine care in Visakhapatnam.{% endblock %}
+{% block og_description %}{{ seo.description }}{% endblock %}
 
-{% block twitter_title %}About Naren Ultrasound | Visakhapatnam{% endblock %}
+{% block twitter_title %}{{ seo.title }}{% endblock %}
 
-{% block twitter_description %}Learn about Naren Ultrasound & Fetal Medicine Center in Visakhapatnam.{% endblock %}
+{% block twitter_description %}{{ seo.description }}{% endblock %}
 
 {% block content %}
 
@@ -41,7 +40,7 @@ imaging services, patient-focused approach and commitment to quality ultrasound 
                 </h1>
 
                 <p class="text-gray-600 text-[15px] sm:text-lg leading-relaxed mt-6 max-w-2xl mx-auto lg:mx-0">
-                    Naren Ultrasound & Fetal Medicine Center is dedicated to providing advanced ultrasound and fetal
+                    Naren Ultrasound & Fetal Medicine Center in Maharanipeta, Visakhapatnam is dedicated to providing advanced ultrasound and fetal
                     care services with accuracy, compassion, and excellence.
                 </p>
 
@@ -50,7 +49,7 @@ imaging services, patient-focused approach and commitment to quality ultrasound 
             <!-- RIGHT -->
 
             <div>
-                <img src="{% static 'images/contact-banner.png' %}" alt="About Banner"
+                <img src="{% static 'images/contact-banner.png' %}" alt="Reception desk and patient waiting lounge at Naren Ultrasound &amp; Fetal Medicine Center in Visakhapatnam"
                     class="media-cover ar-16-10 ar-lg-5-4 object-center rounded-[40px]">
             </div>
 
@@ -71,7 +70,7 @@ imaging services, patient-focused approach and commitment to quality ultrasound 
                 <!-- IMAGE -->
 
                 <div>
-                    <img src="{% static 'images/about-doctor.png' %}" alt="Doctor"
+                    <img src="{% static 'images/about-doctor.png' %}" alt="Clinician reviewing digital medical information on a tablet with a smiling expectant mother"
                         class="story-image media-cover media-cover--top ar-4-3 rounded-3xl">
                 </div>
 

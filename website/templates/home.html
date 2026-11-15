@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Pregnancy Ultrasound & Fetal Medicine Center in Visakhapatnam | Naren Ultrasound{% endblock %}
+{% block title %}{{ seo.title }}{% endblock %}
 
-{% block meta_description %}Naren Ultrasound & Fetal Medicine Center in Maharanipeta, Visakhapatnam offers pregnancy
-ultrasound, NT scans, fetal anomaly scans, fetal echocardiography, growth scans and Doppler studies.{% endblock %}
+{% block meta_description %}{{ seo.description }}{% endblock %}
 
-{% block og_title %}Naren Ultrasound & Fetal Medicine Center | Visakhapatnam{% endblock %}
+{% block og_title %}{{ seo.title }}{% endblock %}
 
-{% block og_description %}Explore pregnancy ultrasound and fetal medicine services at Naren Ultrasound in
-Visakhapatnam.{% endblock %}
+{% block og_description %}{{ seo.description }}{% endblock %}
 
-{% block twitter_title %}Naren Ultrasound & Fetal Medicine Center | Visakhapatnam{% endblock %}
+{% block twitter_title %}{{ seo.title }}{% endblock %}
 
-{% block twitter_description %}Pregnancy ultrasound and fetal medicine services in Visakhapatnam.{% endblock %}
+{% block twitter_description %}{{ seo.description }}{% endblock %}
 
 {% block content %}
 
@@ -44,7 +42,7 @@ Visakhapatnam.{% endblock %}
                 </h1>
 
                 <p class="text-gray-600 text-base sm:text-lg leading-relaxed mt-6 max-w-xl mx-auto lg:mx-0">
-                    Naren Ultrasound & Fetal Medicine Center provides advanced ultrasound & fetal care with compassion
+                    Naren Ultrasound & Fetal Medicine Center in Visakhapatnam provides advanced ultrasound & fetal care with compassion
                     and accuracy.
                 </p>
 
@@ -153,7 +151,7 @@ Visakhapatnam.{% endblock %}
 
             <div>
 
-                <img src="{% static 'images/hero.png' %}" alt="Hero" class="media-fit rounded-[28px] shadow-xl">
+                <img src="{% static 'images/hero.png' %}" alt="Clinician performing a pregnancy ultrasound scan and pointing out the fetal image on a monitor to an expectant mother" class="media-fit rounded-[28px] shadow-xl">
 
             </div>
 
@@ -318,7 +316,7 @@ Visakhapatnam.{% endblock %}
 
             <div>
 
-                <img src="{% static 'images/contact-banner.png' %}" alt="About"
+                <img loading="lazy" src="{% static 'images/contact-banner.png' %}" alt="Reception desk and patient waiting lounge at Naren Ultrasound &amp; Fetal Medicine Center"
                     class="media-cover ar-16-10 ar-lg-3-2 rounded-[28px] shadow-lg">
 
             </div>
@@ -356,7 +354,7 @@ Visakhapatnam.{% endblock %}
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img src="{% static 'images/service1.png' %}" alt="Antenatal" class="media-fit">
+                <img loading="lazy" src="{% static 'images/service1.png' %}" alt="Antenatal and gynecological ultrasound room with scan monitor and examination chair" class="media-fit">
 
                 <div class="p-4">
 
@@ -377,7 +375,7 @@ Visakhapatnam.{% endblock %}
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img src="{% static 'images/service2.png' %}" alt="Routine" class="media-fit">
+                <img loading="lazy" src="{% static 'images/service2.png' %}" alt="Routine ultrasound scan room with diagnostic ultrasound machine and patient bed" class="media-fit">
 
                 <div class="p-4">
 
@@ -398,7 +396,7 @@ Visakhapatnam.{% endblock %}
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img src="{% static 'images/service3.png' %}" alt="Paediatric" class="media-fit">
+                <img loading="lazy" src="{% static 'images/service3.png' %}" alt="Child-friendly paediatric ultrasound room with a smiling young patient, mother, and ultrasound scanner" class="media-fit">
 
                 <div class="p-4">
 
@@ -419,7 +417,7 @@ Visakhapatnam.{% endblock %}
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img src="{% static 'images/service4.png' %}" alt="Doppler" class="media-fit">
+                <img loading="lazy" src="{% static 'images/service4.png' %}" alt="Vascular Doppler scan room with color-flow Doppler ultrasound machine, examination couch, and reporting desk" class="media-fit">
 
                 <div class="p-4">
 
@@ -440,7 +438,7 @@ Visakhapatnam.{% endblock %}
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img src="{% static 'images/service5.png' %}" alt="USG Guided" class="media-fit">
+                <img loading="lazy" src="{% static 'images/service5.png' %}" alt="Ultrasound-guided procedure room with diagnostic scanner, sterile instrument tray, surgical light, and patient monitor" class="media-fit">
 
                 <div class="p-4">
 
@@ -461,7 +459,7 @@ Visakhapatnam.{% endblock %}
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img src="{% static 'images/service6.png' %}" alt="USG Small Parts" class="media-fit">
+                <img loading="lazy" src="{% static 'images/service6.png' %}" alt="Small-parts ultrasound suite with scanner, examination bed, and anatomical charts for thyroid, chest, scrotal Doppler, and soft tissue scans" class="media-fit">
 
                 <div class="p-4">
 
@@ -512,7 +510,7 @@ Visakhapatnam.{% endblock %}
 
                 <div>
 
-                    <img src="{% static 'images/doctorsBanner.png' %}" alt="Dr. Naren Satya"
+                    <img loading="lazy" src="{% static 'images/doctorsBanner.png' %}" alt="Dr. Naren Satya, Consultant Radiologist, seated at his consultation desk"
                         class="media-fit rounded-[24px]">
 
                 </div>

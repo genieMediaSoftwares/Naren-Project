@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 db.sqlite3
 staticfiles/
+# Local credentials and editor recovery files
+.env
+.env.*
+!.env.example
+*.broken-backup

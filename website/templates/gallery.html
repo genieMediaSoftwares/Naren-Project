@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Ultrasound Center Gallery | Naren Ultrasound Visakhapatnam{% endblock %}
+{% block title %}{{ seo.title }}{% endblock %}
 
-{% block meta_description %}Explore the gallery of Naren Ultrasound & Fetal Medicine Center in Visakhapatnam and learn
-more about our diagnostic imaging center and facilities.{% endblock %}
+{% block meta_description %}{{ seo.description }}{% endblock %}
 
-{% block og_title %}Gallery | Naren Ultrasound Visakhapatnam{% endblock %}
+{% block og_title %}{{ seo.title }}{% endblock %}
 
-{% block og_description %}Explore Naren Ultrasound & Fetal Medicine Center in Visakhapatnam.{% endblock %}
+{% block og_description %}{{ seo.description }}{% endblock %}
 
-{% block twitter_title %}Gallery | Naren Ultrasound{% endblock %}
+{% block twitter_title %}{{ seo.title }}{% endblock %}
 
-{% block twitter_description %}Explore our ultrasound center in Visakhapatnam.{% endblock %}
+{% block twitter_description %}{{ seo.description }}{% endblock %}
 
 {% block content %}
 

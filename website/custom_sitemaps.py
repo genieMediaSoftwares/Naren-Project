@@ -1,9 +1,10 @@
-from django.contrib.sitemaps import Sitemap
+from .sitemap_base import CanonicalSitemap
 from django.urls import reverse
 
 
-class PagesSitemap(Sitemap):
+class PagesSitemap(CanonicalSitemap):
 
+    protocol = "https"
     changefreq = "weekly"
     priority = 0.8
 
@@ -15,14 +16,16 @@ class PagesSitemap(Sitemap):
             'gallery',
             'contact',
             'patient_info',
+            'blog_list',
         ]
 
     def location(self, item):
         return reverse(item)
 
 
-class ServicesSitemap(Sitemap):
+class ServicesSitemap(CanonicalSitemap):
 
+    protocol = "https"
     changefreq = "weekly"
     priority = 0.9
 

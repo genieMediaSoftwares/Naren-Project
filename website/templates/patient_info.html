@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Patient Information & Appointment Booking | Naren Ultrasound Visakhapatnam{% endblock %}
+{% block title %}{{ seo.title }}{% endblock %}
 
-{% block meta_description %}Find patient information and appointment details for Naren Ultrasound & Fetal Medicine
-Center in Visakhapatnam. Contact our center for ultrasound scan appointments and enquiries.{% endblock %}
+{% block meta_description %}{{ seo.description }}{% endblock %}
 
-{% block og_title %}Patient Information | Naren Ultrasound{% endblock %}
+{% block og_title %}{{ seo.title }}{% endblock %}
 
-{% block og_description %}Patient information and ultrasound appointment enquiries in Visakhapatnam.{% endblock %}
+{% block og_description %}{{ seo.description }}{% endblock %}
 
-{% block twitter_title %}Patient Information | Naren Ultrasound{% endblock %}
+{% block twitter_title %}{{ seo.title }}{% endblock %}
 
-{% block twitter_description %}Information and appointment enquiries at Naren Ultrasound, Visakhapatnam.{% endblock %}
+{% block twitter_description %}{{ seo.description }}{% endblock %}
 {% block content %}
 
 <!-- HERO -->
@@ -43,7 +42,7 @@ Center in Visakhapatnam. Contact our center for ultrasound scan appointments and
             <!-- IMAGE -->
             <div class="flex justify-center lg:justify-end min-w-0">
 
-                <img src="{% static 'images/patient-banner.png' %}" alt="Patient Banner"
+                <img src="{% static 'images/patient-banner.png' %}" alt="Patients seated in the waiting lounge in front of the Naren Ultrasound and Fetal Medicine Center reception desk"
                     class="media-fit max-w-[620px] rounded-[24px] shadow-xl">
 
             </div>

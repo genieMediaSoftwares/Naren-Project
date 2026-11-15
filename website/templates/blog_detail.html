@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}{{ post.title }} | Naren Ultrasound & Fetal Medicine Center{% endblock %}
+{% block title %}{{ seo.title }}{% endblock %}
 
-{% block meta_description %}{{ post.meta_description|default:post.title|striptags|truncatechars:160 }}{% endblock %}
+{% block meta_description %}{{ seo.description }}{% endblock %}
 
 {% block og_type %}article{% endblock %}
 
-{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_title %}{{ seo.title }}{% endblock %}
 
-{% block og_description %}{{ post.meta_description|default:post.title|striptags|truncatechars:160 }}{% endblock %}
+{% block og_description %}{{ seo.description }}{% endblock %}
 
-{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{{ post.featured_image.url }}{% endblock %}
+{% block og_image %}{% if featured_image_url %}{{ featured_image_url }}{% elif post.featured_image %}https://www.narenultrasound.in{{ post.featured_image.url }}{% else %}https://www.narenultrasound.in{% static 'images/logo.png' %}{% endif %}{% endblock %}
 
-{% block twitter_title %}{{ post.title }}{% endblock %}
+{% block twitter_title %}{{ seo.title }}{% endblock %}
 
-{% block twitter_description %}{{ post.meta_description|default:post.title|striptags|truncatechars:160 }}{% endblock %}
+{% block twitter_description %}{{ seo.description }}{% endblock %}
 
-{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{{ post.featured_image.url }}{% endblock %}
+{% block twitter_image %}{% if featured_image_url %}{{ featured_image_url }}{% elif post.featured_image %}https://www.narenultrasound.in{{ post.featured_image.url }}{% else %}https://www.narenultrasound.in{% static 'images/logo.png' %}{% endif %}{% endblock %}
 
 {% block content %}
 
@@ -87,7 +87,7 @@
 
         {% endif %}
 
-        <div class="blog-content pad-fluid bg-white rounded-2xl shadow-lg">
+        <div role="article" class="blog-content pad-fluid bg-white rounded-2xl shadow-lg">
 
             {{ post.content|safe }}
 
