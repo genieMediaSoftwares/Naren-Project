@@ -237,6 +237,7 @@
                                     </label>
 
                                     <input type="date" name="preferred_date"
+                                        min="{{ min_booking_date }}"
                                         value="{{ form_data.preferred_date|default:'' }}" required
                                         class="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none">
 
@@ -254,30 +255,15 @@
 
                                         <option value="">Select time slot</option>
 
-                                        <option {% if form_data.preferred_time == "10:00 AM - 10:30 AM" %}selected{% endif %}>10:00 AM - 10:30 AM</option>
-                                        <option {% if form_data.preferred_time == "10:30 AM - 11:00 AM" %}selected{% endif %}>10:30 AM - 11:00 AM</option>
-                                        <option {% if form_data.preferred_time == "11:00 AM - 11:30 PM" %}selected{% endif %}>11:00 AM - 11:30 PM</option>
-                                        <option {% if form_data.preferred_time == "11:30 AM - 12:00 AM" %}selected{% endif %}>11:30 AM - 12:00 AM</option>
-                                        <option {% if form_data.preferred_time == "12:00 PM - 12:30 PM" %}selected{% endif %}>12:00 PM - 12:30 PM</option>
-                                        <option {% if form_data.preferred_time == "12:30 AM - 1:00 AM" %}selected{% endif %}>12:30 AM - 1:00 AM</option>
-                                        <option {% if form_data.preferred_time == "1:00 PM - 1:30 PM" %}selected{% endif %}>1:00 PM - 1:30 PM</option>
-                                        <option {% if form_data.preferred_time == "1:30 AM - 2:00 AM" %}selected{% endif %}>1:30 AM - 2:00 AM</option>
-                                        <option {% if form_data.preferred_time == "2:00 PM - 2:30 PM" %}selected{% endif %}>2:00 PM - 2:30 PM</option>
-                                        <option {% if form_data.preferred_time == "2:30 AM - 3:00 AM" %}selected{% endif %}>2:30 AM - 3:00 AM</option>
-                                        <option {% if form_data.preferred_time == "3:00 PM - 3:30 PM" %}selected{% endif %}>3:00 PM - 3:30 PM</option>
-                                        <option {% if form_data.preferred_time == "3:30 AM - 4:00 AM" %}selected{% endif %}>3:30 AM - 4:00 AM</option>
-                                        <option {% if form_data.preferred_time == "4:00 PM - 4:30 PM" %}selected{% endif %}>4:00 PM - 4:30 PM</option>
-                                        <option {% if form_data.preferred_time == "4:30 AM - 5:00 AM" %}selected{% endif %}>4:30 AM - 5:00 AM</option>
-                                        <option {% if form_data.preferred_time == "5:00 PM - 5:30 PM" %}selected{% endif %}>5:00 PM - 5:30 PM</option>
-                                        <option {% if form_data.preferred_time == "5:30 AM - 6:00 AM" %}selected{% endif %}>5:30 AM - 6:00 AM</option>
-                                        <option {% if form_data.preferred_time == "6:00 PM - 6:30 PM" %}selected{% endif %}>6:00 PM - 6:30 PM</option>
-                                        <option {% if form_data.preferred_time == "6:30 AM - 7:00 AM" %}selected{% endif %}>6:30 AM - 7:00 AM</option>
-                                        <option {% if form_data.preferred_time == "7:00 PM - 7:30 PM" %}selected{% endif %}>7:00 PM - 7:30 PM</option>
-                                        <option {% if form_data.preferred_time == "7:30 PM - 8:00 PM" %}selected{% endif %}>7:30 PM - 8:00 PM</option>
+                                        {% for slot in time_slots %}
+                                        <option value="{{ slot }}" {% if form_data.preferred_time == slot %}selected{% endif %}>{{ slot }}</option>
+                                        {% endfor %}
 
                                     </select>
 
                                 </div>
+
+                                <p id="dateSlotMessage" class="hidden md:col-span-2 text-sm text-red-600 font-medium" role="alert"></p>
 
                                 <!-- SERVICES -->
                                 <div class="md:col-span-2">
@@ -859,30 +845,164 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        const CLINIC_TIME_ZONE = 'Asia/Kolkata';
         const dateInput = document.querySelector('input[name="preferred_date"]');
         const timeSelect = document.querySelector('select[name="preferred_time"]');
+        const dateSlotMessage = document.getElementById('dateSlotMessage');
         if (!dateInput || !timeSelect) return;
+
+        function getClinicTodayStr() {
+            return new Intl.DateTimeFormat('en-CA', {
+                timeZone: CLINIC_TIME_ZONE,
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            }).format(new Date());
+        }
+
+        function getClinicNowMinutes() {
+            const parts = new Intl.DateTimeFormat('en-US', {
+                timeZone: CLINIC_TIME_ZONE,
+                hour: '2-digit',
+                minute: '2-digit',
+                hourCycle: 'h23'
+            }).formatToParts(new Date());
+            const hourPart = parts.find(function (p) { return p.type === 'hour'; });
+            const minutePart = parts.find(function (p) { return p.type === 'minute'; });
+            const hours = (parseInt(hourPart?.value || '0', 10) % 24);
+            const minutes = parseInt(minutePart?.value || '0', 10);
+            return hours * 60 + minutes;
+        }
+
+        function isSundayDateStr(dateStr) {
+            const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateStr || '');
+            if (!match) return false;
+            const year = parseInt(match[1], 10);
+            const month = parseInt(match[2], 10) - 1;
+            const day = parseInt(match[3], 10);
+            return new Date(Date.UTC(year, month, day)).getUTCDay() === 0;
+        }
+
+        function parseSlotStartMinutes(slotLabel) {
+            const startPart = (slotLabel || '').split('-')[0].trim();
+            const match = /^(\d{1,2}):(\d{2})\s*(AM|PM)$/i.exec(startPart);
+            if (!match) return null;
+            let hour = parseInt(match[1], 10);
+            const minute = parseInt(match[2], 10);
+            const meridiem = match[3].toUpperCase();
+            if (meridiem === 'AM' && hour === 12) hour = 0;
+            if (meridiem === 'PM' && hour !== 12) hour += 12;
+            return hour * 60 + minute;
+        }
+
+        function setSlotStatusMessage(message) {
+            if (!dateSlotMessage) return;
+            if (message) {
+                dateSlotMessage.textContent = message;
+                dateSlotMessage.classList.remove('hidden');
+            } else {
+                dateSlotMessage.textContent = '';
+                dateSlotMessage.classList.add('hidden');
+            }
+        }
+
+        if (!dateInput.min) {
+            dateInput.min = getClinicTodayStr();
+        }
 
         // Cache clean base slot text for every option
         Array.from(timeSelect.options).forEach(function (opt) {
             if (opt.value !== "") {
-                opt.dataset.baseSlot = opt.textContent.replace(/\s*\(Booked\)$/i, '').trim();
+                opt.dataset.baseSlot = opt.value.trim();
             }
         });
 
-        function updateSlotAvailability() {
-            const selectedDate = dateInput.value;
-            if (!selectedDate) {
-                // Restore all options to normal unbooked state
-                Array.from(timeSelect.options).forEach(function (opt) {
-                    if (opt.value !== "") {
-                        const baseSlot = opt.dataset.baseSlot || opt.value;
-                        opt.textContent = baseSlot;
-                        opt.disabled = false;
+        function applyOptionStates(optionsConfig) {
+            const bookedSet = new Set(optionsConfig.booked || []);
+            const pastSet = new Set(optionsConfig.past || []);
+            const closedAll = Boolean(optionsConfig.closedAll);
+            const closedSuffix = optionsConfig.closedSuffix || ' (Unavailable)';
+            let enabledCount = 0;
+
+            Array.from(timeSelect.options).forEach(function (opt) {
+                if (opt.value === "") return;
+                const baseSlot = opt.dataset.baseSlot || opt.value;
+
+                if (closedAll) {
+                    opt.disabled = true;
+                    opt.textContent = baseSlot + closedSuffix;
+                    if (timeSelect.value === opt.value || timeSelect.value === baseSlot) {
+                        timeSelect.value = "";
                     }
-                });
+                } else if (bookedSet.has(baseSlot)) {
+                    opt.disabled = true;
+                    opt.textContent = baseSlot + " (Booked)";
+                    if (timeSelect.value === opt.value || timeSelect.value === baseSlot) {
+                        timeSelect.value = "";
+                    }
+                } else if (pastSet.has(baseSlot)) {
+                    opt.disabled = true;
+                    opt.textContent = baseSlot + " (Passed)";
+                    if (timeSelect.value === opt.value || timeSelect.value === baseSlot) {
+                        timeSelect.value = "";
+                    }
+                } else {
+                    opt.disabled = false;
+                    opt.textContent = baseSlot;
+                    enabledCount += 1;
+                }
+            });
+
+            return enabledCount;
+        }
+
+        let latestRequestId = 0;
+
+        // Invalidate pending responses even when the new date needs no request.
+        function updateSlotAvailability() {
+            const requestId = ++latestRequestId;
+            const selectedDate = (dateInput.value || '').trim();
+            dateInput.setCustomValidity('');
+            timeSelect.setCustomValidity('');
+
+            if (!selectedDate) {
+                setSlotStatusMessage('');
+                applyOptionStates({ booked: [], past: [], closedAll: false });
                 return;
             }
+
+            const clinicToday = dateInput.min || getClinicTodayStr();
+            if (selectedDate < clinicToday) {
+                const msg = 'Past dates cannot be booked. Please select today or a future date.';
+                dateInput.setCustomValidity(msg);
+                setSlotStatusMessage(msg);
+                applyOptionStates({ closedAll: true, closedSuffix: ' (Past Date)' });
+                return;
+            }
+
+            if (isSundayDateStr(selectedDate)) {
+                const msg = 'The clinic is closed on Sundays (Holiday). Please select a date from Monday to Saturday (8:00 AM - 8:00 PM).';
+                dateInput.setCustomValidity(msg);
+                setSlotStatusMessage(msg);
+                applyOptionStates({ closedAll: true, closedSuffix: ' (Sunday Closed)' });
+                return;
+            }
+
+            const localPastSlots = [];
+            if (selectedDate === clinicToday) {
+                const nowMinutes = getClinicNowMinutes();
+                Array.from(timeSelect.options).forEach(function (opt) {
+                    if (opt.value === "") return;
+                    const baseSlot = opt.dataset.baseSlot || opt.value;
+                    const startMinutes = parseSlotStartMinutes(baseSlot);
+                    if (startMinutes !== null && startMinutes <= nowMinutes) {
+                        localPastSlots.push(baseSlot);
+                    }
+                });
+            }
+
+            setSlotStatusMessage('');
+            applyOptionStates({ booked: [], past: localPastSlots, closedAll: false });
 
             fetch('/api/booked-slots/?date=' + encodeURIComponent(selectedDate))
                 .then(function (response) {
@@ -890,24 +1010,35 @@
                     return response.json();
                 })
                 .then(function (data) {
+                    if (requestId !== latestRequestId) return;
+                    if (data.clinic_today) {
+                        dateInput.min = data.clinic_today;
+                    }
+
+                    if (data.is_past_date || data.is_closed) {
+                        const msg = data.closed_reason || 'Selected date is unavailable for appointments.';
+                        dateInput.setCustomValidity(msg);
+                        setSlotStatusMessage(msg);
+                        applyOptionStates({
+                            closedAll: true,
+                            closedSuffix: data.is_closed ? ' (Sunday Closed)' : ' (Past Date)'
+                        });
+                        return;
+                    }
+
                     const booked = Array.isArray(data.booked_slots) ? data.booked_slots : [];
-
-                    Array.from(timeSelect.options).forEach(function (opt) {
-                        if (opt.value === "") return;
-                        const baseSlot = opt.dataset.baseSlot || opt.value;
-                        const isBooked = booked.includes(baseSlot) || booked.includes(opt.value);
-
-                        if (isBooked) {
-                            opt.disabled = true;
-                            opt.textContent = baseSlot + " (Booked)";
-                            if (timeSelect.value === opt.value || timeSelect.value === baseSlot) {
-                                timeSelect.value = "";
-                            }
-                        } else {
-                            opt.disabled = false;
-                            opt.textContent = baseSlot;
-                        }
+                    const serverPast = Array.isArray(data.past_slots) ? data.past_slots : localPastSlots;
+                    const enabledCount = applyOptionStates({
+                        booked: booked,
+                        past: serverPast,
+                        closedAll: false
                     });
+
+                    if (enabledCount === 0) {
+                        setSlotStatusMessage('No remaining appointment slots are available for this date. Please choose another date (Monday to Saturday).');
+                    } else {
+                        setSlotStatusMessage('');
+                    }
                 })
                 .catch(function (error) {
                     console.error('Error fetching booked slots:', error);
@@ -916,6 +1047,9 @@
 
         dateInput.addEventListener('change', updateSlotAvailability);
         dateInput.addEventListener('input', updateSlotAvailability);
+        timeSelect.addEventListener('change', function () {
+            timeSelect.setCustomValidity('');
+        });
 
         if (dateInput.value) {
             updateSlotAvailability();
@@ -923,15 +1057,43 @@
 
         const patientForm = document.getElementById('patientForm');
         if (patientForm) {
-            patientForm.addEventListener('submit', function () {
+            patientForm.addEventListener('submit', function (e) {
+                const selectedDate = (dateInput.value || '').trim();
+                const clinicToday = dateInput.min || getClinicTodayStr();
+
+                if (selectedDate && selectedDate < clinicToday) {
+                    const msg = 'Past dates cannot be booked. Please select today or a future date.';
+                    dateInput.setCustomValidity(msg);
+                    setSlotStatusMessage(msg);
+                    e.preventDefault();
+                    dateInput.reportValidity();
+                    return;
+                }
+
+                if (selectedDate && isSundayDateStr(selectedDate)) {
+                    const msg = 'The clinic is closed on Sundays (Holiday). Please select a date from Monday to Saturday (8:00 AM - 8:00 PM).';
+                    dateInput.setCustomValidity(msg);
+                    setSlotStatusMessage(msg);
+                    e.preventDefault();
+                    dateInput.reportValidity();
+                    return;
+                }
+
+                const selectedOption = timeSelect.selectedOptions[0];
+                if (!selectedOption || !timeSelect.value || selectedOption.disabled) {
+                    timeSelect.setCustomValidity('Please select an available appointment time slot.');
+                    e.preventDefault();
+                    timeSelect.reportValidity();
+                    return;
+                }
+                timeSelect.setCustomValidity('');
+
                 const fullName = (patientForm.querySelector('[name="full_name"]')?.value || '').trim();
                 const age = (patientForm.querySelector('[name="age"]')?.value || '').trim();
-                const genderSelect = patientForm.querySelector('[name="gender"]');
-                const gender = (genderSelect?.value || '').trim();
+                const gender = (patientForm.querySelector('[name="gender"]:checked')?.value || '').trim();
                 const phone = (patientForm.querySelector('[name="phone"]')?.value || '').trim();
-                const preferredDate = (patientForm.querySelector('[name="preferred_date"]')?.value || '').trim();
-                const preferredTimeSelect = patientForm.querySelector('[name="preferred_time"]');
-                const preferredTime = (preferredTimeSelect?.value || '').trim();
+                const preferredDate = selectedDate;
+                const preferredTime = (timeSelect.value || '').trim();
                 const confirmation = patientForm.querySelector('[name="confirmation"]')?.checked;
 
                 if (!fullName || !age || !gender || !phone || !preferredDate || !preferredTime || !confirmation) {
@@ -946,7 +1108,8 @@
                 const scansText = checkedScans.length > 0 ? checkedScans.join('\n') : 'None selected';
 
                 const now = new Date();
-                const timeStr = now.toLocaleDateString('en-IN', {
+                const timeStr = now.toLocaleString('en-IN', {
+                    timeZone: CLINIC_TIME_ZONE,
                     day: '2-digit', month: 'short', year: 'numeric',
                     hour: '2-digit', minute: '2-digit', hour12: true
                 }) + ' IST';

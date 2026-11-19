@@ -1,8 +1,11 @@
 import os
 
+from django.core.exceptions import ValidationError
 from django.core.validators import FileExtensionValidator
 from django.db import DatabaseError, models
 from django_ckeditor_5.fields import CKEditor5Field
+
+from .slots import validate_appointment_date_and_slot
 
 
 class Service(models.Model):
@@ -82,6 +85,18 @@ class PatientBooking(models.Model):
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def clean(self):
+        super().clean()
+        # Only enforce slot/schedule rules for new active bookings so historical
+        # records with legacy slot strings remain editable/cancellable in Admin.
+        if self._state.adding and not self.is_cancelled and self.preferred_date and self.preferred_time:
+            error_msg = validate_appointment_date_and_slot(
+                self.preferred_date,
+                self.preferred_time,
+            )
+            if error_msg:
+                raise ValidationError(error_msg)
 
     def __str__(self):
         return self.full_name

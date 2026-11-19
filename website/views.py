@@ -10,13 +10,19 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import AppointmentForm
 from .models import BlogPost, ContactMessage, DoctorProfile, PatientBooking, Service
+from .slots import (
+    APPOINTMENT_TIME_SLOTS,
+    get_clinic_now,
+    get_past_slots_for_date,
+    get_slot_db_variants,
+    is_clinic_closed_day,
+    normalize_booked_slots,
+    validate_appointment_date_and_slot,
+)
 from .whatsapp import (
     get_contact_whatsapp_url,
     get_patient_booking_whatsapp_url,
-    send_contact_message_whatsapp,
-    send_patient_booking_whatsapp,
 )
-
 
 def home(request):
     return render(request, 'home.html', {'home': home})
@@ -77,8 +83,6 @@ Message:
             fail_silently=False,
         )
 
-        # SEND WHATSAPP NOTIFICATION
-        send_contact_message_whatsapp(contact, subject=subject)
 
         # Store WhatsApp link in session for the confirmation page
         wa_url = get_contact_whatsapp_url(contact, subject=subject)
@@ -95,11 +99,21 @@ def contact_success(request):
 
 
 def booked_slots_api(request):
-    """Return JSON list of booked, non-cancelled appointment time slots for a given date."""
+    """Return JSON availability details for a given date in clinic IST."""
+    clinic_now = get_clinic_now()
+    clinic_today = clinic_now.date()
     date_str = request.GET.get('date', '').strip()
 
     if not date_str:
-        return JsonResponse({'booked_slots': []})
+        return JsonResponse({
+            'booked_slots': [],
+            'past_slots': [],
+            'unavailable_slots': [],
+            'is_closed': False,
+            'is_past_date': False,
+            'closed_reason': None,
+            'clinic_today': clinic_today.isoformat(),
+        })
 
     try:
         query_date = datetime.strptime(date_str, '%Y-%m-%d').date()
@@ -109,14 +123,42 @@ def booked_slots_api(request):
             status=400
         )
 
-    booked_slots = list(
+    is_past_date = query_date < clinic_today
+    is_closed = is_clinic_closed_day(query_date)
+
+    raw_booked = list(
         PatientBooking.objects.filter(
             preferred_date=query_date,
             is_cancelled=False
         ).values_list('preferred_time', flat=True).distinct()
     )
+    booked_slots = normalize_booked_slots(raw_booked)
+    past_slots = get_past_slots_for_date(query_date, now=clinic_now)
 
-    return JsonResponse({'booked_slots': booked_slots})
+    if is_closed or is_past_date:
+        unavailable_slots = list(APPOINTMENT_TIME_SLOTS)
+    else:
+        unavailable_set = set(booked_slots) | set(past_slots)
+        unavailable_slots = [s for s in APPOINTMENT_TIME_SLOTS if s in unavailable_set]
+
+    closed_reason = None
+    if is_past_date:
+        closed_reason = 'Past dates cannot be booked. Please select today or a future date.'
+    elif is_closed:
+        closed_reason = (
+            'The clinic is closed on Sundays (Holiday). '
+            'Please choose Monday to Saturday (8:00 AM - 8:00 PM).'
+        )
+
+    return JsonResponse({
+        'booked_slots': booked_slots,
+        'past_slots': past_slots,
+        'unavailable_slots': unavailable_slots,
+        'is_closed': is_closed,
+        'is_past_date': is_past_date,
+        'closed_reason': closed_reason,
+        'clinic_today': clinic_today.isoformat(),
+    })
 
 
 def appointment_success(request):
@@ -125,6 +167,12 @@ def appointment_success(request):
 
 
 def patient_info(request):
+    clinic_now = get_clinic_now()
+    base_context = {
+        'time_slots': APPOINTMENT_TIME_SLOTS,
+        'min_booking_date': clinic_now.date().isoformat(),
+    }
+
     if request.method == "POST":
         all_selected_scans = (
             request.POST.getlist('scan_antenatal') +
@@ -136,6 +184,7 @@ def patient_info(request):
         )
 
         form_context = {
+            **base_context,
             'form_data': request.POST,
             'selected_scans': all_selected_scans,
         }
@@ -213,6 +262,18 @@ def patient_info(request):
                 {**form_context, 'error': 'Please select a Preferred Time Slot.'}
             )
 
+        slot_error = validate_appointment_date_and_slot(
+            preferred_date,
+            preferred_time,
+            now=clinic_now,
+        )
+        if slot_error:
+            return render(
+                request,
+                'patient_info.html',
+                {**form_context, 'error': slot_error}
+            )
+
         # Collect antenatal scans (optional)
         antenatal_scans = request.POST.getlist('scan_antenatal')
 
@@ -269,7 +330,7 @@ def patient_info(request):
 
             if PatientBooking.objects.filter(
                 preferred_date=preferred_date,
-                preferred_time=preferred_time,
+                preferred_time__in=get_slot_db_variants(preferred_time),
                 is_cancelled=False
             ).exists():
                 return render(
@@ -329,16 +390,13 @@ SELECTED SERVICES / SCANS{scan_section}
             fail_silently=False,
         )
 
-        # SEND WHATSAPP NOTIFICATION
-        send_patient_booking_whatsapp(booking)
-
         # Store WhatsApp link in session for the confirmation page
         wa_url = get_patient_booking_whatsapp_url(booking)
         request.session['whatsapp_url'] = wa_url
 
         return redirect('appointment_success')
 
-    return render(request, 'patient_info.html')
+    return render(request, 'patient_info.html', base_context)
 
 
 def robots_txt(request):
