@@ -1,4 +1,4 @@
-{% load static tailwind_tags seo_tags %}
+{% load static seo_tags seo_images %}
 {% seo_metadata as seo %}
 <!DOCTYPE html>
 <html lang="en">
@@ -52,20 +52,11 @@
     <meta name="twitter:image"
         content="{% block twitter_image %}https://www.narenultrasound.in{% static 'images/logo.png' %}{% endblock %}">
 
-    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% seo_static 'images/favicon.png' fallback='images/logo.png' %}">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    {% tailwind_css %}
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% seo_static 'css/dist/styles.css' %}">
+    <link rel="stylesheet" href="{% seo_static 'vendor/fonts/site-fonts.css' %}">
+    <link rel="stylesheet" href="{% seo_static 'css/responsive.css' %}">
 
     <style>
         body {
@@ -209,7 +200,7 @@
 
                     <!-- LOGO IMAGE -->
 
-                    <img src="{% static 'images/logo.png' %}" alt="Naren Ultrasound & Fetal Medicine Center logo" class="brand__logo">
+                    {% static 'images/logo.png' as seo_image_1 %}{% seo_image seo_image_1 alt="Naren Ultrasound & Fetal Medicine Center logo" css="brand__logo" sizes="80px" eager=True priority=False %}
 
                     <!-- LOGO TEXT -->
 
@@ -226,10 +217,10 @@
 
                         <div class="brand__sub">
 
-                            <h2 class="text-white font-black sm:font-semibold tracking-[1px] leading-none"
+                            <p class="text-white font-black sm:font-semibold tracking-[1px] leading-none"
                                 style="font-family: 'Cormorant Garamond', serif;">
                                 ULTRASOUND
-                            </h2>
+                            </p>
 
                             <span class="text-white leading-none font-black sm:font-semibold"
                                 style="font-family: 'Cormorant Garamond', serif;">
@@ -390,6 +381,15 @@ text-white hover:text-white
     <!-- CONTENT -->
 
     <main>
+        {% if seo.breadcrumbs %}
+        <nav class="site-container seo-breadcrumbs" aria-label="Breadcrumb">
+            <ol>
+                {% for crumb in seo.breadcrumbs %}
+                <li>{% if forloop.last %}<span aria-current="page">{{ crumb.name }}</span>{% else %}<a href="{{ crumb.url }}">{{ crumb.name }}</a>{% endif %}</li>
+                {% endfor %}
+            </ol>
+        </nav>
+        {% endif %}
         {% block content %}
         {% endblock %}
     </main>
@@ -410,8 +410,7 @@ text-white hover:text-white
 
                         <!-- IMAGE -->
 
-                        <img src="{% static 'images/logo.png' %}" alt="Naren Ultrasound & Fetal Medicine Center logo"
-                            class="w-14 h-14 object-contain shrink-0">
+                        {% static 'images/logo.png' as seo_image_2 %}{% seo_image seo_image_2 alt="Naren Ultrasound & Fetal Medicine Center logo" css="w-14 h-14 object-contain shrink-0" sizes="80px" eager=True priority=False %}
 
                         <!-- TEXT -->
 
@@ -419,19 +418,19 @@ text-white hover:text-white
 
                             <!-- NAREN -->
 
-                            <h2 class="text-[#ffffff] text-[28px] font-semibold tracking-[1px] leading-none"
+                            <p class="text-[#ffffff] text-[28px] font-semibold tracking-[1px] leading-none"
                                 style="font-family: 'Cormorant Garamond', serif;">
                                 NAREN
-                            </h2>
+                            </p>
 
                             <!-- ULTRASOUND + AND -->
 
                             <div class="flex items-end gap-1 mt-[2px]">
 
-                                <h3 class="text-[#dbeafe] text-[13px] font-medium tracking-[0.5px] leading-none"
+                                <p class="text-[#dbeafe] text-[13px] font-medium tracking-[0.5px] leading-none"
                                     style="font-family: 'Cormorant Garamond', serif;">
                                     ULTRASOUND
-                                </h3>
+                                </p>
 
                                 <span class="text-gray-300 text-[12px] leading-none"
                                     style="font-family: 'Cormorant Garamond', serif;">

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static seo_images %}
 {% block title %}{{ seo.title }}{% endblock %}
 
 {% block meta_description %}{{ seo.description }}{% endblock %}
@@ -24,21 +24,14 @@
 
             <!-- LEFT -->
 
-            <div class="text-center lg:text-left min-w-0">
+            <div class="home-hero-copy text-center lg:text-left min-w-0">
 
                 <p class="uppercase tracking-wide text-[#0f9b8e] font-semibold text-sm mb-5">
                     Advanced Care. Accurate Scans.
                 </p>
 
                 <h1 class="fluid-display text-[#06233f] font-extrabold leading-[1.1]">
-
-                    <span class="text-[#0f9b8e]">Care You Can Trust,</span>
-                    Images You Can
-
-                    <span class="text-[#0f9b8e]">
-                        Rely On
-                    </span>
-
+                    <span class="text-[#0f9b8e]">Ultrasound Scans &amp; Fetal Medicine</span> in Visakhapatnam
                 </h1>
 
                 <p class="text-gray-600 text-base sm:text-lg leading-relaxed mt-6 max-w-xl mx-auto lg:mx-0">
@@ -151,7 +144,7 @@
 
             <div>
 
-                <img src="{% static 'images/hero.png' %}" alt="Clinician performing a pregnancy ultrasound scan and pointing out the fetal image on a monitor to an expectant mother" class="media-fit rounded-[28px] shadow-xl">
+                {% static 'images/hero.png' as seo_image_1 %}{% seo_image seo_image_1 alt="Clinician performing a pregnancy ultrasound scan and pointing out the fetal image on a monitor to an expectant mother" css="media-fit rounded-[28px] shadow-xl" sizes="(min-width: 1024px) 48vw, 100vw" eager=True priority=True %}
 
             </div>
 
@@ -176,9 +169,9 @@
 
                     <div>
 
-                        <h2 class="stat-value text-white font-bold leading-none">
+                        <p class="stat-value text-white font-bold leading-none">
                             20+
-                        </h2>
+                        </p>
 
                         <p class="stat-label text-white mt-2">
                             Years of Experience
@@ -200,9 +193,9 @@
 
                     <div>
 
-                        <h2 class="stat-value text-white font-bold leading-none">
+                        <p class="stat-value text-white font-bold leading-none">
                             300K+
-                        </h2>
+                        </p>
 
                         <p class="stat-label text-white mt-2">
                             Happy Patients
@@ -224,9 +217,9 @@
 
                     <div>
 
-                        <h2 class="stat-value stat-value--word text-white font-bold leading-none">
+                        <p class="stat-value stat-value--word text-white font-bold leading-none">
                             Trusted
-                        </h2>
+                        </p>
 
                         <p class="stat-label text-white mt-2 leading-snug">
                             Prenatal Care
@@ -248,9 +241,9 @@
 
                     <div>
 
-                        <h2 class="stat-value stat-value--word text-white font-bold leading-none">
+                        <p class="stat-value stat-value--word text-white font-bold leading-none">
                             Same Day
-                        </h2>
+                        </p>
 
                         <p class="stat-label text-white mt-2 leading-snug">
                             Reports
@@ -316,8 +309,7 @@
 
             <div>
 
-                <img loading="lazy" src="{% static 'images/contact-banner.png' %}" alt="Reception desk and patient waiting lounge at Naren Ultrasound &amp; Fetal Medicine Center"
-                    class="media-cover ar-16-10 ar-lg-3-2 rounded-[28px] shadow-lg">
+                {% static 'images/contact-banner.png' as seo_image_2 %}{% seo_image seo_image_2 alt="Reception desk and patient waiting lounge at Naren Ultrasound & Fetal Medicine Center" css="media-cover ar-16-10 ar-lg-3-2 rounded-[28px] shadow-lg" sizes="(min-width: 1024px) 48vw, 100vw" eager=False priority=False %}
 
             </div>
 
@@ -354,12 +346,12 @@
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img loading="lazy" src="{% static 'images/service1.png' %}" alt="Antenatal and gynecological ultrasound room with scan monitor and examination chair" class="media-fit">
+                {% static 'images/service1.png' as seo_image_3 %}{% seo_image seo_image_3 alt="Antenatal and gynecological ultrasound room with scan monitor and examination chair" css="media-fit" sizes="(min-width: 1536px) 224px, (min-width: 960px) 30vw, (min-width: 600px) 45vw, 100vw" eager=False priority=False %}
 
                 <div class="p-4">
 
                     <h3 class="text-[#06233f] font-bold text-[20px] leading-tight mb-3">
-                        Antenatal & Gynecological Scans
+                        <a href="{% url 'services' %}#antenatal-gynecological-scans">Antenatal & Gynecological Scans</a>
                     </h3>
 
                     <p class="text-gray-600 text-[14px] leading-relaxed">
@@ -375,12 +367,12 @@
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img loading="lazy" src="{% static 'images/service2.png' %}" alt="Routine ultrasound scan room with diagnostic ultrasound machine and patient bed" class="media-fit">
+                {% static 'images/service2.png' as seo_image_4 %}{% seo_image seo_image_4 alt="Routine ultrasound scan room with diagnostic ultrasound machine and patient bed" css="media-fit" sizes="(min-width: 1536px) 224px, (min-width: 960px) 30vw, (min-width: 600px) 45vw, 100vw" eager=False priority=False %}
 
                 <div class="p-4">
 
                     <h3 class="text-[#06233f] font-bold text-[20px] leading-tight mb-3">
-                        Routine Scans
+                        <a href="{% url 'services' %}#routine-scans">Routine Scans</a>
                     </h3>
 
                     <p class="text-gray-600 text-[14px] leading-relaxed">
@@ -396,12 +388,12 @@
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img loading="lazy" src="{% static 'images/service3.png' %}" alt="Child-friendly paediatric ultrasound room with a smiling young patient, mother, and ultrasound scanner" class="media-fit">
+                {% static 'images/service3.png' as seo_image_5 %}{% seo_image seo_image_5 alt="Child-friendly paediatric ultrasound room with a smiling young patient, mother, and ultrasound scanner" css="media-fit" sizes="(min-width: 1536px) 224px, (min-width: 960px) 30vw, (min-width: 600px) 45vw, 100vw" eager=False priority=False %}
 
                 <div class="p-4">
 
                     <h3 class="text-[#06233f] font-bold text-[20px] leading-tight mb-3">
-                        Paediatric Scans
+                        <a href="{% url 'services' %}#paediatric-scans">Paediatric Scans</a>
                     </h3>
 
                     <p class="text-gray-600 text-[14px] leading-relaxed">
@@ -417,12 +409,12 @@
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img loading="lazy" src="{% static 'images/service4.png' %}" alt="Vascular Doppler scan room with color-flow Doppler ultrasound machine, examination couch, and reporting desk" class="media-fit">
+                {% static 'images/service4.png' as seo_image_6 %}{% seo_image seo_image_6 alt="Vascular Doppler scan room with color-flow Doppler ultrasound machine, examination couch, and reporting desk" css="media-fit" sizes="(min-width: 1536px) 224px, (min-width: 960px) 30vw, (min-width: 600px) 45vw, 100vw" eager=False priority=False %}
 
                 <div class="p-4">
 
                     <h3 class="text-[#06233f] font-bold text-[20px] leading-tight mb-3">
-                        Doppler Scans
+                        <a href="{% url 'services' %}#doppler-scans">Doppler Scans</a>
                     </h3>
 
                     <p class="text-gray-600 text-[14px] leading-relaxed">
@@ -438,12 +430,12 @@
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img loading="lazy" src="{% static 'images/service5.png' %}" alt="Ultrasound-guided procedure room with diagnostic scanner, sterile instrument tray, surgical light, and patient monitor" class="media-fit">
+                {% static 'images/service5.png' as seo_image_7 %}{% seo_image seo_image_7 alt="Ultrasound-guided procedure room with diagnostic scanner, sterile instrument tray, surgical light, and patient monitor" css="media-fit" sizes="(min-width: 1536px) 224px, (min-width: 960px) 30vw, (min-width: 600px) 45vw, 100vw" eager=False priority=False %}
 
                 <div class="p-4">
 
                     <h3 class="text-[#06233f] font-bold text-[20px] leading-tight mb-3">
-                        USG Guided Procedures
+                        <a href="{% url 'services' %}#usg-guided-procedures">USG Guided Procedures</a>
                     </h3>
 
                     <p class="text-gray-600 text-[14px] leading-relaxed">
@@ -459,12 +451,12 @@
             <div
                 class="bg-[#eef8f7] rounded-[22px] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition duration-300">
 
-                <img loading="lazy" src="{% static 'images/service6.png' %}" alt="Small-parts ultrasound suite with scanner, examination bed, and anatomical charts for thyroid, chest, scrotal Doppler, and soft tissue scans" class="media-fit">
+                {% static 'images/service6.png' as seo_image_8 %}{% seo_image seo_image_8 alt="Small-parts ultrasound suite with scanner, examination bed, and anatomical charts for thyroid, chest, scrotal Doppler, and soft tissue scans" css="media-fit" sizes="(min-width: 1536px) 224px, (min-width: 960px) 30vw, (min-width: 600px) 45vw, 100vw" eager=False priority=False %}
 
                 <div class="p-4">
 
                     <h3 class="text-[#06233f] font-bold text-[20px] leading-tight mb-3">
-                        USG Small Parts
+                        <a href="{% url 'services' %}#usg-small-parts">USG Small Parts</a>
                     </h3>
 
                     <p class="text-gray-600 text-[14px] leading-relaxed">
@@ -510,8 +502,7 @@
 
                 <div>
 
-                    <img loading="lazy" src="{% static 'images/doctorsBanner.png' %}" alt="Dr. Naren Satya, Consultant Radiologist, seated at his consultation desk"
-                        class="media-fit rounded-[24px]">
+                    {% static 'images/doctorsBanner.png' as seo_image_9 %}{% seo_image seo_image_9 alt="Dr. Naren Satya, Consultant Radiologist, seated at his consultation desk" css="media-fit rounded-[24px]" sizes="(min-width: 1024px) 48vw, 100vw" eager=False priority=False %}
 
                 </div>
 

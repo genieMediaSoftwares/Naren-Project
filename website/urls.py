@@ -1,5 +1,8 @@
-from django.urls import path
+from django.urls import path, register_converter
 from . import views
+from .converters import ArticleSlugConverter
+
+register_converter(ArticleSlugConverter, 'article_slug')
 
 urlpatterns = [
 
@@ -34,7 +37,7 @@ urlpatterns = [
 ),
 
 path(
-    'blog/<slug:slug>/',
+    'blog/<article_slug:slug>/',
     views.blog_detail,
     name='blog_detail'
 ),

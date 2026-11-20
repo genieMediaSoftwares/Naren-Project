@@ -7,9 +7,11 @@ from django.core.mail import send_mail
 from django.db import connection, transaction
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 
 from .forms import AppointmentForm
 from .models import BlogPost, ContactMessage, DoctorProfile, PatientBooking, Service
+from .seo import SERVICE_GUIDES, related_article_slugs
 from .slots import (
     APPOINTMENT_TIME_SLOTS,
     get_clinic_now,
@@ -34,7 +36,10 @@ def about(request):
 
 def services(request):
     services = Service.objects.all()
-    return render(request, 'services.html', {'services': services})
+    slugs = {slug for guide in SERVICE_GUIDES for slug in guide['slugs']}
+    posts = {post.slug: post for post in BlogPost.objects.filter(is_published=True, slug__in=slugs).only('title', 'slug')}
+    guides = [{**guide, 'posts': [posts[slug] for slug in guide['slugs'] if slug in posts]} for guide in SERVICE_GUIDES]
+    return render(request, 'services.html', {'services': services, 'service_guides': guides})
 
 
 def doctors(request):
@@ -439,8 +444,6 @@ def blog_list(request):
         is_published=True
     ).order_by('-created_at')
 
-    print("POST COUNT:", posts.count())
-
     return render(
         request,
         'blog_list.html',
@@ -456,6 +459,12 @@ def blog_detail(request, slug):
         slug=slug,
         is_published=True
     )
+
+    canonical_path = reverse('blog_detail', args=[post.slug])
+    if request.path != canonical_path:
+        query = request.META.get('QUERY_STRING', '')
+        target = canonical_path + ('?' + query if query else '')
+        return redirect(target, permanent=True, preserve_request=request.method not in ('GET', 'HEAD'))
 
     featured_image_url = ""
     if post.featured_image:
@@ -477,5 +486,8 @@ def blog_detail(request, slug):
             # Site-wide doctor card appended to every post. None when the
             # client has not configured one yet - the template skips it.
             'doctor': DoctorProfile.get_active(),
+            'related_posts': BlogPost.objects.filter(
+                is_published=True, slug__in=related_article_slugs(post.slug),
+            ).exclude(pk=post.pk).only('title', 'slug').order_by('title', 'pk')[:4],
         }
     )

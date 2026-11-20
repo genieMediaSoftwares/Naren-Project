@@ -6,9 +6,20 @@ from django.utils.html import strip_tags
 from django.utils.safestring import mark_safe
 from django.utils.encoding import iri_to_uri
 
-from website.seo import ARTICLE_TOPICS, CLINIC_ID, ORIGIN, PAGE_METADATA, SERVICE_ENTITIES
+from website.seo import ARTICLE_DESCRIPTIONS, ARTICLE_TOPICS, CLINIC_ID, ORIGIN, PAGE_METADATA, SERVICE_ENTITIES
 
 register = template.Library()
+
+
+def search_title(heading, limit=60):
+    """Keep search titles concise without shortening the visible article heading."""
+    suffix = " | Naren Ultrasound"
+    plain = " ".join(strip_tags(heading).split())
+    available = limit - len(suffix)
+    if len(plain) > available:
+        plain = plain[:available + 1].rsplit(' ', 1)[0]
+        plain = plain[:available].rstrip(' ,;:-')
+    return plain + suffix
 
 
 @register.simple_tag(takes_context=True)
@@ -22,13 +33,12 @@ def seo_metadata(context):
     canonical = ORIGIN + iri_to_uri(request.path)
     if post:
         topic = ARTICLE_TOPICS.get(post.slug)
-        title = (topic[0] if topic else post.title) + " | Naren Ultrasound"
-        description = (
-            "Read about " + topic[1] + ". From Naren Ultrasound, Visakhapatnam."
-            if topic else post.meta_description or " ".join(strip_tags(post.content).split()[:24])
-        )
+        heading = topic[0] if topic else post.title
+        title = search_title(heading)
+        description = ARTICLE_DESCRIPTIONS.get(post.slug) or post.meta_description or " ".join(strip_tags(post.content).split()[:24])
     else:
         title, description = PAGE_METADATA[route]
+        heading = title.split(' | ', 1)[0]
 
     website_id = ORIGIN + "/#website"
     page = {
@@ -50,6 +60,26 @@ def seo_metadata(context):
          "publisher": {"@id": CLINIC_ID}, "inLanguage": "en"},
         page,
     ]
+    breadcrumbs = []
+    if route != "home":
+        breadcrumbs = [{"name": "Home", "url": ORIGIN + "/"}]
+        if post:
+            breadcrumbs.append({"name": "Pregnancy ultrasound guides", "url": ORIGIN + "/blog/"})
+        labels = {
+            "about": "About", "services": "Ultrasound services", "doctors": "Dr. Naren Satya",
+            "gallery": "Services gallery", "patient_info": "Appointments", "contact": "Contact",
+            "blog_list": "Pregnancy ultrasound guides",
+        }
+        breadcrumbs.append({"name": heading if post else labels[route], "url": canonical})
+        breadcrumb_id = canonical + "#breadcrumb"
+        page["breadcrumb"] = {"@id": breadcrumb_id}
+        graph.append({
+            "@type": "BreadcrumbList", "@id": breadcrumb_id,
+            "itemListElement": [
+                {"@type": "ListItem", "position": position, "name": crumb["name"], "item": crumb["url"]}
+                for position, crumb in enumerate(breadcrumbs, 1)
+            ],
+        })
     if route == "services":
         page["mainEntity"] = []
         for fragment, name in SERVICE_ENTITIES:
@@ -72,7 +102,7 @@ def seo_metadata(context):
     if post:
         article = {
             "@type": "BlogPosting", "@id": canonical + "#article",
-            "url": canonical, "headline": post.title, "description": description,
+            "url": canonical, "headline": heading, "description": description,
             "mainEntityOfPage": {"@id": page["@id"]},
             "publisher": {"@id": CLINIC_ID}, "inLanguage": "en",
         }
@@ -84,4 +114,5 @@ def seo_metadata(context):
         graph.append(article)
     serialized = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=True)
     serialized = serialized.replace("&", "\\u0026").replace("<", "\\u003c").replace(">", "\\u003e")
-    return {"title": title, "description": description, "schema": mark_safe(serialized)}
+    return {"title": title, "heading": heading, "description": description, "canonical": canonical,
+            "breadcrumbs": breadcrumbs, "schema": mark_safe(serialized)}

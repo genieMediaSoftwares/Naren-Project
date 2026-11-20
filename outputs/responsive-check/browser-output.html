@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head><body>
+<pre id="result">RUNNING / images</pre><iframe id="preview" style="border:0;height:1000px" src="/"></iframe>
+<script>
+const paths = ["/", "/about/", "/services/", "/doctors/", "/gallery/", "/patient-info/", "/contact/", "/blog/", "/blog/what-is-a-fetal-anomaly-scan/", "/blog/tiffa-scan-guide/", "/blog/twin-tiffa-scan-a-complete-guide-for-parents/", "/blog/what-is-amniotic-fluid-how-doctors-check-it/", "/blog/nuchal-translucency-scan-a-complete-guide/", "/blog/twin-nuchal-translucency-scan-a-complete-guide-of/", "/blog/what-is-a-fetal-echo-scan-every-parent-should-know/", "/blog/twins-fetal-echo-a-complete-guide-for-parents/", "/blog/the-dating-scan-detailed-explanation-of-the-dating/", "/blog/twin-dating-scan-detailed-explanation-of-twin-dati/", "/blog/early-tiffa-scan-baby-early-development/", "/blog/twin-early-tiffa-scan-what-you-need-to-know-as-a-p/", "/blog/early-pregnancy-viability-scan-the-complete-guide/", "/blog/twin-viability-scan-what-it-checks-and-why-it-matt/", "/blog/late-tiffa-anomaly-scan-what-it-checks-and-why-it/", "/blog/twin-late-tiffa-anomaly-scan-what-you-need-to-know/", "/blog/routine-growth-scan-what-it-checks-and-why-it-matt/", "/blog/twin-routine-growth-scan-what-it-checks-and-why-it/", "/appointment-success/", "/contact-success/"], widths = [320,360,390,640,768,1024,1279,1280,1440,1920];
+const frame = document.getElementById('preview');
+const nextFrame = () => new Promise(resolve => setTimeout(resolve, 20));
+(async () => {
+ const results = [], failures = [];
+ for (const path of paths) {
+  document.getElementById('result').textContent = 'RUNNING ' + path + ' load';
+  await new Promise(resolve => { frame.onload = resolve; frame.src = path; });
+  const doc = frame.contentDocument;
+  document.getElementById('result').textContent = 'RUNNING ' + path + ' images';
+  for (const img of doc.images) img.loading = 'eager';
+  await Promise.all([...doc.images].map(img => img.decode().catch(() => {})));
+  document.getElementById('result').textContent = 'RUNNING ' + path + ' fonts';
+  await doc.fonts.ready;
+  document.getElementById('result').textContent = 'RUNNING ' + path + ' widths';
+  for (const width of widths) {
+   frame.style.width = width + 'px';
+   await nextFrame();
+   const win = frame.contentWindow;
+   const overflow = doc.documentElement.scrollWidth > win.innerWidth + 1;
+   const offending = overflow ? [...doc.querySelectorAll('body *')].filter(el => {
+    const r = el.getBoundingClientRect();
+    return r.width && (r.right > win.innerWidth + 1 || r.left < -1);
+   }).slice(0,12).map(el => ({tag:el.tagName,classes:el.className,text:el.textContent.trim().slice(0,55)})) : [];
+   const brokenImages = [...doc.images].filter(img => !img.naturalWidth).map(img => img.getAttribute('src'));
+   const button = doc.getElementById('menu-btn'), menu = doc.getElementById('mobile-menu');
+   let menuOK = true;
+   if (width < 1280) {
+    button.click();
+    menuOK = button.getAttribute('aria-expanded') === 'true' && win.getComputedStyle(menu).display !== 'none';
+    doc.dispatchEvent(new win.KeyboardEvent('keydown', {key:'Escape',bubbles:true}));
+    menuOK = menuOK && button.getAttribute('aria-expanded') === 'false';
+   }
+   const row = {path,width,scrollWidth:doc.documentElement.scrollWidth,overflow,brokenImages,menuOK,offending};
+   results.push(row);
+   if (overflow || brokenImages.length || !menuOK) failures.push(row);
+  }
+ }
+ document.getElementById('result').textContent = JSON.stringify({pages:paths.length,checks:results.length,failures,results});
+ document.title = 'COMPLETE';
+})().catch(error => { document.getElementById('result').textContent = JSON.stringify({error:String(error)}); });
+</script></body></html>

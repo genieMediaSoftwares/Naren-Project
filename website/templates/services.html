@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static seo_images %}
 
 {% block title %}{{ seo.title }}{% endblock %}
 
@@ -31,14 +31,7 @@
                 </div>
 
                 <h1 class="fluid-h1 text-[#071744] font-extrabold leading-[1.08]">
-
-                    Comprehensive Ultrasound &
-                    Fetal Care
-
-                    <span class="text-[#306255] inline">
-                        Services
-                    </span>
-
+                    Ultrasound Scan Services <span class="text-[#306255]">in Visakhapatnam</span>
                 </h1>
 
                 <p class="text-gray-600 text-[14px] sm:text-[16px] leading-relaxed mt-5 max-w-xl">
@@ -53,8 +46,7 @@
 
             <div class="flex justify-center lg:justify-end hero-media min-w-0">
 
-                <img src="{% static 'images/services-banner.jpg' %}" alt="Clinician performing a diagnostic ultrasound scan for an expectant mother at Naren Ultrasound"
-                    class="media-fit max-w-[950px] rounded-[24px] sm:rounded-[34px] shadow-lg">
+                {% static 'images/services-banner.jpg' as seo_image_1 %}{% seo_image seo_image_1 alt="Clinician performing a diagnostic ultrasound scan for an expectant mother at Naren Ultrasound" css="media-fit max-w-[950px] rounded-[24px] sm:rounded-[34px] shadow-lg" sizes="(min-width: 1024px) 48vw, 100vw" eager=True priority=True %}
 
             </div>
 
@@ -565,4 +557,26 @@
 
 </section>
 
+<section class="site-container py-8 sm:py-12" aria-labelledby="scan-guides-title">
+    <h2 id="scan-guides-title" class="fluid-h2-sm font-bold text-[#06233f] mb-4">Scan information and appointments in Vizag</h2>
+    <p class="text-gray-700 leading-relaxed mb-6">Find ultrasound services at Naren Ultrasound in Maharanipeta, Visakhapatnam. Use these links to explore our existing service list and pregnancy scan guides. For a specific scan, preparation instructions or fee enquiries, please contact the clinic.</p>
+    <div class="seo-guide-grid">
+        {% for guide in service_guides %}
+        <div class="seo-guide-card">
+            <h3>{{ guide.title }}</h3>
+            <p>{{ guide.description }}</p>
+            <a class="seo-text-link" href="{% url 'services' %}#{{ guide.fragment }}">View {{ guide.title|lower }} in our service list</a>
+            {% if guide.posts %}
+            <ul>{% for guide_post in guide.posts %}<li><a class="seo-text-link" href="{% url 'blog_detail' guide_post.slug %}">{{ guide_post.title }}</a></li>{% endfor %}</ul>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="seo-guide-card mt-6">
+        <h2>Scan appointment and fee enquiries</h2>
+        <p>For TIFFA scan cost, NT scan fees, abdominal ultrasound or Doppler scan enquiries in Vizag, please <a class="seo-text-link" href="{% url 'contact' %}">contact the clinic</a> with the scan requested on your referral. The clinic can confirm the current fee, appointment availability and any preparation instructions for that specific scan.</p>
+        <p>Find the clinic in Maharanipeta using our <a class="seo-text-link" href="{% url 'contact' %}">address and directions</a>, or view the <a class="seo-text-link" href="{% url 'doctors' %}">doctor's profile</a> before making an appointment enquiry.</p>
+    </div>
+    <p class="mt-6"><a class="seo-text-link" href="{% url 'patient_info' %}">View appointment options</a> or <a class="seo-text-link" href="{% url 'contact' %}">contact Naren Ultrasound for scan enquiries</a>.</p>
+</section>
 {% endblock %}

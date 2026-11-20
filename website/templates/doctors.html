@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static seo_images %}
 {% block title %}{{ seo.title }}{% endblock %}
 
 {% block meta_description %}{{ seo.description }}{% endblock %}
@@ -45,8 +45,7 @@
 
             <div class="flex justify-center lg:justify-end items-center">
 
-                <img src="{% static 'images/doctorsBanner.png' %}" alt="Dr. Naren Satya"
-                    class="media-fit max-w-[300px] sm:max-w-[380px] lg:max-w-[460px] xl:max-w-[520px] rounded-[32px] shadow-2xl">
+                {% static 'images/doctorsBanner.png' as seo_image_1 %}{% seo_image seo_image_1 alt="Dr. Naren Satya" css="media-fit max-w-[300px] sm:max-w-[380px] lg:max-w-[460px] xl:max-w-[520px] rounded-[32px] shadow-2xl" sizes="(min-width: 1024px) 48vw, 100vw" eager=True priority=True %}
 
             </div>
 
@@ -61,8 +60,7 @@
                 <!-- LEFT IMAGE -->
 
                 <div class="hidden lg:flex bg-[#d7eceb] items-start justify-center pt-6 sm:pt-8 lg:pt-10 p-4 sm:p-5">
-                    <img src="{% static 'images/doctor1.png' %}" alt="Dr. Naren Satya"
-                        class="w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover border-[8px] border-[#b6d5d4] shadow-lg">
+                    {% static 'images/doctor1.png' as seo_image_2 %}{% seo_image seo_image_2 alt="Dr. Naren Satya" css="w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover border-[8px] border-[#b6d5d4] shadow-lg" sizes="(min-width: 1024px) 48vw, 100vw" eager=False priority=False %}
 
                 </div>
 

@@ -1,0 +1,730 @@
+{
+  "/media/blog/Amniotic_Fluid.png": {
+    "height": 1024,
+    "original_bytes": 1737698,
+    "variants": [
+      {
+        "bytes": 24640,
+        "path": "seo-images/d103765a65c6f2897e49-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 47386,
+        "path": "seo-images/b702f504e8285973b094-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 93432,
+        "path": "seo-images/9f3f6aedf1584a101808-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/media/blog/Early_Tiffa_Scan_bgt0pNk.png": {
+    "height": 811,
+    "original_bytes": 1453410,
+    "variants": [
+      {
+        "bytes": 17096,
+        "path": "seo-images/c631d8d3341bdb8e1d0f-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 33078,
+        "path": "seo-images/77ed5115c6fc3ba22dd8-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 64272,
+        "path": "seo-images/cd7c13499f7b6a965299-1280.webp",
+        "width": 1280
+      }
+    ],
+    "width": 1940
+  },
+  "/media/blog/Early_Twin_Tiffa_Scan.png": {
+    "height": 811,
+    "original_bytes": 1519982,
+    "variants": [
+      {
+        "bytes": 19854,
+        "path": "seo-images/c93f0d0fcebda3d347d8-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 39866,
+        "path": "seo-images/d59b81e2c8f01cfa04a1-767.webp",
+        "width": 767
+      },
+      {
+        "bytes": 77572,
+        "path": "seo-images/751f2783481c8cb4ce9f-1280.webp",
+        "width": 1280
+      }
+    ],
+    "width": 1938
+  },
+  "/media/blog/Late_Tiffa.png": {
+    "height": 812,
+    "original_bytes": 1719849,
+    "variants": [
+      {
+        "bytes": 19346,
+        "path": "seo-images/5925e65044b35d7361f5-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 36766,
+        "path": "seo-images/65c740690ab88d1878f9-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 71290,
+        "path": "seo-images/026401722344e4739e30-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1938
+  },
+  "/media/blog/NT_Scan.jpeg": {
+    "height": 1024,
+    "original_bytes": 268622,
+    "variants": [
+      {
+        "bytes": 27298,
+        "path": "seo-images/a2b061969edeef4b8d2a-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 53394,
+        "path": "seo-images/db12d0b92c61fe13b75a-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 107510,
+        "path": "seo-images/d23c5e5c1e550f04fd7c-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/media/blog/Routine_Growth_scan.png": {
+    "height": 1024,
+    "original_bytes": 1786512,
+    "variants": [
+      {
+        "bytes": 27580,
+        "path": "seo-images/9b05a16de49a49a6a6ed-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 53972,
+        "path": "seo-images/53d65056dd68721c0e0a-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 104646,
+        "path": "seo-images/b80174192dd8cf058af9-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/media/blog/Twin_Late_Tiffa.png": {
+    "height": 812,
+    "original_bytes": 1704696,
+    "variants": [
+      {
+        "bytes": 21920,
+        "path": "seo-images/58f1b9e6ba1e71d88d21-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 43426,
+        "path": "seo-images/0d6edf4711401949ac60-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 83168,
+        "path": "seo-images/40a529ad20d3326dd644-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1938
+  },
+  "/media/blog/Twin_NT_Scan.jpeg": {
+    "height": 1024,
+    "original_bytes": 326977,
+    "variants": [
+      {
+        "bytes": 36312,
+        "path": "seo-images/0118ca808c5a5a53aac7-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 69412,
+        "path": "seo-images/2d2e9f11a06a00862fa7-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 136560,
+        "path": "seo-images/6f5d8d2c197cb8f954e7-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/media/blog/Twin_Routine_Growth_Scan.png": {
+    "height": 1024,
+    "original_bytes": 1854786,
+    "variants": [
+      {
+        "bytes": 29548,
+        "path": "seo-images/e65b3b00c0057f2eee9f-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 58534,
+        "path": "seo-images/fdb41146103f05303a6f-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 113528,
+        "path": "seo-images/e99b74cb931afdcb4c5b-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/media/blog/Twin_Tiffa_Scan.png": {
+    "height": 1024,
+    "original_bytes": 1878666,
+    "variants": [
+      {
+        "bytes": 28480,
+        "path": "seo-images/82fd29866a3c20369c42-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 53648,
+        "path": "seo-images/2854c269b8fe35844efc-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 104260,
+        "path": "seo-images/7f23e0c486d78c469ecc-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/media/blog/Twin_Viability_Scan.png": {
+    "height": 812,
+    "original_bytes": 1528492,
+    "variants": [
+      {
+        "bytes": 18326,
+        "path": "seo-images/5b03628ef2ee71e64889-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 36682,
+        "path": "seo-images/2fdd1fc24f2d80148f21-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 71442,
+        "path": "seo-images/1d178a62301831fcff96-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1938
+  },
+  "/media/blog/Viability_Scan.png": {
+    "height": 812,
+    "original_bytes": 1626250,
+    "variants": [
+      {
+        "bytes": 19756,
+        "path": "seo-images/add25b7623467af423e1-479.webp",
+        "width": 479
+      },
+      {
+        "bytes": 39286,
+        "path": "seo-images/bdc649ab88923a91b664-767.webp",
+        "width": 767
+      },
+      {
+        "bytes": 75798,
+        "path": "seo-images/97d75dd76505b645b244-1280.webp",
+        "width": 1280
+      }
+    ],
+    "width": 1935
+  },
+  "/media/blog/WhatsApp_Image_2026-08-31_at_2.41.10_PM.jpeg": {
+    "height": 1024,
+    "original_bytes": 295065,
+    "variants": [
+      {
+        "bytes": 31248,
+        "path": "seo-images/a111995525e63af5c4e7-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 61152,
+        "path": "seo-images/c77fa4b4bfeb06776a8f-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 122626,
+        "path": "seo-images/689feb05bd94b7c6b8f2-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/media/blog/WhatsApp_Image_2026-09-01_at_2.11.07_PM.jpeg": {
+    "height": 1024,
+    "original_bytes": 250264,
+    "variants": [
+      {
+        "bytes": 26562,
+        "path": "seo-images/6afe3236131b467857d4-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 49140,
+        "path": "seo-images/03c421c669ce90cbe46b-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 91940,
+        "path": "seo-images/7dac3cf23130a3647a47-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/media/blog/WhatsApp_Image_2026-09-01_at_2.26.57_PM_1.jpeg": {
+    "height": 1024,
+    "original_bytes": 296317,
+    "variants": [
+      {
+        "bytes": 32114,
+        "path": "seo-images/add5b038a04c5c5e2d6d-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 61628,
+        "path": "seo-images/6b6c06e0bc0d08c70f42-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 116536,
+        "path": "seo-images/024a512ac5d564aec698-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/media/blog/WhatsApp_Image_2026-09-01_at_3.41.29_PM.jpeg": {
+    "height": 700,
+    "original_bytes": 173338,
+    "variants": [
+      {
+        "bytes": 23544,
+        "path": "seo-images/7483aa441d11948ec956-479.webp",
+        "width": 479
+      },
+      {
+        "bytes": 45626,
+        "path": "seo-images/f0f4bc70eab120400688-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 94946,
+        "path": "seo-images/d282fea0bcdc7fb56d83-1280.webp",
+        "width": 1280
+      }
+    ],
+    "width": 1280
+  },
+  "/media/blog/fetal.jpg": {
+    "height": 168,
+    "original_bytes": 8994,
+    "variants": [
+      {
+        "bytes": 9138,
+        "path": "seo-images/f34ccb00492f92283771-300.webp",
+        "width": 300
+      }
+    ],
+    "width": 300
+  },
+  "/media/blog/tifascan.png": {
+    "height": 1024,
+    "original_bytes": 1849140,
+    "variants": [
+      {
+        "bytes": 32328,
+        "path": "seo-images/8c2e86f817579464a121-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 63376,
+        "path": "seo-images/736c3166347589e2b535-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 125790,
+        "path": "seo-images/03e3e9fe79c36b7ca5e8-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/media/doctor/Doctor.jpeg": {
+    "height": 1024,
+    "original_bytes": 158507,
+    "variants": [
+      {
+        "bytes": 30846,
+        "path": "seo-images/08ffdc63e35dd0852a4f-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 62120,
+        "path": "seo-images/4465233fb30ef4481aa0-767.webp",
+        "width": 767
+      },
+      {
+        "bytes": 119046,
+        "path": "seo-images/f12d673fc29726c42b56-1280.webp",
+        "width": 1280
+      }
+    ],
+    "width": 1535
+  },
+  "/static/css/dist/styles.css": {
+    "path": "seo-assets/8c78c55138469ee99f12.css"
+  },
+  "/static/css/responsive.css": {
+    "path": "seo-assets/c2fccad97429ba7c417e.css"
+  },
+  "/static/images/about-doctor.png": {
+    "height": 1089,
+    "original_bytes": 529717,
+    "variants": [
+      {
+        "bytes": 28606,
+        "path": "seo-images/d6f1913db3ad23853304-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 56814,
+        "path": "seo-images/61f6173143f26e86fdae-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 115592,
+        "path": "seo-images/81eb7690a20be4aa4dd6-1280.webp",
+        "width": 1280
+      }
+    ],
+    "width": 1445
+  },
+  "/static/images/contact-banner.png": {
+    "height": 1254,
+    "original_bytes": 458332,
+    "variants": [
+      {
+        "bytes": 33688,
+        "path": "seo-images/054181656027f4aa99e7-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 71342,
+        "path": "seo-images/7fa6e76ea751c55c8c53-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 181082,
+        "path": "seo-images/57cbb5d8feb19fdbce36-1254.webp",
+        "width": 1254
+      }
+    ],
+    "width": 1254
+  },
+  "/static/images/doctor1.png": {
+    "height": 1402,
+    "original_bytes": 622377,
+    "variants": [
+      {
+        "bytes": 27964,
+        "path": "seo-images/312cfd73783097b3828c-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 59172,
+        "path": "seo-images/6ddda75c2fc7259081fb-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 108984,
+        "path": "seo-images/4179fbcaa04e9a9fc9fa-1122.webp",
+        "width": 1122
+      }
+    ],
+    "width": 1122
+  },
+  "/static/images/doctorsBanner.png": {
+    "height": 1024,
+    "original_bytes": 427934,
+    "variants": [
+      {
+        "bytes": 31428,
+        "path": "seo-images/2825ca0adea246bd1d7d-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 62200,
+        "path": "seo-images/c2b9d96b5d18f7c11d03-767.webp",
+        "width": 767
+      },
+      {
+        "bytes": 127386,
+        "path": "seo-images/e2e030254699b08e3f39-1280.webp",
+        "width": 1280
+      }
+    ],
+    "width": 1535
+  },
+  "/static/images/favicon.png": {
+    "path": "seo-assets/b0f1595d6a37cc2422ed-32.png"
+  },
+  "/static/images/hero.png": {
+    "height": 642,
+    "original_bytes": 126348,
+    "variants": [
+      {
+        "bytes": 19340,
+        "path": "seo-images/da56cd24e1ff1c5aa0f2-479.webp",
+        "width": 479
+      },
+      {
+        "bytes": 35232,
+        "path": "seo-images/ae170231505ce2898ebc-767.webp",
+        "width": 767
+      },
+      {
+        "bytes": 49964,
+        "path": "seo-images/6e0ff78dbed0b3cda588-968.webp",
+        "width": 968
+      }
+    ],
+    "width": 968
+  },
+  "/static/images/logo.png": {
+    "height": 500,
+    "original_bytes": 298935,
+    "variants": [
+      {
+        "bytes": 4872,
+        "path": "seo-images/9e1b93efbfef5d765f69-96.webp",
+        "width": 96
+      },
+      {
+        "bytes": 11156,
+        "path": "seo-images/60c91c4fc7d43f218463-192.webp",
+        "width": 192
+      },
+      {
+        "bytes": 23340,
+        "path": "seo-images/2a0698cf169786fdc55e-384.webp",
+        "width": 384
+      }
+    ],
+    "width": 500
+  },
+  "/static/images/patient-banner.png": {
+    "height": 1024,
+    "original_bytes": 542477,
+    "variants": [
+      {
+        "bytes": 37826,
+        "path": "seo-images/8f424c15357331ecbd58-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 78774,
+        "path": "seo-images/83678da35f72620c35ba-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 178680,
+        "path": "seo-images/b448cc00bf6daf3b22c2-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/static/images/service1.png": {
+    "height": 1024,
+    "original_bytes": 423636,
+    "variants": [
+      {
+        "bytes": 24874,
+        "path": "seo-images/32840d076c0440cb8cd7-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 50482,
+        "path": "seo-images/a62a982bd914b8be9890-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 109226,
+        "path": "seo-images/c7849ce31179257835ba-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/static/images/service2.png": {
+    "height": 1024,
+    "original_bytes": 504926,
+    "variants": [
+      {
+        "bytes": 26218,
+        "path": "seo-images/1a82cc390cff942de0c9-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 56060,
+        "path": "seo-images/6ad5c538e5d4062a0090-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 130608,
+        "path": "seo-images/cb6d63e199808ffb067f-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/static/images/service3.png": {
+    "height": 1024,
+    "original_bytes": 556948,
+    "variants": [
+      {
+        "bytes": 35702,
+        "path": "seo-images/8c6e86168dcb597f27c6-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 75320,
+        "path": "seo-images/dc6652c2dab36ed033d2-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 174508,
+        "path": "seo-images/540b7637612c8e92fb3b-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/static/images/service4.png": {
+    "height": 1122,
+    "original_bytes": 540992,
+    "variants": [
+      {
+        "bytes": 34350,
+        "path": "seo-images/73db897046f87781f4a4-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 73046,
+        "path": "seo-images/e0cf6429908732a79631-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 162454,
+        "path": "seo-images/3c07b998b516b1717018-1280.webp",
+        "width": 1280
+      }
+    ],
+    "width": 1402
+  },
+  "/static/images/service5.png": {
+    "height": 1122,
+    "original_bytes": 529339,
+    "variants": [
+      {
+        "bytes": 34964,
+        "path": "seo-images/63f57f035b320c6f2b8d-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 77010,
+        "path": "seo-images/d39224e29e36533439b8-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 178344,
+        "path": "seo-images/602622a17c9fbf7d1e85-1280.webp",
+        "width": 1280
+      }
+    ],
+    "width": 1402
+  },
+  "/static/images/service6.png": {
+    "height": 1024,
+    "original_bytes": 639738,
+    "variants": [
+      {
+        "bytes": 28868,
+        "path": "seo-images/ff261678f76fafd8360e-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 62526,
+        "path": "seo-images/040f82761cf2d9878d43-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 141824,
+        "path": "seo-images/b5e3b0a1456fb0cde611-1279.webp",
+        "width": 1279
+      }
+    ],
+    "width": 1536
+  },
+  "/static/images/services-banner.jpg": {
+    "height": 668,
+    "original_bytes": 34297,
+    "variants": [
+      {
+        "bytes": 15868,
+        "path": "seo-images/141b2197c9ffad89b214-480.webp",
+        "width": 480
+      },
+      {
+        "bytes": 28352,
+        "path": "seo-images/09d4ac19b2ab88bc6820-768.webp",
+        "width": 768
+      },
+      {
+        "bytes": 37172,
+        "path": "seo-images/c5bea17352a0933644e0-1000.webp",
+        "width": 1000
+      }
+    ],
+    "width": 1000
+  },
+  "/static/vendor/fonts/site-fonts.css": {
+    "path": "seo-assets/71f7abfe0365ffa8e279.css"
+  }
+}

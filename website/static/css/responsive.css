@@ -28,6 +28,22 @@
     --brand-3: clamp(9.5px, 3.2vw, 12px);
 }
 
+/* Preserve existing flex/grid image layout while offering modern variants. */
+.seo-picture { display: contents; }
+.seo-breadcrumbs { padding-top: 16px; padding-bottom: 8px; }
+.seo-breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 6px 10px; list-style: none; padding: 0; margin: 0; font-size: 13px; color: #33545b; }
+.seo-breadcrumbs li + li::before { content: "/"; margin-right: 10px; }
+.seo-breadcrumbs a { text-decoration: underline; text-underline-offset: 3px; }
+.seo-guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px; }
+.seo-guide-card { background: #fff; border: 1px solid #b6d5d4; border-radius: 20px; padding: clamp(18px, 3vw, 28px); }
+.seo-guide-card h2, .seo-guide-card h3 { font-size: clamp(1.125rem, 1rem + 0.5vw, 1.5rem); font-weight: 700; color: #06233f; }
+.seo-guide-card p { margin: 12px 0; color: #374151; line-height: 1.7; }
+.seo-guide-card ul { list-style: disc; padding-left: 20px; }
+.seo-guide-card li { margin-top: 10px; }
+.seo-text-link { color: #065f56; text-decoration: underline; text-underline-offset: 3px; }
+.seo-visit { max-width: 900px; margin-inline: auto; }
+.seo-visit p { line-height: 1.8; margin-top: 16px; }
+
 /* ---------------------------------------------------------------------
    1. Global foundation
    Kept in the base layer so Tailwind utilities on individual elements
@@ -277,6 +293,17 @@
 /* Home hero (was 38 / 48 / 60 / 72px) */
 .fluid-display {
     font-size: clamp(2.125rem, 1.2rem + 4vw, 4.5rem);
+}
+
+/* Cap the hero title by its actual column width, including small laptops. */
+@supports (container-type: inline-size) {
+    .home-hero-copy {
+        container-type: inline-size;
+    }
+
+    .home-hero-copy .fluid-display {
+        font-size: clamp(1.875rem, min(calc(1.2rem + 4vw), 10.5cqw), 4.5rem);
+    }
 }
 
 /* Inner-page hero titles (were 28-36px -> 52-60px) */

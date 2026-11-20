@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static seo_images %}
 {% block title %}{{ seo.title }}{% endblock %}
 
 {% block meta_description %}{{ seo.description }}{% endblock %}
@@ -31,8 +31,7 @@
                 </div>
 
                 <h1 class="fluid-h1 text-[#08113a] font-extrabold leading-[1.05]">
-                    Contact
-                    <span class="text-[#0F9B8E]">Us</span>
+                    Contact Naren Ultrasound <span class="text-[#0F9B8E]">in Visakhapatnam</span>
                 </h1>
 
                 <p class="text-gray-600 text-[15px] sm:text-lg leading-relaxed mt-3 max-w-xl mx-auto lg:mx-0">
@@ -45,8 +44,7 @@
 
             <div class="hero-media min-w-0">
 
-                <img src="{% static 'images/contact-banner.png' %}" alt="Reception desk and patient waiting lounge at Naren Ultrasound &amp; Fetal Medicine Center in Visakhapatnam"
-                    class="media-cover ar-16-9 ar-lg-16-10 rounded-[24px] sm:rounded-[34px]">
+                {% static 'images/contact-banner.png' as seo_image_1 %}{% seo_image seo_image_1 alt="Reception desk and patient waiting lounge at Naren Ultrasound & Fetal Medicine Center in Visakhapatnam" css="media-cover ar-16-9 ar-lg-16-10 rounded-[24px] sm:rounded-[34px]" sizes="(min-width: 1024px) 48vw, 100vw" eager=True priority=True %}
 
             </div>
 
@@ -73,9 +71,9 @@
                 <div
                     class="bg-white rounded-[18px] lg:rounded-[22px] border border-gray-200 p-4 sm:p-5 lg:p-6 shadow-sm">
 
-                    <h3 class="text-[#0F9B8E] text-2xl sm:text-3xl font-bold mb-6">
+                    <h2 class="text-[#0F9B8E] text-2xl sm:text-3xl font-bold mb-6">
                         Contact Information
-                    </h3>
+                    </h2>
 
                     <!-- ITEM -->
 
@@ -90,9 +88,9 @@
 
                         <div class="min-w-0">
 
-                            <h4 class="text-[#08113a] text-lg font-bold mb-2">
+                            <h3 class="text-[#08113a] text-lg font-bold mb-2">
                                 Address
-                            </h4>
+                            </h3>
 
                             <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
                                 14-34-9/1, 14-34-9/2 (Opp. Saibaba Temple) Revenue Ward 20, Angadi Dhibba Angathi Street
@@ -116,9 +114,9 @@
 
                         <div class="min-w-0">
 
-                            <h4 class="text-[#08113a] text-lg font-bold mb-2">
+                            <h3 class="text-[#08113a] text-lg font-bold mb-2">
                                 Phone
-                            </h4>
+                            </h3>
 
                             <p class="text-gray-600 text-sm sm:text-base">
                                 <a href="tel:+919182395352">+91 91823 95352</a>
@@ -144,9 +142,9 @@
 
                         <div class="min-w-0">
 
-                            <h4 class="text-[#08113a] text-lg font-bold mb-2">
+                            <h3 class="text-[#08113a] text-lg font-bold mb-2">
                                 Email
-                            </h4>
+                            </h3>
 
                             <p class="text-gray-600 text-sm sm:text-base break-anywhere">
                                 <a href="mailto:Narenultrasound@gmail.com">Narenultrasound@gmail.com</a>
@@ -169,9 +167,9 @@
 
                         <div class="min-w-0">
 
-                            <h4 class="text-[#08113a] text-lg font-bold mb-2">
+                            <h3 class="text-[#08113a] text-lg font-bold mb-2">
                                 Working Hours
-                            </h4>
+                            </h3>
 
                             <p class="text-gray-600 text-sm sm:text-base">
                                 Mon - Sat: 8:00 AM - 8:00 PM
@@ -192,9 +190,9 @@
                 <div
                     class="bg-white rounded-[18px] lg:rounded-[22px] border border-gray-200 p-4 sm:p-5 lg:p-6 shadow-sm relative overflow-hidden">
 
-                    <h3 class="text-[#0F9B8E] text-2xl sm:text-3xl font-bold mb-6">
+                    <h2 class="text-[#0F9B8E] text-2xl sm:text-3xl font-bold mb-6">
                         Why Choose Naren Ultrasound?
-                    </h3>
+                    </h2>
 
                     <div class="space-y-3 text-gray-700 relative z-10 text-sm sm:text-base">
 
@@ -243,9 +241,9 @@
                 <div
                     class="bg-white rounded-[18px] lg:rounded-[22px] border border-gray-200 p-4 sm:p-5 lg:p-6 shadow-sm">
 
-                    <h3 class="text-[#0F9B8E] text-2xl sm:text-3xl font-bold mb-4">
+                    <h2 class="text-[#0F9B8E] text-2xl sm:text-3xl font-bold mb-4">
                         Send Us a Message
-                    </h3>
+                    </h2>
 
                     <form method="POST" id="contactForm">
 
@@ -355,6 +353,11 @@
 
                 </div>
 
+                <section class="seo-guide-card" aria-labelledby="plan-visit-title">
+                    <h2 id="plan-visit-title">Visit Naren Ultrasound</h2>
+                    <p>Find us opposite Saibaba Temple, near KGH Gate 1, Maharanipeta, Visakhapatnam.</p>
+                    <p><a class="seo-text-link" href="{% url 'patient_info' %}">Book an appointment</a> or call our team for <a class="seo-text-link" href="{% url 'services' %}">service information</a>, fees and preparation details.</p>
+                </section>
                 <!-- MAP -->
 
                 <div class="bg-white rounded-[18px] lg:rounded-[24px] border border-gray-200 overflow-hidden shadow-sm">

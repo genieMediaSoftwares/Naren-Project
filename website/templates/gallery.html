@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static seo_images %}
 {% block title %}{{ seo.title }}{% endblock %}
 
 {% block meta_description %}{{ seo.description }}{% endblock %}
@@ -27,14 +27,13 @@
             </p>
 
             <h1 class="fluid-h2 text-[#08113a] font-extrabold">
-
-                Moments & Medical Excellence
-
-            </h1>
+                    Ultrasound Services Gallery
+                </h1>
 
         </div>
 
         <!-- GALLERY GRID -->
+        <p class="max-w-3xl mx-auto text-center text-gray-700 leading-relaxed mb-8">Explore our ultrasound services at Naren Ultrasound &amp; Fetal Medicine Center, Visakhapatnam.</p>
 
         <div class="auto-grid" style="--min: 280px; --gap: 24px;">
 
@@ -46,13 +45,15 @@
             hover:shadow-2xl
             transition duration-300">
 
-                <img src="{% static 'images/service1.png' %}" alt="Antenatal Scans" class="media-fit">
+                {% static 'images/service1.png' as seo_image_1 %}{% seo_image seo_image_1 alt="Antenatal Scans" css="media-fit" sizes="(min-width: 1280px) 420px, (min-width: 768px) 45vw, 100vw" eager=True priority=True %}
 
                 <div class="p-5 text-center">
 
-                    <h3 class="fluid-h3 text-[#08113a] font-bold">
+                    <h2 class="fluid-h3 text-[#08113a] font-bold">
                         Antenatal & Gynecological Scans
-                    </h3>
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mt-3">Explore the existing TIFFA, NT, dating and growth scan listings and related antenatal services.</p>
+                    <a class="seo-text-link inline-block mt-3" href="{% url 'services' %}#antenatal-gynecological-scans">View service information</a>
 
                 </div>
 
@@ -66,13 +67,15 @@
             hover:shadow-2xl
             transition duration-300">
 
-                <img src="{% static 'images/service2.png' %}" alt="Routine Scans" class="media-fit">
+                {% static 'images/service2.png' as seo_image_2 %}{% seo_image seo_image_2 alt="Routine Scans" css="media-fit" sizes="(min-width: 1280px) 420px, (min-width: 768px) 45vw, 100vw" eager=False priority=False %}
 
                 <div class="p-5 text-center">
 
-                    <h3 class="fluid-h3 text-[#08113a] font-bold">
+                    <h2 class="fluid-h3 text-[#08113a] font-bold">
                         Routine Scans
-                    </h3>
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mt-3">Find whole abdomen, pelvis and KUB scans in the routine ultrasound service list.</p>
+                    <a class="seo-text-link inline-block mt-3" href="{% url 'services' %}#routine-scans">View service information</a>
 
                 </div>
 
@@ -86,13 +89,15 @@
             hover:shadow-2xl
             transition duration-300">
 
-                <img src="{% static 'images/service3.png' %}" alt="Paediatric Scans" class="media-fit">
+                {% static 'images/service3.png' as seo_image_3 %}{% seo_image seo_image_3 alt="Paediatric Scans" css="media-fit" sizes="(min-width: 1280px) 420px, (min-width: 768px) 45vw, 100vw" eager=False priority=False %}
 
                 <div class="p-5 text-center">
 
-                    <h3 class="fluid-h3 text-[#08113a] font-bold">
+                    <h2 class="fluid-h3 text-[#08113a] font-bold">
                         Paediatric Scans
-                    </h3>
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mt-3">Explore the listed paediatric abdomen, neurosonogram and neonatal spine ultrasound services.</p>
+                    <a class="seo-text-link inline-block mt-3" href="{% url 'services' %}#paediatric-scans">View service information</a>
 
                 </div>
 
@@ -106,13 +111,15 @@
             hover:shadow-2xl
             transition duration-300">
 
-                <img src="{% static 'images/service4.png' %}" alt="Doppler Scans" class="media-fit">
+                {% static 'images/service4.png' as seo_image_4 %}{% seo_image seo_image_4 alt="Doppler Scans" css="media-fit" sizes="(min-width: 1280px) 420px, (min-width: 768px) 45vw, 100vw" eager=False priority=False %}
 
                 <div class="p-5 text-center">
 
-                    <h3 class="fluid-h3 text-[#08113a] font-bold">
+                    <h2 class="fluid-h3 text-[#08113a] font-bold">
                         Doppler Scans
-                    </h3>
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mt-3">View the existing arterial and venous Doppler scan options in the services list.</p>
+                    <a class="seo-text-link inline-block mt-3" href="{% url 'services' %}#doppler-scans">View service information</a>
 
                 </div>
 
@@ -126,13 +133,15 @@
             hover:shadow-2xl
             transition duration-300">
 
-                <img src="{% static 'images/service5.png' %}" alt="USG Guided Procedures" class="media-fit">
+                {% static 'images/service5.png' as seo_image_5 %}{% seo_image seo_image_5 alt="USG Guided Procedures" css="media-fit" sizes="(min-width: 1280px) 420px, (min-width: 768px) 45vw, 100vw" eager=False priority=False %}
 
                 <div class="p-5 text-center">
 
-                    <h3 class="fluid-h3 text-[#08113a] font-bold">
+                    <h2 class="fluid-h3 text-[#08113a] font-bold">
                         USG Guided Procedures
-                    </h3>
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mt-3">Find the ultrasound-guided procedures listed by the clinic and contact us for appointment enquiries.</p>
+                    <a class="seo-text-link inline-block mt-3" href="{% url 'services' %}#usg-guided-procedures">View service information</a>
 
                 </div>
 
@@ -146,18 +155,26 @@
             hover:shadow-2xl
             transition duration-300">
 
-                <img src="{% static 'images/service6.png' %}" alt="USG Small Parts" class="media-fit">
+                {% static 'images/service6.png' as seo_image_6 %}{% seo_image seo_image_6 alt="USG Small Parts" css="media-fit" sizes="(min-width: 1280px) 420px, (min-width: 768px) 45vw, 100vw" eager=False priority=False %}
 
                 <div class="p-5 text-center">
 
-                    <h3 class="fluid-h3 text-[#08113a] font-bold">
+                    <h2 class="fluid-h3 text-[#08113a] font-bold">
                         USG Small Parts
-                    </h3>
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mt-3">View the listed thyroid, scrotal, chest and small-parts ultrasound service categories.</p>
+                    <a class="seo-text-link inline-block mt-3" href="{% url 'services' %}#usg-small-parts">View service information</a>
 
                 </div>
 
             </div>
 
+        </div>
+
+        <div class="seo-guide-card seo-visit mt-8">
+            <h2>Find scan information before your visit</h2>
+            <p>Our <a class="seo-text-link" href="{% url 'services' %}">ultrasound service list</a> brings the clinic's scan categories together in one place. You can also explore the <a class="seo-text-link" href="{% url 'blog_list' %}">pregnancy ultrasound guides</a> for background reading and questions to discuss with your pregnancy care team.</p>
+            <p>For appointments in Maharanipeta, use the <a class="seo-text-link" href="{% url 'patient_info' %}">patient information and appointment page</a>. The <a class="seo-text-link" href="{% url 'contact' %}">contact page</a> provides the clinic address, telephone numbers, opening hours and map. Contact the clinic to confirm which service matches your referral and any instructions for your appointment.</p>
         </div>
 
     </div>

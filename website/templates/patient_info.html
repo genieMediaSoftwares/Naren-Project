@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static seo_images %}
 {% block title %}{{ seo.title }}{% endblock %}
 
 {% block meta_description %}{{ seo.description }}{% endblock %}
@@ -22,15 +22,12 @@
             <!-- LEFT -->
             <div class="text-center lg:text-left min-w-0">
 
-                <h6 class="uppercase text-[#0F9B8E] font-semibold tracking-[3px] text-xs sm:text-sm mb-3">
+                <p class="uppercase text-[#0F9B8E] font-semibold tracking-[3px] text-xs sm:text-sm mb-3">
                     Patient Information
-                </h6>
+                </p>
 
                 <h1 class="fluid-h1 text-[#08113a] font-extrabold leading-[1.15]">
-                    Patient Information
-                    <span class="text-[#0F9B8E] block mt-2 lg:mt-4">
-                        Submission
-                    </span>
+                    Ultrasound Appointments <span class="text-[#0F9B8E] block mt-2 lg:mt-4">in Visakhapatnam</span>
                 </h1>
 
                 <p class="text-gray-600 text-[14px] sm:text-[16px] leading-relaxed mt-4 max-w-xl mx-auto lg:mx-0">
@@ -42,8 +39,7 @@
             <!-- IMAGE -->
             <div class="flex justify-center lg:justify-end min-w-0">
 
-                <img src="{% static 'images/patient-banner.png' %}" alt="Patients seated in the waiting lounge in front of the Naren Ultrasound and Fetal Medicine Center reception desk"
-                    class="media-fit max-w-[620px] rounded-[24px] shadow-xl">
+                {% static 'images/patient-banner.png' as seo_image_1 %}{% seo_image seo_image_1 alt="Patients seated in the waiting lounge in front of the Naren Ultrasound and Fetal Medicine Center reception desk" css="media-fit max-w-[620px] rounded-[24px] shadow-xl" sizes="(min-width: 1024px) 48vw, 100vw" eager=True priority=True %}
 
             </div>
 
@@ -86,9 +82,9 @@
                                     <i class="bi bi-person-vcard-fill"></i>
                                 </div>
 
-                                <h3 class="fluid-h3 text-[#0F9B8E] font-bold min-w-0">
+                                <h2 class="fluid-h3 text-[#0F9B8E] font-bold min-w-0">
                                     Personal Information
-                                </h3>
+                                </h2>
 
                             </div>
 
@@ -175,9 +171,9 @@
                                     <i class="bi bi-heart-pulse-fill"></i>
                                 </div>
 
-                                <h3 class="fluid-h3 text-[#0F9B8E] font-bold min-w-0">
+                                <h2 class="fluid-h3 text-[#0F9B8E] font-bold min-w-0">
                                     Medical Information
-                                </h3>
+                                </h2>
 
                             </div>
 
@@ -221,9 +217,9 @@
                                     <i class="bi bi-calendar2-check-fill"></i>
                                 </div>
 
-                                <h3 class="fluid-h3 text-[#0F9B8E] font-bold min-w-0">
+                                <h2 class="fluid-h3 text-[#0F9B8E] font-bold min-w-0">
                                     Appointment Preference
-                                </h3>
+                                </h2>
 
                             </div>
 
@@ -277,9 +273,9 @@
                                         <!-- ANTENATAL -->
                                         <div class="border border-gray-200 rounded-2xl p-3 sm:p-4">
 
-                                            <h4 class="text-[#0F9B8E] font-bold text-lg mb-3">
+                                            <h3 class="text-[#0F9B8E] font-bold text-lg mb-3">
                                                 Antenatal & Gynecological Scans
-                                            </h4>
+                                            </h3>
 
                                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
@@ -434,9 +430,9 @@
                                         <!-- ROUTINE -->
                                         <div class="border border-gray-200 rounded-2xl p-4 sm:p-5">
 
-                                            <h4 class="text-[#0F9B8E] font-bold text-lg mb-3">
+                                            <h3 class="text-[#0F9B8E] font-bold text-lg mb-3">
                                                 Routine Scans
-                                            </h4>
+                                            </h3>
 
                                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
@@ -474,9 +470,9 @@
                                         <!-- PAEDIATRIC -->
                                         <div class="border border-gray-200 rounded-2xl p-4 sm:p-5">
 
-                                            <h4 class="text-[#0F9B8E] font-bold text-lg mb-3">
+                                            <h3 class="text-[#0F9B8E] font-bold text-lg mb-3">
                                                 Paediatric Scans
-                                            </h4>
+                                            </h3>
 
                                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
@@ -505,9 +501,9 @@
                                         <!-- DOPPLER -->
                                         <div class="border border-gray-200 rounded-2xl p-4 sm:p-5">
 
-                                            <h4 class="text-[#0F9B8E] font-bold text-lg mb-3">
+                                            <h3 class="text-[#0F9B8E] font-bold text-lg mb-3">
                                                 Doppler Scans
-                                            </h4>
+                                            </h3>
 
                                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
@@ -570,9 +566,9 @@
                                         <!-- USG GUIDED -->
                                         <div class="border border-gray-200 rounded-2xl p-4 sm:p-5">
 
-                                            <h4 class="text-[#0F9B8E] font-bold text-lg mb-3">
+                                            <h3 class="text-[#0F9B8E] font-bold text-lg mb-3">
                                                 USG Guided Procedures
-                                            </h4>
+                                            </h3>
 
                                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
@@ -595,9 +591,9 @@
                                         <!-- USG SMALL PARTS -->
                                         <div class="border border-gray-200 rounded-2xl p-4 sm:p-5">
 
-                                            <h4 class="text-[#0F9B8E] font-bold text-lg mb-3">
+                                            <h3 class="text-[#0F9B8E] font-bold text-lg mb-3">
                                                 USG Small Parts
-                                            </h4>
+                                            </h3>
 
                                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
@@ -665,9 +661,9 @@
                     <!-- CONTACT CARD -->
                     <div class="bg-[#d7eceb] rounded-[24px] p-5 border border-[#b6d5d4] w-full overflow-hidden">
 
-                        <h3 class="text-[#0F9B8E] text-2xl font-bold mb-3">
+                        <h2 class="text-[#0F9B8E] text-2xl font-bold mb-3">
                             Contact Information
-                        </h3>
+                        </h2>
 
                         <div class="space-y-4">
 
@@ -678,9 +674,9 @@
                                 </div>
 
                                 <div class="min-w-0">
-                                    <h5 class="font-semibold text-[#111827]">
+                                    <h4 class="font-semibold text-[#111827]">
                                         Phone Number
-                                    </h5>
+                                    </h4>
 
                                     <p class="text-gray-600 mt-1">
                                         <a href="tel:+919182395352">+91 91823 95352</a>
@@ -699,9 +695,9 @@
                                 </div>
 
                                 <div class="min-w-0">
-                                    <h5 class="font-semibold text-[#111827]">
+                                    <h4 class="font-semibold text-[#111827]">
                                         Email Address
-                                    </h5>
+                                    </h4>
 
                                     <p class="text-gray-600 mt-1 break-anywhere">
                                         <a href="mailto:narenultrasound@gmail.com">narenultrasound@gmail.com</a>
@@ -718,9 +714,9 @@
                                 </div>
 
                                 <div class="pt-[2px] min-w-0">
-                                    <h5 class="font-semibold text-[#111827]">
+                                    <h4 class="font-semibold text-[#111827]">
                                         Clinic Address
-                                    </h5>
+                                    </h4>
 
                                     <p class="text-gray-600 mt-1 leading-relaxed">
                                         14-34-9/1, 14-34-9/2 (Opp. Saibaba Temple) Revenue Ward 20, Angadi Dhibba
@@ -737,9 +733,9 @@
                                 </div>
 
                                 <div class="min-w-0">
-                                    <h5 class="font-semibold text-[#111827]">
+                                    <h4 class="font-semibold text-[#111827]">
                                         Working Hours
-                                    </h5>
+                                    </h4>
 
                                     <p class="text-gray-600 mt-1">
                                         Mon - Sat: 8:00 AM - 8:00 PM
@@ -755,9 +751,9 @@
                     <!-- SERVICES CARD -->
                     <div class="bg-[#d7eceb] rounded-[24px] p-4 sm:p-5 border border-[#b6d5d4] w-full overflow-hidden">
 
-                        <h3 class="text-[#0F9B8E] text-2xl font-bold mb-3">
+                        <h2 class="text-[#0F9B8E] text-2xl font-bold mb-3">
                             Available Services
-                        </h3>
+                        </h2>
 
                         <div class="space-y-4">
 
@@ -820,9 +816,9 @@
 
                             </div>
 
-                            <h3 class="text-[#0F9B8E] text-2xl sm:text-3xl font-bold leading-tight min-w-0">
+                            <h2 class="text-[#0F9B8E] text-2xl sm:text-3xl font-bold leading-tight min-w-0">
                                 Your Information is Safe
-                            </h3>
+                            </h2>
 
                         </div>
 

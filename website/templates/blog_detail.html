@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static seo_images %}
 {% block title %}{{ seo.title }}{% endblock %}
 
 {% block meta_description %}{{ seo.description }}{% endblock %}
@@ -77,13 +77,13 @@
     <div class="site-container site-container--narrow">
 
         <h1 class="fluid-h1 font-bold mb-6 text-[#008f8c] leading-tight">
-            {{ post.title }}
+            {{ seo.heading|default:post.title }}
         </h1>
 
         {% if post.featured_image %}
 
-        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}"
-            class="blog-featured-image max-w-3xl mx-auto rounded-2xl mb-8">
+        {% seo_image post.featured_image alt=post.title css="blog-featured-image max-w-3xl mx-auto rounded-2xl mb-8" sizes="(min-width: 1152px) 1024px, 100vw" eager=True priority=True %}
+        <p class="text-sm mb-6"><a class="seo-text-link" href="{{ post.featured_image.url }}" target="_blank" rel="noopener">View full-size image</a></p>
 
         {% endif %}
 
@@ -106,9 +106,7 @@
                     {% if doctor.photo %}
 
                     <div class="w-40 h-40 sm:w-56 sm:h-56 rounded-full overflow-hidden shadow-md shrink-0">
-                        <img src="{{ doctor.photo.url }}" alt="{{ doctor.name }}" loading="lazy"
-                            class="doctor-circle-img w-full h-full object-cover"
-                            style="width: 100% !important; height: 100% !important; max-width: none !important; object-fit: cover !important; object-position: 58% 20% !important; margin: 0 !important; border-radius: 0 !important; display: block !important;">
+                        {% seo_image doctor.photo alt=doctor.name css="doctor-circle-img w-full h-full object-cover" sizes="(min-width: 640px) 224px, 160px" eager=False priority=False image_style="width: 100% !important; height: 100% !important; max-width: none !important; object-fit: cover !important; object-position: 58% 20% !important; margin: 0 !important; border-radius: 0 !important; display: block !important;" %}
                     </div>
 
                     {% endif %}
@@ -116,7 +114,7 @@
                     <div class="text-center sm:text-left min-w-0">
 
                         <p class="text-2xl font-bold text-[#008f8c]">
-                            {{ doctor.name }}
+                            <a href="{% url 'doctors' %}" class="seo-text-link">{{ doctor.name }}</a>
                         </p>
 
                         <p class="text-lg font-semibold text-gray-700 mt-1">
@@ -172,6 +170,18 @@
             </div>
 
         </div>
+
+        <aside class="seo-guide-card mt-8" aria-labelledby="scan-appointment-title">
+            <h2 id="scan-appointment-title">Ultrasound services in Visakhapatnam</h2>
+            <p>Explore the clinic's <a class="seo-text-link" href="{% url 'services' %}#antenatal-gynecological-scans">antenatal and gynecological scan services</a>. For scan availability, preparation instructions and fee enquiries, <a class="seo-text-link" href="{% url 'contact' %}">contact Naren Ultrasound in Maharanipeta</a>.</p>
+            <a class="seo-text-link" href="{% url 'patient_info' %}">View ultrasound appointment options</a>
+        </aside>
+        {% if related_posts %}
+        <section class="seo-guide-card mt-6" aria-labelledby="related-guides-title">
+            <h2 id="related-guides-title">Related pregnancy ultrasound guides</h2>
+            <ul>{% for related in related_posts %}<li><a class="seo-text-link" href="{% url 'blog_detail' related.slug %}">{{ related.title }}</a></li>{% endfor %}</ul>
+        </section>
+        {% endif %}
 
     </div>
 

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static %}
+{% load static seo_images %}
 {% block title %}{{ seo.title }}{% endblock %}
 
 {% block meta_description %}{{ seo.description }}{% endblock %}
@@ -21,9 +21,10 @@
 
         <h1 class="fluid-h2-sm font-bold text-center mb-10 text-[#008f8c]">
 
-            Health Articles & Pregnancy Care
+            Pregnancy Ultrasound &amp; Fetal Medicine Guides
 
         </h1>
+        <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto text-center mb-8">Clear insights into pregnancy and fetal health to help you make informed decisions.</p>
 
         <div class="auto-grid auto-grid--fill" style="--min: 300px; --gap: clamp(20px, 3vw, 40px);">
 
@@ -34,15 +35,14 @@
 
                 {% if post.featured_image %}
                 <div class="blog-card-image-wrap">
-                    <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="blog-card-image"
-                        loading="lazy">
+                    {% seo_image post.featured_image alt=post.title css="blog-card-image" sizes="(min-width: 1280px) 420px, (min-width: 768px) 45vw, 100vw" eager=forloop.first priority=forloop.first %}
                 </div>
                 {% endif %}
 
                 <div class="card-flex__body p-5 sm:p-6">
 
                     <h2 class="blog-card-title fluid-h3 font-bold mb-3">
-                        {{ post.title }}
+                        <a href="{% url 'blog_detail' post.slug %}">{{ post.title }}</a>
                     </h2>
 
                     {% if post.short_description %}
