@@ -11,7 +11,7 @@ from django.urls import reverse
 
 from .forms import AppointmentForm
 from .models import BlogPost, ContactMessage, DoctorProfile, PatientBooking, Service
-from .seo import SERVICE_GUIDES, related_article_slugs
+from .seo import ORIGIN, SERVICE_GUIDES, related_article_slugs
 from .slots import (
     APPOINTMENT_TIME_SLOTS,
     get_clinic_now,
@@ -406,15 +406,48 @@ SELECTED SERVICES / SCANS{scan_section}
 
 def robots_txt(request):
     lines = [
+        f"# robots.txt for {ORIGIN}/",
+        "#",
+        "# All public website pages are open to search engine crawlers,",
+        "# including Googlebot, Bingbot, and AI/LLM crawlers",
+        "# (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, CCBot).",
+        "#",
+        "# Public pages include:",
+        "# Home, About, Services, Doctor, Gallery, Patient Info,",
+        "# Contact Us, and published Blog articles.",
+        "#",
+        "# Administrative pages are excluded from crawling.",
+        "# These rules do not replace authentication or access controls.",
+        "",
         "User-agent: *",
         "Allow: /",
         "",
-        "Sitemap: https://www.narenultrasound.in/sitemap.xml",
+        "# Restrict crawling of Django administration",
+        "Disallow: /admin/",
+        "",
+        "# Official XML sitemap",
+        f"Sitemap: {ORIGIN}/sitemap.xml",
+        "",
+        "# AI/LLM website information",
+        f"# {ORIGIN}/llms.txt",
     ]
 
     return HttpResponse(
-        "\n".join(lines),
-        content_type="text/plain"
+        "\n".join(lines) + "\n",
+        content_type="text/plain; charset=utf-8"
+    )
+
+
+def llms_txt(request):
+    """Public clinic information and current published article links only."""
+    return render(
+        request,
+        'llms.txt',
+        {
+            'origin': ORIGIN,
+            'published_slugs': set(BlogPost.objects.filter(is_published=True).values_list('slug', flat=True)),
+        },
+        content_type='text/plain; charset=utf-8',
     )
 
 

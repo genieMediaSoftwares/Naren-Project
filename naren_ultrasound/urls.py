@@ -58,6 +58,8 @@ urlpatterns = [
     name='robots_txt'
 ),
 
+    path('llms.txt', views.llms_txt, name='llms_txt'),
+
     path(
     'pages.xml',
     sitemap,
