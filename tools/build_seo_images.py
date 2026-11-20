@@ -5,6 +5,7 @@ medical article bodies and database fields are never changed. No network I/O.
 """
 import hashlib
 import json
+import re
 import shutil
 from io import BytesIO
 from pathlib import Path
@@ -24,6 +25,28 @@ PUBLIC_BLOG_IMAGES = (
     'Twin_NT_Scan.jpeg', 'NT_Scan.jpeg', 'Amniotic_Fluid.png',
     'Twin_Tiffa_Scan.png', 'tifascan.png', 'fetal.jpg',
 )
+
+
+def critical_font_preloads(css):
+    """Preload Latin text fonts used above the fold, retaining existing files."""
+    fonts = []
+    for face in re.findall(r'@font-face\s*\{([^}]+)\}', css):
+        if 'U+0000-00FF' not in face:
+            continue
+        family = re.search(r'font-family\s*:\s*[\"\']([^\"\']+)[\"\']', face)
+        weight = re.search(r'font-weight\s*:\s*(\d+)\s*;', face)
+        source = re.search(r'url\(\"([^\"]+\.woff2)\"\)', face)
+        if not (family and weight and source):
+            continue
+        selected = (
+            family[1] == 'Poppins' and weight[1] in {'400', '500', '600', '700', '800'}
+            or family[1] == 'Cormorant Garamond' and weight[1] == '600'
+        )
+        if selected:
+            path = 'seo-assets/' + source[1]
+            if path not in fonts:
+                fonts.append(path)
+    return fonts
 
 
 def build():
@@ -85,6 +108,8 @@ def build():
         filename = digest + '.css'
         (asset_output / filename).write_bytes(data)
         manifest['/static/' + relative] = {'path': 'seo-assets/' + filename}
+        if relative == 'vendor/fonts/site-fonts.css':
+            manifest['/static/' + relative]['preloads'] = critical_font_preloads(data.decode('utf-8'))
     text = json.dumps(manifest, indent=2, sort_keys=True) + '\n'
     (OUTPUT / 'manifest.json').write_text(text, encoding='utf-8')
     images = [entry for entry in manifest.values() if 'variants' in entry]

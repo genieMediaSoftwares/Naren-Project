@@ -3,6 +3,7 @@
 Never reads the production database or submits a form. Reports/screenshots are
 written to outputs/responsive-check. Requires an installed Chrome on Windows.
 """
+import argparse
 import html
 import json
 import os
@@ -33,6 +34,11 @@ CHROME = Path('C:/Program Files/Google/Chrome/Application/chrome.exe')
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--serve', action='store_true', help='Serve the isolated fixture site for local performance audits.')
+    parser.add_argument('--port', type=int, default=0)
+    parser.add_argument('--compare-font-layout', action='store_true', help='Compare fully loaded homepage geometry with and without font preloads.')
+    options = parser.parse_args()
     OUTPUT.mkdir(parents=True, exist_ok=True)
     database = setup_databases(verbosity=0, interactive=False)
     try:
@@ -56,6 +62,9 @@ def main():
             markup = re.sub(r'<script\b[^>]*src="https://www\.googletagmanager\.com/[^>]*>\s*</script>', '', markup)
             markup = re.sub(r'(<iframe\b[^>]*\bsrc=)"[^"]*"', r'\1"about:blank"', markup)
             pages[path] = markup.encode()
+        if options.compare_font_layout:
+            pages['/font-before/'] = re.sub(rb'<link\b[^>]*rel="preload"[^>]*as="font"[^>]*>', b'', pages['/'])
+            pages['/font-after/'] = pages['/']
         harness = r'''<!doctype html><html><head><meta charset="utf-8"></head><body>
 <pre id="result">RUNNING</pre><iframe id="preview" style="border:0;height:1000px"></iframe>
 <script>
@@ -116,6 +125,39 @@ const nextFrame = () => new Promise(resolve => setTimeout(resolve, 20));
  document.title = 'COMPLETE';
 })().catch(error => { document.getElementById('result').textContent = JSON.stringify({error:String(error)}); });
 </script></body></html>'''.replace('PATHS', json.dumps(paths)).encode()
+        if options.compare_font_layout:
+            harness = r'''<!doctype html><html><body><pre id="result">RUNNING</pre>
+<iframe id="preview" style="border:0;height:1000px"></iframe><script>
+(async () => {
+ const frame = document.getElementById('preview'), results = [], failures = [];
+ for (const width of [390,1335,1440]) {
+  const snapshots = [];
+  for (const path of ['/font-before/','/font-after/']) {
+   frame.style.width = width + 'px';
+   await new Promise(resolve => { frame.onload = resolve; frame.src = path; });
+   const doc = frame.contentDocument;
+   for (const img of doc.images) img.loading = 'eager';
+   for (let n=0;n<40 && [...doc.images].some(img => !img.complete);n++)
+    await new Promise(resolve => setTimeout(resolve,100));
+   await doc.fonts.ready;
+   await new Promise(resolve => setTimeout(resolve,100));
+   snapshots.push([...doc.querySelectorAll('body *')].map(el => {
+    const r = el.getBoundingClientRect();
+    return {tag:el.tagName,classes:el.className,x:r.x,y:r.y,width:r.width,height:r.height};
+   }));
+  }
+  const differences = snapshots[0].flatMap((before,index) => {
+   const after=snapshots[1][index];
+   return !after || ['x','y','width','height'].some(key => Math.abs(before[key]-after[key])>0.05)
+    ? [{before,after}] : [];
+  });
+  const row={width,elementsCompared:snapshots[0].length,differences};
+  results.push(row);
+  if (differences.length || snapshots[0].length!==snapshots[1].length) failures.push(row);
+ }
+ document.getElementById('result').textContent=JSON.stringify({checks:results.length,failures,results});
+})().catch(error => document.getElementById('result').textContent=JSON.stringify({error:String(error)}));
+</script></body></html>'''.encode()
 
         class Handler(BaseHTTPRequestHandler):
             def log_message(self, *args):
@@ -149,9 +191,18 @@ const nextFrame = () => new Promise(resolve => setTimeout(resolve, 20));
                 if data is not None:
                     self.wfile.write(data)
 
-        server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
+        server = ThreadingHTTPServer(('127.0.0.1', options.port), Handler)
         threading.Thread(target=server.serve_forever, daemon=True).start()
         origin = 'http://127.0.0.1:' + str(server.server_port)
+        if options.serve:
+            print('Isolated performance preview: ' + origin, flush=True)
+            try:
+                threading.Event().wait()
+            except KeyboardInterrupt:
+                pass
+            finally:
+                server.shutdown()
+            return 0
         args = [str(CHROME), '--headless=new', '--no-first-run', '--no-default-browser-check', '--disable-background-networking', '--disable-sync', '--disable-extensions', '--disable-gpu', '--hide-scrollbars', '--user-data-dir=' + str(OUTPUT / 'chrome-profile')]
         try:
             result = subprocess.run(args + ['--dump-dom', '--virtual-time-budget=60000', origin + '/responsive-check.html'], capture_output=True, timeout=100, creationflags=subprocess.CREATE_NO_WINDOW)
@@ -162,8 +213,11 @@ const nextFrame = () => new Promise(resolve => setTimeout(resolve, 20));
                 (OUTPUT / 'browser-errors.txt').write_bytes(result.stderr)
                 raise RuntimeError('Browser check did not complete: ' + (match[1] if match else 'no output'))
             report = json.loads(html.unescape(match[1]))
-            (OUTPUT / 'report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+            report_name = 'font-layout-comparison.json' if options.compare_font_layout else 'report.json'
+            (OUTPUT / report_name).write_text(json.dumps(report, indent=2), encoding='utf-8')
             print(json.dumps({k:v for k,v in report.items() if k != 'results'}))
+            if options.compare_font_layout:
+                return 1 if report.get('failures') or report.get('error') else 0
             for path, width in [('/gallery/',390),('/blog/',390),('/contact/',390),('/blog/',1280),('/',320)]:
                 name = (path.strip('/') or 'home') + '-' + str(width) + '.png'
                 preview_url = origin + '/screenshot.html?path=' + quote(path, safe='') + '&width=' + str(width)

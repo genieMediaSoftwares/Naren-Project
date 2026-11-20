@@ -6,6 +6,7 @@ from urllib.parse import unquote, urlsplit
 
 from django import template
 from django.templatetags.static import static
+from django.utils.html import format_html_join
 
 from website.seo import ORIGIN
 
@@ -26,6 +27,17 @@ def seo_static(path, fallback=''):
     """Versioned CSS when built, original static path when not available."""
     entry = image_manifest().get('/static/' + path, {})
     return static(entry.get('path') or fallback or path)
+
+
+@register.simple_tag
+def seo_font_preloads():
+    """Discover critical fonts before stylesheets to avoid a late font swap."""
+    fonts = image_manifest().get('/static/vendor/fonts/site-fonts.css', {}).get('preloads', [])
+    return format_html_join(
+        '\n',
+        '<link rel="preload" href="{}" as="font" type="font/woff2" crossorigin>',
+        ((static(path),) for path in fonts),
+    )
 
 
 @register.inclusion_tag('includes/seo_image.html')

@@ -1,0 +1,21 @@
+{
+  "checks": 3,
+  "failures": [],
+  "results": [
+    {
+      "width": 390,
+      "elementsCompared": 269,
+      "differences": []
+    },
+    {
+      "width": 1335,
+      "elementsCompared": 269,
+      "differences": []
+    },
+    {
+      "width": 1440,
+      "elementsCompared": 269,
+      "differences": []
+    }
+  ]
+}

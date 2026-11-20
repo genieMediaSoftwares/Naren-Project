@@ -295,3 +295,18 @@ class SearchMetadataTests(TestCase):
         html = self.client.get('/').content.decode()
         styles = re.findall(r'<link\b[^>]*rel="stylesheet"[^>]*>', html)
         self.assertTrue(all('href="/static/' in style for style in styles))
+
+    def test_critical_fonts_are_preloaded_before_styles_without_duplicate_downloads(self):
+        root = Path(__file__).resolve().parent / 'static'
+        entry = image_manifest()['/static/vendor/fonts/site-fonts.css']
+        fonts = entry['preloads']
+        self.assertEqual(len(fonts), 6)
+        self.assertEqual(len(set(fonts)), len(fonts))
+        css = (root / entry['path']).read_text(encoding='utf-8')
+        html = self.client.get('/').content.decode()
+        for path in fonts:
+            preload = '<link rel="preload" href="/static/' + path + '" as="font" type="font/woff2" crossorigin>'
+            self.assertEqual(html.count(preload), 1)
+            self.assertLess(html.index(preload), html.index('rel="stylesheet"'))
+            self.assertIn('url("' + Path(path).name + '")', css)
+            self.assertEqual((root / path).read_bytes()[:4], b'wOF2')

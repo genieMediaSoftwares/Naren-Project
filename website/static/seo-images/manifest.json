@@ -725,6 +725,14 @@
     "width": 1000
   },
   "/static/vendor/fonts/site-fonts.css": {
-    "path": "seo-assets/71f7abfe0365ffa8e279.css"
+    "path": "seo-assets/71f7abfe0365ffa8e279.css",
+    "preloads": [
+      "seo-assets/d80df8ff5aecd299a615.woff2",
+      "seo-assets/7d93459d86585bfcdbb7.woff2",
+      "seo-assets/cd36de204aca2d5fa263.woff2",
+      "seo-assets/f4e80d9dfd374d02989b.woff2",
+      "seo-assets/9338e65fc077355c7a87.woff2",
+      "seo-assets/60bf0aba6526436f3930.woff2"
+    ]
   }
 }
