@@ -203,16 +203,19 @@ for _media_dir in ('blog', 'blog/photos', 'doctor'):
 # (featured images, gallery, services, and blog client photos) - they all go
 # through an ImageField, so none of them need code changes to move.
 #
-# Vercel's filesystem is read-only and thrown away on each deploy, so anything
-# written there at runtime is lost. Point DJANGO_MEDIA_STORAGE_BACKEND at a
-# persistent backend (e.g. 'storages.backends.s3.S3Storage' or Cloudinary) in
-# the Vercel environment to make uploads survive; the local default keeps
-# development working off MEDIA_ROOT.
+# Vercel uploads use the existing PostgreSQL database, not the read-only
+# deployment filesystem. An explicit external storage backend still takes
+# precedence. Local development continues using MEDIA_ROOT.
+DEFAULT_MEDIA_STORAGE_BACKEND = (
+    'website.media_storage.DatabaseMediaStorage'
+    if os.environ.get('VERCEL') == '1'
+    else 'django.core.files.storage.FileSystemStorage'
+)
 STORAGES = {
     'default': {
         'BACKEND': os.environ.get(
             'DJANGO_MEDIA_STORAGE_BACKEND',
-            'django.core.files.storage.FileSystemStorage',
+            DEFAULT_MEDIA_STORAGE_BACKEND,
         ),
     },
     'staticfiles': {

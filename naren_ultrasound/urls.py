@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
-from django.views.static import serve as serve_media
+from website.media_views import media as serve_media
 from django.contrib.sitemaps.views import sitemap
 from website.custom_sitemaps import (
     PagesSitemap,
@@ -96,7 +96,7 @@ path(
 ),
 ]
 
-# Serve MEDIA_ROOT ourselves.
+# Serve persistent uploads, with a fallback for bundled legacy images.
 #
 # django.conf.urls.static.static() only returns a route while DEBUG is True, and
 # WhiteNoise only ever serves STATIC_ROOT - it never touches MEDIA_ROOT. That
@@ -106,7 +106,6 @@ urlpatterns += [
     re_path(
         r'^%s(?P<path>.*)$' % settings.MEDIA_URL.lstrip('/'),
         serve_media,
-        {'document_root': settings.MEDIA_ROOT},
         name='media',
     ),
 ]

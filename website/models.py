@@ -8,6 +8,16 @@ from django_ckeditor_5.fields import CKEditor5Field
 from .slots import validate_appointment_date_and_slot
 
 
+class MediaAsset(models.Model):
+    """Persistent uploads for hosts whose deployment filesystem is read-only."""
+
+    name = models.CharField(max_length=255, primary_key=True)
+    data = models.BinaryField()
+    content_type = models.CharField(max_length=100)
+    size = models.PositiveIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
 class Service(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
